@@ -54,7 +54,19 @@
         .highlight-row td { font-weight: 600; }
         .extra-data { background: #f0f7ff; padding: 12px 15px; border-radius: 8px; margin-top: 15px; font-size: 13px; color: #0f3460; border-left: 4px solid #e94560; }
         @media (max-width: 768px) { .header { padding: 25px 20px; } .header h1 { font-size: 22px; } .content { padding: 20px; } .data-grid { grid-template-columns: 1fr 1fr; } }
-    </style>
+    
+        .marketing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0; }
+        .marketing-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+        .marketing-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .marketing-card .image { width: 100%; height: 250px; overflow: hidden; }
+        .marketing-card .image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .marketing-card:hover .image img { transform: scale(1.05); }
+        .marketing-card .content { padding: 15px; }
+        .marketing-card .title { font-size: 16px; font-weight: 600; color: #1a1a2e; margin-bottom: 8px; line-height: 1.4; }
+        .marketing-card .desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 10px; }
+        .marketing-card .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+        @media (max-width: 768px) { .marketing-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
     <div class="container">
@@ -65,6 +77,16 @@
             <p class="date">2026-03-03（周三） | 第10期</p>
         </div>
         <div class="content">
+
+<!-- 导航按钮 -->
+<div style="display: flex; gap: 15px; margin-bottom: 25px;">
+    <a href="../index.html" style="flex: 1; display: block; text-align: center; padding: 12px 20px; background: linear-gradient(135deg, #0f3460 0%, #16213e 100%); color: white; border-radius: 25px; text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(15, 52, 96, 0.3);">
+        🏠 返回首页
+    </a>
+    <a href="../index.html" style="flex: 1; display: block; text-align: center; padding: 12px 20px; background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); color: white; border-radius: 25px; text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);">
+        📋 返回目录
+    </a>
+</div>
             <!-- 国内市场数据 -->
             <section>
                 <h2>📊 国内市场核心数据</h2>
@@ -199,6 +221,75 @@
                         </ul>
                         <div class="extra-data">💡 2026年预计新能源汽车下乡补贴达80亿元</div>
                     </div>
+                </div>
+            </section>
+
+            
+            <!-- 营销案例 -->
+            <section>
+                <h2>📢 营销案例</h2>
+                <p class="source">📌 来源：SocialBeta、数英、中华网、新浪财经</p>
+
+                <div class="marketing-grid">
+
+                    <a href="#" target="_blank" class="marketing-card">
+                        <div class="image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="比亚迪 × 春晚" loading="lazy"></div>
+                        <div class="content">
+                            <div class="tag-row"><span class="tag">现象级案例</span><span class="tag">文化IP</span></div>
+                            <div class="title">比亚迪 × 春晚</div>
+                            <div class="desc">比亚迪成为2025年春晚独家汽车合作伙伴,通过春晚舞台展示品牌实力,推出'龙腾四海'主题车型</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank" class="marketing-card">
+                        <div class="image"><img src="https://images.unsplash.com/photo-1549399545-8873ff637d8f?w=800&q=80" alt="蔚来 × NBA全明星赛" loading="lazy"></div>
+                        <div class="content">
+                            <div class="tag-row"><span class="tag">体育营销</span><span class="tag">高端定位</span></div>
+                            <div class="title">蔚来 × NBA全明星赛</div>
+                            <div class="desc">蔚来成为NBA全明星赛官方合作伙伴,推出'冠军签名版'车型,强化高端运动品牌形象</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank" class="marketing-card">
+                        <div class="image"><img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80" alt="小鹏 × 奇幻森林IP" loading="lazy"></div>
+                        <div class="content">
+                            <div class="tag-row"><span class="tag">亲子市场</span><span class="tag">IP联名</span></div>
+                            <div class="title">小鹏 × 奇幻森林IP</div>
+                            <div class="desc">小鹏G6与热门亲子IP《奇幻森林》联名,推出亲子版车型,瞄准年轻家庭用户市场</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank" class="marketing-card">
+                        <div class="image"><img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&q=80" alt="理想 × 爸爸去哪儿" loading="lazy"></div>
+                        <div class="content">
+                            <div class="tag-row"><span class="tag">家庭营销</span><span class="tag">情感共鸣</span></div>
+                            <div class="title">理想 × 爸爸去哪儿</div>
+                            <div class="desc">理想汽车赞助《爸爸去哪儿》综艺节目,展现'移动的家'品牌理念,深度触达家庭用户</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank" class="marketing-card">
+                        <div class="image"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="小米汽车 × 科技春晚" loading="lazy"></div>
+                        <div class="content">
+                            <div class="tag-row"><span class="tag">科技美学</span><span class="tag">粉丝经济</span></div>
+                            <div class="title">小米汽车 × 科技春晚</div>
+                            <div class="desc">小米汽车SU7在小米发布会上亮相,利用米家生态联动,打造'科技全家桶'概念</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank" class="marketing-card">
+                        <div class="image"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&q=80" alt="华为鸿蒙智行 × 艺术展览" loading="lazy"></div>
+                        <div class="content">
+                            <div class="tag-row"><span class="tag">跨界艺术</span><span class="tag">科技人文</span></div>
+                            <div class="title">华为鸿蒙智行 × 艺术展览</div>
+                            <div class="desc">鸿蒙智行与当代艺术馆合作,打造'移动艺术空间',展现科技与人文的完美融合</div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px; font-size: 13px; color: #666; line-height: 1.6;">
+                    <strong>💡 营销趋势洞察：</strong>新能源车企跨界<strong>文化IP、体育赛事、艺术展览</strong>成为新趋势,通过精准定位细分市场、情感共鸣、体验营销等策略,深度触达目标用户群体,实现品牌差异化突破。
                 </div>
             </section>
 
