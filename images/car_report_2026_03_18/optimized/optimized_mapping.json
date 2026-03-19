@@ -1,0 +1,93 @@
+{
+  "1": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/europe_byd_tesla.jpg",
+    "alt": "欧洲汽车市场",
+    "filename": "europe_byd_tesla.jpg",
+    "relative_path": "images/car_report_2026_03_18/europe_byd_tesla.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/europe_byd_tesla.jpg"
+  },
+  "2": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/north_america_byd_mexico.jpg",
+    "alt": "北美汽车市场",
+    "filename": "north_america_byd_mexico.jpg",
+    "relative_path": "images/car_report_2026_03_18/north_america_byd_mexico.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/north_america_byd_mexico.jpg"
+  },
+  "3": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/southeast_asia_byd_thailand.jpg",
+    "alt": "东南亚汽车市场",
+    "filename": "southeast_asia_byd_thailand.jpg",
+    "relative_path": "images/car_report_2026_03_18/southeast_asia_byd_thailand.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/southeast_asia_byd_thailand.jpg"
+  },
+  "4": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/china_car_sales_data.jpg",
+    "alt": "汽车销量数据",
+    "filename": "china_car_sales_data.jpg",
+    "relative_path": "images/car_report_2026_03_18/china_car_sales_data.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/china_car_sales_data.jpg"
+  },
+  "5": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/byd_blade_battery.jpg",
+    "alt": "比亚迪刀片电池",
+    "filename": "byd_blade_battery.jpg",
+    "relative_path": "images/car_report_2026_03_18/byd_blade_battery.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/byd_blade_battery.jpg"
+  },
+  "6": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/china_ev_policy.jpg",
+    "alt": "政策法规",
+    "filename": "china_ev_policy.jpg",
+    "relative_path": "images/car_report_2026_03_18/china_ev_policy.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/china_ev_policy.jpg"
+  },
+  "7": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/marketing_cudi_nezha.jpg",
+    "alt": "库迪×哪吒2联名",
+    "filename": "marketing_cudi_nezha.jpg",
+    "relative_path": "images/car_report_2026_03_18/marketing_cudi_nezha.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/marketing_cudi_nezha.jpg"
+  },
+  "8": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/wuling_miniev_macaron.jpg",
+    "alt": "五菱MINIEV马卡龙",
+    "filename": "wuling_miniev_macaron.jpg",
+    "relative_path": "images/car_report_2026_03_18/wuling_miniev_macaron.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/wuling_miniev_macaron.jpg"
+  },
+  "9": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/marketing_luckin_wukong.jpg",
+    "alt": "瑞幸×黑神话悟空",
+    "filename": "marketing_luckin_wukong.jpg",
+    "relative_path": "images/car_report_2026_03_18/marketing_luckin_wukong.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/marketing_luckin_wukong.jpg"
+  },
+  "10": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/marketing_xpeng_armor.jpg",
+    "alt": "小鹏×铠甲勇士",
+    "filename": "marketing_xpeng_armor.jpg",
+    "relative_path": "images/car_report_2026_03_18/marketing_xpeng_armor.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/marketing_xpeng_armor.jpg"
+  },
+  "11": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/tesla_cybertruck.jpg",
+    "alt": "特斯拉Cybertruck",
+    "filename": "tesla_cybertruck.jpg",
+    "relative_path": "images/car_report_2026_03_18/tesla_cybertruck.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/tesla_cybertruck.jpg"
+  },
+  "12": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/byd_overseas_marketing.jpg",
+    "alt": "比亚迪海外营销",
+    "filename": "byd_overseas_marketing.jpg",
+    "relative_path": "images/car_report_2026_03_18/byd_overseas_marketing.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/byd_overseas_marketing.jpg"
+  },
+  "13": {
+    "filepath": "/Users/ssqc/Desktop/市场报告/auto-market-report/images/car_report_2026_03_18/car_data_analysis.jpg",
+    "alt": "汽车数据分析",
+    "filename": "car_data_analysis.jpg",
+    "relative_path": "images/car_report_2026_03_18/car_data_analysis.jpg",
+    "optimized_path": "images/car_report_2026_03_18/optimized/car_data_analysis.jpg"
+  }
+}
