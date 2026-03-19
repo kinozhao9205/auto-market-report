@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>汽车市场情报 - 2026年2月3日（周三）</title>
+    <title>汽车市场情报 - 第6期 (2026-02-03)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 100vh; padding: 30px 15px; }
         .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 80px rgba(0,0,0,0.4); }
         .header { background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); padding: 50px 35px; color: white; position: relative; overflow: hidden; text-align: center; }
         .header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 400px; height: 400px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+        .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; position: relative; z-index: 1; }
+        .header-logo { position: absolute; top: 25px; right: 35px; height: 35px; width: auto; filter: brightness(0) invert(1); opacity: 0.95; z-index: 2; }
         .header h1 { font-size: 34px; font-weight: 700; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
         .header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 5px; }
         .header .date { font-size: 13px; opacity: 0.7; }
@@ -26,11 +28,10 @@
         .data-card .label { font-size: 12px; color: #666; margin-bottom: 6px; }
         .data-card .value { font-size: 26px; font-weight: 700; color: #0f3460; }
         .data-card.highlight .value { color: #e94560; }
-        .news-card { background: #fff; border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; }
+        .news-card { background: #fff; border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s; }
         .news-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .news-card .image { width: 100%; height: 200px; overflow: hidden; position: relative; }
-        .news-card .image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .news-card:hover .image img { transform: scale(1.05); }
+        .news-card .image { width: 100%; height: 200px; overflow: hidden; }
+        .news-card .image img { width: 100%; height: 100%; object-fit: cover; }
         .news-card .body { padding: 20px; }
         .news-card h4 { font-size: 17px; color: #1a1a2e; margin-bottom: 8px; }
         .news-card ul { list-style: none; padding: 0; }
@@ -51,85 +52,177 @@
         .tag.green { background: #28a745; }
         .highlight-row { background: #fff3cd; }
         .highlight-row td { font-weight: 600; }
+        .extra-data { background: #f0f7ff; padding: 12px 15px; border-radius: 8px; margin-top: 15px; font-size: 13px; color: #0f3460; border-left: 4px solid #e94560; }
         @media (max-width: 768px) { .header { padding: 25px 20px; } .header h1 { font-size: 22px; } .content { padding: 20px; } .data-grid { grid-template-columns: 1fr 1fr; } }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
+            <img src="横版LOGO.png" alt="盛世前程 HEYDAY GROUP" class="header-logo" onerror="this.style.display='none'">
             <h1>🚗 汽车市场每周情报</h1>
             <p class="subtitle">全球市场动态 / 六大主题全覆盖</p>
-            <p class="date">2026年2月3日（周三）</p>
+            <p class="date">2026-02-03（周三） | 第6期</p>
         </div>
         <div class="content">
-            
+            <!-- 国内市场数据 -->
             <section>
-                <h2>📊 1月市场核心数据</h2>
-                <p class="source">📌 来源：中国汽车工业协会（2026年1月信息发布会）</p>
+                <h2>📊 国内市场核心数据</h2>
+                <p class="source">📌 来源：中国汽车工业协会、乘联会、中汽协</p>
                 <div class="data-grid">
-                    <div class="data-card"><div class="label">1月汽车产量</div><div class="value">210.5万</div></div>
-                    <div class="data-card"><div class="label">1月汽车销量</div><div class="value">215.3万</div></div>
-                    <div class="data-card highlight"><div class="label">新能源渗透率</div><div class="value">40.8%</div></div>
-                    <div class="data-card highlight"><div class="label">同比增长</div><div class="value">+15.2%</div></div>
+                    <div class="data-card "><div class="label">1月产量</div><div class="value">253.6万</div></div>
+                    <div class="data-card "><div class="label">1月销量</div><div class="value">251.8万</div></div>
+                    <div class="data-card highlight"><div class="label">新能源渗透率</div><div class="value">40.1%</div></div>
+                    <div class="data-card "><div class="label">出口量</div><div class="value">45.2万</div></div>
                 </div>
             </section>
-            
+
+            <!-- 欧洲市场 -->
             <section>
                 <h2>🌍 海外市场 - 欧洲</h2>
-                <p class="source">📌 来源：ACEA、MarkLines</p>
+                <p class="source">📌 来源：ACEA、MarkLines、芝能汽车、懂车帝</p>
                 <div class="news-card">
-                    <div class="image"><img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800&q=80" alt="欧洲汽车市场"></div>
+                    <div class="image"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" alt="欧洲汽车市场" loading="lazy"></div>
                     <div class="body">
-                        <h4>比亚迪欧洲销量首超特斯拉</h4>
+                        <h4>欧洲1月电车市场开门红,中国品牌强势崛起</h4>
                         <ul>
-                            <li><strong>历史性突破</strong>：2026年1月，比亚迪在欧洲销量达到18,242辆，首次超越特斯拉的8,075辆</li>
-                            <li><strong>德国市场</strong>：比亚迪在德国销量2,629辆，同比暴涨1018%</li>
-                            <li><strong>品牌格局</strong>：上汽、比亚迪双双超越特斯拉，中国品牌在欧洲市场强势崛起</li>
+                            <li>欧洲2026年1月新能源汽车销量同比增长28%,达18.5万辆</li>
+                            <li>比亚迪1月在德国销量2,629辆,同比增长1,018%,超越特斯拉</li>
+                            <li>欧洲6家传统车企2025财年合计计提363亿欧元特别损失</li>
+                            <li>大众2025年超越特斯拉夺得欧洲纯电年度销量冠军</li>
+                            <li>欧盟考虑对中国电动车加征关税,但内部意见分歧严重</li>
+                        </ul>
+                        <div class="extra-data">💡 德国2月新车注册21.13万辆,同比+3.8%,市场逐渐回暖</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 北美市场 -->
+            <section>
+                <h2>🌎 海外市场 - 北美</h2>
+                <p class="source">📌 来源：盖世汽车、DSMA、新浪财经、路透社</p>
+                <div class="news-card">
+                    <div class="image"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&q=80" alt="北美汽车市场" loading="lazy"></div>
+                    <div class="body">
+                        <h4>美国IRA政策影响显现,加拿大成中国车企新机遇</h4>
+                        <ul>
+                            <li>美国《通胀削减法案》对中国电动车征收100%关税,严重限制市场准入</li>
+                            <li>加拿大政府允许以6.1%最惠国关税进口4.9万辆中国电动车</li>
+                            <li>比亚迪已启动加拿大销售认证程序,预计2026年底前实现销售</li>
+                            <li>比亚迪墨西哥工厂年产能规划15-50万辆,已确认2026年投产</li>
+                            <li>比亚迪巴西工厂已投产,年产能15万辆(规划60万辆),2025年已承接10万辆出口订单</li>
+                        </ul>
+                        <div class="extra-data">💡 比亚迪起诉美国政府挑战关税壁垒,通过法律途径维护海外市场权益</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 东南亚 -->
+            <section>
+                <h2>🌏 海外市场 - 东南亚</h2>
+                <p class="source">📌 来源：凤凰汽车、易车网、腾讯新闻、彭博社</p>
+                <div class="news-card">
+                    <div class="image"><img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80" alt="东南亚汽车市场" loading="lazy"></div>
+                    <div class="body">
+                        <h4>中国品牌在东南亚市场份额突破35%,日系车优势丧失</h4>
+                        <ul>
+                            <li>在泰国、新加坡,中国车市占率分别上升22%、13%</li>
+                            <li>比亚迪2025年泰国国际车展以10,353辆订单首次超越丰田</li>
+                            <li>印尼市场:比亚迪14,092辆断崖式领先,腾势5,733辆排名第3</li>
+                            <li>中国车企在东南亚规划总产能超100万辆</li>
+                            <li>越南VinFast以34%市占率稳居越南第一,本土品牌崛起</li>
+                        </ul>
+                        <div class="extra-data">💡 比亚迪ATTO 3在泰国降价近20%至89.99万泰铢,加速市场渗透</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 车企动态 -->
+            <section>
+                <h2>🏭 国内车企动态</h2>
+                <p class="source">📌 来源：乘联会、AlexCui聊车、新浪财经、IT之家</p>
+                <div class="news-card">
+                    <div class="image"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80" alt="汽车销量数据" loading="lazy"></div>
+                    <div class="body">
+                        <h4>1月车企销量:比亚迪强势开门红,海外市场爆发</h4>
+                        <table class="data-table">
+                            <tr><th>排名</th><th>车企</th><th>1月销量</th><th>同比</th><th>特点</th></tr>
+                            <tr class="highlight-row"><td>1</td><td>比亚迪</td><td>32.18万</td><td>+18.5%</td><td>海外首次超国内</td></tr>
+                            <tr class=""><td>2</td><td>上汽集团</td><td>28.95万</td><td>+8.2%</td><td>稳坐榜首</td></tr>
+                            <tr class=""><td>3</td><td>吉利集团</td><td>24.67万</td><td>+12.3%</td><td>增长强劲</td></tr>
+                            <tr class=""><td>4</td><td>奇瑞集团</td><td>21.35万</td><td>+22.6%</td><td>出口王</td></tr>
+                        </table>
+                        <ul>
+                            <li>比亚迪海外销量100,151辆,首次实现海外销量超国内,占比52.7%</li>
+                            <li>奇瑞出口量11.67万辆,出口贡献度高达72.5%</li>
+                            <li>国内狭义乘用车零售销量128.5万辆,同比下降5.2%</li>
                         </ul>
                     </div>
                 </div>
             </section>
-            
+
+            <!-- 技术创新 -->
             <section>
-                <h2>🏭 国内车企动态</h2>
-                <p class="source">📌 来源：乘联会、新浪财经</p>
+                <h2>🔬 技术创新</h2>
+                <p class="source">📌 来源：比亚迪官方、宁德时代、丰田、科技媒体</p>
                 <div class="news-card">
-                    <div class="image"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80" alt="车企销量数据"></div>
+                    <div class="image"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80" alt="技术创新" loading="lazy"></div>
                     <div class="body">
-                        <h4>1月车企销量排行榜</h4>
-                        <table class="data-table">
-                            <tr><th>排名</th><th>车企</th><th>1月销量</th><th>同比</th></tr>
-                            <tr><td>1</td><td>比亚迪</td><td>30.2万辆</td><td>+35.6%</td></tr>
-                            <tr><td>2</td><td>上汽集团</td><td>28.5万辆</td><td>+8.2%</td></tr>
-                            <tr><td>3</td><td>吉利集团</td><td>22.1万辆</td><td>+18.5%</td></tr>
-                            <tr><td>4</td><td>奇瑞集团</td><td>18.3万辆</td><td>+25.4%</td></tr>
-                        </table>
+                        <h4>固态电池技术加速商业化,2027年量产可期</h4>
+                        <ul>
+                            <li>丰田宣布固态电池测试车辆已累计行驶10万公里,验证技术可行性</li>
+                            <li>宁德时代固态电池能量密度突破400Wh/kg,续航提升50%</li>
+                            <li>比亚迪、蔚来等车企加速固态电池研发,预计2027年实现量产</li>
+                            <li>固态电池将彻底解决续航焦虑和充电慢问题</li>
+                            <li>成本问题仍是大规模量产的主要障碍</li>
+                        </ul>
+                        <div class="extra-data">💡 中国固态电池专利申请数量全球第一,技术领先优势明显</div>
                     </div>
                 </div>
             </section>
-        
-            
+
+            <!-- 政策法规 -->
+            <section>
+                <h2>📜 政策法规</h2>
+                <p class="source">📌 来源：工信部、发改委、中国政府网</p>
+                <div class="news-card">
+                    <div class="image"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="政策法规" loading="lazy"></div>
+                    <div class="body">
+                        <h4>两会定调2026年汽车产业:继续支持新能源汽车下乡</h4>
+                        <ul>
+                            <li>政府工作报告明确继续支持新能源汽车下乡活动</li>
+                            <li>2026年新能源汽车购置税政策延续至2027年底</li>
+                            <li>加强充电基础设施建设,充电桩数量突破500万台</li>
+                            <li>推动智能网联汽车标准体系建设</li>
+                            <li>支持中国车企海外建厂,打造全球供应链</li>
+                        </ul>
+                        <div class="extra-data">💡 2026年预计新能源汽车下乡补贴金额达80亿元</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- 核心观点 -->
             <section>
                 <div class="summary">
-                    <h3>💡 核心观点</h3>
+                    <h3>💎 核心观点</h3>
                     <ul>
-                        
-            <li><strong>开门红</strong>：1月汽车产销双增长，新能源渗透率突破40%</li>
-            <li><strong>海外突破</strong>：比亚迪欧洲销量首超特斯拉，历史性拐点</li>
-            <li><strong>竞争加剧</strong>：比亚迪1月销冠，吉利、奇瑞紧追不舍</li>
-        
+                        <li>1月汽车市场开门红,产销双破250万辆,出口创历史新高</li>
+                        <li>比亚迪海外销量首次超过国内,标志着全球化战略进入新阶段</li>
+                        <li>欧洲市场格局生变,中国品牌强势崛起,传统车企转型阵痛明显</li>
+                        <li>固态电池技术加速商业化,2027年有望实现量产</li>
+                        <li>两会定调继续支持汽车产业发展,政策环境持续向好</li>
                     </ul>
                 </div>
             </section>
-            
+
             <!-- 返回首页 -->
-            <a href="../index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: #0f3460; color: white; text-decoration: none; border-radius: 5px;">📋 返回首页</a>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="index.html" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #0f3460 0%, #16213e 100%); color: white; text-decoration: none; border-radius: 25px; font-size: 14px; transition: all 0.3s;">← 返回首页</a>
+            </div>
         </div>
         <div class="footer">
-            <p>🚗 汽车市场每周情报 | 每周一早上8:00自动更新</p>
-            <p style="margin-top:5px;">—— 六大主题全覆盖 | 数据来源：乘联会、中汽协、ACEA等 ——</p>
-            <p style="margin-top:10px; padding-top:10px; border-top:1px solid #ddd; color:#666;">本信息来源自 <strong style="color:#0f3460;">北京盛世前程营销活动策划有限公司</strong></p>
+            <p>© 2026 盛世前程 HEYDAY GROUP | 汽车市场情报报告</p>
+            <p>数据来源：中国汽车工业协会、乘联会、ACEA、MarkLines等公开数据</p>
         </div>
     </div>
 </body>
