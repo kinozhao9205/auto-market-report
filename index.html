@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汽车市场每周情报 - 盛世前程</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
+            min-height: 100vh; 
+            padding: 40px 20px; 
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4); 
+        }
+        .header { 
+            background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); 
+            padding: 50px 35px; 
+            color: white; 
+            text-align: center; 
+            position: relative; 
+        }
+        .header-logo { 
+            position: absolute; 
+            top: 25px; 
+            right: 35px; 
+            height: 35px; 
+            width: auto; 
+            filter: brightness(0) invert(1); 
+            opacity: 0.95; 
+        }
+        .header h1 { 
+            font-size: 36px; 
+            font-weight: 700; 
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .header .subtitle { 
+            font-size: 16px; 
+            opacity: 0.9; 
+        }
+        .content { 
+            padding: 40px 35px; 
+        }
+        .intro {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid #e94560;
+        }
+        .intro h2 {
+            color: #0f3460;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+        .intro p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        .report-list {
+            display: grid;
+            gap: 15px;
+        }
+        .report-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .report-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-color: #e94560;
+        }
+        .report-card h3 {
+            color: #0f3460;
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .report-card .date {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        .report-card .desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #e94560;
+            color: white;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 25px 35px;
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+        }
+        .footer a {
+            color: #0f3460;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer a:hover {
+            color: #e94560;
+        }
+        @media (max-width: 768px) {
+            .header { padding: 30px 20px; }
+            .header h1 { font-size: 28px; }
+            .header-logo { height: 25px; top: 15px; right: 20px; }
+            .content { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="assets/logo.png" alt="盛世前程 HEYDAY GROUP" class="header-logo" onerror="this.style.display='none'">
+            <h1>🚗 汽车市场每周情报</h1>
+            <p class="subtitle">全球市场动态 / 六大主题全覆盖 / 每周一更新</p>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>📊 关于本报告</h2>
+                <p>本报告由<strong>北京盛世前程营销活动策划有限公司</strong>出品，每周一早上8:00准时更新。涵盖国内市场数据、海外市场动态、政策解读、企业战略、技术突破、营销案例等六大主题，为您提供最全面的汽车市场情报分析。</p>
+            </div>
+            
+            <div class="report-list">
+                <a href="reports/汽车情报_2026-03-18.html" class="report-card">
+                    <h3><span class="badge">最新</span> 2026年3月18日 第12期</h3>
+                    <p class="date">发布时间：2026-03-18（周三）</p>
+                    <p class="desc">本期重点：吉利2月反超比亚迪、新能源渗透率突破42%、比亚迪5分钟闪充技术、东南亚产能布局、跨界营销新趋势...</p>
+                </a>
+                
+                <a href="reports/汽车情报_2026-03-19.html" class="report-card">
+                    <h3>2026年3月19日 第13期</h3>
+                    <p class="date">发布时间：2026-03-19（周四）</p>
+                    <p class="desc">汽车市场最新动态与分析...</p>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>本信息来源自 <a href="#">北京盛世前程营销活动策划有限公司</a></p>
+            <p style="margin-top: 8px; opacity: 0.7;">每周一早上8:00自动更新 | 数据来源：乘联会、中汽协、ACEA等</p>
+        </div>
+    </div>
+</body>
+</html>
