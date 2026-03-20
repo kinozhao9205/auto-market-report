@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汽车情报_2026-03-09 · 全年第10期</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header { text-align: center; padding: 40px 20px; color: white; position: relative; }
+        .header h1 { font-size: 32px; font-weight: 700; margin-bottom: 10px; background: linear-gradient(90deg, #e94560, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header .meta { display: inline-flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; justify-content: center; }
+        .header .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 6px 18px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+        .header .badge.gold { background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); border-color: rgba(255,215,0,0.6); }
+        .section { background: #fff; border-radius: 20px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .section-header { background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); padding: 20px 30px; color: white; display: flex; align-items: center; gap: 12px; }
+        .section-header h2 { font-size: 20px; font-weight: 600; }
+        .section-header .icon { font-size: 24px; }
+        .section-content { padding: 25px 30px; }
+        .news-item { padding: 15px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .emoji { font-size: 20px; flex-shrink: 0; }
+        .news-item .content { flex: 1; }
+        .news-item .title { font-weight: 600; color: #333; margin-bottom: 6px; font-size: 15px; }
+        .news-item .desc { color: #666; font-size: 14px; line-height: 1.6; }
+        .news-item .source { font-size: 12px; color: #999; margin-top: 6px; }
+        .news-item .source a { color: #667eea; text-decoration: none; }
+        .news-item .source a:hover { text-decoration: underline; color: #e94560; }
+        .data-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .data-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; padding: 20px; color: white; text-align: center; }
+        .data-card.orange { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .data-card.green { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .data-card.gold { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .data-card .value { font-size: 28px; font-weight: 700; margin-bottom: 5px; }
+        .data-card .label { font-size: 14px; opacity: 0.9; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        thead { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); color: white; }
+        th, td { padding: 12px 15px; text-align: left; font-size: 14px; }
+        th:first-child { border-radius: 10px 0 0 0; }
+        th:last-child { border-radius: 0 10px 0 0; }
+        tbody tr:nth-child(even) { background: #f8f9fa; }
+        tbody tr:hover { background: #e9ecef; }
+        .highlight-box { background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); border-radius: 15px; padding: 20px; margin: 15px 0; border-left: 5px solid #e17055; }
+        .highlight-box .title { font-weight: 700; color: #d63031; margin-bottom: 10px; font-size: 16px; }
+        .highlight-box .content { color: #333; line-height: 1.7; font-size: 14px; }
+        .activity-item { display: flex; align-items: center; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 12px; margin-bottom: 12px; }
+        .activity-item .date-badge { background: linear-gradient(135deg, #e94560, #0f3460); color: white; padding: 8px 15px; border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+        .activity-item .info .name { font-weight: 600; color: #333; margin-bottom: 4px; }
+        .activity-item .info .location { font-size: 13px; color: #666; }
+        .archive { background: #fff; border-radius: 20px; padding: 30px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .archive h3 { font-size: 18px; margin-bottom: 20px; color: #333; }
+        .archive h3 { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .archive .back-index { padding: 8px 18px; background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); color: white; text-decoration: none; border-radius: 20px; font-size: 13px; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
+        .archive .back-index:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4); }
+        .archive-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .archive-list a { padding: 10px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 25px; font-size: 14px; transition: all 0.3s; }
+        .archive-list a:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(102,126,234,0.4); }
+        
+        .copyright { text-align: center; padding: 15px; color: rgba(255,255,255,0.5); font-size: 12px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px; }
+        .footer { padding: 30px; color: rgba(255,255,255,0.6); font-size: 14px; }        .footer .back-index { padding: 8px 16px; background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); color: white; text-decoration: none; border-radius: 20px; font-size: 13px; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
+        .footer .back-index:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4); }
+        h3.sub-title { color: #0f3460; margin: 20px 0 15px; font-size: 16px; }
+        @media (max-width: 768px) {
+            .section-content { padding: 20px; }
+            .data-cards { grid-template-columns: 1fr 1fr; }
+            .header h1 { font-size: 24px; }
+        }
+    
+        /* LOGO 样式 */
+        .logo-corner {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            z-index: 10;
+        }
+        .logo-corner img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .logo-corner {
+                top: 12px;
+                right: 12px;
+                padding: 6px 10px;
+            }
+            .logo-corner img {
+                height: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-corner"><img src="logo 白色透明底 横版.png" alt="LOGO"></div>
+            <h1>🚗 汽车市场每周情报</h1>
+            <div class="meta">
+                <span class="badge gold">全年第10期</span>
+                <span class="badge">3月第2周</span>
+                <span class="badge">📅 2026-03-09</span>
+            </div>
+        </div>
+
+        
+        <section class="section">
+            <div class="section-header"><span class="icon">🌍</span><h2>一、海外市场舆情追踪</h2></div>
+            <div class="section-content">
+                <h3 class="sub-title">📌 欧洲市场</h3>
+                <div class="news-item"><span class="emoji">📈</span><div class="content">
+                    <div class="title">欧洲2026年电动车行业：新政推动超预期增长</div>
+                    <div class="desc">2026年3月中信建投发布欧洲电车深度报告，欧洲九国2月电车销量同比+29%，德国、瑞典补贴政策效果显著，西班牙"Auto+"计划落地。</div>
+                    <div class="source"><a href="https://www.csc108.com/" target="_blank" title="点击查看来源">来源：中信建投、懂车帝</a></div>
+                </div></div>
+                <div class="news-item"><span class="emoji">🇬🇧</span><div class="content">
+                    <div class="title">英国汽车注册量1月达14.4万辆</div>
+                    <div class="desc">英国汽车市场2026年1月注册量维持在14.4万辆，电动车占比持续提升，英国拟跟进欧盟的多项安全技术法规要求。</div>
+                    <div class="source"><a href="https://www.baidu.com/s?wd=SMMT英国汽车制造商协会" target="_blank" title="点击查看来源">来源：SMMT英国汽车制造商协会</a></div>
+                </div></div>
+                <h3 class="sub-title">📌 北美市场</h3>
+                <div class="news-item"><span class="emoji">🏗️</span><div class="content">
+                    <div class="title">底特律-加拿大大桥2026年3月即将开通</div>
+                    <div class="desc">Gordie Howe国际大桥即将开通，将进一步强化底特律-温莎汽车走廊的物流效率，对汽车零部件跨境贸易有重大正面影响。</div>
+                    <div class="source"><a href="https://www.baidu.com/s?wd=C.H. Robinson" target="_blank" title="点击查看来源">来源：C.H. Robinson</a></div>
+                </div></div>
+                <h3 class="sub-title">📌 东南亚市场</h3>
+                <div class="news-item"><span class="emoji">🌱</span><div class="content">
+                    <div class="title">印尼、越南新能源市场加速增长</div>
+                    <div class="desc">2026年东南亚新能源汽车市场渗透率与规模持续扩大，越南VinFast、马来西亚宝腾加快新能源布局，与中国品牌形成差异化竞争。</div>
+                    <div class="source"><a href="https://www.baidu.com/s?wd=雪球财经" target="_blank" title="点击查看来源">来源：雪球财经</a></div>
+                </div></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header"><span class="icon">🇨🇳</span><h2>二、国内市场舆情追踪</h2></div>
+            <div class="section-content">
+                <div class="data-cards">
+                    <div class="data-card"><div class="value">415.2万</div><div class="label">1-2月累计汽车销量</div></div>
+                    <div class="data-card orange"><div class="value">-8.8%</div><div class="label">同比降幅</div></div>
+                    <div class="data-card green"><div class="value">135.2万</div><div class="label">1-2月出口量</div></div>
+                    <div class="data-card gold"><div class="value">+48.4%</div><div class="label">出口同比增长</div></div>
+                </div>
+                <div class="news-item"><span class="emoji">📊</span><div class="content">
+                    <div class="title">1-2月汽车销量解读：政策切换后的调整期</div>
+                    <div class="desc">2026年前两个月国内汽车市场整体表现受政策切换与季节性因素双重影响，累计销量415.2万辆，同比下降8.8%。新能源购置税政策从免税切换为减半，带来短期波动。</div>
+                    <div class="source"><a href="https://www.caam.org.cn/" target="_blank" title="点击查看来源">来源：中汽协</a></div>
+                </div></div>
+                <div class="news-item"><span class="emoji">🔋</span><div class="content">
+                    <div class="title">比亚迪发布第二代刀片电池，充放电性能大幅提升</div>
+                    <div class="desc">比亚迪第二代刀片电池能量密度提升约30%，充电速度大幅提升，并同步推出超级闪充技术。这是比亚迪2026年最重磅的技术发布。</div>
+                    <div class="source"><a href="https://www.byd.com/" target="_blank" title="点击查看来源">来源：比亚迪官方</a></div>
+                </div></div>
+                <div class="news-item"><span class="emoji">🤖</span><div class="content">
+                    <div class="title">智能汽车竞争升维：华为系、小米双强领跑</div>
+                    <div class="desc">华为智选车2026年整体销量目标大幅提升，问界M9稳居豪华SUV榜首，小米SU7 Ultra版发布引爆市场，20-50万价位纯电市场进入白热化竞争。</div>
+                    <div class="source"><a href="https://www.baidu.com/s?wd=懂车帝" target="_blank" title="点击查看来源">来源：懂车帝</a></div>
+                </div></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header"><span class="icon">🏆</span><h2>三、销量排行榜</h2></div>
+            <div class="section-content">
+                <h3 class="sub-title">📌 2月车型销量榜：燃油车回暖，理想i6上榜</h3>
+                <table>
+                    <thead><tr><th>排名</th><th>车型</th><th>类型</th><th>销量情况</th></tr></thead>
+                    <tbody>
+                        <tr><td>TOP1</td><td>轩逸</td><td>燃油轿车</td><td>燃油回暖代表</td></tr>
+                        <tr><td>TOP2</td><td>朗逸</td><td>燃油轿车</td><td>传统市场复苏</td></tr>
+                        <tr><td>TOP3</td><td>理想i6</td><td>增程SUV</td><td>新上榜亮眼</td></tr>
+                        <tr><td>TOP4</td><td>小米SU7</td><td>纯电轿车</td><td>新势力代表</td></tr>
+                        <tr><td>特别关注</td><td>比亚迪</td><td>全系</td><td>无车型进前十</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header"><span class="icon">📣</span><h2>四、营销案例与品牌活动</h2></div>
+            <div class="section-content">
+                <div class="news-item"><span class="emoji">🎯</span><div class="content">
+                    <div class="title">长安汽车超擎混动技术发布会</div>
+                    <div class="desc">长安汽车举办超擎混动技术沟通会，乘联分会秘书长崔东树受邀出席并发表行业观点。长安以技术发布为核心营销手段，强化品牌技术标签。</div>
+                    <div class="source"><a href="https://www.baidu.com/s?wd=新浪财经" target="_blank" title="点击查看来源">来源：新浪财经</a></div>
+                </div></div>
+                <div class="news-item"><span class="emoji">📱</span><div class="content">
+                    <div class="title">小米汽车SU7 Ultra全球首秀营销热度爆表</div>
+                    <div class="desc">小米SU7 Ultra版上市引发极大关注，雷军持续活跃于社交媒体，小米汽车"全球前五"目标引发行业广泛讨论，科技+汽车跨界营销再创新高。</div>
+                    <div class="source"><a href="https://www.baidu.com/s?wd=懂车帝" target="_blank" title="点击查看来源">来源：懂车帝</a></div>
+                </div></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header"><span class="icon">💡</span><h2>五、行业观点与趋势分析</h2></div>
+            <div class="section-content">
+                <div class="highlight-box">
+                    <div class="title">🔑 2026年国内汽车销量将承压，关注出海及智驾赛道</div>
+                    <div class="content">汽车消费整体呈现出较强的周期性特征，2026年国内汽车消费需求面临新能源车购置税退坡、"两新"边际效应减弱等政策冲击，关注汽车出海和智能驾驶两条主线。</div>
+                </div>
+                <div class="highlight-box">
+                    <div class="title">🔑 2026年乘用车销量触底回升，Q2将明显改善</div>
+                    <div class="desc">汽车行业研报预计，Q1受政策切换影响触底后，Q2随北京车展催化和新车周期启动将明显改善。新技术和新车型是推动销量回升的核心驱动力。</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header"><span class="icon">📅</span><h2>六、未来活动预研</h2></div>
+            <div class="section-content">
+                <div class="activity-item">
+                    <div class="date-badge">3月15日</div>
+                    <div class="info"><div class="name">315国际消费者权益日</div><div class="location">📍 全国 - 汽车新政重要发布节点</div></div>
+                </div>
+                <div class="activity-item">
+                    <div class="date-badge">3月下旬</div>
+                    <div class="info"><div class="name">比亚迪/华为/吉利春季发布会密集期</div><div class="location">📍 全国各地</div></div>
+                </div>
+                <div class="activity-item">
+                    <div class="date-badge">4月24日-5月3日</div>
+                    <div class="info"><div class="name">2026北京国际汽车展览会</div><div class="location">📍 北京中国国际展览中心（顺义馆）</div></div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="archive">
+            <h3>📚 查看往期报告</h3>
+            
+            <div class="archive-list">
+                <a href="汽车情报_2026-03-19.html">2026-03-19</a>
+                <a href="汽车情报_2026-03-18.html">2026-03-18</a>
+                <a href="汽车情报_2026-03-16.html">2026-03-16</a>
+                <a href="汽车情报_2026-03-02.html">2026-03-02</a>
+                <a href="汽车情报_2026-02-23.html">2026-02-23</a>
+                <a href="汽车情报_2026-02-16.html">2026-02-16</a>
+                <a href="汽车情报_2026-02-09.html">2026-02-09</a>
+                <a href="汽车情报_2026-02-02.html">2026-02-02</a>
+            </div>
+        </section>
+
+        <div class="footer" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            
+            <div class="copyright">本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</div>
+            <a href="报告索引.html" class="back-index">📋 返回目录</a>
+        </div>
+    </div>
+</body>
+</html>
