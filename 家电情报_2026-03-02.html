@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家电情报_2026-03-02 · 全年第10期 · 3月第1周</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
+            min-height: 100vh; 
+            padding: 20px 15px 60px; 
+            line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header { text-align: center; padding: 35px 20px 25px; color: white; position: relative; }
+        .header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; background: linear-gradient(90deg, #ff6b6b, #feca57); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header .meta { display: inline-flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
+        .header .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .header .badge.gold { background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); border-color: rgba(255,215,0,0.6); }
+        
+        .logo-corner { position: absolute; top: 18px; right: 20px; z-index: 10; }
+        .logo-corner img { height: 38px; width: auto; display: block; }
+        
+        .section { background: #fff; border-radius: 18px; margin-bottom: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .section-header { background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%); padding: 18px 24px; color: white; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .section-header h2 { font-size: 1.15rem; font-weight: 600; flex: 1; }
+        .section-header .icon { font-size: 1.4rem; }
+        .section-content { padding: 22px 26px; }
+        
+        .news-item { padding: 14px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .emoji { font-size: 1.2rem; flex-shrink: 0; }
+        .news-item .content { flex: 1; min-width: 0; }
+        .news-item .title { font-weight: 600; color: #333; margin-bottom: 6px; font-size: 0.95rem; line-height: 1.4; }
+        .news-item .desc { color: #666; font-size: 0.9rem; line-height: 1.7; word-wrap: break-word; }
+        .news-item .source { font-size: 0.75rem; color: #999; margin-top: 8px; }
+        .news-item .source a { color: #667eea; text-decoration: none; }
+        .news-item .source a:hover { text-decoration: underline; color: #e94560; }
+        
+        .region-title { font-size: 0.95rem; font-weight: 700; color: #e17055; margin: 22px 0 14px; padding-left: 12px; border-left: 4px solid #ff6b6b; }
+        .region-title:first-child { margin-top: 0; }
+        
+        .data-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px; }
+        .data-card { background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%); border-radius: 14px; padding: 18px 14px; color: white; text-align: center; }
+        .data-card.orange { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .data-card.green { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .data-card.gold { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .data-card .value { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+        .data-card .label { font-size: 0.8rem; opacity: 0.9; }
+        
+        .highlight-box { background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); border-radius: 14px; padding: 18px; margin: 14px 0; border-left: 5px solid #e17055; }
+        .highlight-box .title { font-weight: 700; color: #d63031; margin-bottom: 8px; font-size: 0.95rem; }
+        .highlight-box .content { color: #333; line-height: 1.7; font-size: 0.9rem; }
+        
+        .activity-item { display: flex; align-items: center; gap: 14px; padding: 14px; background: #f8f9fa; border-radius: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+        .activity-item .date-badge { background: linear-gradient(135deg, #ff6b6b, #feca57); color: white; padding: 7px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+        .activity-item .info { flex: 1; min-width: 150px; }
+        .activity-item .info .name { font-weight: 600; color: #333; margin-bottom: 3px; font-size: 0.9rem; }
+        .activity-item .info .location { font-size: 0.8rem; color: #666; }
+        
+        .archive { background: #fff; border-radius: 18px; padding: 26px; margin-bottom: 18px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .archive h3 { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 1.1rem; margin-bottom: 18px; color: #333; }
+        .archive-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .archive-list a { padding: 10px 18px; background: linear-gradient(135deg, #ff6b6b, #feca57); color: white; text-decoration: none; border-radius: 25px; font-size: 0.85rem; transition: all 0.3s; white-space: nowrap; }
+        .archive-list a:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(255,107,107,0.4); }
+        
+        .copyright { text-align: center; padding: 15px; color: rgba(255,255,255,0.5); font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px; }
+        .footer { padding: 25px; color: rgba(255,255,255,0.6); font-size: 0.85rem; text-align: center; }
+        
+        .back-index { position: fixed; bottom: 28px; right: 28px; padding: 12px 22px; background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%); color: white; text-decoration: none; border-radius: 30px; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 20px rgba(255,107,107,0.4); z-index: 1000; transition: all 0.3s; }
+        .back-index:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(255,107,107,0.5); }
+        
+        @media (max-width: 900px) { .data-cards { grid-template-columns: repeat(2, 1fr); } .header h1 { font-size: 1.5rem; } .section-header h2 { font-size: 1rem; } }
+        @media (max-width: 768px) {
+            body { padding: 12px 10px 50px; }
+            .header { padding: 28px 15px 20px; }
+            .header h1 { font-size: 1.3rem; }
+            .logo-corner { top: 12px; right: 12px; }
+            .logo-corner img { height: 30px; }
+            .section { border-radius: 14px; margin-bottom: 14px; }
+            .section-content { padding: 16px 18px; }
+            .data-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .news-item { padding: 12px 0; }
+            .back-index { bottom: 18px; right: 18px; padding: 10px 18px; font-size: 0.8rem; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 8px 8px 45px; }
+            .header { padding: 22px 12px 16px; }
+            .header h1 { font-size: 1.1rem; }
+            .section-content { padding: 14px; }
+            .data-cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .back-index { bottom: 14px; right: 14px; padding: 8px 14px; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-corner"><img src="logo-white-transparent.png" alt="LOGO"></div>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 家电市场每周情报</h1>
+            <div class="meta">
+                <span class="badge gold">全年第10期</span>
+                <span class="badge">3月第1周</span>
+                <span class="badge">📅 2026-03-02</span>
+            </div>
+        </div>
+
+        <!-- 核心数据摘要 -->
+        <div class="data-cards">
+            <div class="data-card">
+                <div class="value">2045亿</div>
+                <div class="label">以旧换新销售额</div>
+            </div>
+            <div class="data-card orange">
+                <div class="value">3053万</div>
+                <div class="label">惠及消费者人次</div>
+            </div>
+            <div class="data-card green">
+                <div class="value">2.61万亿</div>
+                <div class="label">2025年带动总销售</div>
+            </div>
+            <div class="data-card gold">
+                <div class="value">AWE 2026</div>
+                <div class="label">家电消费季启动</div>
+            </div>
+        </div>
+
+        <!-- 政策动态 -->
+        <section class="section">
+            <div class="section-header"><span class="icon">📋</span><h2>一、政策动态</h2></div>
+            <div class="section-content">
+                <div class="region-title">📌 国家政策</div>
+                
+                <div class="news-item">
+                    <span class="emoji">✅</span>
+                    <div class="content">
+                        <div class="title">2026年消费品以旧换新政策正式启动</div>
+                        <div class="desc">国家发展改革委、财政部发布《关于2026年实施大规模设备更新和消费品以旧换新政策的通知》，商务部等七部门发布实施细则，重点围绕"强化统筹"推动家电以旧换新新一轮政策落地实施。</div>
+                        <div class="source">来源：<a href="https://www.mofcom.gov.cn/" target="_blank">商务部</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🏆</span>
+                    <div class="content">
+                        <div class="title">深圳率先出台家电以旧换新补贴政策</div>
+                        <div class="desc">深圳市商务局发布《深圳市2026年家电以旧换新、数码产品补贴实施细则》，为贯彻落实国家政策，深圳率先推出地方补贴细则，涵盖家电、数码产品等多个品类。</div>
+                        <div class="source">来源：<a href="https://www.sz.gov.cn/" target="_blank">深圳市商务局</a></div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <div class="title">💡 政策亮点</div>
+                    <div class="content">2026年以旧换新政策力度再加码，截至2月22日，已惠及3053.2万人次，带动销售额2045.4亿元，预计全年将带动相关商品销售超过3万亿元。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行业动态 -->
+        <section class="section">
+            <div class="section-header"><span class="icon">🚀</span><h2>二、行业动态</h2></div>
+            <div class="section-content">
+                <div class="region-title">📌 展会活动</div>
+                
+                <div class="news-item">
+                    <span class="emoji">🎉</span>
+                    <div class="content">
+                        <div class="title">2026全国家电暨数码智能产品消费季在上海启动</div>
+                        <div class="desc">3月13日，2026全国家电暨数码和智能产品消费季启动仪式在上海举行。商务部副部长盛秋平、上海市副市长卢山视频致辞，活动坚持"政策+活动"双轮驱动，进一步放大消费季影响力。</div>
+                        <div class="source">来源：<a href="https://www.cinn.cn/" target="_blank">中国家电网</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🏠</span>
+                    <div class="content">
+                        <div class="title">更大规模家电"焕新潮"正式启动 三大新兴市场成2026年主攻方向</div>
+                        <div class="desc">《家用和类似用途电器的安全使用年限和再生利用通则》国家标准将强制家电标注安全年限，引导超期服役产品有序退出，为绿色智能新品释放更大市场空间。智能家居、健康家电、节能产品成为主攻方向。</div>
+                        <div class="source">来源：<a href="https://www.cinn.cn/" target="_blank">中国家电网</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🌟</span>
+                    <div class="content">
+                        <div class="title">2026年度家电服务业消费者权益革新大会在北京举行</div>
+                        <div class="desc">中国家用电器服务维修协会主办"2026年度家电服务业消费者权益革新大会暨掀起史上更大规模的百城千乡万户家电惠民收旧焕新潮"，推动家电服务升级。</div>
+                        <div class="source">来源：<a href="http://jjckb.xinhuanet.com/" target="_blank">经济参考网</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 企业动态 -->
+        <section class="section">
+            <div class="section-header"><span class="icon">🏭</span><h2>三、企业战略</h2></div>
+            <div class="section-content">
+                <div class="region-title">📌 头部企业</div>
+                
+                <div class="news-item">
+                    <span class="emoji">📈</span>
+                    <div class="content">
+                        <div class="title">海尔智家持续深化全球化布局</div>
+                        <div class="desc">海尔智家通过智慧家庭解决方案持续引领全球市场，聚焦高端化、智能化转型，在北美、欧洲、东南亚等市场实现持续增长。</div>
+                        <div class="source">来源：<a href="https://www.haier.com/" target="_blank">海尔集团</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🤖</span>
+                    <div class="content">
+                        <div class="title">美的集团AI赋能智能家电创新</div>
+                        <div class="desc">美的集团持续加码AI技术在智能家电领域的应用，推出多款搭载人工智能的家电新品，提升用户智慧生活体验。</div>
+                        <div class="source">来源：<a href="https://www.midea.com/" target="_blank">美的集团</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🌿</span>
+                    <div class="content">
+                        <div class="title">格力电器发力绿色节能技术</div>
+                        <div class="desc">格力电器持续投入节能技术研发，推出新一代变频节能空调产品线，在国家"双碳"目标指引下引领行业绿色发展。</div>
+                        <div class="source">来源：<a href="https://www.gree.com.cn/" target="_blank">格力电器</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 智能家居 -->
+        <section class="section">
+            <div class="section-header"><span class="icon">🏠</span><h2>四、智能家居趋势</h2></div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="emoji">✨</span>
+                    <div class="content">
+                        <div class="title">全屋智能成为家电行业新增长引擎</div>
+                        <div class="desc">随着5G+AI技术成熟，全屋智能解决方案成为家电行业新的增长引擎。海尔三翼鸟、华为全屋智能、小米米家等平台持续迭代，为用户打造智慧生活体验。</div>
+                        <div class="source">来源：<a href="https://www.cinn.cn/" target="_blank">中国家电网</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">📱</span>
+                    <div class="content">
+                        <div class="title">智能家居生态互联互通加速</div>
+                        <div class="desc">主流家电企业加快开放生态建设，Matter协议推广助力不同品牌智能设备互联互通，消费者体验持续提升。</div>
+                        <div class="source">来源：<a href="https://www.ithome.com/" target="_blank">IT之家</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 往期回顾 -->
+        <div class="archive">
+            <h3>📚 往期回顾</h3>
+            <div class="archive-list">
+                <a href="汽车情报_2026-02-23.html">2月第4周 · 汽车情报</a>
+                <a href="汽车情报_2026-02-16.html">2月第3周 · 汽车情报</a>
+                <a href="汽车情报_2026-02-09.html">2月第2周 · 汽车情报</a>
+                <a href="汽车情报_2026-02-02.html">2月第1周 · 汽车情报</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</div>
+        </div>
+        
+        <a href="报告索引.html" class="back-index">📋 返回目录</a>
+    </div>
+</body>
+</html>
