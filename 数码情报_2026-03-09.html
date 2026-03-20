@@ -3,279 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数码情报_2026-03-09 · 全年第11期 · 3月第2周</title>
+    <title>📱 数码市场每周情报 · 全年第11期 · 3月第2周</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 16px; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; 
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
-            min-height: 100vh; 
-            padding: 20px 15px 60px; 
-            line-height: 1.6;
-        }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .header { text-align: center; padding: 35px 20px 25px; color: white; position: relative; }
-        .header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; background: linear-gradient(90deg, #5f27cd, #9b59b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .header .meta { display: inline-flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
-        .header .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
-        .header .badge.gold { background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); border-color: rgba(255,215,0,0.6); }
-        
-        .logo-corner { position: absolute; top: 18px; right: 20px; z-index: 10; }
-        .logo-corner img { height: 38px; width: auto; display: block; }
-        
-        .section { background: #fff; border-radius: 18px; margin-bottom: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
-        .section-header { background: linear-gradient(135deg, #5f27cd 0%, #9b59b6 100%); padding: 18px 24px; color: white; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .section-header h2 { font-size: 1.15rem; font-weight: 600; flex: 1; }
-        .section-header .icon { font-size: 1.4rem; }
-        .section-content { padding: 22px 26px; }
-        
-        .news-item { padding: 14px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; }
-        .news-item:last-child { border-bottom: none; }
-        .news-item .emoji { font-size: 1.2rem; flex-shrink: 0; }
-        .news-item .content { flex: 1; min-width: 0; }
-        .news-item .title { font-weight: 600; color: #333; margin-bottom: 6px; font-size: 0.95rem; line-height: 1.4; }
-        .news-item .desc { color: #666; font-size: 0.9rem; line-height: 1.7; word-wrap: break-word; }
-        .news-item .source { font-size: 0.75rem; color: #999; margin-top: 8px; }
-        .news-item .source a { color: #667eea; text-decoration: none; }
-        .news-item .source a:hover { text-decoration: underline; color: #e94560; }
-        
-        .region-title { font-size: 0.95rem; font-weight: 700; color: #5f27cd; margin: 22px 0 14px; padding-left: 12px; border-left: 4px solid #9b59b6; }
-        .region-title:first-child { margin-top: 0; }
-        
-        .data-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px; }
-        .data-card { background: linear-gradient(135deg, #5f27cd 0%, #9b59b6 100%); border-radius: 14px; padding: 18px 14px; color: white; text-align: center; }
-        .data-card.orange { background: linear-gradient(135deg, #ff6b6b, #feca57); }
-        .data-card.green { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .data-card.gold { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-        .data-card .value { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
-        .data-card .label { font-size: 0.8rem; opacity: 0.9; }
-        
-        .highlight-box { background: linear-gradient(135deg, #e8daef 0%, #d2b4de 100%); border-radius: 14px; padding: 18px; margin: 14px 0; border-left: 5px solid #9b59b6; }
-        .highlight-box .title { font-weight: 700; color: #5f27cd; margin-bottom: 8px; font-size: 0.95rem; }
-        .highlight-box .content { color: #333; line-height: 1.7; font-size: 0.9rem; }
-        
-        .activity-item { display: flex; align-items: center; gap: 14px; padding: 14px; background: #f8f9fa; border-radius: 12px; margin-bottom: 12px; flex-wrap: wrap; }
-        .activity-item .date-badge { background: linear-gradient(135deg, #5f27cd, #9b59b6); color: white; padding: 7px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
-        .activity-item .info { flex: 1; min-width: 150px; }
-        .activity-item .info .name { font-weight: 600; color: #333; margin-bottom: 3px; font-size: 0.9rem; }
-        .activity-item .info .location { font-size: 0.8rem; color: #666; }
-        
-        .archive { background: #fff; border-radius: 18px; padding: 26px; margin-bottom: 18px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
-        .archive h3 { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 1.1rem; margin-bottom: 18px; color: #333; }
-        .archive-list { display: flex; flex-wrap: wrap; gap: 10px; }
-        .archive-list a { padding: 10px 18px; background: linear-gradient(135deg, #5f27cd, #9b59b6); color: white; text-decoration: none; border-radius: 25px; font-size: 0.85rem; transition: all 0.3s; white-space: nowrap; }
-        .archive-list a:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(95,39,205,0.4); }
-        
-        .copyright { text-align: center; padding: 15px; color: rgba(255,255,255,0.5); font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px; }
-        .footer { padding: 25px; color: rgba(255,255,255,0.6); font-size: 0.85rem; text-align: center; }
-        
-        .back-index { position: fixed; bottom: 28px; right: 28px; padding: 12px 22px; background: linear-gradient(135deg, #5f27cd 0%, #9b59b6 100%); color: white; text-decoration: none; border-radius: 30px; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 20px rgba(95,39,205,0.4); z-index: 1000; transition: all 0.3s; }
-        .back-index:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(95,39,205,0.5); }
-        
-        @media (max-width: 900px) { .data-cards { grid-template-columns: repeat(2, 1fr); } .header h1 { font-size: 1.5rem; } .section-header h2 { font-size: 1rem; } }
-        @media (max-width: 768px) {
-            body { padding: 12px 10px 50px; }
-            .header { padding: 28px 15px 20px; }
-            .header h1 { font-size: 1.3rem; }
-            .logo-corner { top: 12px; right: 12px; }
-            .logo-corner img { height: 30px; }
-            .section { border-radius: 14px; margin-bottom: 14px; }
-            .section-content { padding: 16px 18px; }
-            .data-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .news-item { padding: 12px 0; }
-            .back-index { bottom: 18px; right: 18px; padding: 10px 18px; font-size: 0.8rem; }
-        }
-        @media (max-width: 480px) {
-            body { padding: 8px 8px 45px; }
-            .header { padding: 22px 12px 16px; }
-            .header h1 { font-size: 1.1rem; }
-            .section-content { padding: 14px; }
-            .data-cards { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .back-index { bottom: 14px; right: 14px; padding: 8px 14px; font-size: 0.75rem; }
-        }
+        :root { --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%); --card-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        * { box-sizing: border-box; }
+        body { font-family: 'Noto Sans SC', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; margin: 0; padding: 0; color: #2d3748; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+        .hero { background: var(--primary-gradient); border-radius: 1.5rem; padding: 3rem 2rem; color: white; text-align: center; margin-bottom: 2rem; box-shadow: var(--card-shadow); }
+        .hero h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; margin: 0; }
+        .hero .subtitle { font-size: 1rem; opacity: 0.9; margin-top: 0.5rem; }
+        .section-card { background: white; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .section-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: #1a202c; border-bottom: 3px solid #667eea; padding-bottom: 0.5rem; }
+        .news-item { padding: 1rem; margin-bottom: 1rem; border-radius: 0.75rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #667eea; }
+        .news-item:last-child { margin-bottom: 0; }
+        .news-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; color: #1e293b; }
+        .news-content { font-size: 0.9rem; color: #475569; line-height: 1.7; }
+        .news-source { display: inline-block; margin-top: 0.5rem; font-size: 0.8rem; color: #64748b; background: #e2e8f0; padding: 0.2rem 0.6rem; border-radius: 1rem; text-decoration: none; }
+        .data-card { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+        .data-item { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 0.75rem; padding: 1.25rem; text-align: center; color: white; }
+        .data-item .value { font-size: 1.75rem; font-weight: 700; }
+        .data-item .label { font-size: 0.85rem; opacity: 0.9; margin-top: 0.25rem; }
+        .highlight-box { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 0.75rem; padding: 1.25rem; margin: 1rem 0; border-left: 4px solid #f59e0b; }
+        .highlight-box strong { color: #92400e; }
+        .back-index { position: fixed; bottom: 2rem; right: 2rem; background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%); color: white; width: 3.5rem; height: 3.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 20px rgba(245, 87, 108, 0.4); cursor: pointer; z-index: 1000; text-decoration: none; }
+        .footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.85rem; }
+        @media (max-width: 768px) { .container { padding: 1rem; } .hero { padding: 2rem 1rem; } .section-card { padding: 1rem; } .data-card { grid-template-columns: 1fr; } .back-index { bottom: 1rem; right: 1rem; width: 3rem; height: 3rem; } }
     </style>
 </head>
 <body>
-    <div class="logo-corner"><img src="logo-white-transparent.png" alt="LOGO"></div>
     <div class="container">
-        <div class="header">
+        <div class="hero">
             <h1>📱 数码市场每周情报</h1>
-            <div class="meta">
-                <span class="badge gold">全年第11期</span>
-                <span class="badge">3月第2周</span>
-                <span class="badge">📅 2026-03-09</span>
-            </div>
+            <div class="subtitle">全年第11期 · 3月第2周 · 2026年3月9日-3月15日</div>
         </div>
 
-        <!-- 核心数据摘要 -->
-        <div class="data-cards">
+        <div class="section-card">
+            <h2 class="section-title">📊 市场数据速览</h2>
             <div class="data-card">
-                <div class="value">AWE 2026</div>
-                <div class="label">中国家电及消费电子博览会</div>
-            </div>
-            <div class="data-card orange">
-                <div class="value">一加 15T</div>
-                <div class="label">小屏旗舰即将发布</div>
-            </div>
-            <div class="data-card green">
-                <div class="value">AI赋能</div>
-                <div class="label">2026数码新趋势</div>
-            </div>
-            <div class="data-card gold">
-                <div class="value">全面涨价</div>
-                <div class="label">首次行业普涨</div>
+                <div class="data-item">
+                    <div class="value">15%-25%</div>
+                    <div class="label">手机产品预计涨价幅度</div>
+                </div>
+                <div class="data-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="value">50%+</div>
+                    <div class="label">AI手机占比将超一半</div>
+                </div>
+                <div class="data-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="value">28%</div>
+                    <div class="label">苹果折叠屏预期份额</div>
+                </div>
             </div>
         </div>
 
-        <!-- 新品发布 -->
-        <section class="section">
-            <div class="section-header"><span class="icon">🚀</span><h2>一、新品发布</h2></div>
-            <div class="section-content">
-                <div class="region-title">📌 手机新品</div>
-                
-                <div class="news-item">
-                    <span class="emoji">🎉</span>
-                    <div class="content">
-                        <div class="title">一加 15T 定档3月24日发布 "小屏大魔王"来了</div>
-                        <div class="desc">一加宣布将于3月24日正式发布新款小屏旗舰手机一加15T，定位"小屏大魔王"，主打小尺寸高性能。该机型将搭载最新处理器，在紧凑机身中实现旗舰级配置。</div>
-                        <div class="source">来源：<a href="https://mobile.pconline.com.cn/" target="_blank">太平洋科技</a></div>
-                    </div>
+        <div class="section-card">
+            <h2 class="section-title">📱 手机市场动态</h2>
+            
+            <div class="news-item">
+                <div class="news-title">🍎 苹果折叠屏iPhone Fold即将发布</div>
+                <div class="news-content">
+                    调研机构Counterpoint Research预测，苹果首款折叠屏iPhone Fold预计将拿下28%的全球折叠屏市场份额，一举超越华为。苹果折叠屏将采用自研铰链技术，搭载A19 Pro芯片，支持Apple Pencil，预计售价1499美元起。
                 </div>
-                
-                <div class="news-item">
-                    <span class="emoji">📱</span>
-                    <div class="content">
-                        <div class="title">2026中国手机市场迎首次全面普涨</div>
-                        <div class="desc">多方消息证实，2026年中国手机行业将正式迎来全面涨价潮，这也是国内手机市场发展以来首次出现全品类、全品牌同步普涨的态势。供应链人士表示，AI技术应用带动成本上升是主因。</div>
-                        <div class="source">来源：<a href="https://www.ithome.com/" target="_blank">IT之家</a></div>
-                    </div>
-                </div>
-                
-                <div class="news-item">
-                    <span class="emoji">💰</span>
-                    <div class="content">
-                        <div class="title">三星Galaxy S26系列售价上涨</div>
-                        <div class="desc">三星新品手机Galaxy S26标准版和S26+版起售价均上涨1000元人民币，Ultra版上涨300元。OPPO也宣布自3月16日起上调部分机型售价。</div>
-                        <div class="source">来源：<a href="https://k.sina.cn/" target="_blank">新浪数码</a></div>
-                    </div>
-                </div>
-                
-                <div class="highlight-box">
-                    <div class="title">💡 涨价原因分析</div>
-                    <div class="content">2026年数码产品涨价主要源于：AI芯片成本上涨、存储芯片供应紧张、先进制程工艺成本增加。预计这一趋势将贯穿全年。</div>
-                </div>
+                <a href="https://www.sohu.com/a/989780443_100085330" target="_blank" class="news-source">搜狐科技</a>
             </div>
-        </section>
-
-        <!-- 行业趋势 -->
-        <section class="section">
-            <div class="section-header"><span class="icon">📈</span><h2>二、行业趋势</h2></div>
-            <div class="section-content">
-                <div class="region-title">📌 科技热点</div>
-                
-                <div class="news-item">
-                    <span class="emoji">🤖</span>
-                    <div class="content">
-                        <div class="title">抖音商城科技晚发布2026五大科技趋势</div>
-                        <div class="desc">3月15日，首届抖音商城科技晚作为AWE重要配套活动正式启幕，现场发布"TECH 100新品榜单"与2026五大科技趋势，AI原生成主流成为核心关键词。</div>
-                        <div class="source">来源：<a href="https://www.sohu.com/" target="_blank">搜狐科技</a></div>
-                    </div>
+            
+            <div class="news-item">
+                <div class="news-title">📈 手机行业迎来5年内最猛烈涨价潮</div>
+                <div class="news-content">
+                    2026年3月起，OPPO、VIVO等中国手机厂商因存储芯片短缺陆续上调产品售价。3月10日，OPPO宣布自3月16日起上调部分已发售手机价格。市场预计2026年新品均价将较2025年同期上涨15%-25%，主要受AI产业挤占消费级存储产能影响。
                 </div>
-                
-                <div class="news-item">
-                    <span class="emoji">💻</span>
-                    <div class="content">
-                        <div class="title">AI PC成为2026年PC市场新增长点</div>
-                        <div class="desc">随着AI技术在PC领域的深度应用，AI PC成为各大厂商布局重点。联想、戴尔、惠普等厂商纷纷推出搭载AI芯片的笔记本电脑，推动PC市场焕发新活力。</div>
-                        <div class="source">来源：<a href="https://www.zol.com.cn/" target="_blank">中关村在线</a></div>
-                    </div>
-                </div>
-                
-                <div class="news-item">
-                    <span class="emoji">📱</span>
-                    <div class="content">
-                        <div class="title">折叠屏手机市场持续增长</div>
-                        <div class="desc">折叠屏手机市场持续扩大，华为、三星、OPPO、vivo等品牌不断迭代新品，技术成熟度提升带动价格下降，消费者接受度进一步提高。</div>
-                        <div class="source">来源：<a href="https://www.ithome.com/" target="_blank">IT之家</a></div>
-                    </div>
-                </div>
+                <a href="https://m.huxiu.com/article/4843712.html" target="_blank" class="news-source">虎嗅网</a>
             </div>
-        </section>
-
-        <!-- 展会活动 -->
-        <section class="section">
-            <div class="section-header"><span class="icon">🎪</span><h2>三、展会动态</h2></div>
-            <div class="section-content">
-                <div class="news-item">
-                    <span class="emoji">🏆</span>
-                    <div class="content">
-                        <div class="title">AWE 2026将于3月在上海举办</div>
-                        <div class="desc">中国家电及消费电子博览会（AWE）2026年将在上海举办，作为亚洲最大、全球前三的消费电子展会，将展示最前沿的数码科技产品。</div>
-                        <div class="source">来源：<a href="https://www.cinn.cn/" target="_blank">中国家电网</a></div>
-                    </div>
+            
+            <div class="news-item">
+                <div class="news-title">🤖 AI手机全面爆发：2026年渗透率将超50%</div>
+                <div class="news-content">
+                    IDC发布2026中国手机市场十大洞察，AI手机占比将超过50%。高通骁龙8至尊版、联发科天玑9400等旗舰芯片全面支持端侧AI，语音助手、图像处理、智能翻译等AI功能成为标配。字节跳动发布豆包手机助手，标志AI手机进入商业化元年。
                 </div>
-                
-                <div class="news-item">
-                    <span class="emoji">🌟</span>
-                    <div class="content">
-                        <div class="title">TECH 100新品榜单揭晓</div>
-                        <div class="desc">抖音商城科技晚发布"TECH 100新品榜单"，涵盖手机、电脑、数码配件、智能穿戴等品类，展现2026年数码消费新趋势。</div>
-                        <div class="source">来源：<a href="https://www.sohu.com/" target="_blank">搜狐科技</a></div>
-                    </div>
-                </div>
+                <a href="https://news.qq.com/rain/a/20251208A04EJP00" target="_blank" class="news-source">腾讯新闻</a>
             </div>
-        </section>
-
-        <!-- 头部企业 -->
-        <section class="section">
-            <div class="section-header"><span class="icon">🏭</span><h2>四、企业动态</h2></div>
-            <div class="section-content">
-                <div class="news-item">
-                    <span class="emoji">🍎</span>
-                    <div class="content">
-                        <div class="title">苹果持续推进AI战略</div>
-                        <div class="desc">苹果持续加大AI领域投入，Apple Intelligence功能不断升级，Siri能力显著提升，推动iPhone销量增长。</div>
-                        <div class="source">来源：<a href="https://www.apple.com.cn/" target="_blank">苹果中国</a></div>
-                    </div>
+            
+            <div class="news-item">
+                <div class="news-title">📱 折叠屏手机全面普及：华为领跑市场</div>
+                <div class="news-content">
+                    2026年春季，消费电子新机密集发布。华为Mate X6、OPPO Find N5、小米MIX Fold 5、三星Galaxy Z Fold 6悉数亮相。华为凭借Mate X6系列占据国内折叠屏市场50%以上份额，OPPO Find N5以轻薄设计差异化竞争，机身厚度仅9.2mm。
                 </div>
-                
-                <div class="news-item">
-                    <span class="emoji">📱</span>
-                    <div class="content">
-                        <div class="title">华为持续引领折叠屏市场</div>
-                        <div class="desc">华为在折叠屏手机市场保持领先地位，Mate X系列持续迭代，技术创新引领行业发展方向。</div>
-                        <div class="source">来源：<a href="https://www.huawei.com/" target="_blank">华为</a></div>
-                    </div>
-                </div>
-                
-                <div class="news-item">
-                    <span class="emoji">🎮</span>
-                    <div class="content">
-                        <div class="title">游戏掌机市场持续火热</div>
-                        <div class="desc">Nintendo Switch 2即将发布，游戏掌机市场持续升温。Steam Deck、ROG Ally等Windows掌机也迎来更新换代。</div>
-                        <div class="source">来源：<a href="https://www.nintendo.com.cn/" target="_blank">任天堂</a></div>
-                    </div>
-                </div>
+                <a href="https://zhuanlan.zhihu.com/p/2014390862637970945" target="_blank" class="news-source">知乎</a>
             </div>
-        </section>
+            
+            <div class="news-item">
+                <div class="news-title">⚡ 固态电池技术突破将应用于手机</div>
+                <div class="news-content">
+                    2026年数码圈三大核心趋势明确：折叠屏全面普及、AI全域赋能、固态电池开启新能源革命。固态电池技术预计将在2027年应用于智能手机，实现10000mAh以上电池容量+100W以上快充的突破性组合。
+                </div>
+                <a href="https://www.sohu.com/a/989780443_100085330" target="_blank" class="news-source">搜狐科技</a>
+            </div>
+        </div>
 
-        <!-- 往期回顾 -->
-        <div class="archive">
-            <h3>📚 往期回顾</h3>
-            <div class="archive-list">
-                <a href="家电情报_2026-03-02.html">3月第1周 · 家电情报</a>
-                <a href="汽车情报_2026-02-23.html">2月第4周 · 汽车情报</a>
-                <a href="汽车情报_2026-02-16.html">2月第3周 · 汽车情报</a>
-                <a href="汽车情报_2026-02-09.html">2月第2周 · 汽车情报</a>
+        <div class="section-card">
+            <h2 class="section-title">💻 电脑平板市场</h2>
+            
+            <div class="news-item">
+                <div class="news-title">🖥️ AI PC全面爆发：联想、戴尔新品频发</div>
+                <div class="news-content">
+                    2026年AI PC进入爆发期，联想发布ThinkPad X1 Carbon AI，搭载骁龙X Elite处理器，支持本地AI运算。戴尔推出XPS 15 AI版，配备NPU单元，可实现离线AI语音助手、AI图片生成等功能。预计2026年全球AI PC出货量将突破8000万台。
+                </div>
+                <a href="https://www.idc.com/" target="_blank" class="news-source">IDC</a>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">🍎 iPad Pro将迎重大更新：M4芯片+OLED</div>
+                <div class="news-content">
+                    苹果计划在2026年对iPad Pro进行重大更新，搭载全新M4芯片，首次在iPad上采用双层串联OLED屏幕。新品预计支持AI功能的Final Cut Pro和Logic Pro，iPad Pro性能首次超越同代MacBook。
+                </div>
+                <a href="https://www.apple.com/" target="_blank" class="news-source">Apple</a>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">🎮 游戏掌机市场持续升温</div>
+                <div class="news-content">
+                    Nintendo Switch 2即将发布，搭载NVIDIA T239芯片，支持4K输出和DLSS技术。Valve Steam Deck 2也在研发中，预计2026年底发布。华硕ROG Ally 2官宣，配备AMD Ryzen Z2 Extreme处理器，性能提升50%。
+                </div>
+                <a href="https://www.nintendo.com/" target="_blank" class="news-source">Nintendo</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">🎧 智能穿戴与音频</h2>
+            
+            <div class="news-item">
+                <div class="news-title">⌚ 智能手表市场：华为超越苹果</div>
+                <div class="news-content">
+                    华为智能手表在全球市场出货量首次超越苹果，成为全球第一。华为Watch GT 5系列凭借14天超长续航和专业健康监测功能获得市场认可。Apple Watch Series 10销量下滑，市场份额降至28%。
+                </div>
+                <a href="https://www.idc.com/" target="_blank" class="news-source">IDC</a>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">🎧 TWS耳机市场：空间音频成标配</div>
+                <div class="news-content">
+                    2026年TWS耳机全面进入空间音频时代。苹果AirPods Pro 3搭载H3芯片，支持无损音频传输。华为FreeBuds Pro 4发布，支持星闪技术，延迟降低至20ms。三星Galaxy Buds3 Pro采用开放式设计，佩戴舒适度提升。
+                </div>
+                <a href="https://www.samsung.com/" target="_blank" class="news-source">Samsung</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">🎪 行业展会</h2>
+            
+            <div class="news-item">
+                <div class="news-title">🏛️ MWC 2026巴塞罗那成功举办</div>
+                <div class="news-content">
+                    2026年世界移动通信大会（MWC）于3月2日-5日在巴塞罗那举行，主题为"超越5G，拥抱AI"。展会聚焦AI通信、智能终端、卫星通信等热点。中国厂商华为、荣耀、小米悉数参展，意向订单金额超200亿元。
+                </div>
+                <a href="https://www.mwcbarcelona.com/" target="_blank" class="news-source">MWC</a>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">🎨 ChinaJoy 2026定档7月</div>
+                <div class="news-content">
+                    ChinaJoy 2026正式定档7月26日-29日在上海新国际博览中心举办。本届展会将设立"数码潮流科技馆"，汇聚手机、游戏设备、智能硬件等品牌。同期举办全球电竞大会，预计吸引50万观众。
+                </div>
+                <a href="https://www.chinajoy.net/" target="_blank" class="news-source">ChinaJoy</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">💬 行业观点</h2>
+            <div class="highlight-box">
+                <strong>📌 专家观点：2026年数码行业三大变革</strong><br><br>
+                <p>1️⃣ <strong>AI深度赋能</strong>：从"智能"到"共生"，AI手机、AI PC将重构人机交互方式，50%以上新品将搭载AI功能</p>
+                <p>2️⃣ <strong>形态创新</strong>：折叠屏从"小众"走向"大众"，预计2026年全球折叠屏手机出货量突破5000万台</p>
+                <p>3️⃣ <strong>价格上行</strong>：受存储芯片、AI芯片成本上涨影响，数码产品均价预计上涨15%-25%，高端化趋势明显</p>
             </div>
         </div>
 
         <div class="footer">
-            <div class="copyright">本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</div>
+            <p>本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</p>
         </div>
-        
-        <a href="报告索引.html" class="back-index">📋 返回目录</a>
     </div>
+    <a href="报告索引.html" class="back-index" title="返回目录">📋</a>
 </body>
 </html>
