@@ -58,8 +58,26 @@
         .archive-list a:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(102,126,234,0.4); }
         
         .copyright { text-align: center; padding: 15px; color: rgba(255,255,255,0.5); font-size: 12px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px; }
-        .footer { padding: 30px; color: rgba(255,255,255,0.6); font-size: 14px; }        .footer .back-index { padding: 8px 16px; background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); color: white; text-decoration: none; border-radius: 20px; font-size: 13px; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
-        .footer .back-index:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4); }
+        .footer { padding: 30px; color: rgba(255,255,255,0.6); font-size: 14px; }        .back-index { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            padding: 12px 24px; 
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            font-size: 14px; 
+            font-weight: 600; 
+            box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4);
+            z-index: 1000;
+            transition: all 0.3s; 
+        }
+        .back-index:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(233, 69, 96, 0.5); }
+        
+        @media (max-width: 768px) {
+            .back-index { bottom: 20px; right: 20px; padding: 10px 18px; font-size: 13px; }
+        }
         h3.sub-title { color: #0f3460; margin: 20px 0 15px; font-size: 16px; }
         @media (max-width: 768px) {
             .section-content { padding: 20px; }
@@ -232,11 +250,12 @@
             </div>
         </section>
 
-        <div class="footer" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-            
+        <div class="footer">
             <div class="copyright">本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</div>
-            <a href="报告索引.html" class="back-index">📋 返回目录</a>
         </div>
+        
+        <!-- 悬浮返回目录按钮 -->
+        <a href="报告索引.html" class="back-index">📋 返回目录</a>
     </div>
 </body>
 </html>
