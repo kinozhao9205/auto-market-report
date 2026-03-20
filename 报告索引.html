@@ -4,75 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>汽车市场情报 - 报告索引</title>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 100vh; padding: 40px 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 80px rgba(0,0,0,0.4); }
-        .header { background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); padding: 40px; color: white; text-align: center; position: relative; }
-        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 18px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4); 
+        }
+        .header { 
+            background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); 
+            padding: 40px 30px; 
+            color: white; 
+            text-align: center; 
+            position: relative; 
+        }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 15px; }
         .header p { font-size: 14px; opacity: 0.9; }
         
         /* 公司信息区域 */
-        .company-info { margin-top: 15px; padding: 15px 20px; background: rgba(255,255,255,0.12); border-radius: 12px; }
-        .company-name { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-        .company-desc { font-size: 12px; opacity: 0.8; margin-bottom: 10px; }
-        .company-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 12px; }
-        .company-tags span { font-size: 11px; padding: 3px 10px; background: rgba(255,255,255,0.18); border-radius: 15px; white-space: nowrap; }
-        .company-contact { display: flex; align-items: center; justify-content: center; gap: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.15); }
+        .company-info { margin-top: 18px; padding: 18px 22px; background: rgba(255,255,255,0.12); border-radius: 14px; }
+        .company-name { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+        .company-desc { font-size: 12px; opacity: 0.85; margin-bottom: 12px; }
+        .company-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 14px; }
+        .company-tags span { font-size: 11px; padding: 4px 11px; background: rgba(255,255,255,0.18); border-radius: 15px; white-space: nowrap; }
+        .company-contact { display: flex; align-items: center; justify-content: center; gap: 10px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
         .contact-label { font-size: 12px; opacity: 0.8; }
-        .contact-phone { font-size: 15px; font-weight: 700; color: #ffd700; }
-        .content { padding: 30px; }
-        .month-group { margin-bottom: 30px; }
-        .month-title { font-size: 18px; font-weight: 700; color: #0f3460; padding: 10px 0; border-bottom: 3px solid #e94560; margin-bottom: 15px; }
+        .contact-phone { font-size: 16px; font-weight: 700; color: #ffd700; }
+        
+        .content { padding: 30px 25px; }
+        
+        .month-group { margin-bottom: 35px; }
+        .month-group:last-child { margin-bottom: 0; }
+        .month-title { font-size: 18px; font-weight: 700; color: #0f3460; padding: 12px 0; border-bottom: 3px solid #e94560; margin-bottom: 18px; }
+        
         .report-list { list-style: none; }
-        .report-list li { margin-bottom: 10px; }
-        .report-list a { display: flex; align-items: center; gap: 12px; padding: 14px 20px; background: #f8f9fa; border-radius: 12px; text-decoration: none; color: #333; transition: all 0.3s; }
-        .report-list a:hover { background: linear-gradient(135deg, #e94560, #0f3460); color: white; transform: translateX(5px); }
+        .report-list li { margin-bottom: 12px; }
+        .report-list a { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            padding: 16px 20px; 
+            background: #f8f9fa; 
+            border-radius: 14px; 
+            text-decoration: none; 
+            color: #333; 
+            transition: all 0.3s; 
+            flex-wrap: wrap;
+        }
+        .report-list a:hover { 
+            background: linear-gradient(135deg, #e94560, #0f3460); 
+            color: white; 
+            transform: translateX(5px); 
+        }
         .report-list a:hover .badge { background: rgba(255,255,255,0.25); color: white; }
         .report-list a:hover .tag { color: rgba(255,255,255,0.8); }
-        .badge { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; }
-        .badge.latest { background: linear-gradient(135deg, #e94560, #ff6b6b); }
-        .report-list .date { font-weight: 700; font-size: 15px; flex: 1; }
-        .report-list .tag { font-size: 13px; color: #888; }
         
-        .copyright { text-align: center; padding: 15px; color: rgba(255,255,255,0.5); font-size: 12px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px; }
-        .footer { background: #f8f9fa; padding: 20px; text-align: center; color: #888; font-size: 12px; }
-        .footer-content { display: flex; align-items: center; justify-content: space-between; padding: 20px 30px; flex-wrap: wrap; gap: 15px; }
-        .footer-brand { display: flex; align-items: center; gap: 15px; }
-        .footer-logo img { height: 35px; width: auto; }
-        .footer-info { }
-        .footer-company { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
-        .footer-desc { font-size: 12px; opacity: 0.7; }
-        .footer-contact { text-align: right; }
-        .contact-item { display: flex; flex-direction: column; gap: 3px; }
-        .contact-item .label { font-size: 11px; opacity: 0.6; }
-        .contact-item .phone { font-size: 16px; font-weight: 700; color: #ffd700; }
-        @media (max-width: 600px) {
-            .footer-content { flex-direction: column; text-align: center; }
-            .footer-contact { text-align: center; }
+        .badge { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 5px 14px; 
+            border-radius: 20px; 
+            font-size: 12px; 
+            font-weight: 600; 
+            white-space: nowrap; 
+            flex-shrink: 0;
         }
-    
+        .badge.latest { background: linear-gradient(135deg, #e94560, #ff6b6b); }
+        
+        .report-list .date { font-weight: 700; font-size: 15px; flex: 1; min-width: 80px; }
+        .report-list .tag { font-size: 13px; color: #888; flex-basis: 100%; margin-top: 4px; padding-left: 2px; }
+        
         /* LOGO 样式 */
-        .logo-corner {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            z-index: 10;
-        }
-        .logo-corner img {
-            height: 40px;
-            width: auto;
-            display: block;
-        }
+        .logo-corner { position: absolute; top: 20px; right: 24px; z-index: 10; }
+        .logo-corner img { height: 42px; width: auto; display: block; }
+        
+        .copyright { text-align: center; padding: 18px; color: rgba(255,255,255,0.5); font-size: 12px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 25px; }
+        
+        /* 响应式优化 - 平板 */
         @media (max-width: 768px) {
-            .logo-corner {
-                top: 12px;
-                right: 12px;
-                padding: 6px 10px;
-            }
-            .logo-corner img {
-                height: 26px;
-            }
+            body { padding: 12px; }
+            .container { border-radius: 16px; }
+            .header { padding: 30px 20px; }
+            .header h1 { font-size: 22px; }
+            .company-info { padding: 14px 16px; }
+            .company-name { font-size: 14px; }
+            .company-tags span { font-size: 10px; padding: 3px 9px; }
+            .content { padding: 20px 15px; }
+            .month-title { font-size: 16px; }
+            .report-list a { padding: 14px 16px; gap: 10px; }
+            .badge { font-size: 11px; padding: 4px 10px; }
+            .report-list .date { font-size: 14px; }
+            .report-list .tag { font-size: 12px; }
+            .logo-corner { top: 14px; right: 14px; }
+            .logo-corner img { height: 32px; }
+        }
+        
+        /* 响应式优化 - 手机 */
+        @media (max-width: 480px) {
+            .header { padding: 25px 15px; }
+            .header h1 { font-size: 18px; }
+            .company-contact { flex-direction: column; gap: 5px; }
+            .contact-phone { font-size: 14px; }
+            .month-title { font-size: 15px; padding: 10px 0; }
+            .report-list a { padding: 12px 14px; flex-direction: column; align-items: flex-start; gap: 8px; }
+            .report-list .date { font-size: 14px; }
+            .report-list .tag { margin-top: 2px; }
+            .badge { font-size: 10px; }
+            .logo-corner { top: 10px; right: 10px; }
+            .logo-corner img { height: 26px; }
         }
     </style>
 </head>
@@ -107,28 +156,28 @@
                         <a href="汽车情报_2026-03-19.html">
                             <span class="badge latest">第12期 最新</span>
                             <span class="date">2026-03-19</span>
-                            <span class="tag">3月第4周 · 六大主题全覆盖</span>
+                            <span class="tag" style="margin-top:6px;">3月第4周<br>六大主题全覆盖</span>
                         </a>
                     </li>
                     <li>
                         <a href="汽车情报_2026-03-16.html">
                             <span class="badge">第11期</span>
                             <span class="date">2026-03-16</span>
-                            <span class="tag">3月第3周 · 购置税新政·欧洲渗透率30%</span>
+                            <span class="tag" style="margin-top:6px;">3月第3周<br>购置税新政·欧洲渗透率30%</span>
                         </a>
                     </li>
                     <li>
                         <a href="汽车情报_2026-03-09.html">
                             <span class="badge">第10期</span>
                             <span class="date">2026-03-09</span>
-                            <span class="tag">3月第2周 · 1-2月销量解读·比亚迪刀片电池</span>
+                            <span class="tag" style="margin-top:6px;">3月第2周<br>1-2月销量解读·比亚迪刀片电池</span>
                         </a>
                     </li>
                     <li>
                         <a href="汽车情报_2026-03-02.html">
                             <span class="badge">第9期</span>
                             <span class="date">2026-03-02</span>
-                            <span class="tag">3月第1周 · 2月产销数据·出口+52.4%</span>
+                            <span class="tag" style="margin-top:6px;">3月第1周<br>2月产销数据·出口+52.4%</span>
                         </a>
                     </li>
                 </ul>
@@ -141,7 +190,7 @@
                         <a href="汽车情报_2026-02-23.html">
                             <span class="badge">第8期</span>
                             <span class="date">2026-02-23</span>
-                            <span class="tag">2月第4周 · 2月销量洗牌·比亚迪刀片电池发布</span>
+                            <span class="tag" style="margin-top:6px;">2月第4周<br>2月销量洗牌·比亚迪刀片电池发布</span>
                         </a>
                     </li>
                     <li>
