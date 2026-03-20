@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>综合情报_2026-03-23 · 全年第12期 · 3月第4周</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
+            min-height: 100vh; 
+            padding: 20px 15px 60px; 
+            line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header { text-align: center; padding: 35px 20px 25px; color: white; position: relative; }
+        .header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; background: linear-gradient(90deg, #e94560, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header .meta { display: inline-flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
+        .header .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .header .badge.gold { background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); border-color: rgba(255,215,0,0.6); }
+        
+        .logo-corner { position: absolute; top: 18px; right: 20px; z-index: 10; }
+        .logo-corner img { height: 38px; width: auto; display: block; }
+        
+        .section { background: #fff; border-radius: 18px; margin-bottom: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .section-header { background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); padding: 18px 24px; color: white; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .section-header.home { background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%); }
+        .section-header.digital { background: linear-gradient(135deg, #5f27cd 0%, #9b59b6 100%); }
+        .section-header.auto { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-header h2 { font-size: 1.15rem; font-weight: 600; flex: 1; }
+        .section-header .icon { font-size: 1.4rem; }
+        .section-content { padding: 22px 26px; }
+        
+        .news-item { padding: 14px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .emoji { font-size: 1.2rem; flex-shrink: 0; }
+        .news-item .content { flex: 1; min-width: 0; }
+        .news-item .title { font-weight: 600; color: #333; margin-bottom: 6px; font-size: 0.95rem; line-height: 1.4; }
+        .news-item .desc { color: #666; font-size: 0.9rem; line-height: 1.7; word-wrap: break-word; }
+        .news-item .source { font-size: 0.75rem; color: #999; margin-top: 8px; }
+        .news-item .source a { color: #667eea; text-decoration: none; }
+        .news-item .source a:hover { text-decoration: underline; color: #e94560; }
+        
+        .region-title { font-size: 0.95rem; font-weight: 700; color: #e94560; margin: 22px 0 14px; padding-left: 12px; border-left: 4px solid #ff6b6b; }
+        .region-title:first-child { margin-top: 0; }
+        
+        .data-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px; }
+        .data-card { background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); border-radius: 14px; padding: 18px 14px; color: white; text-align: center; }
+        .data-card.home { background: linear-gradient(135deg, #ff6b6b, #feca57); }
+        .data-card.digital { background: linear-gradient(135deg, #5f27cd, #9b59b6); }
+        .data-card.auto { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .data-card.gold { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .data-card .value { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+        .data-card .label { font-size: 0.8rem; opacity: 0.9; }
+        
+        .highlight-box { background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); border-radius: 14px; padding: 18px; margin: 14px 0; border-left: 5px solid #e17055; }
+        .highlight-box .title { font-weight: 700; color: #d63031; margin-bottom: 8px; font-size: 0.95rem; }
+        .highlight-box .content { color: #333; line-height: 1.7; font-size: 0.9rem; }
+        
+        .activity-item { display: flex; align-items: center; gap: 14px; padding: 14px; background: #f8f9fa; border-radius: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+        .activity-item .date-badge { background: linear-gradient(135deg, #e94560, #ff6b6b); color: white; padding: 7px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+        .activity-item .info { flex: 1; min-width: 150px; }
+        .activity-item .info .name { font-weight: 600; color: #333; margin-bottom: 3px; font-size: 0.9rem; }
+        .activity-item .info .location { font-size: 0.8rem; color: #666; }
+        
+        .archive { background: #fff; border-radius: 18px; padding: 26px; margin-bottom: 18px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .archive h3 { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 1.1rem; margin-bottom: 18px; color: #333; }
+        .archive-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .archive-list a { padding: 10px 18px; background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); color: white; text-decoration: none; border-radius: 25px; font-size: 0.85rem; transition: all 0.3s; white-space: nowrap; }
+        .archive-list a:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(233,69,96,0.4); }
+        
+        .copyright { text-align: center; padding: 15px; color: rgba(255,255,255,0.5); font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px; }
+        .footer { padding: 25px; color: rgba(255,255,255,0.6); font-size: 0.85rem; text-align: center; }
+        
+        .back-index { position: fixed; bottom: 28px; right: 28px; padding: 12px 22px; background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); color: white; text-decoration: none; border-radius: 30px; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 20px rgba(233,69,96,0.4); z-index: 1000; transition: all 0.3s; }
+        .back-index:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(233,69,96,0.5); }
+        
+        @media (max-width: 900px) { .data-cards { grid-template-columns: repeat(2, 1fr); } .header h1 { font-size: 1.5rem; } .section-header h2 { font-size: 1rem; } }
+        @media (max-width: 768px) {
+            body { padding: 12px 10px 50px; }
+            .header { padding: 28px 15px 20px; }
+            .header h1 { font-size: 1.3rem; }
+            .logo-corner { top: 12px; right: 12px; }
+            .logo-corner img { height: 30px; }
+            .section { border-radius: 14px; margin-bottom: 14px; }
+            .section-content { padding: 16px 18px; }
+            .data-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .news-item { padding: 12px 0; }
+            .back-index { bottom: 18px; right: 18px; padding: 10px 18px; font-size: 0.8rem; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 8px 8px 45px; }
+            .header { padding: 22px 12px 16px; }
+            .header h1 { font-size: 1.1rem; }
+            .section-content { padding: 14px; }
+            .data-cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .back-index { bottom: 14px; right: 14px; padding: 8px 14px; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-corner"><img src="logo-white-transparent.png" alt="LOGO"></div>
+    <div class="container">
+        <div class="header">
+            <h1>📊 综合市场每周情报</h1>
+            <div class="meta">
+                <span class="badge gold">全年第12期</span>
+                <span class="badge">3月第4周</span>
+                <span class="badge">📅 2026-03-23</span>
+            </div>
+        </div>
+
+        <!-- 核心数据摘要 -->
+        <div class="data-cards">
+            <div class="data-card home">
+                <div class="value">🏠 家电</div>
+                <div class="label">以旧换新持续增长</div>
+            </div>
+            <div class="data-card digital">
+                <div class="value">📱 数码</div>
+                <div class="label">AI赋能技术创新</div>
+            </div>
+            <div class="data-card auto">
+                <div class="value">🚗 汽车</div>
+                <div class="label">新能源渗透率提升</div>
+            </div>
+            <div class="data-card gold">
+                <div class="value">📈 消费</div>
+                <div class="label">市场持续回暖</div>
+            </div>
+        </div>
+
+        <!-- 家电板块 -->
+        <section class="section">
+            <div class="section-header home"><span class="icon">🏠</span><h2>一、家电市场</h2></div>
+            <div class="section-content">
+                <div class="region-title">📌 政策动态</div>
+                
+                <div class="news-item">
+                    <span class="emoji">✅</span>
+                    <div class="content">
+                        <div class="title">2026年消费品以旧换新政策持续深化</div>
+                        <div class="desc">国家发展改革委、财政部印发《关于2026年实施大规模设备更新和消费品以旧换新政策的通知》，截至2月22日，2026年消费品以旧换新已惠及3053.2万人次，带动销售额2045.4亿元。</div>
+                        <div class="source">来源：<a href="https://www.ndrc.gov.cn/" target="_blank">国家发改委</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🎉</span>
+                    <div class="content">
+                        <div class="title">更大规模家电"焕新潮"来袭</div>
+                        <div class="desc">2026全国家电暨数码和智能产品消费季在上海启动，商务部副部长盛秋平表示将坚持"政策+活动"双轮驱动，推动家电消费升级。智能家居、健康家电成为新增长点。</div>
+                        <div class="source">来源：<a href="https://www.cinn.cn/" target="_blank">中国家电网</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🌿</span>
+                    <div class="content">
+                        <div class="title">绿色智能家电成主流趋势</div>
+                        <div class="desc">《家用和类似用途电器的安全使用年限和再生利用通则》国家标准将强制家电标注安全年限，引导超期服役产品有序退出，为绿色智能新品释放市场空间。</div>
+                        <div class="source">来源：<a href="https://www.cinn.cn/" target="_blank">中国家电网</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数码板块 -->
+        <section class="section">
+            <div class="section-header digital"><span class="icon">📱</span><h2>二、数码市场</h2></div>
+            <div class="section-content">
+                <div class="region-title">📌 新品动态</div>
+                
+                <div class="news-item">
+                    <span class="emoji">📱</span>
+                    <div class="content">
+                        <div class="title">中国手机市场迎首次全面普涨</div>
+                        <div class="desc">2026年中国手机行业正式迎来全面涨价潮，这是国内手机市场首次出现全品类、全品牌同步普涨。AI技术应用带动成本上升成为主要原因。</div>
+                        <div class="source">来源：<a href="https://www.ithome.com/" target="_blank">IT之家</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🚀</span>
+                    <div class="content">
+                        <div class="title">一加 15T "小屏大魔王"即将发布</div>
+                        <div class="desc">一加宣布将于3月24日发布新款小屏旗舰手机一加15T，主打小尺寸高性能，在紧凑机身中实现旗舰级配置，引领小屏手机新潮流。</div>
+                        <div class="source">来源：<a href="https://mobile.pconline.com.cn/" target="_blank">太平洋科技</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🤖</span>
+                    <div class="content">
+                        <div class="title">AI原生成2026科技主流趋势</div>
+                        <div class="desc">抖音商城科技晚发布2026五大科技趋势，AI原生成主流。AI PC、折叠屏手机、智能穿戴设备持续创新，推动数码消费市场增长。</div>
+                        <div class="source">来源：<a href="https://www.sohu.com/" target="_blank">搜狐科技</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 汽车板块 -->
+        <section class="section">
+            <div class="section-header auto"><span class="icon">🚗</span><h2>三、汽车市场</h2></div>
+            <div class="section-content">
+                <div class="region-title">📌 市场动态</div>
+                
+                <div class="news-item">
+                    <span class="emoji">⚡</span>
+                    <div class="content">
+                        <div class="title">欧洲九国2月电车销量同比增长29%</div>
+                        <div class="desc">2026年2月欧洲九国新能源汽车销量达22.79万辆，同比+29%，环比+6%，渗透率30.9%。德国、瑞典重启电动车补贴政策，西班牙推出全新"Auto+"计划。</div>
+                        <div class="source">来源：<a href="https://www.csc108.com/" target="_blank">中信建投</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">📈</span>
+                    <div class="content">
+                        <div class="title">中国品牌在欧洲市场持续高速增长</div>
+                        <div class="desc">2025年12月比亚迪在欧洲销量达到1.8万辆，同比增长一倍以上。2026年中国品牌继续在欧洲市场高歌猛进，凭借价格优势和技术竞争力，市占率持续提升。</div>
+                        <div class="source">来源：<a href="https://www.acea.be/" target="_blank">ACEA欧洲汽车制造商协会</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🔋</span>
+                    <div class="content">
+                        <div class="title">新能源市场长期增长趋势不变</div>
+                        <div class="desc">尽管短期内全球电动车市场出现调整，但长期增长趋势不变。分析师指出，政策支持、技术进步和消费升级将继续推动新能源汽车市场发展。</div>
+                        <div class="source">来源：<a href="https://www.autonews.com/" target="_blank">美国汽车新闻</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 总结 -->
+        <section class="section">
+            <div class="section-header"><span class="icon">💡</span><h2>四、总结与展望</h2></div>
+            <div class="section-content">
+                <div class="highlight-box">
+                    <div class="title">📊 本周市场要点</div>
+                    <div class="content">
+                        <strong>家电：</strong>以旧换新政策持续深化，绿色智能家电成为主流，焕新潮来袭<br><br>
+                        <strong>数码：</strong>AI技术驱动创新，手机市场首次全面普涨，一加等新品值得期待<br><br>
+                        <strong>汽车：</strong>欧洲新能源市场增长强劲，中国品牌出海成绩亮眼，长期趋势向好
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 往期回顾 -->
+        <div class="archive">
+            <h3>📚 往期回顾</h3>
+            <div class="archive-list">
+                <a href="汽车情报_2026-03-16.html">3月第3周 · 汽车情报</a>
+                <a href="数码情报_2026-03-09.html">3月第2周 · 数码情报</a>
+                <a href="家电情报_2026-03-02.html">3月第1周 · 家电情报</a>
+                <a href="汽车情报_2026-02-23.html">2月第4周 · 汽车情报</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</div>
+        </div>
+        
+        <a href="报告索引.html" class="back-index">📋 返回目录</a>
+    </div>
+</body>
+</html>
