@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>auto_2026-03-23 - 汽车市场每周情报</title>
+    
+    
+    
+    
+    
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
+            min-height: 100vh; 
+            padding: 20px 15px 60px; 
+            line-height: 1.6;
+        }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+        .header { 
+            text-align: center; 
+            padding: 35px 20px 25px; 
+            color: white; 
+            position: relative; 
+        }
+        .header h1 { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            margin-bottom: 12px; 
+            background: linear-gradient(90deg, #e94560, #ffd700); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text; 
+        }
+        .header .meta { 
+            display: inline-flex; 
+            gap: 12px; 
+            margin-top: 14px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        .header .badge { 
+            background: rgba(255,255,255,0.15); 
+            border: 1px solid rgba(255,255,255,0.3); 
+            color: white; 
+            padding: 6px 16px; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+        }
+        .header .badge.gold { 
+            background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); 
+            border-color: rgba(255,215,0,0.6); 
+        }
+        
+        /* LOGO 样式 */
+        .logo-corner { position: absolute; top: 18px; right: 20px; z-index: 10; }
+        .logo-corner img { height: 38px; width: auto; display: block; }
+        
+        .section { 
+            background: #fff; 
+            border-radius: 18px; 
+            margin-bottom: 18px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3); 
+        }
+        .section-header { 
+            background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); 
+            padding: 18px 24px; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            flex-wrap: wrap;
+        }
+        .section-header h2 { font-size: 1.15rem; font-weight: 600; flex: 1; }
+        .section-header .icon { font-size: 1.4rem; }
+        .section-content { padding: 22px 26px; }
+        
+        .news-item { 
+            padding: 14px 0; 
+            border-bottom: 1px solid #eee; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 12px; 
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .emoji { font-size: 1.2rem; flex-shrink: 0; }
+        .news-item .content { flex: 1; min-width: 0; }
+        .news-item .title { font-weight: 600; color: #333; margin-bottom: 6px; font-size: 0.95rem; line-height: 1.4; }
+        .news-item .desc { color: #666; font-size: 0.9rem; line-height: 1.7; word-wrap: break-word; }
+        .news-item .source { font-size: 0.75rem; color: #999; margin-top: 8px; }
+        .news-item .source a { color: #667eea; text-decoration: none; }
+        .news-item .source a:hover { text-decoration: underline; color: #e94560; }
+        
+        .region-title { 
+            font-size: 0.95rem; 
+            font-weight: 700; 
+            color: #0f3460; 
+            margin: 22px 0 14px; 
+            padding-left: 12px; 
+            border-left: 4px solid #e94560; 
+        }
+        .region-title:first-child { margin-top: 0; }
+        
+        .data-cards { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 14px; 
+            margin-bottom: 18px; 
+        }
+        .data-card { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            border-radius: 14px; 
+            padding: 18px 14px; 
+            color: white; 
+            text-align: center; 
+        }
+        .data-card.orange { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .data-card.green { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .data-card.gold { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .data-card .value { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+        .data-card .label { font-size: 0.8rem; opacity: 0.9; }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 14px; 
+            font-size: 0.85rem;
+            display: block;
+            overflow-x: auto;
+        }
+        thead { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); color: white; }
+        th, td { padding: 10px 12px; text-align: left; white-space: nowrap; }
+        th:first-child { border-radius: 10px 0 0 0; }
+        th:last-child { border-radius: 0 10px 0 0; }
+        tbody tr:nth-child(even) { background: #f8f9fa; }
+        tbody tr:hover { background: #e9ecef; }
+        
+        .highlight-box { 
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); 
+            border-radius: 14px; 
+            padding: 18px; 
+            margin: 14px 0; 
+            border-left: 5px solid #e17055; 
+        }
+        .highlight-box .title { font-weight: 700; color: #d63031; margin-bottom: 8px; font-size: 0.95rem; }
+        .highlight-box .content { color: #333; line-height: 1.7; font-size: 0.9rem; }
+        
+        .activity-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 14px; 
+            padding: 14px; 
+            background: #f8f9fa; 
+            border-radius: 12px; 
+            margin-bottom: 12px; 
+            flex-wrap: wrap;
+        }
+        .activity-item .date-badge { 
+            background: linear-gradient(135deg, #e94560, #0f3460); 
+            color: white; 
+            padding: 7px 14px; 
+            border-radius: 20px; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            white-space: nowrap; 
+            flex-shrink: 0;
+        }
+        .activity-item .info { flex: 1; min-width: 150px; }
+        .activity-item .info .name { font-weight: 600; color: #333; margin-bottom: 3px; font-size: 0.9rem; }
+        .activity-item .info .location { font-size: 0.8rem; color: #666; }
+        
+        .archive { 
+            background: #fff; 
+            border-radius: 18px; 
+            padding: 26px; 
+            margin-bottom: 18px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3); 
+        }
+        .archive h3 { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            font-size: 1.1rem; 
+            margin-bottom: 18px; 
+            color: #333; 
+        }
+        .archive-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .archive-list a { 
+            padding: 10px 18px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 25px; 
+            font-size: 0.85rem; 
+            transition: all 0.3s; 
+            white-space: nowrap;
+        }
+        .archive-list a:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 5px 20px rgba(102,126,234,0.4); 
+        }
+        
+        .copyright { 
+            text-align: center; 
+            padding: 15px; 
+            color: rgba(255,255,255,0.5); 
+            font-size: 0.75rem; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            margin-top: 20px; 
+        }
+        .footer { padding: 25px; color: rgba(255,255,255,0.6); font-size: 0.85rem; text-align: center; }
+        
+        /* 悬浮返回按钮 */
+        .back-index { 
+            position: fixed; 
+            bottom: 28px; 
+            right: 28px; 
+            padding: 12px 22px; 
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4);
+            z-index: 1000; 
+            transition: all 0.3s; 
+        }
+        .back-index:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 25px rgba(233, 69, 96, 0.5); 
+        }
+        
+        /* ========== 响应式优化 ========== */
+        
+        /* 平板 */
+        @media (max-width: 900px) {
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 1.5rem; }
+            .section-header h2 { font-size: 1rem; }
+        }
+        
+        /* 手机横屏 */
+        @media (max-width: 768px) {
+            body { padding: 12px 10px 50px; }
+            .header { padding: 28px 15px 20px; }
+            .header h1 { font-size: 1.3rem; }
+            .header .meta { gap: 8px; }
+            .header .badge { padding: 5px 12px; font-size: 0.75rem; }
+            
+            .logo-corner { top: 12px; right: 12px; }
+            .logo-corner img { height: 30px; }
+            
+            .section { border-radius: 14px; margin-bottom: 14px; }
+            .section-header { padding: 14px 16px; }
+            .section-header h2 { font-size: 0.95rem; }
+            .section-content { padding: 16px 18px; }
+            
+            .news-item { padding: 12px 0; gap: 10px; }
+            .news-item .emoji { font-size: 1.1rem; }
+            .news-item .title { font-size: 0.9rem; }
+            .news-item .desc { font-size: 0.85rem; line-height: 1.6; }
+            
+            .data-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
+            .data-card { padding: 14px 10px; }
+            .data-card .value { font-size: 1.2rem; }
+            .data-card .label { font-size: 0.7rem; }
+            
+            table { font-size: 0.75rem; }
+            th, td { padding: 8px 10px; }
+            
+            .highlight-box { padding: 14px; margin: 12px 0; }
+            .highlight-box .title { font-size: 0.9rem; }
+            .highlight-box .content { font-size: 0.85rem; }
+            
+            .activity-item { padding: 12px; gap: 10px; }
+            .activity-item .date-badge { padding: 6px 12px; font-size: 0.75rem; }
+            .activity-item .info .name { font-size: 0.85rem; }
+            .activity-item .info .location { font-size: 0.75rem; }
+            
+            .archive { padding: 20px; border-radius: 14px; }
+            .archive h3 { font-size: 1rem; }
+            .archive-list a { padding: 8px 14px; font-size: 0.8rem; }
+            
+            .back-index { bottom: 18px; right: 18px; padding: 10px 18px; font-size: 0.8rem; }
+        }
+        
+        /* 手机竖屏 */
+        @media (max-width: 480px) {
+            body { padding: 8px 8px 45px; }
+            .header { padding: 22px 12px 16px; }
+            .header h1 { font-size: 1.1rem; }
+            .header .meta { gap: 6px; }
+            .header .badge { padding: 4px 10px; font-size: 0.7rem; }
+            
+            .logo-corner { top: 8px; right: 8px; }
+            .logo-corner img { height: 24px; }
+            
+            .section { border-radius: 12px; margin-bottom: 12px; }
+            .section-header { padding: 12px 14px; gap: 8px; }
+            .section-header h2 { font-size: 0.9rem; }
+            .section-header .icon { font-size: 1.1rem; }
+            .section-content { padding: 14px; }
+            
+            .news-item { padding: 10px 0; gap: 8px; flex-direction: column; }
+            .news-item .emoji { font-size: 1rem; }
+            .news-item .title { font-size: 0.85rem; }
+            .news-item .desc { font-size: 0.8rem; }
+            .news-item .source { font-size: 0.7rem; }
+            
+            .data-cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .data-card { padding: 12px 8px; border-radius: 10px; }
+            .data-card .value { font-size: 1.1rem; }
+            .data-card .label { font-size: 0.65rem; }
+            
+            .region-title { font-size: 0.85rem; margin: 16px 0 10px; }
+            
+            .highlight-box { padding: 12px; border-radius: 10px; }
+            .highlight-box .title { font-size: 0.85rem; }
+            .highlight-box .content { font-size: 0.8rem; }
+            
+            .activity-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .activity-item .date-badge { font-size: 0.7rem; }
+            .activity-item .info { width: 100%; }
+            
+            .archive { padding: 16px; border-radius: 12px; }
+            .archive h3 { font-size: 0.95rem; margin-bottom: 14px; }
+            .archive-list { gap: 8px; }
+            .archive-list a { padding: 7px 12px; font-size: 0.75rem; }
+            
+            .back-index { 
+                bottom: 14px; 
+                right: 14px; 
+                padding: 8px 14px; 
+                font-size: 0.75rem; 
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 汽车市场每周情报</h1>
+            <p>2026年3月23日（第13周）| 六大主题深度覆盖</p>
+            <p class="update-time">📅 每周一早上8:00自动更新 | 数据截止至2026年3月22日</p>
+            <div class="meta">
+                <span class="badge">📊 国内车市</span>
+                <span class="badge">🌏 海外市场</span>
+                <span class="badge gold">🔋 新能源</span>
+                <span class="badge">🏭 车企动态</span>
+            </div>
+        </div>
+
+        <!-- 一、国内市场核心数据 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="icon">📊</span>
+                <h2>一、国内市场核心数据</h2>
+            </div>
+            <div class="section-content">
+
+                <div class="data-cards">
+                    <div class="data-card">
+                        <div class="value">170万辆</div>
+                        <div class="label">3月乘用车零售预测</div>
+                        <div class="change">↑ 环比+64.5%</div>
+                    </div>
+                    <div class="data-card orange">
+                        <div class="value">90万辆</div>
+                        <div class="label">3月新能源预测</div>
+                        <div class="change">渗透率突破52%</div>
+                    </div>
+                    <div class="data-card green">
+                        <div class="value">103.4万辆</div>
+                        <div class="label">2月乘用车零售实绩</div>
+                        <div class="change">同比持平</div>
+                    </div>
+                    <div class="data-card gold">
+                        <div class="value">3453万辆</div>
+                        <div class="label">2025全年汽车销量</div>
+                        <div class="change">↑ 创历史新高</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <div class="title">📌 乘联会3月市场预判（2026-03-21发布）</div>
+                    <div class="content">
+                        乘联分会预计2026年3月狭义乘用车零售销量将达<strong>170万辆</strong>，环比上升64.5%，其中新能源销量约<strong>90万辆</strong>，<strong>新能源渗透率超52%</strong>，创历史新高。<br><br>
+                        3月上半月市场数据显示：集客量相比2月同期<strong>上升28.5%</strong>、订单量上升<strong>6%</strong>、实际销量上升<strong>0.8%</strong>，市场整体呈回暖趋势。主要驱动力为：春节后购车需求集中释放、各地置换补贴细则落地、鸿蒙智行/小米等多款新车上市引发客流。
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="background: linear-gradient(135deg, #ffe4e1, #ffcccb); border-left-color: #e94560;">
+                    <div class="title">🚨 2026年2月销量重磅出炉：比亚迪破32万领跑，小米YU7登顶</div>
+                    <div class="content">
+                        <strong>比亚迪</strong>依旧稳坐龙头，批发销量突破<strong>32万辆</strong>，同比增幅超30%，其中出口量首次突破10万辆，国际化步伐显著加速。<br><br>
+                        <strong>小米YU7</strong>以<strong>2.01万辆</strong>的成绩登顶2月最畅销新能源车型，成为一匹黑马。极氪同比大增，继续保持高增长态势。<br><br>
+                        2月因春节假期影响，整体市场表现平淡，但新能源领域依旧保持强劲增长动力。
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <span class="emoji">🔋</span>
+                    <div class="content">
+                        <div class="title">新能源渗透率持续突破历史高点</div>
+                        <div class="desc">2026年3月新能源乘用车渗透率预计超52%，远超2025年全年平均的45.8%。其中插混/增程车型增速最快，占新能源总销量比例预计超过35%，成为推动渗透率提升的核心力量。</div>
+                        <div class="source">来源：中国汽车流通协会乘联分会</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">🏭</span>
+                    <div class="content">
+                        <div class="title">2026年1-2月产销承压，3月强势反弹</div>
+                        <div class="desc">受2026年春节超长假期（比往年多3天）、新能源购置税过渡、"两新"补贴政策切换等多重因素叠加影响，1-2月产销数据低于预期。随着3月所有政策细则落地，叠加传统"小旺季"效应，预计全年将稳健增长。</div>
+                        <div class="source">来源：中国汽车工业协会月报</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">📈</span>
+                    <div class="content">
+                        <div class="title">50万级SUV市场高端化升温，新能源占比超六成</div>
+                        <div class="desc">据中汽协数据，2026年1-2月国内50万级SUV累计销量同比增长18.7%，新能源车型占比达62.3%。问界M9、理想MEGA等高端新能源产品强势夺取传统豪华品牌市场份额，BBA在该细分市场首次合计跌破40%。</div>
+                        <div class="source">来源：易车网、中汽协（2026-03-19）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 二、海外市场 - 欧洲 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="icon">🇪🇺</span>
+                <h2>二、海外市场 — 欧洲</h2>
+            </div>
+            <div class="section-content">
+
+                <div class="region-section">
+                    <h3>📌 东欧五国市场（2026年2月）</h3>
+                    <div class="data-cards" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="data-card">
+                            <div class="value">89,959辆</div>
+                            <div class="label">东欧五国2月总销量</div>
+                        </div>
+                        <div class="data-card orange">
+                            <div class="value">~7,000辆</div>
+                            <div class="label">中国品牌2月销量</div>
+                            <div class="change">市占率~7.8%</div>
+                        </div>
+                        <div class="data-card green">
+                            <div class="value">2,145辆</div>
+                            <div class="label">奇瑞Omoda/Jaecoo领跑</div>
+                            <div class="change">东欧第一中国品牌</div>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr><th>中国品牌</th><th>2月销量</th><th>主要市场</th><th>核心车型</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>🥇 Omoda/Jaecoo（奇瑞）</td><td><strong>2,145辆</strong></td><td>波兰、捷克</td><td>Omoda 5</td></tr>
+                            <tr><td>🥈 MG（上汽）</td><td><strong>1,896辆</strong></td><td>波兰、捷克、匈牙利</td><td>MG4/MG ZS</td></tr>
+                            <tr><td>🥉 奇瑞（其余车型）</td><td><strong>1,439辆</strong></td><td>波兰、罗马尼亚</td><td>瑞虎系列</td></tr>
+                            <tr><td>比亚迪</td><td><strong>1,088辆</strong></td><td>匈牙利、罗马尼亚</td><td>ATTO 3</td></tr>
+                            <tr><td>领克+零跑</td><td>172辆</td><td>波兰</td><td>领克01/03</td></tr>
+                            <tr><td>捷途</td><td>138辆</td><td>波兰、乌克兰</td><td>捷途旅行者</td></tr>
+                            <tr><td>吉利</td><td>149辆</td><td>波兰、罗马尼亚</td><td>EX5</td></tr>
+                            <tr><td>小鹏</td><td>27辆</td><td>捷克、波兰</td><td>P7/G6</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="source" style="margin-top:8px; color:#999; font-size:12px;">来源：芝能汽车（2026-03-17）</div>
+                </div>
+
+                <div class="news-item">
+                    <span class="emoji">⚡</span>
+                    <div class="content">
+                        <div class="title">欧盟"价格承诺"机制落地，中国品牌出口利润有望提升</div>
+                        <div class="desc">欧盟宣布对部分中国电动车品牌实施"价格承诺"机制，以替代此前的高额关税壁垒。根据Marklines数据，中国品牌在欧洲EV市场份额在高关税压力下仍持续提升，2025年合计占比已突破8%。价格承诺机制落地后，预计进一步降低出口门槛，有助于比亚迪、上汽MG等品牌在西欧核心市场扩大规模。</div>
+                        <div class="source">来源：广发证券汽车深度报告（2026年3月）、eet-china</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">🔑</span>
+                    <div class="content">
+                        <div class="title">比亚迪匈牙利工厂推进，本土化生产规避关税</div>
+                        <div class="desc">比亚迪在匈牙利的乘用车工厂建设持续推进，预计2026年底完成一期建设，届时年产能可达15万辆。本土化生产将使比亚迪在欧盟内部享受更低关税，同时符合欧盟"本地化"采购要求，战略意义重大。东欧作为生产基地和销售市场的双重价值日益凸显。</div>
+                        <div class="source">来源：路透社、盖世汽车（2026-03-15）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">📊</span>
+                    <div class="content">
+                        <div class="title">西欧电动车市场回暖，德国二次开放补贴</div>
+                        <div class="desc">德国、瑞典相继宣布重启电动车补贴计划，西班牙推出"Auto+"消费刺激方案，带动西欧整体电动车市场在2月同比增长约12%。政策转向预计将直接利好中国品牌，尤其是已建立欧洲渠道的MG、比亚迪、极氪等。</div>
+                        <div class="source">来源：ACEA欧洲汽车制造商协会（2026-03）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 三、海外市场 - 北美 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="icon">🇺🇸</span>
+                <h2>三、海外市场 — 北美</h2>
+            </div>
+            <div class="section-content">
+
+                <div class="data-cards">
+                    <div class="data-card">
+                        <div class="value">354亿美元</div>
+                        <div class="label">全球车企关税总损失</div>
+                        <div class="change">截至2026年3月中旬</div>
+                    </div>
+                    <div class="data-card orange">
+                        <div class="value">91亿美元</div>
+                        <div class="label">丰田关税损失最高</div>
+                        <div class="change">受影响最严重车企</div>
+                    </div>
+                    <div class="data-card green">
+                        <div class="value">-1.9%</div>
+                        <div class="label">美国2月新车同比</div>
+                        <div class="change">进口车型下降7.9%</div>
+                    </div>
+                    <div class="data-card gold">
+                        <div class="value">65亿美元</div>
+                        <div class="label">底特律三巨头损失</div>
+                        <div class="change">2025年一年内</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <div class="title">🚨 美国关税政策最新动态</div>
+                    <div class="content">
+                        美国对汽车行业的关税政策形成"三重叠压"局面：<br>
+                        • <strong>欧盟/日韩整车关税15%</strong>，加墨整车含美国产以外部分征<strong>25%关税</strong><br>
+                        • 钢铁、铝等大宗材料额外关税仍维持，推高零部件成本<br>
+                        • 中国产电动车关税维持<strong>100%</strong>，中国品牌在北美基本无法直接参与竞争<br><br>
+                        丰田（91亿美元损失）、底特律三巨头（65亿美元）、现代/宝马/大众等均受到严重冲击，多家车企已通过<strong>涨价、调整生产地、与美国本土供应商合作</strong>等方式应对。
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <span class="emoji">⚙️</span>
+                    <div class="content">
+                        <div class="title">美国2月新车销量同比微跌1.9%，进口车受创更深</div>
+                        <div class="desc">据MarkLines统计，2026年2月美国新车销量同比下降1.9%（含速报值），其中进口车型销量同比降幅高达7.9%，本土生产车型受影响相对较小。通用、福特、Stellantis在本土生产的皮卡和SUV仍保持强劲，而日韩豪华车型普遍承压。</div>
+                        <div class="source">来源：MarkLines（2026-03-04）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">🔋</span>
+                    <div class="content">
+                        <div class="title">特斯拉北美市场遭双重压制，份额首次跌破50%</div>
+                        <div class="desc">在马斯克政治争议持续发酵和竞争对手攻势双重压力下，特斯拉2026年Q1在北美市场份额预计跌破50%，为史上首次。Rivian、福特Mach-E、通用Equinox EV等本土竞品持续蚕食市场。特斯拉计划通过降价和Model Y改款应对挑战。</div>
+                        <div class="source">来源：Tridents Technology特斯拉销售统计（2026-03-05）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">🏗️</span>
+                    <div class="content">
+                        <div class="title">墨西哥成跨国车企"避税天堂"，中国零部件渗透深化</div>
+                        <div class="desc">面对美国加墨关税政策的"灰色地带"，多家跨国车企加速在墨西哥建立生产基地。与此同时，中国汽车零部件企业（如宁德时代、弗迪电池等）也在积极布局墨西哥，通过本土化供应间接进入北美市场，规避直接出口中国关税壁垒。</div>
+                        <div class="source">来源：盖世汽车（2026-03-17）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 四、海外市场 - 东南亚 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="icon">🌏</span>
+                <h2>四、海外市场 — 东南亚</h2>
+            </div>
+            <div class="section-content">
+
+                <div class="data-cards">
+                    <div class="data-card">
+                        <div class="value">12,272辆</div>
+                        <div class="label">印尼2月电动车批发</div>
+                        <div class="change">↑ 环比增长约20%</div>
+                    </div>
+                    <div class="data-card orange">
+                        <div class="value">3,700辆</div>
+                        <div class="label">比亚迪Atto1印尼销量</div>
+                        <div class="change">连续蝉联月度冠军</div>
+                    </div>
+                    <div class="data-card green">
+                        <div class="value">52,414辆</div>
+                        <div class="label">马来西亚2月新车销量</div>
+                        <div class="change">受春节影响环比降19%</div>
+                    </div>
+                    <div class="data-card gold">
+                        <div class="value">+39%</div>
+                        <div class="label">越南1-2月累计增速</div>
+                        <div class="change">混动表现亮眼</div>
+                    </div>
+                </div>
+
+                <div class="region-section">
+                    <h3>🇮🇩 印尼市场：中国品牌占据电动车TOP10前4席</h3>
+                    <table>
+                        <thead>
+                            <tr><th>排名</th><th>品牌/车型</th><th>2月销量</th><th>备注</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background:#fff0f0;"><td>🥇</td><td>比亚迪 Atto 1（海鸥）</td><td><strong>3,700辆</strong></td><td>连续蝉联冠军</td></tr>
+                            <tr><td>🥈</td><td>（日系品牌）</td><td>1,200辆+</td><td>传统燃油混动</td></tr>
+                            <tr style="background:#fff0f0;"><td>🥉</td><td>五菱 Darion EV（星光730）</td><td><strong>1,019辆</strong></td><td>交付后势头强劲</td></tr>
+                            <tr style="background:#fff0f0;"><td>第4</td><td>吉利 EX2</td><td><strong>776辆</strong></td><td>增长明显</td></tr>
+                            <tr style="background:#fff0f0;"><td>第5</td><td>比亚迪 M6</td><td><strong>523辆</strong></td><td>MPV新兴市场</td></tr>
+                            <tr style="background:#fff0f0;"><td>第8</td><td>吉利 EX5</td><td><strong>335辆</strong></td><td>紧凑型SUV</td></tr>
+                            <tr style="background:#fff0f0;"><td>第10</td><td>腾势 D9</td><td><strong>270辆</strong></td><td>高端MPV渗透</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="news-item">
+                    <span class="emoji">🌱</span>
+                    <div class="content">
+                        <div class="title">长城ORA 5泰国首发，东风风行正式进入泰国市场</div>
+                        <div class="desc">长城汽车宣布全新ORA 5在泰国首发亮相（全球首发），计划2026年4月启动生产交付，目标2026年底销量达8,000辆（70%纯电），本土化率目标提升至80%。东风风行携手泰连贸易进入泰国，未来3年将引入6款新能源车型，目标3-5年内成为当地电动MPV/SUV市场领导者。</div>
+                        <div class="source">来源：车家号·车市睿见（2026-03-21）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">🎯</span>
+                    <div class="content">
+                        <div class="title">中国品牌在东南亚新能源市场占据半壁江山</div>
+                        <div class="desc">2026年东南亚汽车市场迎来历史性拐点：中国品牌新能源车在泰国、越南、马来西亚、印尼全面爆发。比亚迪、奇瑞等以智能化、高性价比车型强势抢占日系燃油车份额。泰国市场中国品牌占比首次超过日系品牌，成为东南亚最大汽车市场的里程碑事件。</div>
+                        <div class="source">来源：百家号（2026-03-15）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">⚠️</span>
+                    <div class="content">
+                        <div class="title">印尼LCGC市场承压，传统低价燃油车面临结构性冲击</div>
+                        <div class="desc">印尼2026年前两个月LCGC（低成本绿色汽车）累计销量22,106辆，较去年同期锐减21.46%。印尼汽车工业协会分析认为，价格亲民的中国电动车（如海鸥等）对LCGC市场形成直接替代，日系主导的传统经济型燃油车市场正遭受前所未有的结构性冲击。</div>
+                        <div class="source">来源：车家号·车市睿见（2026-03-21）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 五、国内车企动态 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="icon">🏆</span>
+                <h2>五、国内车企动态</h2>
+            </div>
+            <div class="section-content">
+
+                <div class="highlight-box">
+                    <div class="title">🔥 一季度市场格局：华为系强势领跑，小米守位新势力前列</div>
+                    <div class="content">
+                        2026年一季度，华为系车型（问界、智界、享界）合计销量突破<strong>18万辆</strong>，同比增长210%，市场份额从去年的8%飙升至<strong>18%+</strong>。小米汽车凭借SU7系列保持新势力前二位置，产能瓶颈制约释放，3月月销预计超2.5万辆。
+                    </div>
+                </div>
+
+                <div class="brand-grid">
+                    <div class="brand-item top">
+                        <div class="brand-name">🥇 比亚迪</div>
+                        <div class="brand-sales">30万辆+</div>
+                        <div class="brand-change">月月蝉联冠军</div>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-name">华为系</div>
+                        <div class="brand-sales">~6.5万辆</div>
+                        <div class="brand-change">同比+210%</div>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-name">小米汽车</div>
+                        <div class="brand-sales">~2.5万辆</div>
+                        <div class="brand-change">新势力第二</div>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-name">理想汽车</div>
+                        <div class="brand-sales">~2.3万辆</div>
+                        <div class="brand-change">重回前两</div>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-name">零跑汽车</div>
+                        <div class="brand-sales">~1.8万辆</div>
+                        <div class="brand-change">持续稳健</div>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-name">蔚来汽车</div>
+                        <div class="brand-sales">~1.5万辆</div>
+                        <div class="brand-change">高端承压</div>
+                    </div>
+                </div>
+
+                <div class="news-item" style="margin-top:15px;">
+                    <span class="emoji">🚀</span>
+                    <div class="content">
+                        <div class="title">工信部第405批：新款问界M9、比亚迪大唐即将上市</div>
+                        <div class="desc">工信部发布第405批新车申报公示：新款问界M9（增程版电池升至75kWh，尺寸全面加大，外观设计焕新）、比亚迪大唐（旗舰MPV升级款）等高关注度新车即将上市。3月将成为2026年新车发布密度最高的月份，叠加年中换代周期，预计4月上海车展前后将掀起价格战新一轮高峰。</div>
+                        <div class="source">来源：MSN汽车（2026-03-20）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">📉</span>
+                    <div class="content">
+                        <div class="title">30万以上新能源格局：问界31.8%市占率碾压蔚小理</div>
+                        <div class="desc">在30万元以上新能源车市场，问界凭借多款旗舰车型（M7 Ultra、M9）占据31.8%市场份额，超过蔚来、小鹏、理想三家之和。蔚小理三家平均售价快速下行，小鹏2025Q3平均售价已接近比亚迪价格区间，高端品牌属性遭受严重削弱，转型压力凸显。</div>
+                        <div class="source">来源：新浪财经（2026-03-22）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">🌍</span>
+                    <div class="content">
+                        <div class="title">比亚迪出海提速：巴西目标25万辆，全球化版图加速构建</div>
+                        <div class="desc">比亚迪于2026年3月12日上调巴西全年销量目标至25万辆，巴伊亚州组装厂持续扩建，并规划在里约设立研发中心。奇瑞、长城在海外"盖房"（建厂）步伐同样加快，三家龙头企业构成中国汽车全球化的核心矩阵，海外生产基地布局正从"试水"转为"全面铺开"。</div>
+                        <div class="source">来源：东车帝（2026-03-12）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 六、技术突破 / 政策动态 / 营销案例 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="icon">⚡</span>
+                <h2>六、技术突破 · 政策动态 · 营销案例</h2>
+            </div>
+            <div class="section-content">
+
+                <h3 style="color:#0f3460; margin-bottom:14px; font-size:17px;">🔬 技术突破</h3>
+
+                <div class="policy-item" style="background: linear-gradient(135deg, #e8f8ef, #d0f0e0); border-left-color: #27ae60;">
+                    <div class="policy-title">🔋 全固态电池量产进入倒计时</div>
+                    <div class="policy-desc">
+                        2026年3月，全固态电池产业化取得多项重大突破：<br>
+                        • <strong>国轩高科"金石"全固态电池</strong>：实验线产能0.2GWh，良品率达90%，核心设备100%国产化，实测总里程超1万公里，计划2026-2027年小批量装车；<br>
+                        • 某头部车企样车续航达<strong>1120公里</strong>，能量密度350Wh/kg，-20℃低温续航衰减＜10%，支持20C快充（10分钟补能500公里），循环寿命超3500次；<br>
+                        • <strong>广汽集团</strong>中试产线投产，计划2026年小批量装车；<br>
+                        • 工信部首部国标《GB38031-2025》确立产品规范，计划2026年7月实施。
+                    </div>
+                </div>
+
+                <div class="policy-item" style="background: linear-gradient(135deg, #e8f0ff, #d0e0ff); border-left-color: #3498db;">
+                    <div class="policy-title">🤖 高级别自动驾驶：商业化进程全面加速</div>
+                    <div class="policy-desc">
+                        工信部在2026年1月部际会议中将高级别自动驾驶与全固态电池并列为核心技术。知名电池专家欧阳明高系统提出"七大技术创新方向"，其中"全自动驾驶"和"全线控底盘"被列为核心；华为ADS 3.0已在问界系列全系OTA推送，据用户反馈在城区NOA通行率超98%；小鹏XNGP已对用户开放全国所有城市，成为覆盖面最广的城市NOA方案之一。
+                    </div>
+                </div>
+
+                <h3 style="color:#0f3460; margin-bottom:14px; margin-top:20px; font-size:17px;">🏛️ 政策动态</h3>
+
+                <div class="news-item">
+                    <span class="emoji">📋</span>
+                    <div class="content">
+                        <div class="title">2026年政府工作报告：新能源汽车纳入新质生产力重点布局</div>
+                        <div class="desc">2026年3月5日，国务院总理李强作政府工作报告，新能源汽车被纳入新质生产力、绿色低碳等多个核心板块，成为"十五五"开局之年的战略重点产业。报告同时提及扩大国内消费、推进以旧换新，预计将带来不低于500亿元的汽车消费增量。</div>
+                        <div class="source">来源：中国新能源汽车协会（2026-03-05）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">💰</span>
+                    <div class="content">
+                        <div class="title">工信部明确：加快全固态电池、高级别自动驾驶技术突破</div>
+                        <div class="desc">工信部在2026年1月部际联席会议中确立年度核心目标：提升产业链自主可控能力，加快突破全固态电池（首部国标7月落地）、高级别自动驾驶（L3/L4商业化)等技术。磷酸锰铁锂正极材料已实现万吨级产能，硫化物/氧化物电解质离子电导率全面提升，产业链配套进入快速成熟期。</div>
+                        <div class="source">来源：央视新闻（2026-01-14）</div>
+                    </div>
+                </div>
+
+                <h3 style="color:#0f3460; margin-bottom:14px; margin-top:20px; font-size:17px;">📣 营销案例</h3>
+
+                <div class="news-item">
+                    <span class="emoji">🎬</span>
+                    <div class="content">
+                        <div class="title">问界M9 × 全球发布会营销：科技豪华感拉满</div>
+                        <div class="desc">新款问界M9采用"科技豪华旗舰"定位，在预热营销阶段以"30万以上市场问界独占31.8%"的数据引爆社交媒体讨论。发布会现场余承东亲自站台，以"遥遥领先"叙事强化华为品牌背书，短视频平台相关话题48小时曝光超过12亿次，预订量创单车型新高。</div>
+                        <div class="source">来源：汽车之家、微博热搜（2026-03-20）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">🌐</span>
+                    <div class="content">
+                        <div class="title">比亚迪出海营销：内容本土化 + 赛事赞助双轮驱动</div>
+                        <div class="desc">比亚迪在东南亚和欧洲市场持续加大本土化营销投入：在泰国赞助本地足球联赛和网红KOL合作，在巴西与里约热内卢狂欢节深度绑定品牌活动，在欧洲与多家本地经销商推出"以旧换新"专项补贴。内容本土化 + 赛事资源绑定的双轮策略，使比亚迪在多个新兴市场的品牌认知度快速提升。</div>
+                        <div class="source">来源：汽车商业评论、东车帝（2026-03）</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">📱</span>
+                    <div class="content">
+                        <div class="title">小米汽车：生态营销打通米粉闭环，SU7 Ultra造势月销破万</div>
+                        <div class="desc">小米汽车借助米粉生态进行SU7 Ultra预热营销，通过小米社区、抖音直播、微博话题多平台联动，在不足两周内完成首批万辆锁单。雷军亲自出镜的测评视频单条突破3000万播放量，"人车家全生态"叙事有效区隔于华为、比亚迪的竞品路线，成为2026年开年最成功的汽车营销案例之一。</div>
+                        <div class="source">来源：36氪（2026-03-22）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>© 2026 汽车市场情报系统 | 数据来源：乘联会、中汽协、ACEA、MarkLines、盖世汽车、东车帝、36氪等</p>
+            <p>生成时间：2026年03月23日 08:00 | 自动情报周报 · 第13周</p>
+        </div>
+    </div>
+</body>
+</html>
