@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 汽车市场每周情报 · 全年第11期 · 3月第3周</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
+            min-height: 100vh; 
+            padding: 20px 15px 60px; 
+            line-height: 1.6;
+        }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+        .header { 
+            text-align: center; 
+            padding: 35px 20px 25px; 
+            color: white; 
+            position: relative; 
+        }
+        .header h1 { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            margin-bottom: 12px; 
+            background: linear-gradient(90deg, #e94560, #ffd700); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text; 
+        }
+        .header .meta { 
+            display: inline-flex; 
+            gap: 12px; 
+            margin-top: 14px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        .header .badge { 
+            background: rgba(255,255,255,0.15); 
+            border: 1px solid rgba(255,255,255,0.3); 
+            color: white; 
+            padding: 6px 16px; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+        }
+        .header .badge.gold { 
+            background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); 
+            border-color: rgba(255,215,0,0.6); 
+        }
+        
+        /* LOGO 样式 */
+        .logo-corner { position: absolute; top: 18px; right: 20px; z-index: 10; }
+        .logo-corner img { height: 38px; width: auto; display: block; }
+        
+        .section { 
+            background: #fff; 
+            border-radius: 18px; 
+            margin-bottom: 18px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3); 
+        }
+        .section-header { 
+            background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); 
+            padding: 18px 24px; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            flex-wrap: wrap;
+        }
+        .section-header h2 { font-size: 1.15rem; font-weight: 600; flex: 1; }
+        .section-header .icon { font-size: 1.4rem; }
+        .section-content { padding: 22px 26px; }
+        
+        .news-item { 
+            padding: 14px 0; 
+            border-bottom: 1px solid #eee; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 12px; 
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .emoji { font-size: 1.2rem; flex-shrink: 0; }
+        .news-item .content { flex: 1; min-width: 0; }
+        .news-item .title { font-weight: 600; color: #333; margin-bottom: 6px; font-size: 0.95rem; line-height: 1.4; }
+        .news-item .desc { color: #666; font-size: 0.9rem; line-height: 1.7; word-wrap: break-word; }
+        .news-item .source { font-size: 0.75rem; color: #999; margin-top: 8px; }
+        .news-item .source a { color: #667eea; text-decoration: none; }
+        .news-item .source a:hover { text-decoration: underline; color: #e94560; }
+        
+        .region-title { 
+            font-size: 0.95rem; 
+            font-weight: 700; 
+            color: #0f3460; 
+            margin: 22px 0 14px; 
+            padding-left: 12px; 
+            border-left: 4px solid #e94560; 
+        }
+        .region-title:first-child { margin-top: 0; }
+        
+        .data-cards { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 14px; 
+            margin-bottom: 18px; 
+        }
+        .data-card { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            border-radius: 14px; 
+            padding: 18px 14px; 
+            color: white; 
+            text-align: center; 
+        }
+        .data-card.orange { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .data-card.green { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .data-card.gold { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .data-card .value { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+        .data-card .label { font-size: 0.8rem; opacity: 0.9; }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 14px; 
+            font-size: 0.85rem;
+            display: block;
+            overflow-x: auto;
+        }
+        thead { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); color: white; }
+        th, td { padding: 10px 12px; text-align: left; white-space: nowrap; }
+        th:first-child { border-radius: 10px 0 0 0; }
+        th:last-child { border-radius: 0 10px 0 0; }
+        tbody tr:nth-child(even) { background: #f8f9fa; }
+        tbody tr:hover { background: #e9ecef; }
+        
+        .highlight-box { 
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); 
+            border-radius: 14px; 
+            padding: 18px; 
+            margin: 14px 0; 
+            border-left: 5px solid #e17055; 
+        }
+        .highlight-box .title { font-weight: 700; color: #d63031; margin-bottom: 8px; font-size: 0.95rem; }
+        .highlight-box .content { color: #333; line-height: 1.7; font-size: 0.9rem; }
+        
+        .activity-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 14px; 
+            padding: 14px; 
+            background: #f8f9fa; 
+            border-radius: 12px; 
+            margin-bottom: 12px; 
+            flex-wrap: wrap;
+        }
+        .activity-item .date-badge { 
+            background: linear-gradient(135deg, #e94560, #0f3460); 
+            color: white; 
+            padding: 7px 14px; 
+            border-radius: 20px; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            white-space: nowrap; 
+            flex-shrink: 0;
+        }
+        .activity-item .info { flex: 1; min-width: 150px; }
+        .activity-item .info .name { font-weight: 600; color: #333; margin-bottom: 3px; font-size: 0.9rem; }
+        .activity-item .info .location { font-size: 0.8rem; color: #666; }
+        
+        .archive { 
+            background: #fff; 
+            border-radius: 18px; 
+            padding: 26px; 
+            margin-bottom: 18px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3); 
+        }
+        .archive h3 { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            font-size: 1.1rem; 
+            margin-bottom: 18px; 
+            color: #333; 
+        }
+        .archive-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .archive-list a { 
+            padding: 10px 18px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 25px; 
+            font-size: 0.85rem; 
+            transition: all 0.3s; 
+            white-space: nowrap;
+        }
+        .archive-list a:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 5px 20px rgba(102,126,234,0.4); 
+        }
+        
+        .copyright { 
+            text-align: center; 
+            padding: 15px; 
+            color: rgba(255,255,255,0.5); 
+            font-size: 0.75rem; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            margin-top: 20px; 
+        }
+        .footer { padding: 25px; color: rgba(255,255,255,0.6); font-size: 0.85rem; text-align: center; }
+        
+        /* 悬浮返回按钮 */
+        .back-index { 
+            position: fixed; 
+            bottom: 28px; 
+            right: 28px; 
+            padding: 12px 22px; 
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4);
+            z-index: 1000; 
+            transition: all 0.3s; 
+        }
+        .back-index:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 25px rgba(233, 69, 96, 0.5); 
+        }
+        
+        /* ========== 响应式优化 ========== */
+        
+        /* 平板 */
+        @media (max-width: 900px) {
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 1.5rem; }
+            .section-header h2 { font-size: 1rem; }
+        }
+        
+        /* 手机横屏 */
+        @media (max-width: 768px) {
+            body { padding: 12px 10px 50px; }
+            .header { padding: 28px 15px 20px; }
+            .header h1 { font-size: 1.3rem; }
+            .header .meta { gap: 8px; }
+            .header .badge { padding: 5px 12px; font-size: 0.75rem; }
+            
+            .logo-corner { top: 12px; right: 12px; }
+            .logo-corner img { height: 30px; }
+            
+            .section { border-radius: 14px; margin-bottom: 14px; }
+            .section-header { padding: 14px 16px; }
+            .section-header h2 { font-size: 0.95rem; }
+            .section-content { padding: 16px 18px; }
+            
+            .news-item { padding: 12px 0; gap: 10px; }
+            .news-item .emoji { font-size: 1.1rem; }
+            .news-item .title { font-size: 0.9rem; }
+            .news-item .desc { font-size: 0.85rem; line-height: 1.6; }
+            
+            .data-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
+            .data-card { padding: 14px 10px; }
+            .data-card .value { font-size: 1.2rem; }
+            .data-card .label { font-size: 0.7rem; }
+            
+            table { font-size: 0.75rem; }
+            th, td { padding: 8px 10px; }
+            
+            .highlight-box { padding: 14px; margin: 12px 0; }
+            .highlight-box .title { font-size: 0.9rem; }
+            .highlight-box .content { font-size: 0.85rem; }
+            
+            .activity-item { padding: 12px; gap: 10px; }
+            .activity-item .date-badge { padding: 6px 12px; font-size: 0.75rem; }
+            .activity-item .info .name { font-size: 0.85rem; }
+            .activity-item .info .location { font-size: 0.75rem; }
+            
+            .archive { padding: 20px; border-radius: 14px; }
+            .archive h3 { font-size: 1rem; }
+            .archive-list a { padding: 8px 14px; font-size: 0.8rem; }
+            
+            .back-index { bottom: 18px; right: 18px; padding: 10px 18px; font-size: 0.8rem; }
+        }
+        
+        /* 手机竖屏 */
+        @media (max-width: 480px) {
+            body { padding: 8px 8px 45px; }
+            .header { padding: 22px 12px 16px; }
+            .header h1 { font-size: 1.1rem; }
+            .header .meta { gap: 6px; }
+            .header .badge { padding: 4px 10px; font-size: 0.7rem; }
+            
+            .logo-corner { top: 8px; right: 8px; }
+            .logo-corner img { height: 24px; }
+            
+            .section { border-radius: 12px; margin-bottom: 12px; }
+            .section-header { padding: 12px 14px; gap: 8px; }
+            .section-header h2 { font-size: 0.9rem; }
+            .section-header .icon { font-size: 1.1rem; }
+            .section-content { padding: 14px; }
+            
+            .news-item { padding: 10px 0; gap: 8px; flex-direction: column; }
+            .news-item .emoji { font-size: 1rem; }
+            .news-item .title { font-size: 0.85rem; }
+            .news-item .desc { font-size: 0.8rem; }
+            .news-item .source { font-size: 0.7rem; }
+            
+            .data-cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .data-card { padding: 12px 8px; border-radius: 10px; }
+            .data-card .value { font-size: 1.1rem; }
+            .data-card .label { font-size: 0.65rem; }
+            
+            .region-title { font-size: 0.85rem; margin: 16px 0 10px; }
+            
+            .highlight-box { padding: 12px; border-radius: 10px; }
+            .highlight-box .title { font-size: 0.85rem; }
+            .highlight-box .content { font-size: 0.8rem; }
+            
+            .activity-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .activity-item .date-badge { font-size: 0.7rem; }
+            .activity-item .info { width: 100%; }
+            
+            .archive { padding: 16px; border-radius: 12px; }
+            .archive h3 { font-size: 0.95rem; margin-bottom: 14px; }
+            .archive-list { gap: 8px; }
+            .archive-list a { padding: 7px 12px; font-size: 0.75rem; }
+            
+            .back-index { 
+                bottom: 14px; 
+                right: 14px; 
+                padding: 8px 14px; 
+                font-size: 0.75rem; 
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 汽车市场每周情报</h1>
+            <div class="meta">
+                <span class="badge">全年第11期</span>
+                <span class="badge">3月第3周</span>
+                <span class="badge gold">2026.03.16 - 03.22</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📊</span>
+                <h2>市场数据速览</h2>
+            </div>
+            <div class="section-content">
+                <div class="data-cards">
+                    <div class="data-card">
+                        <div class="value">450万</div>
+                        <div class="label">比亚迪2026年销量目标</div>
+                    </div>
+                    <div class="data-card orange">
+                        <div class="value">20万+</div>
+                        <div class="label">比亚迪1-2月出口量</div>
+                    </div>
+                    <div class="data-card green">
+                        <div class="value">60%+</div>
+                        <div class="label">新能源渗透率目标</div>
+                    </div>
+                    <div class="data-card gold">
+                        <div class="value">500万</div>
+                        <div class="label">2026年出口目标</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🏭</span>
+                <h2>车企动态</h2>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="emoji">🔋</span>
+                    <div class="content">
+                        <div class="title">比亚迪：技术爆发+全球化提速</div>
+                        <div class="desc">比亚迪2026年国内销量目标400-450万辆，海外出口持续增长。2月单月出口新能源车达10.06万辆，1-2月累计出口超20万辆。凭借全产业链垂直整合优势，比亚迪在技术创新和成本控制方面保持领先。</div>
+                        <div class="source"><a href="https://xueqiu.com/1368514374/380178856" target="_blank">雪球</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">⭐</span>
+                    <div class="content">
+                        <div class="title">吉利整合收官：剑指国内第一</div>
+                        <div class="desc">3月18日，吉利汽车2025年年报业绩会上，吉利宣布2026年销量目标剑指中国乘用车市场第一。吉利品牌整合完成，极氪、领克、吉利三大品牌协同发展。2026年销量目标350万辆，与比亚迪形成激烈竞争。</div>
+                        <div class="source"><a href="https://wallstreetcn.com/articles/3767936" target="_blank">华尔街见闻</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🏎️</span>
+                    <div class="content">
+                        <div class="title">长城汽车：硬派越野+新能源转型</div>
+                        <div class="desc">长城汽车2026年继续深化"硬派越野+新能源"双赛道战略。坦克品牌销量持续增长，坦克500 Hi4-T单月销量突破1万辆。欧拉品牌推出全新纯电紧凑型SUV，发力女性市场。泰国工厂产能提升至15万辆。</div>
+                        <div class="source"><a href="https://www.36kr.com/" target="_blank">36氪</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🏛️</span>
+                    <div class="content">
+                        <div class="title">长安汽车：300万辆目标+阿维塔发力</div>
+                        <div class="desc">长安汽车锁定2026年300万辆整体目标，其中自主板块250万辆。长安启源、深蓝、阿维塔三大新能源品牌全面发力。阿维塔11销量持续攀升，华为HI模式赋能智能驾驶。</div>
+                        <div class="source"><a href="https://news.qq.com/" target="_blank">腾讯新闻</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🌍</span>
+                <h2>海外市场</h2>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="emoji">📦</span>
+                    <div class="content">
+                        <div class="title">中国汽车出口持续高增长</div>
+                        <div class="desc">2026年汽车出口仍有望延续高增，中国汽车产业的全产业链协同、技术创新和成本控制优势短期内难以复制。预计2026年汽车出口量将突破500万辆，再创历史新高。</div>
+                        <div class="source"><a href="https://finance.sina.com.cn/wm/2026-03-16/doc-inhrcxww2890506.shtml" target="_blank">新浪财经</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🇷🇺</span>
+                    <div class="content">
+                        <div class="title">俄罗斯市场：中国品牌市占率超80%</div>
+                        <div class="desc">2026年俄罗斯汽车市场持续复苏，中国品牌市占率超过80%。哈弗、吉利、长安等品牌在俄罗斯热销。俄罗斯本土化生产加速，哈罗斯汽车在俄罗斯图拉工厂年产能达8万辆。</div>
+                        <div class="source"><a href="https://finance.sina.com.cn/" target="_blank">新浪财经</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🇹🇭</span>
+                    <div class="content">
+                        <div class="title">东南亚市场：泰国成为新能源重镇</div>
+                        <div class="desc">泰国成为中国企业海外新能源布局重镇，比亚迪、上汽、长城、哪吒等均在泰国建厂。2026年泰国新能源汽车产能预计突破50万辆，中国品牌占据70%以上市场份额。</div>
+                        <div class="source"><a href="https://www.autohome.com.cn/" target="_blank">汽车之家</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔧</span>
+                <h2>技术趋势</h2>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="emoji">🤖</span>
+                    <div class="content">
+                        <div class="title">智能驾驶：城市NOA全面普及</div>
+                        <div class="desc">2026年城市NOA进入普及期。华为、小鹏、蔚来、理想等品牌城市NOA功能全国覆盖。昊铂A800获得全国首张120km/h L3高速测试牌照。L3级自动驾驶法规逐步放开。</div>
+                        <div class="source"><a href="https://k.sina.cn/article_7857201856_1d45362c0019039nse.html" target="_blank">新浪汽车</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🔋</span>
+                    <div class="content">
+                        <div class="title">固态电池：2026年迎来量产</div>
+                        <div class="desc">固态电池技术进入量产倒计时，上汽集团搭载半固态电池的车型将于2026年Q2交付。宁德时代、三星SDI、SK On等巨头加速产业化。预计2027年全固态电池应用于高端车型。</div>
+                        <div class="source"><a href="https://www.36kr.com/" target="_blank">36氪</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">⚡</span>
+                    <div class="content">
+                        <div class="title">800V超充：充电5分钟续航200km</div>
+                        <div class="desc">800V高压超充技术成为标配，小鹏G9、极氪001、阿维塔11等车型支持5分钟补能200km。蔚来发布640kW超充桩，单桩最大电流600A。预计2026年全国超充桩数量突破50万台。</div>
+                        <div class="source"><a href="https://www.dongchedi.com/" target="_blank">懂车帝</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📋</span>
+                <h2>行业观点</h2>
+            </div>
+            <div class="section-content">
+                <div class="highlight-box">
+                    <div class="title">📌 专家观点：2026年汽车行业四大趋势</div>
+                    <div class="content">
+                        <p>1️⃣ <strong>出海加速</strong>：中国汽车出口有望突破500万辆，东南亚、欧洲、南美成为增量市场</p>
+                        <p>2️⃣ <strong>价格战延续</strong>：新能源购置税退坡，车企竞争加剧，价格战仍将持续</p>
+                        <p>3️⃣ <strong>技术突破</strong>：城市NOA普及、固态电池量产、L3级自动驾驶放开</p>
+                        <p>4️⃣ <strong>格局重塑</strong>：比亚迪与吉利销量差距缩小，自主品牌市占率有望突破70%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</p>
+        </div>
+    </div>
+    <a href="index.html" class="back-index">📋 返回目录</a>
+</body>
+</html>
