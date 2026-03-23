@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 综合市场每周情报 · 全年第12期 · 3月第4周</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%); --card-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        * { box-sizing: border-box; }
+        body { font-family: 'Noto Sans SC', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; margin: 0; padding: 0; color: #2d3748; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+        .hero { background: var(--primary-gradient); border-radius: 1.5rem; padding: 3rem 2rem; color: white; text-align: center; margin-bottom: 2rem; box-shadow: var(--card-shadow); }
+        .hero h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; margin: 0; }
+        .hero .subtitle { font-size: 1rem; opacity: 0.9; margin-top: 0.5rem; }
+        .section-card { background: white; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .section-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: #1a202c; border-bottom: 3px solid #667eea; padding-bottom: 0.5rem; }
+        .section-title.home-appliance { border-color: #667eea; }
+        .section-title.digital { border-color: #f5576c; }
+        .section-title.auto { border-color: #10b981; }
+        .news-item { padding: 1rem; margin-bottom: 1rem; border-radius: 0.75rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #667eea; }
+        .news-item:last-child { margin-bottom: 0; }
+        .news-item.home-appliance { border-left-color: #667eea; }
+        .news-item.digital { border-left-color: #f5576c; }
+        .news-item.auto { border-left-color: #10b981; }
+        .news-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; color: #1e293b; }
+        .news-content { font-size: 0.9rem; color: #475569; line-height: 1.7; }
+        .news-source { display: inline-block; margin-top: 0.5rem; font-size: 0.8rem; color: #64748b; background: #e2e8f0; padding: 0.2rem 0.6rem; border-radius: 1rem; text-decoration: none; }
+        .data-card { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; }
+        .data-item { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 0.75rem; padding: 1.25rem; text-align: center; color: white; }
+        .data-item .value { font-size: 1.75rem; font-weight: 700; }
+        .data-item .label { font-size: 0.85rem; opacity: 0.9; margin-top: 0.25rem; }
+        .highlight-box { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 0.75rem; padding: 1.25rem; margin: 1rem 0; border-left: 4px solid #f59e0b; }
+        .highlight-box strong { color: #92400e; }
+        .back-index { position: fixed; bottom: 28px; right: 28px; padding: 12px 22px; background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); color: white; text-decoration: none; border-radius: 30px; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4); z-index: 1000; transition: all 0.3s; }
+        .back-index:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(233, 69, 96, 0.5); }
+        .footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.85rem; }
+        @media (max-width: 768px) { .container { padding: 1rem; } .hero { padding: 2rem 1rem; } .section-card { padding: 1rem; } .data-card { grid-template-columns: 1fr; } .back-index { bottom: 1rem; right: 1rem; width: 3rem; height: 3rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>📊 综合市场每周情报</h1>
+            <div class="subtitle">全年第12期 · 3月第4周 · 2026年3月23日-3月29日<br>家电 · 数码 · 汽车 三大领域综合情报</div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">📊 三大领域数据速览</h2>
+            <div class="data-card">
+                <div class="data-item">
+                    <div class="value">🏠</div>
+                    <div class="label">家电以旧换新超500亿预算</div>
+                </div>
+                <div class="data-item" style="background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);">
+                    <div class="value">📱</div>
+                    <div class="label">折叠屏旗舰集中发布</div>
+                </div>
+                <div class="data-item" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%);">
+                    <div class="value">🚗</div>
+                    <div class="label">汽车出口增长48.4%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title home-appliance">🏠 家电市场亮点</h2>
+            
+            <div class="news-item home-appliance">
+                <div class="news-title">🚀 2026年家电以旧换新政策全面升级</div>
+                <div class="news-content">
+                    商务部等5部门联合印发通知，2026年家电以旧换新政策全面升级，中央财政与地方政府联动，预算规模超500亿元。对符合条件的家电产品给予销售价格15%-20%的补贴，政策延续"两新"政策力度。3月起多地恢复补贴申领通道，消费者可通过京东搜索"国补001"领取资格。
+                </div>
+                <a href="https://www.gov.cn/" target="_blank" class="news-source">中国政府网</a>
+            </div>
+            
+            <div class="news-item home-appliance">
+                <div class="news-title">🎉 AWE 2026在上海成功举办</div>
+                <div class="news-content">
+                    3月12日-15日，AWE 2026中国家电及消费电子博览会在上海举办，展会面积18万平方米，参展企业超1500家。以"AI科技，慧享未来"为主题，现场签订意向订单超500亿元。AI全屋智能成为最大亮点，海尔、美的、格力等品牌展示最新智能家居解决方案。
+                </div>
+                <a href="https://www.cinn.cn/" target="_blank" class="news-source">中国家电网</a>
+            </div>
+            
+            <div class="news-item home-appliance">
+                <div class="news-title">🔷 海尔智慧家居生态全面升级</div>
+                <div class="news-content">
+                    海尔在AWE 2026发布全新智慧家居生态系统，搭载AI主动服务功能，实现从"被动响应"到"主动预测"的跨越。UhomeOS 4.0系统让冰箱可自主判断食材保鲜周期，空调可根据用户习惯自动调节温度和风向。
+                </div>
+                <a href="https://www.idc.com/" target="_blank" class="news-source">IDC</a>
+            </div>
+            
+            <div class="news-item home-appliance">
+                <div class="news-title">📱 数码产品首次纳入购新补贴</div>
+                <div class="news-content">
+                    2026年政策创新性地将数码和智能产品纳入购新补贴范围，包括智能手机、平板电脑、智能手表等。消费者购买符合条件的数码产品可享受15%-20%补贴，单品最高补贴1000元，进一步刺激消费电子市场活力。
+                </div>
+                <a href="https://www.mofcom.gov.cn/" target="_blank" class="news-source">商务部</a>
+            </div>
+            
+            <div class="news-item home-appliance">
+                <div class="news-title">🌟 美的发布AI节能空调新品</div>
+                <div class="news-content">
+                    美的在AWE 2026发布新一代AI节能空调，采用变频控制技术和智能感应系统，可根据室内人数和温度自动调节能耗，节能效率提升40%。该产品已获得一级能效认证，预计年内将在全国万家门店上架。
+                </div>
+                <a href="https://www.cnnc.com.cn/" target="_blank" class="news-source">中国企业报</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title digital">📱 数码市场亮点</h2>
+            
+            <div class="news-item digital">
+                <div class="news-title">📱 荣耀Magic V6折叠旗舰正式发布</div>
+                <div class="news-content">
+                    3月10日，荣耀在深圳发布Magic V6折叠屏旗舰，售价8999元起。该机搭载新一代AI交互系统，采用航天级钛合金铰链，折叠寿命超过100万次。在MWC 2026全球首发后，正式登陆国内市场，预订量超50万台。
+                </div>
+                <a href="https://www.ithome.com/" target="_blank" class="news-source">IT之家</a>
+            </div>
+            
+            <div class="news-item digital">
+                <div class="news-title">🔷 OPPO Find N6破解折痕难题</div>
+                <div class="news-content">
+                    3月17日，OPPO正式发布Find N6折叠旗舰，售价9999元起。该机通过"新一代钛合金天穹铰链"与"天穹记忆玻璃"两大核心技术，有效解决折叠屏长期使用后折痕加深的行业难题，并获得德国莱茵TÜV无折痕认证。
+                </div>
+                <a href="https://finance.sina.com.cn/" target="_blank" class="news-source">新浪数码</a>
+            </div>
+            
+            <div class="news-item digital">
+                <div class="news-title">🤖 AI手机全面爆发：渗透率将超50%</div>
+                <div class="news-content">
+                    IDC发布2026中国手机市场十大洞察，AI手机占比将超过50%。高通骁龙8至尊版、联发科天玑9400等旗舰芯片全面支持端侧AI，语音助手、图像处理、智能翻译等AI功能成为手机标配，头部厂商全面拥抱AI战略。
+                </div>
+                <a href="https://news.qq.com/" target="_blank" class="news-source">腾讯新闻</a>
+            </div>
+            
+            <div class="news-item digital">
+                <div class="news-title">🖥️ AI PC进入爆发期</div>
+                <div class="news-content">
+                    2026年AI PC进入爆发期，联想、戴尔发布多款新品。联想ThinkPad X1 Carbon AI搭载骁龙X Elite处理器，支持本地AI运算。预计2026年全球AI PC出货量将突破8000万台，企业级AI PC市场需求强劲。
+                </div>
+                <a href="https://www.idc.com/" target="_blank" class="news-source">IDC</a>
+            </div>
+            
+            <div class="news-item digital">
+                <div class="news-title">📸 折叠屏AI功能横评：Find N6领跑</div>
+                <div class="news-content">
+                    2026年折叠屏技术成熟，AI功能成为核心竞争点。评测显示，OPPO Find N6在AI摄影、AI翻译、AI办公等场景表现领先，多任务协同和跨应用AI调用能力最强，引领折叠屏AI旗舰标准。
+                </div>
+                <a href="https://mobile.zol.com.cn/" target="_blank" class="news-source">中关村在线</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title auto">🚗 汽车市场亮点</h2>
+            
+            <div class="news-item auto">
+                <div class="news-title">🚀 汽车出口延续强劲增长：前两月增长48.4%</div>
+                <div class="news-content">
+                    中汽协发布数据显示，2026年1-2月我国汽车出口累计135.2万辆，同比大幅增长48.4%。其中2月单月出口67.2万辆，同比增长52.4%。新能源出口30.2万辆，同比翻倍，占比近45%，出口动能强劲。
+                </div>
+                <a href="https://news.cctv.cn/" target="_blank" class="news-source">央视新闻</a>
+            </div>
+            
+            <div class="news-item auto">
+                <div class="news-title">🌟 中国车企登顶全球销量榜首</div>
+                <div class="news-content">
+                    3月21日，《日本经济新闻》发布报告显示，2025年中国汽车制造商全球累计销量达到约2700万辆，首次超越日本车企（约2500万辆），成为全球汽车销量第一大国，中国汽车产业实现历史性突破。
+                </div>
+                <a href="https://m.163.com/dy/article/" target="_blank" class="news-source">网易新闻</a>
+            </div>
+            
+            <div class="news-item auto">
+                <div class="news-title">🏭 比亚迪、奇瑞、长城集体海外"盖房"</div>
+                <div class="news-content">
+                    2026年中国车企进入海外产能爆发期，比亚迪、奇瑞、长城等集体在海外建厂。比亚迪在全球四地"同时开花"，在匈牙利、土耳其、泰国、巴西等地布局生产基地，从"建厂"到"扎根"全面升级。
+                </div>
+                <a href="https://www.dongchedi.com/" target="_blank" class="news-source">懂车帝</a>
+            </div>
+            
+            <div class="news-item auto">
+                <div class="news-title">⚡ 比亚迪闪充技术突破</div>
+                <div class="news-content">
+                    比亚迪在2026年3月发布"闪充"技术，可实现9分钟充满电，同时保持电池寿命和安全性。该技术将首次应用于新款汉EV车型，推动新能源汽车充电体验进入"分钟级"时代。
+                </div>
+                <a href="https://xueqiu.com/" target="_blank" class="news-source">雪球</a>
+            </div>
+            
+            <div class="news-item auto">
+                <div class="news-title">🤖 智能驾驶：城市NOA全面普及</div>
+                <div class="news-content">
+                    2026年城市NOA进入普及期，华为、小鹏、蔚来、理想等品牌城市NOA功能全国覆盖。昊铂A800获得全国首张120km/h L3高速测试牌照，L3级自动驾驶法规逐步放开，智能驾驶商业化进程加速。
+                </div>
+                <a href="https://k.sina.cn/" target="_blank" class="news-source">新浪汽车</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">💬 综合观点</h2>
+            <div class="highlight-box">
+                <strong>📌 一周总结：三大行业共迎增长机遇</strong><br><br>
+                <p><strong>🏠 家电：</strong>以旧换新政策持续加码超500亿，AWE 2026推动AI全屋智能普及，海尔、美的等头部品牌技术升级，数码产品首次纳入购新补贴</p>
+                <p><strong>📱 数码：</strong>折叠屏旗舰集中发布（荣耀Magic V6、OPPO Find N6），AI手机渗透率将超50%，AI PC出货量预计突破8000万台</p>
+                <p><strong>🚗 汽车：</strong>前两月出口增长48.4%，中国车企首次登顶全球销量榜首，比亚迪闪充技术突破，L3级自动驾驶放开</p>
+                <p style="margin-top:1rem;color:#92400e;"><strong>🎯 共同趋势：AI赋能、高端化、出海提速</strong></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</p>
+        </div>
+    </div>
+    <a href="index.html" class="back-index">📋 返回目录</a>
+</body>
+</html>
