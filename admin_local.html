@@ -548,7 +548,9 @@
                 const shaData = await shaResponse.json();
                 const sha = shaData.sha;
                 
-                // 上传文件
+                // 上传文件 - 使用正确的 Base64 编码
+                const base64Content = btoa(encodeURIComponent(modifiedHtml).replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode('0x' + p1)));
+                
                 const uploadResponse = await fetch(
                     `https://api.github.com/repos/${repo}/contents/${filePath}`,
                     {
@@ -560,7 +562,7 @@
                         },
                         body: JSON.stringify({
                             message: `edit: 更新 ${filePath} 内容 via admin`,
-                            content: btoa(unescape(encodeURIComponent(modifiedHtml))),
+                            content: base64Content,
                             sha: sha
                         })
                     }
