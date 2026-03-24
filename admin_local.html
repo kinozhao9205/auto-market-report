@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盛世消费体验研究院 - 管理后台</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif; background: #f0f2f5; min-height: 100vh; }
+        .login-page, .admin-page { padding: 20px; }
+        .admin-page { display: none; }
+        .card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; }
+        .btn { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-size: 14px; transition: all 0.2s; display: inline-block; }
+        .btn-primary { background: #e94560; color: white; }
+        .btn-primary:hover { background: #d63850; }
+        .btn-secondary { background: #6c757d; color: white; }
+        .btn-success { background: #28a745; color: white; }
+        .btn-danger { background: #dc3545; color: white; }
+        .input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit; }
+        .input:focus, textarea:focus { outline: none; border-color: #e94560; }
+        textarea { min-height: 100px; resize: vertical; }
+        .nav-tabs { display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 12px; flex-wrap: wrap; }
+        .nav-tab { padding: 8px 16px; border-radius: 8px; cursor: pointer; background: #f8f9fa; border: none; font-size: 14px; }
+        .nav-tab.active { background: #e94560; color: white; }
+        .report-item { padding: 16px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s; }
+        .report-item:hover { border-color: #e94560; background: #fefefe; }
+        .report-item.disabled { opacity: 0.5; }
+        .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000; overflow-y: auto; padding: 20px; }
+        .modal.active { display: flex; }
+        .modal-content { background: white; border-radius: 12px; padding: 24px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; }
+        .form-group { margin-bottom: 16px; }
+        .form-label { display: block; margin-bottom: 6px; font-weight: 500; color: #333; }
+        .badge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin-left: 8px; }
+        .badge-success { background: #d4edda; color: #155724; }
+        .badge-danger { background: #f8d7da; color: #721c24; }
+        .section-title { font-size: 18px; font-weight: 600; margin-bottom: 16px; color: #333; }
+        .news-edit-item { padding: 16px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 16px; background: #fafafa; }
+        .news-edit-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .status-bar { padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; }
+        .status-success { background: #d4edda; color: #155724; }
+        .status-error { background: #f8d7da; color: #721c24; }
+        .status-info { background: #cce5ff; color: #004085; }
+        .loading { opacity: 0.6; pointer-events: none; }
+        pre { background: #f5f5f5; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 13px; max-height: 300px; }
+        .config-row { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; padding: 12px; background: #f8f9fa; border-radius: 8px; }
+        .config-row label { min-width: 100px; }
+    </style>
+</head>
+<body>
+    <!-- 登录页面 -->
+    <div id="loginPage">
+        <div style="max-width: 400px; margin: 100px auto;">
+            <div class="card">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <h1 style="color: #e94560; font-size: 24px; margin-bottom: 8px;">盛世消费体验研究院</h1>
+                    <p style="color: #666; font-size: 14px;">管理后台</p>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">用户名</label>
+                    <input type="text" id="username" class="input" placeholder="请输入用户名">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">密码</label>
+                    <input type="password" id="password" class="input" placeholder="请输入密码">
+                </div>
+                <button onclick="login()" class="btn btn-primary" style="width: 100%;">登录</button>
+                <p id="loginError" style="color: #dc3545; font-size: 13px; margin-top: 12px; display: none;"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 管理后台 -->
+    <div id="adminPage" class="admin-page">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <!-- 顶部导航 -->
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <div>
+                    <h1 style="color: #e94560; font-size: 20px;">管理后台</h1>
+                    <p style="color: #666; font-size: 13px;">盛世消费体验研究院</p>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <span id="statusBar" class="status-bar status-info" style="display: none;"></span>
+                    <button onclick="logout()" class="btn btn-secondary">退出登录</button>
+                </div>
+            </div>
+
+            <!-- 标签页 -->
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showTab('reports')">报告编辑</button>
+                <button class="nav-tab" onclick="showTab('index')">目录管理</button>
+                <button class="nav-tab" onclick="showTab('settings')">账号管理</button>
+            </div>
+
+            <!-- 报告编辑 -->
+            <div id="tabReports">
+                <div class="card">
+                    <h2 class="section-title">选择要编辑的报告</h2>
+                    <div id="reportList"></div>
+                </div>
+            </div>
+
+            <!-- 目录管理 -->
+            <div id="tabIndex" style="display: none;">
+                <div class="card">
+                    <h2 class="section-title">目录显示管理</h2>
+                    <div class="config-row">
+                        <label>当前周期：</label>
+                        <select id="currentCycle" class="input" style="width: 200px;">
+                            <option value="1">第1周 - 家电</option>
+                            <option value="2">第2周 - 数码</option>
+                            <option value="3">第3周 - 汽车</option>
+                            <option value="4">第4周 - 综合</option>
+                        </select>
+                    </div>
+                    <div class="config-row">
+                        <label>显示当期报告：</label>
+                        <div style="display: flex; gap: 20px;">
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="radio" name="showCurrent" value="true" checked> 显示
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="radio" name="showCurrent" value="false"> 隐藏
+                            </label>
+                        </div>
+                    </div>
+                    <button onclick="saveIndexConfig()" class="btn btn-primary">保存目录配置</button>
+                </div>
+            </div>
+
+            <!-- 账号管理 -->
+            <div id="tabSettings" style="display: none;">
+                <div class="card">
+                    <h2 class="section-title">修改密码</h2>
+                    <div class="form-group">
+                        <label class="form-label">当前密码</label>
+                        <input type="password" id="oldPassword" class="input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">新密码</label>
+                        <input type="password" id="newPassword" class="input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">确认新密码</label>
+                        <input type="password" id="confirmPassword" class="input">
+                    </div>
+                    <button onclick="changePassword()" class="btn btn-primary">修改密码</button>
+                </div>
+                <div class="card">
+                    <h2 class="section-title">GitHub 配置</h2>
+                    <div class="form-group">
+                        <label class="form-label">GitHub Token</label>
+                        <input type="password" id="githubToken" class="input" placeholder="请输入 GitHub Personal Access Token">
+                    </div>
+                    <button onclick="saveGitHubToken()" class="btn btn-primary">保存 Token</button>
+                    <p style="margin-top: 12px; font-size: 13px; color: #666;">
+                        💡 Token 需要 repo 权限才能上传文件。请在 GitHub 设置 → Developer settings → Personal access tokens 中创建。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑弹窗 -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2 class="section-title" id="modalTitle">编辑报告内容</h2>
+            
+            <!-- 摘要编辑 -->
+            <div class="form-group">
+                <label class="form-label">报告摘要（用于钉钉/微信推送，50-100字）</label>
+                <textarea id="editSummary" class="input" placeholder="用于推送消息的摘要文字" style="min-height: 80px;"></textarea>
+                <small style="color: #666;" id="summaryLength">0 字</small>
+            </div>
+
+            <!-- 新闻条目编辑 -->
+            <div class="form-group">
+                <label class="form-label">新闻条目（直接编辑 HTML 中的内容）</label>
+                <div id="newsItemsList"></div>
+                <button onclick="addNewsItem()" class="btn btn-secondary" style="margin-top: 12px;">+ 添加新闻条目</button>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <button onclick="saveLocally()" class="btn btn-secondary">💾 保存到本地</button>
+                <button onclick="saveAndUpload()" class="btn btn-success">🚀 保存并上传到GitHub</button>
+                <button onclick="closeEditModal()" class="btn btn-secondary">取消</button>
+            </div>
+            
+            <!-- 上传状态 -->
+            <div id="uploadStatus" style="margin-top: 16px;"></div>
+        </div>
+    </div>
+
+    <script>
+        // 管理员账号配置
+        const ADMIN_USERS = {
+            'admin': 'market2026',
+            'editor': 'report123'
+        };
+
+        // 报告文件配置（本地文件路径）
+        const REPORTS = [
+            { key: 'home', name: '家电', file: 'home_2026-03-23.html', cycle: 1 },
+            { key: 'digital', name: '数码', file: 'digital_2026-03-23.html', cycle: 2 },
+            { key: 'auto', name: '汽车', file: 'auto_2026-03-23.html', cycle: 3 },
+            { key: 'comprehensive', name: '综合', file: 'comprehensive_2026-03-23.html', cycle: 4 },
+            // 历史报告
+            { key: 'home_0302', name: '家电(3月2日)', file: 'home_2026-03-02.html', cycle: 1 },
+            { key: 'digital_0309', name: '数码(3月9日)', file: 'digital_2026-03-09.html', cycle: 2 },
+            { key: 'auto_0316', name: '汽车(3月16日)', file: 'auto_2026-03-16.html', cycle: 3 },
+            { key: 'auto_0319', name: '汽车(3月19日)', file: 'auto_2026-03-19.html', cycle: 3 },
+        ];
+
+        let currentReport = null;
+        let currentNewsItems = [];
+        let originalHtmlContent = '';
+        let githubToken = '';
+
+        // 检查登录状态
+        function checkLogin() {
+            const isLoggedIn = localStorage.getItem('adminLoggedIn');
+            githubToken = localStorage.getItem('githubToken') || '';
+            if (githubToken) {
+                document.getElementById('githubToken').value = githubToken;
+            }
+            
+            if (isLoggedIn) {
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('adminPage').style.display = 'block';
+                loadReports();
+            }
+        }
+
+        // 登录
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorEl = document.getElementById('loginError');
+
+            if (ADMIN_USERS[username] && ADMIN_USERS[username] === password) {
+                localStorage.setItem('adminLoggedIn', 'true');
+                localStorage.setItem('adminUser', username);
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('adminPage').style.display = 'block';
+                loadReports();
+                errorEl.style.display = 'none';
+            } else {
+                errorEl.textContent = '用户名或密码错误';
+                errorEl.style.display = 'block';
+            }
+        }
+
+        // 退出登录
+        function logout() {
+            localStorage.removeItem('adminLoggedIn');
+            localStorage.removeItem('adminUser');
+            document.getElementById('loginPage').style.display = 'block';
+            document.getElementById('adminPage').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        // 显示状态信息
+        function showStatus(msg, type = 'info') {
+            const el = document.getElementById('uploadStatus');
+            el.className = 'status-bar status-' + type;
+            el.textContent = msg;
+            el.style.display = 'block';
+        }
+
+        // 隐藏状态
+        function hideStatus() {
+            document.getElementById('uploadStatus').style.display = 'none';
+        }
+
+        // 切换标签页
+        function showTab(tab) {
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.getElementById('tabReports').style.display = 'none';
+            document.getElementById('tabIndex').style.display = 'none';
+            document.getElementById('tabSettings').style.display = 'none';
+            
+            document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).style.display = 'block';
+        }
+
+        // 加载报告列表
+        function loadReports() {
+            const container = document.getElementById('reportList');
+            container.innerHTML = '';
+
+            const indexConfig = JSON.parse(localStorage.getItem('indexConfig') || '{}');
+
+            REPORTS.forEach(report => {
+                const div = document.createElement('div');
+                div.className = 'report-item';
+                
+                const isHidden = indexConfig.hiddenReports && indexConfig.hiddenReports.includes(report.key);
+                if (isHidden) div.classList.add('disabled');
+
+                div.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                            <strong>${report.name}</strong>
+                            <span style="color: #666; font-size: 13px; margin-left: 8px;">${report.file}</span>
+                            ${isHidden ? '<span class="badge badge-danger">已隐藏</span>' : ''}
+                        </div>
+                        <button class="btn btn-primary" style="padding: 6px 12px; font-size: 13px;">编辑</button>
+                    </div>
+                `;
+                div.onclick = () => openEditModal(report);
+                container.appendChild(div);
+            });
+        }
+
+        // 打开编辑弹窗
+        async function openEditModal(report) {
+            currentReport = report;
+            hideStatus();
+            document.getElementById('modalTitle').textContent = `编辑 ${report.name} 报告 - ${report.file}`;
+            
+            // 从本地存储读取摘要
+            const savedData = JSON.parse(localStorage.getItem('report_' + report.key) || '{}');
+            document.getElementById('editSummary').value = savedData.summary || getDefaultSummary(report);
+            updateSummaryLength();
+            
+            // 尝试从本地文件读取 HTML
+            try {
+                const response = await fetch(report.file);
+                if (response.ok) {
+                    originalHtmlContent = await response.text();
+                    // 提取新闻条目
+                    currentNewsItems = parseNewsFromHtml(originalHtmlContent, report.key);
+                } else {
+                    currentNewsItems = getDefaultNewsItems(report);
+                }
+            } catch (e) {
+                console.log('无法读取本地文件，使用默认数据');
+                currentNewsItems = getDefaultNewsItems(report);
+            }
+            
+            renderNewsItems();
+            document.getElementById('editModal').classList.add('active');
+        }
+
+        // 从 HTML 解析新闻条目
+        function parseNewsFromHtml(html, reportKey) {
+            const items = [];
+            // 匹配 news-item 块
+            const regex = /<div class="news-item[^>]*>[\s\S]*?<div class="news-title">(.*?)<\/div>[\s\S]*?<div class="news-content">([\s\S]*?)<\/div>[\s\S]*?<a[^>]*>(.*?)<\/a>[\s\S]*?<\/div>/g;
+            let match;
+            while ((match = regex.exec(html)) !== null) {
+                items.push({
+                    title: match[1].replace(/<[^>]+>/g, '').trim(),
+                    content: match[2].replace(/<[^>]+>/g, '').trim(),
+                    source: match[3].trim(),
+                    category: 'home'
+                });
+            }
+            return items.length > 0 ? items : getDefaultNewsItems({key: reportKey});
+        }
+
+        // 获取默认摘要
+        function getDefaultSummary(report) {
+            const summaries = {
+                'home': '本周家电行业情报：家电以旧换新政策最新动态，AWE 2026展会亮点，智能家居新品发布',
+                'digital': '本周数码行业情报：MWC 2026最新产品，折叠屏手机市场动态，AI终端设备发展趋势',
+                'auto': '本周汽车市场情报：新能源汽车销量数据新车上市动态，行业政策最新解读',
+                'comprehensive': '本周综合情报汇总：家电、数码、汽车行业最新动态一网打尽'
+            };
+            return summaries[report.key] || '';
+        }
+
+        // 获取默认新闻条目
+        function getDefaultNewsItems(report) {
+            return [
+                { title: '新闻标题', content: '新闻内容...', source: '来源网站', category: report.key }
+            ];
+        }
+
+        // 更新摘要字数
+        function updateSummaryLength() {
+            const len = document.getElementById('editSummary').value.length;
+            document.getElementById('summaryLength').textContent = len + ' 字';
+        }
+
+        // 关闭编辑弹窗
+        function closeEditModal() {
+            document.getElementById('editModal').classList.remove('active');
+            hideStatus();
+        }
+
+        // 渲染新闻条目
+        function renderNewsItems() {
+            const container = document.getElementById('newsItemsList');
+            container.innerHTML = '';
+            
+            currentNewsItems.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'news-edit-item';
+                div.innerHTML = `
+                    <div class="news-edit-header">
+                        <strong>新闻条目 ${index + 1}</strong>
+                        <button onclick="removeNewsItem(${index})" style="color: #dc3545; background: none; border: none; cursor: pointer;">删除</button>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="input" placeholder="新闻标题" value="${escapeHtml(item.title)}" onchange="updateNewsItem(${index}, 'title', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="input" placeholder="新闻内容" onchange="updateNewsItem(${index}, 'content', this.value)">${escapeHtml(item.content)}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="input" placeholder="来源链接文字" value="${escapeHtml(item.source)}" onchange="updateNewsItem(${index}, 'source', this.value)">
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // HTML 转义
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // 添加新闻条目
+        function addNewsItem() {
+            currentNewsItems.push({ title: '', content: '', source: '', category: 'home' });
+            renderNewsItems();
+        }
+
+        // 删除新闻条目
+        function removeNewsItem(index) {
+            if (confirm('确定删除这条新闻吗？')) {
+                currentNewsItems.splice(index, 1);
+                renderNewsItems();
+            }
+        }
+
+        // 更新新闻条目
+        function updateNewsItem(index, field, value) {
+            currentNewsItems[index][field] = value;
+        }
+
+        // 生成修改后的 HTML
+        function generateModifiedHtml() {
+            const summary = document.getElementById('editSummary').value;
+            let html = originalHtmlContent;
+            
+            // 更新摘要（在 hero subtitle 中）
+            const summaryMatch = html.match(/<div class="subtitle">([\s\S]*?)<\/div>/);
+            if (summaryMatch) {
+                html = html.replace(summaryMatch[0], `<div class="subtitle">${summary}</div>`);
+            }
+            
+            // 更新新闻条目
+            let newsHtml = '';
+            currentNewsItems.forEach((item, index) => {
+                const category = currentReport.key === 'comprehensive' ? 
+                    (index % 3 === 0 ? 'home-appliance' : index % 3 === 1 ? 'digital' : 'auto') : 
+                    currentReport.key;
+                    
+                newsHtml += `
+            <div class="news-item ${category}">
+                <div class="news-title">${item.title}</div>
+                <div class="news-content">
+                    ${item.content}
+                </div>
+                <a href="#" target="_blank" class="news-source">${item.source}</a>
+            </div>`;
+            });
+            
+            // 替换新闻区块
+            const newsSectionMatch = html.match(/<div class="section-card">[\s\S]*?<h2 class="section-title [a-z-]+">[\s\S]*?<\/h2>[\s\S]*?<div class="news-items">([\s\S]*?)<\/div>[\s\S]*?<\/div>/);
+            if (newsSectionMatch) {
+                html = html.replace(newsSectionMatch[1], newsHtml);
+            }
+            
+            return html;
+        }
+
+        // 保存到本地
+        function saveLocally() {
+            const summary = document.getElementById('editSummary').value;
+            
+            const data = {
+                summary: summary,
+                newsItems: currentNewsItems,
+                updatedAt: new Date().toISOString()
+            };
+            localStorage.setItem('report_' + currentReport.key, JSON.stringify(data));
+            
+            // 同时保存原始 HTML 用于后续上传
+            if (originalHtmlContent) {
+                localStorage.setItem('html_' + currentReport.key, originalHtmlContent);
+            }
+            
+            showStatus('✅ 已保存到浏览器本地存储', 'success');
+        }
+
+        // 保存并上传到 GitHub
+        async function saveAndUpload() {
+            const token = localStorage.getItem('githubToken');
+            if (!token) {
+                showStatus('❌ 请先在"账号管理"中配置 GitHub Token', 'error');
+                return;
+            }
+
+            if (!originalHtmlContent) {
+                showStatus('❌ 无法获取原始 HTML 内容，请刷新页面重试', 'error');
+                return;
+            }
+
+            const summary = document.getElementById('editSummary').value;
+            
+            // 先保存到本地
+            saveLocally();
+            
+            // 生成修改后的 HTML
+            const modifiedHtml = generateModifiedHtml();
+            
+            showStatus('⏳ 正在上传到 GitHub...', 'info');
+            
+            // 上传到 GitHub
+            const githubToken = localStorage.getItem('githubToken');
+            const repo = 'kinozhao9205/auto-market-report';
+            const filePath = currentReport.file;
+            
+            // 获取文件 SHA
+            try {
+                const shaResponse = await fetch(
+                    `https://api.github.com/repos/${repo}/contents/${filePath}`,
+                    {
+                        headers: {
+                            'Authorization': `token ${githubToken}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }
+                );
+                
+                if (!shaResponse.ok) {
+                    throw new Error('获取文件信息失败');
+                }
+                
+                const shaData = await shaResponse.json();
+                const sha = shaData.sha;
+                
+                // 上传文件
+                const uploadResponse = await fetch(
+                    `https://api.github.com/repos/${repo}/contents/${filePath}`,
+                    {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${githubToken}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: `edit: 更新 ${filePath} 内容 via admin`,
+                            content: btoa(unescape(encodeURIComponent(modifiedHtml))),
+                            sha: sha
+                        })
+                    }
+                );
+                
+                if (uploadResponse.ok) {
+                    showStatus('✅ 保存并上传成功！', 'success');
+                    setTimeout(() => {
+                        closeEditModal();
+                        loadReports();
+                    }, 1500);
+                } else {
+                    const error = await uploadResponse.json();
+                    showStatus('❌ 上传失败: ' + (error.message || '未知错误'), 'error');
+                }
+            } catch (e) {
+                showStatus('❌ 上传出错: ' + e.message, 'error');
+            }
+        }
+
+        // 保存 GitHub Token
+        function saveGitHubToken() {
+            const token = document.getElementById('githubToken').value.trim();
+            if (!token) {
+                alert('请输入 GitHub Token');
+                return;
+            }
+            if (!token.startsWith('ghp_')) {
+                alert('Token 格式不正确，应以 ghp_ 开头');
+                return;
+            }
+            localStorage.setItem('githubToken', token);
+            githubToken = token;
+            alert('✅ GitHub Token 已保存');
+        }
+
+        // 保存目录配置
+        function saveIndexConfig() {
+            const currentCycle = document.getElementById('currentCycle').value;
+            const showCurrent = document.querySelector('input[name="showCurrent"]:checked').value;
+            
+            const config = {
+                currentCycle: parseInt(currentCycle),
+                showCurrent: showCurrent === 'true',
+                updatedAt: new Date().toISOString()
+            };
+            
+            localStorage.setItem('indexConfig', JSON.stringify(config));
+            alert('目录配置已保存！\n\n如需生效，请下载 index.html 配置文件并上传到 GitHub。');
+            loadReports();
+        }
+
+        // 修改密码
+        function changePassword() {
+            const oldPwd = document.getElementById('oldPassword').value;
+            const newPwd = document.getElementById('newPassword').value;
+            const confirmPwd = document.getElementById('confirmPassword').value;
+            const currentUser = localStorage.getItem('adminUser');
+            
+            if (ADMIN_USERS[currentUser] !== oldPwd) {
+                alert('当前密码错误');
+                return;
+            }
+            
+            if (newPwd !== confirmPwd) {
+                alert('两次输入的密码不一致');
+                return;
+            }
+            
+            if (newPwd.length < 4) {
+                alert('密码长度至少4位');
+                return;
+            }
+            
+            ADMIN_USERS[currentUser] = newPwd;
+            alert('密码修改成功！');
+            
+            document.getElementById('oldPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+        }
+
+        // 监听摘要字数变化
+        document.getElementById('editSummary').addEventListener('input', updateSummaryLength);
+
+        // 初始化
+        checkLogin();
+    </script>
+</body>
+</html>
