@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 数码行业每周情报 · 全年第15期 · 4月第3周</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+            --accent: #7209b7;
+            --accent2: #f72585;
+            --bg: #f0f2ff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        /* 头部 */
+        .header {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .logo-corner { position: absolute; top: 16px; right: 16px; z-index: 10; }
+        .logo-corner img { height: 34px; }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: white;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .header .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .header .badge {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        /* 主体 */
+        .main { max-width: 860px; margin: 0 auto; padding: 20px 16px; }
+        /* 核心摘要 */
+        .summary-box {
+            background: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px;
+            color: white;
+            margin-bottom: 18px;
+        }
+        .summary-box h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
+        }
+        .summary-box p { font-size: 0.95rem; line-height: 1.8; }
+        /* 数据卡片 */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .data-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 18px 12px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(67,97,238,0.08);
+            border-top: 4px solid var(--primary);
+        }
+        .data-card.v2 { border-top-color: var(--accent); }
+        .data-card.v3 { border-top-color: var(--accent2); }
+        .data-card.v4 { border-top-color: #06d6a0; }
+        .data-card .num {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .data-card.v2 .num { color: var(--accent); }
+        .data-card.v3 .num { color: var(--accent2); }
+        .data-card.v4 .num { color: #06d6a0; }
+        .data-card .lbl { font-size: 0.72rem; color: var(--text-secondary); margin-top: 5px; line-height: 1.4; }
+        /* 内容卡片 */
+        .section {
+            background: white;
+            border-radius: var(--card-radius);
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(67,97,238,0.06);
+            overflow: hidden;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f2f9;
+            background: linear-gradient(90deg, #f8f9ff 0%, white 100%);
+        }
+        .section-header .icon { font-size: 1.2rem; }
+        .section-header h2 { font-size: 1.02rem; font-weight: 700; color: var(--text-primary); }
+        .section-header .sub { font-size: 0.75rem; color: var(--text-secondary); margin-left: auto; background: #f0f2ff; padding: 3px 10px; border-radius: 10px; }
+        .section-content { padding: 18px 20px; }
+        /* 新闻条目 */
+        .news-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f5f5fb;
+        }
+        .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .news-item:first-child { padding-top: 0; }
+        .news-item .emoji { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+        .news-item .body { flex: 1; min-width: 0; }
+        .news-item .title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        .news-item .desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+        .news-item .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 9px;
+            border-radius: 10px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+        .tag.blue { background: #e8edff; color: var(--primary); }
+        .tag.purple { background: #f3e8ff; color: var(--accent); }
+        .tag.red { background: #ffe8f0; color: var(--accent2); }
+        .tag.green { background: #e8fff8; color: #06d6a0; }
+        .tag.orange { background: #fff3e8; color: #e67e22; }
+        .news-item .source-link {
+            font-size: 0.75rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-top: 6px;
+            display: inline-block;
+        }
+        .news-item .source-link:hover { text-decoration: underline; }
+        /* 区块标题 */
+        .block-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 16px 0 10px;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary);
+        }
+        .block-title:first-child { margin-top: 0; }
+        /* 表格 */
+        .table-wrap { overflow-x: auto; margin: 10px 0; border-radius: 10px; border: 1px solid #e8edff; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 480px; }
+        thead { background: linear-gradient(90deg, #4361ee 0%, #7209b7 100%); color: white; }
+        th { padding: 11px 14px; text-align: left; font-weight: 600; white-space: nowrap; }
+        td { padding: 10px 14px; border-bottom: 1px solid #f0f2f9; }
+        tbody tr:last-child td { border-bottom: none; }
+        tbody tr:nth-child(even) { background: #fafbff; }
+        tbody tr:hover { background: #f0f2ff; }
+        /* 高亮框 */
+        .highlight {
+            background: linear-gradient(135deg, #fff8e8 0%, #fff3d4 100%);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin: 14px 0;
+            border-left: 4px solid #f59e0b;
+        }
+        .highlight .hl-title { font-weight: 700; color: #b45309; margin-bottom: 8px; font-size: 0.92rem; }
+        .highlight .hl-body { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.75; }
+        .highlight .hl-body p { margin-bottom: 6px; }
+        .highlight .hl-body p:last-child { margin-bottom: 0; }
+        /* 品牌竞争力排行 */
+        .rank-list { display: flex; flex-direction: column; gap: 10px; }
+        .rank-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fafbff;
+            border-radius: 10px;
+            padding: 12px 14px;
+        }
+        .rank-num {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: 700;
+            flex-shrink: 0;
+        }
+        .rank-num.gold { background: linear-gradient(135deg,#ffd700,#ffaa00); color: #7a5000; }
+        .rank-num.silver { background: linear-gradient(135deg,#c0c0c0,#a0a0a0); color: white; }
+        .rank-num.bronze { background: linear-gradient(135deg,#cd7f32,#a05a20); color: white; }
+        .rank-num.other { background: #e8edff; color: var(--primary); }
+        .rank-info { flex: 1; }
+        .rank-info .rname { font-weight: 600; font-size: 0.9rem; color: var(--text-primary); }
+        .rank-info .rdesc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px; }
+        .rank-bar-wrap { width: 90px; }
+        .rank-bar { height: 6px; border-radius: 3px; background: #e8edff; overflow: hidden; }
+        .rank-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+        /* 展望 */
+        .outlook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .outlook-item {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            border-radius: 12px;
+            padding: 14px 16px;
+            border: 1px solid #dde3ff;
+        }
+        .outlook-item .o-icon { font-size: 1.4rem; margin-bottom: 8px; }
+        .outlook-item .o-title { font-weight: 700; color: var(--primary); font-size: 0.88rem; margin-bottom: 6px; }
+        .outlook-item .o-body { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65; }
+        /* 底部 */
+        .footer-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #3a0ca3 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px;
+            color: white;
+            margin-top: 20px;
+        }
+        .footer-section h4 { font-size: 0.95rem; margin-bottom: 10px; opacity: 0.8; }
+        .footer-section p { font-size: 0.82rem; opacity: 0.65; line-height: 1.8; }
+        /* 悬浮按钮 */
+        .back-index {
+            position: fixed;
+            bottom: 24px; right: 20px;
+            padding: 11px 20px;
+            background: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 18px rgba(67,97,238,0.45);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        .back-index:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(67,97,238,0.55); }
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .data-grid { grid-template-columns: repeat(2, 1fr); }
+            .outlook-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            body { padding-bottom: 50px; }
+            .header { padding: 28px 16px 22px; }
+            .main { padding: 14px 12px; }
+            .section-header { padding: 13px 16px; }
+            .section-content { padding: 14px 16px; }
+            .data-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .data-card { padding: 14px 10px; }
+            .data-card .num { font-size: 1.25rem; }
+            .news-item .title { font-size: 0.9rem; }
+            .news-item .desc { font-size: 0.84rem; }
+            .summary-box { padding: 18px; }
+        }
+        @media (max-width: 480px) {
+            .header h1 { font-size: 1.15rem; }
+            .data-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .data-card .num { font-size: 1.1rem; }
+            .news-item { flex-direction: column; gap: 6px; }
+            .back-index { bottom: 16px; right: 14px; padding: 10px 16px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-corner">
+            <img src="https://kinozhao9205.github.io/auto-market-report/logo-white-transparent.png" alt="Logo">
+        </div>
+        <div class="header-inner">
+            <div class="issue-badge">📱 盛世消费体验研究院 · 全年第15期</div>
+            <h1>数码行业每周情报</h1>
+            <div class="meta">
+                <span class="badge">📅 2026年4月7日</span>
+                <span class="badge">🔄 第15周 · 周期第2周</span>
+                <span class="badge">📱 数码行业主题</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <!-- 核心摘要 -->
+        <div class="summary-box">
+            <h3>💡 本期核心摘要</h3>
+            <p>2026年数码市场进入"双轨分化"时代：整体出货量在宏观压力下同比下滑，但折叠屏与AI手机两大赛道逆势狂飙。手机涨价潮席卷安卓阵营，OPPO、vivo、小米相继提价，苹果与华为凭借供应链韧性暂守价格防线。AI手机渗透率加速冲向50%大关，折叠屏市场同比增长30%，苹果iPhone Fold即将入局引发格局巨变。智能穿戴、AI PC两大品类同步升温，数码消费的核心逻辑正从"性价比"向"智能体验溢价"全面迁移。</p>
+        </div>
+
+        <!-- 数据速览 -->
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="num">2.9亿台</div>
+                <div class="lbl">2026年中国智能手机<br>全年出货量预测</div>
+            </div>
+            <div class="data-card v2">
+                <div class="num">50%+</div>
+                <div class="lbl">AI手机渗透率<br>2026年目标占比</div>
+            </div>
+            <div class="data-card v3">
+                <div class="num">+30%</div>
+                <div class="lbl">2026年折叠屏市场<br>同比增长预期（IDC）</div>
+            </div>
+            <div class="data-card v4">
+                <div class="num">42个月</div>
+                <div class="lbl">中国用户平均<br>换机周期（历史新高）</div>
+            </div>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📊</span>
+                <h2>市场大势：寒冬中的结构分化</h2>
+                <span class="sub">宏观数据</span>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="emoji">📉</span>
+                    <div class="body">
+                        <div class="title">2026年手机出货量同比下滑10.5%，换机周期延长至历史新高</div>
+                        <div class="desc">综合IDC、Counterpoint等机构数据，2026年中国智能手机市场出货量预计约2.9亿台，虽较2024年低谷有所回暖，但距2021年3.5亿台历史峰值仍有较大差距。消费者换机周期延长至42个月，产品同质化加剧叠加存储芯片短缺，共同压制市场整体需求。核心矛盾在于：传统中低端市场加速萎缩，高端智能化赛道反而持续升温。</div>
+                        <div class="tag-row">
+                            <span class="tag blue">出货量</span>
+                            <span class="tag purple">换机周期</span>
+                            <span class="tag red">结构分化</span>
+                        </div>
+                        <a class="source-link" href="https://www.sohu.com/a/1002367275_100085330" target="_blank">▶ 搜狐·2026手机市场遇冷分析</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">💎</span>
+                    <div class="body">
+                        <div class="title">高端市场逆势增长，4000元以上份额升至35.9%</div>
+                        <div class="desc">2026年中国智能手机高端市场（4000元以上）成为唯一的增长极，市场份额提升至35.9%，创历史新高。华为、苹果双雄领跑，OPPO、vivo在高端线持续发力。分析师指出，消费者愿意为更强的AI能力、更成熟的折叠形态和更长的产品周期支付溢价，"少买贵买"成为新消费趋势。预计2027年随着换机需求累积、AI功能走向成熟，市场将迎来周期性反弹。</div>
+                        <div class="tag-row">
+                            <span class="tag blue">高端市场</span>
+                            <span class="tag green">华为</span>
+                            <span class="tag orange">苹果</span>
+                        </div>
+                        <a class="source-link" href="https://www.baogaobox.com/insights/260401000026590.html" target="_blank">▶ 报告箱·2026手机市场格局报告</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">💰</span>
+                    <div class="body">
+                        <div class="title">安卓阵营集体涨价！OPPO、vivo、小米3月起陆续提价</div>
+                        <div class="desc">2026年3月起，国内主要安卓品牌受存储芯片价格上涨、AI模块成本攀升、汇率波动三重因素叠加影响，陆续启动价格上调。OPPO、vivo、小米及旗下子品牌均已宣布涨价，部分机型调幅在200-500元区间。值得关注的是，截至4月初，苹果与华为尚未跟进涨价，凭借更强的供应链话语权和品牌溢价能力形成差异化竞争优势，市场份额在涨价潮中持续受益。</div>
+                        <div class="tag-row">
+                            <span class="tag red">涨价潮</span>
+                            <span class="tag purple">供应链</span>
+                            <span class="tag blue">OPPO vivo</span>
+                        </div>
+                        <a class="source-link" href="https://mobile.zol.com.cn/1158/11583838.html" target="_blank">▶ ZOL中关村在线·安卓手机涨价分析</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 折叠屏专题 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📂</span>
+                <h2>折叠屏大战：三国杀开幕</h2>
+                <span class="sub">2026年关键赛道</span>
+            </div>
+            <div class="section-content">
+                <div class="highlight">
+                    <div class="hl-title">🔥 IDC预测：2026年折叠屏同比增长30%，苹果入局是最大变量</div>
+                    <div class="hl-body">
+                        <p>市场调研机构IDC于2025年12月发布预测报告，2026年全球折叠屏手机市场将迎来爆发式增长，同比增幅有望达30%。驱动因素：①苹果首款折叠屏iPhone（预计下半年发布）强势入局；②三星三折叠新品发布；③国产品牌折叠屏价格持续下探，用户门槛降低。</p>
+                        <p>Canalys同步预测，2026年将是折叠屏从"精英玩具"走向"大众主流"的关键转折点。随着铰链寿命超30万次、屏幕折痕控制在0.1mm以内等技术突破落地，产品可靠性大幅提升。</p>
+                    </div>
+                </div>
+
+                <!-- 品牌格局表 -->
+                <div class="block-title">📊 2026年折叠屏品牌格局对比</div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>品牌</th>
+                                <th>优势</th>
+                                <th>代表机型</th>
+                                <th>市场定位</th>
+                                <th>份额预测</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>华为</strong></td>
+                                <td>铰链技术、生态护城河</td>
+                                <td>Mate X7 / Pura Fold</td>
+                                <td>国内折叠屏销量第一</td>
+                                <td>国内约38%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>三星</strong></td>
+                                <td>OLED技术、全球化渠道</td>
+                                <td>Galaxy Z Fold 7 / Z Flip 7 / 三折叠</td>
+                                <td>全球折叠屏领导者</td>
+                                <td>全球约35%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>苹果</strong></td>
+                                <td>生态黏性、设计创新</td>
+                                <td>iPhone Fold（首款）</td>
+                                <td>高端市场最大变量</td>
+                                <td>首年预计28%全球</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OPPO</strong></td>
+                                <td>折痕控制、充电速度</td>
+                                <td>Find N5</td>
+                                <td>国产折叠屏最具性价比</td>
+                                <td>国内约15%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>小米/vivo</strong></td>
+                                <td>价格激进、快充</td>
+                                <td>MIX Fold 5 / X Fold 4</td>
+                                <td>性价比冲击高端</td>
+                                <td>国内约9%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="news-item" style="padding-top:14px;">
+                    <span class="emoji">🍎</span>
+                    <div class="body">
+                        <div class="title">苹果iPhone Fold：2026年折叠屏市场最大"鲶鱼"</div>
+                        <div class="desc">多家分析机构预测，苹果首款折叠屏手机预计于2026年下半年发布，首年有望拿下全球折叠屏市场28%份额。苹果入局将带来两重效应：一是激活大批持币待购的iPhone用户，加速折叠屏市场整体扩容；二是倒逼三星、华为加速产品迭代、拉升折叠屏品质上限。这或将是自2007年iPhone诞生以来，手机形态最重要的一次范式迁移。</div>
+                        <div class="tag-row">
+                            <span class="tag blue">iPhone Fold</span>
+                            <span class="tag purple">市场催化</span>
+                            <span class="tag orange">竞争格局</span>
+                        </div>
+                        <a class="source-link" href="https://k.sina.cn/article_7879848900_1d5acf3c401902w1jc.html" target="_blank">▶ 新浪·2026折叠屏格局深度分析</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">🇨🇳</span>
+                    <div class="body">
+                        <div class="title">华为Mate X7：断层领先，2025年折叠屏全球累计出货破千万</div>
+                        <div class="desc">华为折叠屏在2025年上半年稳居国内折叠屏市场份额第一，累计发货量突破千万台。Mate X7凭借麒麟芯片回归、"雪山折叠"铰链、超薄机身（展开厚度4.9mm）以及稳定的价格策略，在2026年关税涨价潮中反而成为最具性价比的选择。华为全场景生态（鸿蒙OS + HarmonyOS PC + 华为平板）持续强化用户黏性，拦截竞品渗透。</div>
+                        <div class="tag-row">
+                            <span class="tag green">华为</span>
+                            <span class="tag blue">鸿蒙生态</span>
+                            <span class="tag purple">折叠屏霸主</span>
+                        </div>
+                        <a class="source-link" href="https://mobile.zol.com.cn/1154/11545885.html" target="_blank">▶ ZOL中关村·华为折叠屏市场解析</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI手机专题 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🤖</span>
+                <h2>AI手机：渗透率冲击50%大关</h2>
+                <span class="sub">核心增长极</span>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="emoji">🚀</span>
+                    <div class="body">
+                        <div class="title">IDC预测：2026年中国AI手机渗透率将突破50%</div>
+                        <div class="desc">IDC发布《2026年中国智能手机市场十大洞察》，预测AI手机将在2026年实现超过50%的市场渗透率。AI手机的定义已从早期"有AI功能"升级为"端侧大模型驱动的自主执行能力"。AI手机正从"噱头"走向"刚需"：实时翻译、AI摄影导演、智能日程管理、个人数字助理等功能快速成为用户高频使用场景，驱动高端换机需求。</div>
+                        <div class="tag-row">
+                            <span class="tag blue">AI手机</span>
+                            <span class="tag purple">渗透率</span>
+                            <span class="tag red">IDC</span>
+                        </div>
+                        <a class="source-link" href="https://news.qq.com/rain/a/20251208A04EJP00" target="_blank">▶ 腾讯新闻·IDC十大洞察报告</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">💡</span>
+                    <div class="body">
+                        <div class="title">生成式AI手机累计出货破10亿台：2026年Q3里程碑</div>
+                        <div class="desc">Counterpoint Research数据显示，生成式AI手机自2024年正式起步，不到2年全球累计出货量突破5亿台。预计2026年Q3将跨越10亿台累计出货量的历史里程碑，意味着第二个5亿台的速度大幅加快。高通骁龙8至尊版、联发科天玑9400、华为麒麟9020均搭载NPU加速，支持多模态端侧大模型推理，AI手机芯片军备竞赛进入白热化阶段。</div>
+                        <div class="tag-row">
+                            <span class="tag blue">生成式AI</span>
+                            <span class="tag green">骁龙</span>
+                            <span class="tag purple">天玑</span>
+                            <span class="tag orange">麒麟</span>
+                        </div>
+                        <a class="source-link" href="https://news.qq.com/rain/a/20251101A017UA00" target="_blank">▶ 腾讯新闻·Counterpoint累计出货分析</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">📱</span>
+                    <div class="body">
+                        <div class="title">本土芯片崛起：华为海思+国产SoC市场份额涨至28.7%</div>
+                        <div class="desc">中国半导体行业协会《2025-2026年中国智能终端芯片市场年度报告》显示，2025年中国本土芯片设计企业在全球智能手机SoC市场的份额达到28.7%，较2021年提升14.3个百分点。华为海思凭借麒麟9020系列在高端机型全面回归，单季度出货量突破1200万套。本土芯片自主化进程显著加速，在关税博弈与供应链重构背景下，核心元器件国产化比例持续攀升。</div>
+                        <div class="tag-row">
+                            <span class="tag green">国产芯片</span>
+                            <span class="tag blue">麒麟9020</span>
+                            <span class="tag purple">半导体</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 品牌竞争排行 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🏆</span>
+                <h2>2026年Q1国内手机品牌竞争力排行</h2>
+                <span class="sub">综合市场数据</span>
+            </div>
+            <div class="section-content">
+                <div class="rank-list">
+                    <div class="rank-item">
+                        <div class="rank-num gold">1</div>
+                        <div class="rank-info">
+                            <div class="rname">🍎 华为</div>
+                            <div class="rdesc">凭借麒麟芯片回归+鸿蒙生态+折叠屏双线布局，2026年多周反超苹果重登国内份额榜首；高端机型持续热销，下沉市场渗透加速</div>
+                        </div>
+                        <div class="rank-bar-wrap">
+                            <div class="rank-bar"><div class="rank-bar-fill" style="width:95%"></div></div>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num silver">2</div>
+                        <div class="rank-info">
+                            <div class="rname">🍏 苹果</div>
+                            <div class="rdesc">iPhone 17系列稳住高端基盘，AI功能Apple Intelligence持续迭代；iPhone Fold入局预期是2026年下半年最大催化剂；未跟进涨价，价格防线稳固</div>
+                        </div>
+                        <div class="rank-bar-wrap">
+                            <div class="rank-bar"><div class="rank-bar-fill" style="width:88%"></div></div>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num bronze">3</div>
+                        <div class="rank-info">
+                            <div class="rname">📱 OPPO</div>
+                            <div class="rdesc">新机发布数量领先行业，Find X8 Ultra+Find N5折叠屏双线齐发；vivo携X200 Ultra拿下影像评分榜首，TWS耳机市场也持续增长</div>
+                        </div>
+                        <div class="rank-bar-wrap">
+                            <div class="rank-bar"><div class="rank-bar-fill" style="width:72%"></div></div>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num other">4</div>
+                        <div class="rank-info">
+                            <div class="rname">📲 小米</div>
+                            <div class="rdesc">小米15 Ultra影像+AI能力获高度评价；澎湃OS 2.0全面成熟，生态设备超7亿台激活；价格上调后在3000-4000元段竞争加剧</div>
+                        </div>
+                        <div class="rank-bar-wrap">
+                            <div class="rank-bar"><div class="rank-bar-fill" style="width:65%"></div></div>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num other">5</div>
+                        <div class="rank-info">
+                            <div class="rname">🌟 荣耀</div>
+                            <div class="rdesc">Magic7 Pro以MagicOS 9.0 AI系统赢得年轻用户；海外市场拓展持续加速，欧洲渠道份额稳步提升；与华为分离后独立性增强</div>
+                        </div>
+                        <div class="rank-bar-wrap">
+                            <div class="rank-bar"><div class="rank-bar-fill" style="width:56%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 智能穿戴 & AI PC -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">⌚</span>
+                <h2>智能穿戴 & AI PC：周边品类同步升温</h2>
+                <span class="sub">多品类数据</span>
+            </div>
+            <div class="section-content">
+                <div class="block-title">⌚ 智能穿戴设备</div>
+                <div class="news-item">
+                    <span class="emoji">📈</span>
+                    <div class="body">
+                        <div class="title">2026年中国可穿戴设备市场超速增长，向"独立智能终端"转型</div>
+                        <div class="desc">艾媒咨询数据显示，2026年中国智能穿戴设备行业进入高速增长期，市场规模增速超过亚太地区平均水平。关键转变：智能手表从"手机附件"升级为"健康管理平台"，搭载ECG心电、血糖无创监测（试验阶段）、体温趋势预警等医疗级传感器，正向独立智能终端演进。Apple Watch Ultra、华为Watch Ultimate、OPPO Watch X等旗舰产品加速普及健康数字化理念。</div>
+                        <div class="tag-row">
+                            <span class="tag blue">智能手表</span>
+                            <span class="tag green">健康监测</span>
+                            <span class="tag purple">独立终端</span>
+                        </div>
+                        <a class="source-link" href="https://www.baogaobox.com/insights/260122000024970.html" target="_blank">▶ 报告箱·2026年智能穿戴趋势解读</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">🎧</span>
+                    <div class="body">
+                        <div class="title">TWS耳机迎AI化浪潮：实时翻译+空间音频成差异化核心</div>
+                        <div class="desc">2026年TWS耳机市场在AI功能赋能下焕发新生机。苹果AirPods Pro 3、三星Galaxy Buds 3 Pro、华为FreeBuds Pro 4均主打AI实时翻译（支持多语言）和个性化空间音频。国产品牌OPPO Enco X3、小米Buds 5 Pro在降噪性能上追平旗舰。行业趋势：耳机正从"听歌工具"进化为"AI交互入口"，语音助手深度集成本地大模型，离线响应速度大幅提升。</div>
+                        <div class="tag-row">
+                            <span class="tag blue">TWS耳机</span>
+                            <span class="tag red">AI翻译</span>
+                            <span class="tag orange">空间音频</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block-title" style="margin-top:18px;">💻 AI PC市场</div>
+                <div class="news-item">
+                    <span class="emoji">💻</span>
+                    <div class="body">
+                        <div class="title">AI PC：强劲增长同期，中国整体PC市场在高基数下承压下行</div>
+                        <div class="desc">Omdia预计2026年中国PC出货量将同比下降约10%至3790万台，消费市场降幅更达12%，主因是2025年高基数效应。但AI PC品类逆势亮眼：搭载NPU（AI加速单元）的AI PC出货量持续攀升，高通骁龙X Elite、英特尔Core Ultra 200V、AMD Ryzen AI 300构成AI PC芯片三强格局。AI PC核心卖点落地：本地大模型实时推理、AI图像处理、智能降噪视频会议，企业采购是最重要增量市场。</div>
+                        <div class="tag-row">
+                            <span class="tag blue">AI PC</span>
+                            <span class="tag purple">骁龙X Elite</span>
+                            <span class="tag green">NPU</span>
+                            <span class="tag orange">企业采购</span>
+                        </div>
+                        <a class="source-link" href="https://www.chinaflashmarket.com/newsflash/37167" target="_blank">▶ CFM·2026年中国PC出货量预测</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2026年数码市场涨价潮专题 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">💸</span>
+                <h2>2026年涨价潮：消费电子全线承压</h2>
+                <span class="sub">行业深度</span>
+            </div>
+            <div class="section-content">
+                <div class="highlight">
+                    <div class="hl-title">⚠️ 三重因素叠加，消费电子涨价或贯穿2026全年</div>
+                    <div class="hl-body">
+                        <p>📦 <strong>存储芯片短缺：</strong>三星、SK海力士、美光三大厂2025年减产效果显现，DRAM/NAND价格进入上行通道，手机内存成本大幅上涨。</p>
+                        <p>🤖 <strong>AI模块成本：</strong>端侧NPU、更大存储容量、更高带宽设计均推高BOM成本，AI手机相比普通机型成本增加约15-25%。</p>
+                        <p>🌍 <strong>关税与汇率：</strong>全球贸易摩擦影响供应链成本，部分零部件采购成本上升，安卓品牌向消费端转嫁压力。苹果、华为供应链自主化程度更高，短期更具价格抗压能力。</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="emoji">📊</span>
+                    <div class="body">
+                        <div class="title">2026年数码行业价格趋势：高端稳价、中端涨价、低端收缩</div>
+                        <div class="desc">根据行业综合分析，2026年数码产品呈现明显的价格分层：旗舰高端产品（5000元以上）维持稳定定价策略，品牌以品质和AI能力竞争；中端市场（2000-5000元）是涨价重灾区，平均调价幅度在200-500元；低端市场（2000元以下）受压收缩，国产品牌加速上探中端，竞争主战场向高价位段迁移。这一趋势与消费升级、AI能力溢价相互强化，共同推动数码消费向高端化演进。</div>
+                        <div class="tag-row">
+                            <span class="tag blue">价格分层</span>
+                            <span class="tag red">中端涨价</span>
+                            <span class="tag purple">高端化</span>
+                        </div>
+                        <a class="source-link" href="https://www.sohu.com/a/1004421762_121948403" target="_blank">▶ 搜狐·2026手机价格变局深度解析</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔮</span>
+                <h2>趋势展望：未来3-6个月关键看点</h2>
+                <span class="sub">前瞻分析</span>
+            </div>
+            <div class="section-content">
+                <div class="outlook-grid">
+                    <div class="outlook-item">
+                        <div class="o-icon">🍎</div>
+                        <div class="o-title">苹果iPhone Fold发布</div>
+                        <div class="o-body">预计2026年下半年发布，首年出货量目标2000万台以上。苹果的入局将重新定义折叠屏的"标准品质"，推动行业整体门槛上移。关注苹果生态联动策略。</div>
+                    </div>
+                    <div class="outlook-item">
+                        <div class="o-icon">🤖</div>
+                        <div class="o-title">AI手机功能爆发</div>
+                        <div class="o-body">端侧多模态大模型加速落地，AI摄影、实时翻译、健康预警、个性化推荐从"Demo功能"升级为"系统核心能力"。下半年换机潮有望因AI能力跃迁触发。</div>
+                    </div>
+                    <div class="outlook-item">
+                        <div class="o-icon">💲</div>
+                        <div class="o-title">涨价潮传导完成</div>
+                        <div class="o-body">安卓品牌涨价已基本完成向终端的传导，预计Q2价格进入新平衡。消费者需适应新的价格锚点，关注618大促期间品牌让利策略与销量表现。</div>
+                    </div>
+                    <div class="outlook-item">
+                        <div class="o-icon">🇨🇳</div>
+                        <div class="o-title">国产芯片加速自主</div>
+                        <div class="o-body">华为麒麟、紫光展锐、联芯在5G+AI芯片领域持续突破，本土SoC份额从28.7%向30%迈进。关税博弈反而加速芯片供应链国产替代进程，中长期利好国产半导体产业链。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-section">
+            <h4>📌 数据来源与说明</h4>
+            <p>本期数据综合自：IDC、Counterpoint Research、Canalys、中国半导体行业协会（CSIA）、中商产业研究院、艾媒咨询、Omdia等权威机构报告，以及搜狐科技、中关村在线、36氪、腾讯新闻、新浪财经等媒体报道（截至2026年4月7日）。</p>
+            <p style="margin-top:8px;">📅 更新周期：每周一发布 | 🔄 报告主题：第1周家电 / 第2周数码 / 第3周汽车 / 第4周综合</p>
+            <p style="margin-top:8px;">⚠️ 本报告仅供参考，不构成投资建议。市场数据存在预测误差，请以官方公告为准。</p>
+        </div>
+    </div>
+
+    <a href="https://kinozhao9205.github.io/auto-market-report/" class="back-index" target="_blank">📋 返回首页</a>
+</body>
+</html>
