@@ -277,8 +277,40 @@
     margin-top: 20px;
   }
   .footer strong { color: #fff; }
-  .footer .back-home { margin-top: 10px; }
-  .footer .back-home a { color: #90caf9; text-decoration: none; }
+  .footer .back-home { margin-top: 12px; }
+  .footer .back-home a {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+  .footer .back-home a:hover { background: rgba(255,255,255,0.28); }
+  /* 顶部返回按钮 */
+  .back-btn-top {
+    text-align: left;
+    padding: 10px 14px 0;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .back-btn-top a {
+    display: inline-block;
+    background: #e8eaf6;
+    color: #1a237e;
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid #c5cae9;
+    transition: background 0.2s;
+  }
+  .back-btn-top a:hover { background: #c5cae9; }
 
   /* 标签 */
   .pill {
@@ -307,6 +339,10 @@
     <span>第13周 · 4月第1周</span>
     <span>家电行业</span>
   </div>
+</div>
+
+<div class="back-btn-top">
+  <a href="index.html">← 返回往期目录</a>
 </div>
 
 <div class="container">
@@ -542,7 +578,7 @@
   <strong>盛世消费体验研究院 · 家电行业情报</strong><br>
   2026年第13周 · 4月第1周 · 每周一出品<br>
   <div class="back-home">
-    ← <a href="index.html">返回往期目录</a>
+    <a href="index.html">← 返回往期目录</a>
   </div>
 </div>
 
