@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家电行业情报 · 2026年第13周（4月第1周）</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: #f0f4f8;
+    color: #2d3748;
+    line-height: 1.7;
+  }
+  /* 顶部 Hero */
+  .hero {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 40%, #1565c0 100%);
+    color: #fff;
+    padding: 40px 20px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 260px; height: 260px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -60px;
+    width: 180px; height: 180px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+  .hero .subtitle { font-size: 14px; opacity: 0.8; margin-bottom: 18px; }
+  .hero .meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    opacity: 0.75;
+  }
+  .hero .meta span::before { content: '📅 '; }
+  .hero .meta span:nth-child(2)::before { content: '🔢 '; }
+  .hero .meta span:nth-child(3)::before { content: '🏷️ '; }
+
+  /* 主内容区 */
+  .container { max-width: 780px; margin: 0 auto; padding: 0 14px 60px; }
+
+  /* 板块标题 */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a237e;
+    margin: 28px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8eaf6;
+  }
+  .section-title .icon {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, #1a237e, #1565c0);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* 数据速览卡片 */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  @media (min-width: 600px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+  .stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(26,35,126,0.08);
+    border-top: 3px solid;
+  }
+  .stat-card:nth-child(1) { border-color: #1565c0; }
+  .stat-card:nth-child(2) { border-color: #e53935; }
+  .stat-card:nth-child(3) { border-color: #2e7d32; }
+  .stat-card:nth-child(4) { border-color: #f57c00; }
+  .stat-card:nth-child(5) { border-color: #6a1b9a; }
+  .stat-card:nth-child(6) { border-color: #00838f; }
+  .stat-num { font-size: 24px; font-weight: 800; color: #1a237e; line-height: 1.2; }
+  .stat-num .unit { font-size: 13px; font-weight: 500; }
+  .stat-change { font-size: 11px; margin: 3px 0; }
+  .stat-change.up { color: #c62828; }
+  .stat-change.down { color: #2e7d32; }
+  .stat-label { font-size: 12px; color: #718096; }
+
+  /* 核心摘要 */
+  .summary-card {
+    background: linear-gradient(135deg, #e8eaf6 0%, #e3f2fd 100%);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid #1565c0;
+    box-shadow: 0 2px 8px rgba(26,35,126,0.06);
+  }
+  .summary-card p { font-size: 14px; color: #2d3748; line-height: 1.9; }
+  .summary-points { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .summary-point {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    padding: 8px 12px;
+    align-items: flex-start;
+  }
+  .summary-point .dot {
+    width: 20px; height: 20px;
+    background: #1565c0;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* 新闻卡片 */
+  .news-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(26,35,126,0.07);
+    border-left: 4px solid #1565c0;
+  }
+  .news-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .news-card p { font-size: 13px; color: #4a5568; line-height: 1.8; margin-bottom: 8px; }
+  .news-source {
+    display: inline-block;
+    font-size: 11px;
+    color: #718096;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+  .news-source a { color: #1565c0; text-decoration: none; }
+
+  /* 专题：数据表格 */
+  .topic-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(26,35,126,0.07);
+  }
+  .topic-card h3 { font-size: 15px; font-weight: 700; color: #1a237e; margin-bottom: 12px; }
+  .topic-card p { font-size: 13px; color: #4a5568; line-height: 1.8; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+  th {
+    background: linear-gradient(135deg, #1a237e, #1565c0);
+    color: #fff;
+    padding: 9px 10px;
+    text-align: center;
+    font-weight: 600;
+  }
+  td {
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1px solid #edf2f7;
+    color: #4a5568;
+  }
+  tr:nth-child(even) td { background: #f7fafc; }
+  tr:last-child td { border-bottom: none; }
+  .tag-up { color: #c62828; font-weight: 600; }
+  .tag-down { color: #2e7d32; font-weight: 600; }
+  .tag-neutral { color: #f57c00; font-weight: 600; }
+
+  /* 品牌动态 */
+  .brand-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(26,35,126,0.06);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .brand-logo {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    background: #e8eaf6;
+  }
+  .brand-info h3 { font-size: 14px; font-weight: 700; color: #1a237e; margin-bottom: 5px; }
+  .brand-info p { font-size: 13px; color: #4a5568; line-height: 1.75; }
+  .brand-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .brand-tag.positive { background: #e8f5e9; color: #2e7d32; }
+  .brand-tag.neutral { background: #fff8e1; color: #f57c00; }
+  .brand-tag.negative { background: #ffebee; color: #c62828; }
+
+  /* 趋势展望 */
+  .trend-grid { display: flex; flex-direction: column; gap: 10px; }
+  .trend-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 6px rgba(26,35,126,0.06);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .trend-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .trend-content h4 { font-size: 14px; font-weight: 700; color: #1a237e; margin-bottom: 4px; }
+  .trend-content p { font-size: 13px; color: #4a5568; line-height: 1.75; }
+
+  /* 数据来源 */
+  .source-card {
+    background: #f7fafc;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 12px;
+    color: #718096;
+    line-height: 1.9;
+    border: 1px solid #e2e8f0;
+  }
+  .source-card strong { color: #4a5568; }
+
+  /* 底部 */
+  .footer {
+    background: #1a237e;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  .footer strong { color: #fff; }
+  .footer .back-home { margin-top: 10px; }
+  .footer .back-home a { color: #90caf9; text-decoration: none; }
+
+  /* 标签 */
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin: 2px 3px 2px 0;
+    font-weight: 500;
+  }
+  .pill-blue { background: #e3f2fd; color: #1565c0; }
+  .pill-red { background: #ffebee; color: #c62828; }
+  .pill-green { background: #e8f5e9; color: #2e7d32; }
+  .pill-orange { background: #fff3e0; color: #f57c00; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">盛世消费体验研究院</div>
+  <h1>🏠 家电行业情报</h1>
+  <p class="subtitle">深度解析 · 数据驱动 · 前沿洞察</p>
+  <div class="meta">
+    <span>2026年3月31日</span>
+    <span>第13周 · 4月第1周</span>
+    <span>家电行业</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 一、数据速览 -->
+  <div class="section-title">
+    <div class="icon">📊</div>
+    数据速览
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">2500<span class="unit">亿元</span></div>
+      <div class="stat-change up">▲ 同比+25%</div>
+      <div class="stat-label">2026年国补总预算</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">625<span class="unit">亿元</span></div>
+      <div class="stat-change neutral">第二批·4月落地</div>
+      <div class="stat-label">国补第二批资金</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">9.9<span class="unit">万/吨</span></div>
+      <div class="stat-change up">▲ 同比+33%</div>
+      <div class="stat-label">铜价（一季度）</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5~20<span class="unit">%</span></div>
+      <div class="stat-change up">4月起执行</div>
+      <div class="stat-label">家电集体涨价幅度</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100<span class="unit">+款</span></div>
+      <div class="stat-change neutral">AWE 2026</div>
+      <div class="stat-label">展会全球首发新品</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">600<span class="unit">亿元</span></div>
+      <div class="stat-change up">未来3年研发</div>
+      <div class="stat-label">美的AI投入计划</div>
+    </div>
+  </div>
+
+  <!-- 二、核心摘要 -->
+  <div class="section-title">
+    <div class="icon">📋</div>
+    核心摘要
+  </div>
+  <div class="summary-card">
+    <p>2026年3月末至4月初，家电行业呈现出"政策刺激"与"成本冲击"并行的双重态势。国补第二批625亿元资金即将在4月正式落地，叠加"五一"消费旺季临近，有望再度激活终端需求。然而与此同时，铜价、ABS塑料等上游原材料价格大幅飙升，美的、海尔、海信、TCL等主流品牌纷纷宣布4月起涨价5%~20%，行业进入新一轮成本传导验证期。AWE 2026展会带来100余款全球首发新品，AI家居与全屋智能成为绝对主角，美的发布"三个一"战略与MevoX智能体，宣布未来三年再投600亿布局AI。</p>
+    <div class="summary-points">
+      <div class="summary-point"><div class="dot">1</div><span><strong>国补第二批落地在即</strong>：全年2500亿元国补资金，第二批625亿元4月下达，补贴范围收窄至六大核心家电，能效门槛提升至一级，精准拉动高端消费。</span></div>
+      <div class="summary-point"><div class="dot">2</div><span><strong>集体涨价潮袭来</strong>：铜价突破9.9万元/吨（同比+33%），ABS塑料暴涨51.7%，美的、海尔、海信、TCL等品牌4月起上调出厂价5%~20%，格力逆势喊话"不涨价"。</span></div>
+      <div class="summary-point"><div class="dot">3</div><span><strong>AI家电重构行业赛道</strong>：AWE 2026成为全球AI家电最重要舞台，美的、海尔、海信等龙头以AI大模型为核心驱动，全面布局主动式全屋智能生态。</span></div>
+      <div class="summary-point"><div class="dot">4</div><span><strong>出口"本土化"加速</strong>：中国家电出口从"整机出口"向"海外本土制造"转型，海外子品牌在当地营收占比显著提升，成为对冲关税风险的关键路径。</span></div>
+    </div>
+  </div>
+
+  <!-- 三、市场大势 -->
+  <div class="section-title">
+    <div class="icon">📰</div>
+    市场大势
+  </div>
+
+  <div class="news-card">
+    <h3>🏛️ 国补第二批625亿元4月下达，政策精准收窄聚焦高端节能</h3>
+    <p>2026年全年2500亿元国补资金中，第二批625亿元将于4月正式下达，此举旨在为"五一"消费旺季注入强劲政策动力。与此前两轮国补相比，本次补贴政策进行了明显调整：补贴范围由此前的11个品类大幅收窄至冰箱、洗衣机、电视、空调、电脑、热水器六大核心家电；能效门槛提升至一级能效或一级水效，二级及以下产品不再享受补贴；补贴比例统一为商品售价的15%，单件最高补贴1500元。业内人士指出，"甜点价位"约在8000~10000元，消费者选择该价位段一级能效产品可最大化利用补贴。截至目前，全国29个省区市已恢复补贴申领通道，政策执行更注重"绿色消费、智能升级"导向。</p>
+    <span class="news-source">来源：<a href="https://life.china.com/2026-04/07/content_561561.html" target="_blank">中华网 2026-04-07</a></span>
+  </div>
+
+  <div class="news-card">
+    <h3>💸 原材料暴涨倒逼家电集体提价，涨幅5%~20%，格力逆势声称"不涨价"</h3>
+    <p>2026年一季度，上游原材料价格出现近年来罕见的全面飙升态势。铜价突破9.9万元/吨，同比上涨超33%；ABS塑料暴涨51.7%；原油价格因地缘政治因素走高，带动PP、PE等化工原料同步上行。在多重成本压力下，美的、海尔、海信、TCL、西门子、松下等主流家电品牌相继宣布，从2026年4月起上调产品出厂价，涨幅区间为5%~20%，部分空调机型涨幅高达30%。线上渠道已率先调价，线下渠道正在跟进。华创证券分析师指出，2026年一季度至二季度将是"利润端验证窗口"，核心观察点在于品牌能否顺利向下游传导成本压力，同时维持市场份额。值得关注的是，格力电器CMO朱磊公开表态"格力不涨价、不减配、不套路"，意在差异化竞争，争夺对价格敏感的消费群体。</p>
+    <span class="news-source">来源：<a href="https://news.qq.com/rain/a/20260331A06I5C00" target="_blank">腾讯新闻 2026-03-31</a> / <a href="https://www.21jingji.com/article/20260408/herald/6f84c8329be10c5530dae2073057e658.html" target="_blank">21世纪经济报道 2026-04-08</a></span>
+  </div>
+
+  <div class="news-card">
+    <h3>🤖 AWE 2026落幕：AI重构家电业，百款新品首发，全屋智能进入"主动时代"</h3>
+    <p>2026年3月，以"AI科技 慧享未来"为主题的中国家电及消费电子博览会（AWE 2026）在上海举办，全球首发重磅新品超过100款。本届AWE被业界定义为"AI重构家电"的历史转折点——人工智能不再是噱头性功能叠加，而是真正渗透家电的感知、决策与执行各环节，推动家电从"被动执行"向"主动服务"升级。海尔、美的、海信、华为等企业展示了各自的AI全屋智能生态方案，强调AI大模型在家庭场景下的自主推理、学习记忆与多设备协同能力。京东在展会期间宣布与近百家家电品牌启动AI技术对接，推出"闪电新品季"，依托AI导购提升消费者决策效率，展会整体展现了中国家电行业向智能化、AI化全面跃迁的强劲势头。</p>
+    <span class="news-source">来源：<a href="https://www.21jingji.com/article/20260313/herald/e60b6bf8cd7549e5dca6226d6b5f4af4.html" target="_blank">21世纪经济报道 2026-03-13</a></span>
+  </div>
+
+  <!-- 四、重点专题 -->
+  <div class="section-title">
+    <div class="icon">🔍</div>
+    重点专题
+  </div>
+
+  <div class="topic-card">
+    <h3>📌 专题一：家电集体涨价潮 — 成本传导路径与各品牌应对策略对比</h3>
+    <p>2026年一季度原材料成本上涨呈现"周期性、全覆盖"特征，并非短期偶然。铜、铝、ABS、PP、PE等核心原材料同步飙升，涵盖家电生产所需的全线材料。各品牌面对同一成本压力，却采取了截然不同的策略，分化出"顺势提价派"与"逆势稳价派"两大阵营。从长远来看，能否通过顺价、产品结构升级、费用优化等方式有效转嫁成本，将是决定各品牌2026年利润率的核心变量。</p>
+    <table>
+      <thead>
+        <tr><th>品牌</th><th>涨价策略</th><th>涨价幅度</th><th>生效时间</th><th>备注</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>美的</strong></td><td>主动提价</td><td class="tag-up">5%~30%</td><td>2026年4月</td><td>空调部分机型涨幅最大</td></tr>
+        <tr><td><strong>海尔</strong></td><td>主动提价</td><td class="tag-up">5%~15%</td><td>2026年4月</td><td>卡萨帝高端线维持稳定</td></tr>
+        <tr><td><strong>海信</strong></td><td>主动提价</td><td class="tag-up">5%~20%</td><td>2026年4月</td><td>含旗下容声品牌</td></tr>
+        <tr><td><strong>TCL</strong></td><td>主动提价</td><td class="tag-up">5%~10%</td><td>2026年4月</td><td>彩电系列率先调整</td></tr>
+        <tr><td><strong>格力</strong></td><td>明确不涨价</td><td class="tag-down">0%</td><td>—</td><td>主动营销差异化定位</td></tr>
+        <tr><td><strong>松下/西门子</strong></td><td>跟涨外资品牌</td><td class="tag-up">8%~15%</td><td>2026年4月</td><td>高端市场影响有限</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="topic-card">
+    <h3>📌 专题二：2026年国补政策演变对比 — 补贴范围与标准全面升级</h3>
+    <p>2026年国补政策在总量维持2500亿元规模的同时，进行了结构性调整：补贴品类从11个收窄至6个核心家电，能效门槛从二级提升至一级，补贴比例统一提升至15%，单件上限从800元提升至1500元。政策导向更加精准，重点鼓励高端节能产品消费，推动行业加速向绿色化、智能化转型。</p>
+    <table>
+      <thead>
+        <tr><th>对比维度</th><th>2025年国补</th><th>2026年国补</th><th>变化方向</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>总预算规模</td><td>2000亿元</td><td>2500亿元</td><td class="tag-up">▲ 增加25%</td></tr>
+        <tr><td>补贴品类数量</td><td>11个品类</td><td>6个核心品类</td><td class="tag-down">▼ 精准收窄</td></tr>
+        <tr><td>能效要求</td><td>一级/二级均可</td><td>仅限一级能效</td><td class="tag-up">▲ 门槛提升</td></tr>
+        <tr><td>补贴比例</td><td>15%</td><td>15%</td><td class="tag-neutral">→ 维持不变</td></tr>
+        <tr><td>单件最高补贴</td><td>800元</td><td>1500元</td><td class="tag-up">▲ 提升87.5%</td></tr>
+        <tr><td>最优购买区间</td><td>5000~6000元</td><td>8000~10000元</td><td class="tag-up">▲ 向高端引导</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 五、品牌动态 -->
+  <div class="section-title">
+    <div class="icon">🏢</div>
+    品牌动态
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🔵</div>
+    <div class="brand-info">
+      <span class="brand-tag positive">战略升级</span>
+      <h3>美的集团 — 发布"三个一"全屋智能战略，MevoX智能体首亮相</h3>
+      <p>2026年3月10日，美的在上海举行2026全屋智能战略发布会，正式发布"三个一"战略：一张智能家电网（5亿台联网能力、1.4亿台活跃联网）、一个聪明AI大脑（MevoX自进化家居智能体）、一个开放平台（参与80余项国家标准，联动华为、vivo、比亚迪生态）。MevoX支持高阶推理、持续记忆与多方言识别，可实现"车控家、家控车"双向互联。美的宣布过去5年研发投入超600亿元，未来三年计划再投600亿元专注AI与具身智能领域，展现出对家电AI化的强力押注。欧睿授予美的"2025年全球智能家电销量第一"认证。</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🟢</div>
+    <div class="brand-info">
+      <span class="brand-tag positive">出海布局</span>
+      <h3>海尔智家 — 内销靠国补托底，出口转向"海外本土制造"模式</h3>
+      <p>2026年一季度，海尔智家采取"内外双线"策略：国内市场依托国补政策推进旗舰产品销售，卡萨帝高端线在补贴政策引导下受益明显；海外市场则加快从"中国整机出口"向"海外本土制造、本地品牌运营"转型，GE Appliances（美国）、Fisher & Paykel（澳大利亚）等海外品牌在当地市场营收占比持续提升，有效对冲贸易摩擦风险。一季度出口策略调整下，整体出口收入同比保持增长，海外本土品牌成为增长核心。</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🔴</div>
+    <div class="brand-info">
+      <span class="brand-tag neutral">稳价策略</span>
+      <h3>格力电器 — 逆势喊话"不涨价"，以价格稳定争夺消费者信任</h3>
+      <p>面对行业集体涨价浪潮，格力电器采取截然相反的策略。格力电器CMO朱磊公开宣言"格力保护消费者利益，不涨价、不减配、不套路，格力家用空调全面不涨价"。这一差异化定位在市场引发广泛关注。业内分析认为，格力此举意在通过价格稳定强化品牌口碑，争夺对价格敏感的中端市场用户群体。格力当前处于历史估值低点（PE约6.5倍），现金储备充裕（超1100亿元货币资金），具备一定消化成本压力的财务空间。但能否在成本持续上升的情况下维持不涨价承诺，仍是后续关注焦点。</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🟣</div>
+    <div class="brand-info">
+      <span class="brand-tag positive">产品升级</span>
+      <h3>美的·格力·海尔 — 2026冷年AI空调新品密集发布，聚焦智能节能</h3>
+      <p>2026年一季度，美的、格力、海尔、小米等空调头部品牌集中发布新冷年主打机型。美的推出"风尊"系列，主打全季体验与生态联动；格力发布高效节能新旗舰，强调自主压缩机技术优势；海尔升级"大双排纯铜管蒸发器"方案，在APF值（能效比）上显著超越行业标准；小米则延续高性价比路线，推出支持米家生态的AI互联版本。整体来看，2026新冷年空调竞争已从单纯的价格内卷转向AI智能、极致节能与全场景互联三大维度，头部品牌形成差异化竞争格局。</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🟡</div>
+    <div class="brand-info">
+      <span class="brand-tag positive">出口增长</span>
+      <h3>小家电出口 — 一季度出口额稳增，智能小家电成海外新宠</h3>
+      <p>2026年一季度，中国小家电出口延续良好态势，智能化产品成为海外市场增长主力。扫地机器人、空气炸锅、破壁机等品类在欧洲、东南亚、北美市场销量持续攀升，石头科技、科沃斯等品牌加快在海外建立品牌认知。广交会2026春季展上，小家电企业参展积极，海外采购商询单量明显回升。业内人士预测，随着中国制造在"智能化+品质化"方向的持续突破，高附加值小家电出口将成为国内家电企业新的利润增长点，预计2026年全年出口额同比增速有望达到8%~12%。</p>
+    </div>
+  </div>
+
+  <!-- 六、趋势展望 -->
+  <div class="section-title">
+    <div class="icon">🔮</div>
+    趋势展望
+  </div>
+  <div class="trend-grid">
+    <div class="trend-item">
+      <div class="trend-icon">📈</div>
+      <div class="trend-content">
+        <h4>"五一"行情可期，国补叠加涨价预期或催生提前购买潮</h4>
+        <p>国补第二批625亿元资金4月落地，叠加"五一"黄金周消费旺季，有望形成政策刺激与节日消费的双重共振。与此同时，消费者面对品牌集体涨价通知，可能产生"早买早省"的心理，进一步提前释放购买需求，预计4月下旬至5月上旬将出现明显的销量脉冲。</p>
+      </div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-icon">⚡</div>
+      <div class="trend-content">
+        <h4>原材料成本压力将持续至三季度，高端化是唯一出路</h4>
+        <p>铜价、ABS塑料等核心原材料涨势预计延续至2026年三季度，家电企业面临持续的成本压力。在此背景下，推动产品结构向高端化、差异化方向升级，是消化成本、维持利润率的核心战略。2026年将是高端家电产品渗透率快速提升的关键窗口，头部品牌高端线预计实现量价齐升。</p>
+      </div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-icon">🤖</div>
+      <div class="trend-content">
+        <h4>AI家电从"展示期"进入"规模落地期"，2026年或迎来拐点</h4>
+        <p>AWE 2026展示了AI家电从概念到产品的全面加速。2025年的AI家电更多停留在"演示阶段"，而2026年美的MevoX、海尔智家AI管家等产品已具备批量出货能力，预计全年AI家电销量同比增速超过60%，智能音箱、AI空调、AI冰箱等品类将率先形成规模化消费市场。</p>
+      </div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-icon">🌏</div>
+      <div class="trend-content">
+        <h4>出海本土化提速，海外自有品牌将成中国家电第二增长曲线</h4>
+        <p>随着关税壁垒持续扰动，中国家电企业加速从"贴牌代工出口"向"海外自有品牌+本地制造"模式转型。海尔GE Appliances、TCL北美市场、海信Gorenje（欧洲）等本土化品牌已形成稳定竞争力，预计2026年中国家电企业海外自有品牌营收占比将从约28%提升至35%以上，成为抵御贸易摩擦的核心防线。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 七、数据来源 -->
+  <div class="section-title">
+    <div class="icon">📎</div>
+    数据来源说明
+  </div>
+  <div class="source-card">
+    <strong>本期报告主要数据来源：</strong><br>
+    • 中华网 / 搜狐财经 — 2026年国补第二批政策解读（2026-04-07）<br>
+    • 腾讯新闻 / 金融界 — 家电集体涨价报道及成本分析（2026-03-31）<br>
+    • IT之家 — 美的2026全屋智能战略发布会实录（2026-03-10）<br>
+    • 21世纪经济报道 — AWE 2026展会深度报道（2026-03-13）<br>
+    • 华创证券 — 家电行业成本传导研究报告（2026-04）<br>
+    • 雪球财经 — 2026年一季度家电行业现状分析（2026-04-05）<br>
+    • 新浪财经 — 格力不涨价声明（2026-04-08）<br>
+    • 36氪 / 制冷快报 — 2026新冷年空调新品汇总<br>
+    <br>
+    <em>本报告由盛世消费体验研究院整理，数据经多方交叉核实，仅供行业参考，不构成投资建议。</em>
+  </div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <strong>盛世消费体验研究院 · 家电行业情报</strong><br>
+  2026年第13周 · 4月第1周 · 每周一出品<br>
+  <div class="back-home">
+    ← <a href="index.html">返回往期目录</a>
+  </div>
+</div>
+
+</body>
+</html>
