@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>汽车市场情报 · 2026年第16周（4月第2周）</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: #f0f4f8;
+    color: #2d3748;
+    line-height: 1.7;
+  }
+  /* 顶部 Hero */
+  .hero {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 40%, #388e3c 100%);
+    color: #fff;
+    padding: 40px 20px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 260px; height: 260px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -60px;
+    width: 180px; height: 180px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+  .hero .subtitle { font-size: 14px; opacity: 0.8; margin-bottom: 18px; }
+  .hero .meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    opacity: 0.75;
+  }
+  .hero .meta span::before { content: '📅 '; }
+  .hero .meta span:nth-child(2)::before { content: '🔢 '; }
+  .hero .meta span:nth-child(3)::before { content: '🏷️ '; }
+
+  /* 主内容区 */
+  .container { max-width: 780px; margin: 0 auto; padding: 0 14px 60px; }
+
+  /* 板块标题 */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1b5e20;
+    margin: 28px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8f5e9;
+  }
+  .section-title .icon {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, #1b5e20, #388e3c);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* 数据速览卡片 */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  @media (min-width: 600px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+  .stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(27,94,32,0.08);
+    border-top: 3px solid;
+  }
+  .stat-card:nth-child(1) { border-color: #2e7d32; }
+  .stat-card:nth-child(2) { border-color: #e53935; }
+  .stat-card:nth-child(3) { border-color: #1565c0; }
+  .stat-card:nth-child(4) { border-color: #f57c00; }
+  .stat-card:nth-child(5) { border-color: #6a1b9a; }
+  .stat-card:nth-child(6) { border-color: #00838f; }
+  .stat-num { font-size: 24px; font-weight: 800; color: #1b5e20; line-height: 1.2; }
+  .stat-num .unit { font-size: 13px; font-weight: 500; }
+  .stat-change { font-size: 11px; margin: 3px 0; }
+  .stat-change.up { color: #c62828; }
+  .stat-change.down { color: #2e7d32; }
+  .stat-change.neutral { color: #f57c00; }
+  .stat-label { font-size: 12px; color: #718096; }
+
+  /* 核心摘要 */
+  .summary-card {
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid #388e3c;
+    box-shadow: 0 2px 8px rgba(27,94,32,0.06);
+  }
+  .summary-card p { font-size: 14px; color: #2d3748; line-height: 1.9; }
+  .summary-points { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .summary-point {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    padding: 8px 12px;
+    align-items: flex-start;
+  }
+  .summary-point .dot {
+    width: 20px; height: 20px;
+    background: #388e3c;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* 新闻卡片 */
+  .news-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(27,94,32,0.07);
+    border-left: 4px solid #388e3c;
+  }
+  .news-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1b5e20;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .news-card p { font-size: 13px; color: #4a5568; line-height: 1.8; margin-bottom: 8px; }
+  .news-source {
+    display: inline-block;
+    font-size: 11px;
+    color: #718096;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+  .news-source a { color: #2e7d32; text-decoration: none; }
+
+  /* 专题：数据表格 */
+  .topic-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(27,94,32,0.07);
+  }
+  .topic-card h3 { font-size: 15px; font-weight: 700; color: #1b5e20; margin-bottom: 12px; }
+  .topic-card p { font-size: 13px; color: #4a5568; line-height: 1.8; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+  th {
+    background: linear-gradient(135deg, #1b5e20, #388e3c);
+    color: #fff;
+    padding: 9px 10px;
+    text-align: center;
+    font-weight: 600;
+  }
+  td {
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1px solid #edf2f7;
+    color: #4a5568;
+  }
+  tr:nth-child(even) td { background: #f7fafc; }
+  tr:last-child td { border-bottom: none; }
+  .tag-up { color: #c62828; font-weight: 600; }
+  .tag-down { color: #2e7d32; font-weight: 600; }
+  .tag-neutral { color: #f57c00; font-weight: 600; }
+
+  /* 品牌动态 */
+  .brand-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(27,94,32,0.06);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .brand-logo {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    background: #e8f5e9;
+  }
+  .brand-info h3 { font-size: 14px; font-weight: 700; color: #1b5e20; margin-bottom: 5px; }
+  .brand-info p { font-size: 13px; color: #4a5568; line-height: 1.75; }
+  .brand-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .brand-tag.positive { background: #e8f5e9; color: #2e7d32; }
+  .brand-tag.neutral { background: #fff8e1; color: #f57c00; }
+  .brand-tag.negative { background: #ffebee; color: #c62828; }
+
+  /* 趋势展望 */
+  .trend-grid { display: flex; flex-direction: column; gap: 10px; }
+  .trend-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 6px rgba(27,94,32,0.06);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .trend-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .trend-content h4 { font-size: 14px; font-weight: 700; color: #1b5e20; margin-bottom: 4px; }
+  .trend-content p { font-size: 13px; color: #4a5568; line-height: 1.75; }
+
+  /* 数据来源 */
+  .source-card {
+    background: #f7fafc;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 12px;
+    color: #718096;
+    line-height: 1.9;
+    border: 1px solid #e2e8f0;
+  }
+  .source-card strong { color: #4a5568; }
+
+  /* 底部 */
+  .footer {
+    background: #1b5e20;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  .footer strong { color: #fff; }
+  .footer .back-home { margin-top: 12px; }
+  .footer .back-home a {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+  .footer .back-home a:hover { background: rgba(255,255,255,0.28); }
+
+  /* 顶部返回按钮 */
+  .back-btn-top {
+    text-align: left;
+    padding: 10px 14px 0;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .back-btn-top a {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #1b5e20;
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid #c8e6c9;
+    transition: background 0.2s;
+  }
+  .back-btn-top a:hover { background: #c8e6c9; }
+
+  /* 标签 */
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin: 2px 3px 2px 0;
+    font-weight: 500;
+  }
+  .pill-blue { background: #e3f2fd; color: #1565c0; }
+  .pill-red { background: #ffebee; color: #c62828; }
+  .pill-green { background: #e8f5e9; color: #2e7d32; }
+  .pill-orange { background: #fff3e0; color: #f57c00; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">盛世消费体验研究院</div>
+  <h1>🚗 汽车市场情报</h1>
+  <p class="subtitle">深度解析 · 数据驱动 · 前沿洞察</p>
+  <div class="meta">
+    <span>2026年4月13日</span>
+    <span>第16周 · 4月第2周</span>
+    <span>汽车行业</span>
+  </div>
+</div>
+
+<div class="back-btn-top">
+  <a href="index.html">← 返回往期目录</a>
+</div>
+
+<div class="container">
+
+  <!-- 一、数据速览 -->
+  <div class="section-title">
+    <div class="icon">📊</div>
+    数据速览
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">48.1<span class="unit">%</span></div>
+      <div class="stat-change up">▲ 历史新高</div>
+      <div class="stat-label">3月新能源渗透率</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">181<span class="unit">万辆</span></div>
+      <div class="stat-change up">▲ 同比+40%</div>
+      <div class="stat-label">Q1汽车出口（超日本）</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">30.5<span class="unit">万辆</span></div>
+      <div class="stat-change up">▲ Q1断层第一</div>
+      <div class="stat-label">比亚迪Q1新能源销量</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">70<span class="unit">款</span></div>
+      <div class="stat-change neutral">4月价格大战</div>
+      <div class="stat-label">集体降价车型数量</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100<span class="unit">%</span></div>
+      <div class="stat-change neutral">美国加征关税</div>
+      <div class="stat-label">中国汽车美国关税税率</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">500<span class="unit">Wh/kg</span></div>
+      <div class="stat-change up">▲ 能量密度新纪录</div>
+      <div class="stat-label">宁德时代固态电池</div>
+    </div>
+  </div>
+
+  <!-- 二、核心摘要 -->
+  <div class="section-title">
+    <div class="icon">📋</div>
+    核心摘要
+  </div>
+  <div class="summary-card">
+    <p>2026年4月第2周，中国汽车市场进入"量质双变"的关键窗口期。一季度中国汽车出口首次超越日本登顶全球第一，新能源渗透率在3月突破48%创历史峰值，比亚迪以30.5万辆断层领跑Q1新能源市场。然而，内外部压力同步升温：国内市场爆发史诗级价格战，近70款车型官宣降价，新能源平均降幅达3.8万元；美国宣布对中国汽车加征100%关税，欧盟维持45%反补贴税，出口承压的同时中国车企正加速海外本地化布局。宁德时代发布500Wh/kg固态电池重磅技术，固态化进程加速，将深刻重构整个产业链格局。</p>
+    <div class="summary-points">
+      <div class="summary-point"><div class="dot">1</div><span><strong>出口登顶全球第一</strong>：Q1中国汽车出口181万辆，同比增长40%，首次超越日本，新能源出口占比超四成，出口暴涨120%。</span></div>
+      <div class="summary-point"><div class="dot">2</div><span><strong>史诗级价格战爆发</strong>：4月国内近70款车集体降价，新能源平均降3.8万元、降幅13.7%，二手车市场随之大幅承压。</span></div>
+      <div class="summary-point"><div class="dot">3</div><span><strong>关税双重围堵</strong>：美国100%关税+欧盟45%反补贴税构成双重压力，中国车企加速"出口转本地制造"。</span></div>
+      <div class="summary-point"><div class="dot">4</div><span><strong>固态电池技术突围</strong>：宁德时代正式发布500Wh/kg固态电池，15分钟快充、2000次循环，产业化加速落地。</span></div>
+    </div>
+  </div>
+
+  <!-- 三、市场大势 -->
+  <div class="section-title">
+    <div class="icon">📰</div>
+    市场大势
+  </div>
+
+  <div class="news-card">
+    <h3>🏆 中国汽车出口Q1登顶全球第一，首次超越日本，出口181万辆</h3>
+    <p>2026年一季度，中国汽车交出一份载入史册的出口成绩单。据中汽协与乘联会联合数据，Q1中国全口径汽车出口222.6万辆，同比增长56.7%，狭义乘用车出口181万辆，同比增长超40%，首次超越日本汽车出口量，稳坐全球汽车出口第一大国宝座。其中，新能源汽车出口占比超过四成，同比暴涨120%，成为核心驱动力。比亚迪、奇瑞、上汽、长安等自主品牌占据出口主体，东南亚、中东、南美、欧洲成为核心目的地市场。然而，美国100%关税壁垒与欧盟45%反补贴税的双重施压，迫使中国车企加速在目的地国家"本地建厂、本地销售"的战略转型。</p>
+    <span class="news-source">来源：<a href="https://www.sohu.com/a/1010313479_250147" target="_blank">搜狐汽车 2026-04-13</a> / <a href="https://news.qq.com/rain/a/20260423A06RR300" target="_blank">腾讯新闻 2026-04-23</a></span>
+  </div>
+
+  <div class="news-card">
+    <h3>💸 史诗级价格战爆发！近70款车集体降价，新能源平均降3.8万元</h3>
+    <p>2026年4月，国内车市爆发十年难遇的"价格大地震"。据不完全统计，近70款车型集体官宣降价，覆盖豪华、合资、自主、燃油、新能源全品类。新能源车型平均直降3.8万元，降幅13.7%；燃油车平均降3.7万元，降幅14.3%。其中，豪华品牌某旗舰车型最高降幅达30万元，家用新能源主流车型部分已跌破7万元。这场价格战直接冲击了二手车市场——2026年1-3月全国二手车交易482.2万辆，3月环比大涨37.73%，但乘用车增速仅0.88%，大量二手车商面临"亏本甩卖仍无人问津"的困境。业内预计二季度价格竞争烈度不减，车企将在规模与利润之间艰难寻求平衡。</p>
+    <span class="news-source">来源：<a href="https://www.sohu.com/a/1012374869_100085330" target="_blank">搜狐汽车 2026-04-13</a> / <a href="https://finance.sina.com.cn/tech/roll/2026-04-19/doc-inhuzsuz9210367.shtml" target="_blank">新浪财经 2026-04-19</a></span>
+  </div>
+
+  <div class="news-card">
+    <h3>🔋 宁德时代发布500Wh/kg固态电池，产业化进入冲刺阶段</h3>
+    <p>2026年4月，宁德时代正式发布新一代凝聚态固态电池技术：能量密度高达500Wh/kg，超现有液态锂电池2倍以上；支持15分钟快充至80%；循环寿命超过2000次，兼具极高安全性（不易热失控）。这是宁德时代完成从实验室到产业化关键跨越的标志性发布。与此同时，蔚来、广汽昊铂、奇瑞等车企亦宣布2026年固态电池上车计划，行业正从"谁先量产"的竞赛转为"谁先普及到家用车"的比拼。上游矿产资源（锂、钴、镍）以及电解质、极片材料等产业链格局也将随固态化进程发生深刻重构，各路资本正在加速布局。</p>
+    <span class="news-source">来源：<a href="https://www.sohu.com/a/1012528346_121123881" target="_blank">搜狐科技 2026-04-13</a></span>
+  </div>
+
+  <div class="news-card">
+    <h3>🌍 美国100%关税+欧盟45%关税双重围堵，中国车企加速"出海本地化"</h3>
+    <p>2026年4月13日，美国特朗普政府宣布对中国进口汽车加征100%关税，叠加欧盟2026年4月15日正式对中国纯电动汽车开征最高45.3%的反补贴税，中国汽车出口面临双重壁垒。然而，数据显示，中国品牌在欧洲电车市场Q1逆势暴涨109.62%，市场份额从6.8%跃升至14.97%，若含沃尔沃、极星等中资控股品牌则超21%，直接证明高关税对中国品牌的阻击效果有限。其根本原因在于：比亚迪、上汽等企业已在匈牙利、西班牙、越南、泰国等地建立或正在筹建本地工厂，通过"本地制造+本地销售"绕开关税壁垒，这一战略正在成为中国汽车出海的标准范式。</p>
+    <span class="news-source">来源：<a href="https://news.qq.com/rain/a/20260416A04C4X00" target="_blank">腾讯新闻 2026-04-16</a> / <a href="https://www.sohu.com/a/1015196249_121141910" target="_blank">搜狐财经 2026-04-13</a></span>
+  </div>
+
+  <!-- 四、重点专题 -->
+  <div class="section-title">
+    <div class="icon">🔍</div>
+    重点专题
+  </div>
+
+  <div class="topic-card">
+    <h3>📌 专题一：2026年Q1主要新能源品牌销量排行 — 比亚迪断层领跑，新势力全面盈利</h3>
+    <p>2026年一季度，新能源乘用车市场呈现"强者愈强"的分化格局。比亚迪以30.52万辆的成绩断层登顶，远超第二名吉利银河（12.60万辆）；特斯拉中国以11.30万辆位列第三，理想汽车、小米汽车、蔚来、零跑、小鹏等新势力整体进入盈利通道，形成中国新能源汽车市场第一轮真正意义上的"全面盈利年"。整体市场Q1渗透率突破48%，加速冲向全面超越传统燃油车的50%临界线。</p>
+    <table>
+      <thead>
+        <tr><th>排名</th><th>品牌</th><th>Q1销量（万辆）</th><th>同比变化</th><th>备注</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>比亚迪</strong></td><td>30.52</td><td class="tag-up">▲ 强势增长</td><td>断层第一，涵盖王朝、海洋、腾势</td></tr>
+        <tr><td>2</td><td><strong>吉利银河</strong></td><td>12.60</td><td class="tag-up">▲ 快速追赶</td><td>银河、极氪合并统计</td></tr>
+        <tr><td>3</td><td><strong>特斯拉中国</strong></td><td>11.30</td><td class="tag-neutral">→ 相对稳定</td><td>价格战主动方，市场地位稳固</td></tr>
+        <tr><td>4</td><td><strong>理想汽车</strong></td><td>9.38</td><td class="tag-up">▲ 超预期增长</td><td>L系列+MEGA共同拉动</td></tr>
+        <tr><td>5</td><td><strong>小米汽车</strong></td><td>~4.5</td><td class="tag-up">▲ 爆发式增长</td><td>SU7 Ultra+YU7即将上市催化</td></tr>
+        <tr><td>6</td><td><strong>鸿蒙智行（华为）</strong></td><td>~6.0</td><td class="tag-up">▲ 问界M6预售破10万</td><td>含问界、享界、智界</td></tr>
+        <tr><td>7</td><td><strong>蔚来</strong></td><td>~4.2</td><td class="tag-up">▲ 扭亏边缘</td><td>换电网络扩张，ONVO拉动</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="topic-card">
+    <h3>📌 专题二：2026年4月价格战主要品牌降价概览 — 覆盖全品类，力度十年之最</h3>
+    <p>本轮价格战被业界定义为"十年难遇的大地震"，其特殊性在于：与以往局部品类降价不同，本次覆盖豪华、合资、自主、燃油、新能源全品类，且既有主动降价（特斯拉、小米），也有被动跟进（合资品牌），更有以金融优惠方式变相降价的。各品牌在规模、利润与市场份额的三角博弈中，选择了不同的应对路径。</p>
+    <table>
+      <thead>
+        <tr><th>品牌/车型</th><th>降价方式</th><th>降价幅度</th><th>核心策略</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>特斯拉 Model 3/Y</strong></td><td>官方直降</td><td class="tag-up">▼ 1.5~2万元</td><td>以价换量，巩固市场份额</td></tr>
+        <tr><td><strong>小米 SU7</strong></td><td>官方直降+权益</td><td class="tag-up">▼ 1~2万元</td><td>维持热度，迎接YU7上市</td></tr>
+        <tr><td><strong>零跑C系列</strong></td><td>官方直降</td><td class="tag-up">▼ 1~1.5万元</td><td>低价策略巩固下沉市场</td></tr>
+        <tr><td><strong>宝马 5系/7系</strong></td><td>终端让利</td><td class="tag-up">▼ 10~30万元</td><td>清库存，维持销量目标</td></tr>
+        <tr><td><strong>大众 ID.系列</strong></td><td>官方降价+补贴</td><td class="tag-up">▼ 2~4万元</td><td>合资新能源止血，争夺份额</td></tr>
+        <tr><td><strong>比亚迪</strong></td><td>部分车型微调</td><td class="tag-neutral">▼ 0.3~0.5万元</td><td>保持竞争力同时维护利润</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 五、品牌动态 -->
+  <div class="section-title">
+    <div class="icon">🏢</div>
+    品牌动态
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🟢</div>
+    <div class="brand-info">
+      <span class="brand-tag positive">新品突破</span>
+      <h3>华为鸿蒙智行 — 问界M6预售破10万台，4月22日正式上市</h3>
+      <p>华为问界M6将于2026年4月22日正式上市，增程版预售价26.98万元起，纯电版28.98万元起。截至4月11日，累计预订量已突破10万台，刷新鸿蒙智行同级新品预订纪录。问界M6定位中大型5座SUV，搭载华为智能汽车全套解决方案（ADS 3.0 Pro），实现全域无图智驾。此外，2026北京车展上，新款问界M9、智界V9等多款鸿蒙新品同步亮相，华为汽车生态持续扩张，正从"参与者"向"定义者"进化。</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🔴</div>
+    <div class="brand-info">
+      <span class="brand-tag positive">销量领先</span>
+      <h3>比亚迪 — Q1新能源销量30.5万辆断层领跑，出口同步高增</h3>
+      <p>2026年一季度，比亚迪新能源汽车销量达30.52万辆，是第二名吉利银河的2.4倍，断层领跑全国新能源市场。比亚迪不仅在国内市场保持优势，在出口方面也持续发力——Q1海外销量同比实现高增长，匈牙利工厂正在爬坡，泰国、巴西本地化产能逐步释放。在电池技术上，比亚迪刀片电池5.0版本已在多款新车搭载，配合e平台3.0 Evo架构，进一步强化成本与性能双重竞争壁垒。</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🔵</div>
+    <div class="brand-info">
+      <span class="brand-tag positive">技术突破</span>
+      <h3>宁德时代 — 固态电池500Wh/kg发布，产业链格局重构在即</h3>
+      <p>宁德时代2026年4月发布的凝聚态固态电池以500Wh/kg的超高能量密度颠覆行业认知：相同体积下续航里程可达现有液态锂电的2倍，加之15分钟充至80%的极速充电、2000次以上的超长寿命，以及更高的热稳定性，全面解决了电动车用户最核心的三大痛点。宁德时代同步大规模招聘固态电池工程师，释放量产化落地信号。2026年一季度，宁德时代净利润增长超48%，证明其技术领先优势已转化为持续的盈利能力。</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🟡</div>
+    <div class="brand-info">
+      <span class="brand-tag positive">新势力盈利</span>
+      <h3>蔚小理 — 新势力集体迈入盈利新周期，市场格局稳定</h3>
+      <p>2026年，曾经"赔本赚吆喝"的造车新势力迎来历史性转折：蔚来、小鹏、理想相继实现季度盈利，标志着中国新能源汽车产业的商业模式完成关键验证。理想汽车凭借L系列强势产品线，Q1销量达9.38万辆，纯增程路线占据细分市场主导；小鹏通过降价换量与MONA系列精准布局中低端市场，止血成功；蔚来在ONVO（乐道）副品牌快速放量的助推下，正加速逼近盈亏平衡线。此外，小米汽车自SU7上市以来持续热销，SU7 Ultra顶配版供不应求，YU7 SUV即将发布，科技品牌跨界造车模式得到充分验证。</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-logo">🟣</div>
+    <div class="brand-info">
+      <span class="brand-tag neutral">价格承压</span>
+      <h3>合资品牌 — 大众/宝马/丰田深陷价格战，份额持续流失</h3>
+      <p>2026年一季度，传统合资品牌在中国市场的份额压力持续加剧。大众ID.系列虽通过大幅降价（单车降幅2~4万元）试图稳定销量，但整体市场份额仍在下滑；宝马7系等豪华车型终端让利高达20~30万元，但销量仍不理想；丰田、本田的燃油车优势在新能源快速替代下加速收窄。业内人士指出，合资品牌在中国市场的核心竞争力正在从"品牌溢价"转向"产品技术"，但其新能源转型速度明显滞后于自主品牌，市场份额向中国品牌转移的趋势短期内难以逆转。</p>
+    </div>
+  </div>
+
+  <!-- 六、趋势展望 -->
+  <div class="section-title">
+    <div class="icon">🔮</div>
+    趋势展望
+  </div>
+  <div class="trend-grid">
+    <div class="trend-item">
+      <div class="trend-icon">🌏</div>
+      <div class="trend-content">
+        <h4>出海战略全面转向"本地化制造"</h4>
+        <p>美国100%关税+欧盟45%关税构成的双重壁垒，将加速推动比亚迪、奇瑞、上汽等中国车企在海外目标市场建立本地工厂。"出口整车"向"出口技术与品牌"的战略转型，将是未来2~3年中国汽车出海的主旋律，这也意味着中国车企在全球产业链中的地位将进一步提升。</p>
+      </div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-icon">🔋</div>
+      <div class="trend-content">
+        <h4>固态电池加速商业化，动力电池格局重塑</h4>
+        <p>宁德时代、比亚迪、蔚来等多方押注固态电池量产，2026年被认为是"固态电池真正上车元年"。固态化进程将深刻重构上游矿产（锂、钴、镍）需求结构，并可能动摇现有液态锂电龙头的市场格局。整车企业的差异化优势将越来越多地体现在电池与整车协同研发能力上。</p>
+      </div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-icon">🤖</div>
+      <div class="trend-content">
+        <h4>智能驾驶进入"无图化"全域普及阶段</h4>
+        <p>2026北京车展（4月24日开幕）是AI原生智驾技术的集中展示舞台。华为ADS 3.0 Pro、理想自研智驾芯片、小鹏XNGP等方案均已实现全域无图城市智驾，智驾进入"高速+城区+停车"三合一全场景覆盖新阶段。智能化将取代电动化，成为下一轮竞争的核心维度，也是车企品牌溢价的新来源。</p>
+      </div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-icon">💰</div>
+      <div class="trend-content">
+        <h4>价格战烈度不减，二季度利润率将接受严峻考验</h4>
+        <p>4月国内近70款车型集体降价的态势在二季度大概率延续。随着北京车展大量新品密集上市，市场竞争将进一步白热化。车企的核心压力在于：如何在销量规模与单车盈利之间取得平衡？预计头部自主品牌（比亚迪、吉利、理想）具备规模效应支撑，利润相对稳定；而中小车企及合资品牌将面临更大的生存压力。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 七、数据来源 -->
+  <div class="section-title">
+    <div class="icon">📎</div>
+    数据来源
+  </div>
+  <div class="source-card">
+    <strong>本期主要数据来源：</strong><br>
+    · 乘联会（中国乘用车市场信息联席会）：2026年Q1乘用车销量、新能源渗透率数据<br>
+    · 中汽协（中国汽车工业协会）：汽车出口总量及增速数据<br>
+    · 宁德时代官方发布：固态电池技术参数（2026年4月）<br>
+    · 搜狐汽车、腾讯汽车：价格战及降价品牌统计（2026年4月）<br>
+    · 问界官方：M6预售数据（截至2026年4月11日）<br>
+    · 新浪财经、极光月狐：一季度汽车市场快评报告<br>
+    · 36氪、澎湃新闻：造车新势力盈利及行业趋势分析<br>
+    <strong>报告周期：</strong>2026年4月7日—4月13日（第16周）<br>
+    <strong>发布机构：</strong>盛世消费体验研究院
+  </div>
+
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+  <strong>盛世消费体验研究院</strong> · 汽车市场情报<br>
+  第16周 · 2026年4月13日 · 每周定期发布
+  <div class="back-home">
+    <a href="index.html">← 返回往期目录</a>
+  </div>
+</div>
+
+</body>
+</html>
