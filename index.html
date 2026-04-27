@@ -3,123 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>市场情报报告目录 — 盛世消费体验研究院</title>
+    <title>市场情报报告索引</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 100vh; padding: 20px; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .header { text-align: center; padding: 40px 20px; color: white; }
-        .header h1 { font-size: 36px; font-weight: 700; margin-bottom: 10px; background: linear-gradient(90deg, #e94560, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .header p { font-size: 18px; opacity: 0.9; }
-        .update-time { font-size: 16px; opacity: 0.7; margin-top: 10px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4); 
+        }
+        .header { 
+            background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); 
+            padding: 40px 30px; 
+            color: white; 
+            text-align: center; 
+            position: relative; 
+        }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 15px; }
+        .header p { font-size: 14px; opacity: 0.9; }
+        
+        /* 公司信息区域 */
+        .company-info { margin-top: 18px; padding: 18px 22px; background: rgba(255,255,255,0.12); border-radius: 14px; }
+        .company-name { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+        .company-desc { font-size: 12px; opacity: 0.85; margin-bottom: 12px; }
+        .company-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 14px; }
+        .company-tags span { font-size: 11px; padding: 4px 11px; background: rgba(255,255,255,0.18); border-radius: 15px; white-space: nowrap; }
+        .company-contact { display: flex; align-items: center; justify-content: center; gap: 10px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+        .contact-label { font-size: 12px; opacity: 0.8; }
+        .contact-phone { font-size: 16px; font-weight: 700; color: #ffd700; }
+        
+        .content { padding: 30px 25px; }
+        
+        .month-group { margin-bottom: 35px; }
+        .month-group:last-child { margin-bottom: 0; }
+        .month-title { font-size: 18px; font-weight: 700; color: #0f3460; padding: 12px 0; border-bottom: 3px solid #e94560; margin-bottom: 18px; }
+        
+        .report-list { list-style: none; }
+        .report-list li { margin-bottom: 12px; }
+        .report-list a { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            padding: 16px 20px; 
+            background: #f8f9fa; 
+            border-radius: 14px; 
+            text-decoration: none; 
+            color: #333; 
+            transition: all 0.3s; 
+            flex-wrap: wrap;
+        }
+        .report-list a:hover { 
+            background: linear-gradient(135deg, #e94560, #0f3460); 
+            color: white; 
+            transform: translateX(5px); 
+        }
+        .report-list a:hover .theme-badge { background: rgba(255,255,255,0.25) !important; }
+        .report-list a:hover .tag { color: rgba(255,255,255,0.8) !important; }
 
-        /* 月份分组 */
-        .month-group { margin-top: 40px; }
-        .month-title { color: #ffd700; font-size: 22px; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid rgba(255,215,0,0.3); }
-        .month-title span { font-size: 14px; font-weight: 400; opacity: 0.7; margin-left: 10px; }
+        /* 主题徽章 */
+        .theme-badge { 
+            padding: 5px 14px; 
+            border-radius: 20px; 
+            font-size: 12px; 
+            font-weight: 600; 
+            white-space: nowrap; 
+            flex-shrink: 0;
+            color: white;
+        }
+        .theme-badge.home { background: linear-gradient(135deg, #0d47a1, #1976d2); }
+        .theme-badge.digital { background: linear-gradient(135deg, #e65100, #ff9800); }
+        .theme-badge.auto { background: linear-gradient(135deg, #1b5e20, #4caf50); }
+        .theme-badge.comprehensive { background: linear-gradient(135deg, #4a148c, #9c27b0); }
+        
+        .report-list .date { font-weight: 700; font-size: 15px; flex: 1; min-width: 80px; }
+        .report-list .tag { font-size: 13px; color: #888; flex-basis: 100%; margin-top: 4px; padding-left: 2px; }
 
-        .reports-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .report-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: transform 0.3s; }
-        .report-card:hover { transform: translateY(-5px); }
-        .report-card.latest { border: 3px solid #e94560; }
-        .card-header { padding: 20px; color: white; }
-        .card-header.home { background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%); }
-        .card-header.digital { background: linear-gradient(135deg, #e65100 0%, #ff9800 100%); }
-        .card-header.auto { background: linear-gradient(135deg, #1b5e20 0%, #4caf50 100%); }
-        .card-header.comprehensive { background: linear-gradient(135deg, #4a148c 0%, #9c27b0 100%); }
-        .card-header h3 { font-size: 18px; font-weight: 600; margin-bottom: 5px; }
-        .card-header .date { font-size: 14px; opacity: 0.9; }
-        .card-header .latest-badge { display: inline-block; background: #ffd700; color: #333; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; margin-left: 10px; }
-        .card-header .tag { display: inline-block; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: 8px; }
-        .card-content { padding: 20px; }
-        .card-content .description { color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
-        .card-content .view-btn { display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, #0f3460 0%, #16213e 100%); color: white; text-decoration: none; border-radius: 25px; font-size: 14px; font-weight: 600; transition: all 0.3s; }
-        .card-content .view-btn:hover { background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); }
-
-        .footer { text-align: center; padding: 30px; color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 40px; }
-        .footer a { color: #ffd700; text-decoration: none; }
-
+        /* LOGO 样式 */
+        .logo-corner { position: absolute; top: 20px; right: 24px; z-index: 10; }
+        .logo-corner img { height: 42px; width: auto; display: block; }
+        
+        .footer { background: #f8f9fa; }
+        .copyright { text-align: center; padding: 18px; color: #888; font-size: 12px; }
+        
+        /* 响应式优化 - 平板 */
         @media (max-width: 768px) {
-            .reports-grid { grid-template-columns: 1fr; }
-            .header h1 { font-size: 28px; }
+            body { padding: 12px; }
+            .container { border-radius: 16px; }
+            .header { padding: 30px 20px; }
+            .header h1 { font-size: 22px; }
+            .company-info { padding: 14px 16px; }
+            .company-name { font-size: 14px; }
+            .company-tags span { font-size: 10px; padding: 3px 9px; }
+            .content { padding: 20px 15px; }
+            .month-title { font-size: 16px; }
+            .report-list a { padding: 14px 16px; gap: 10px; }
+            .theme-badge { font-size: 11px; padding: 4px 10px; }
+            .report-list .date { font-size: 14px; }
+            .report-list .tag { font-size: 12px; }
+            .logo-corner { top: 14px; right: 14px; }
+            .logo-corner img { height: 32px; }
+        }
+        
+        /* 响应式优化 - 手机 */
+        @media (max-width: 480px) {
+            .header { padding: 25px 15px; }
+            .header h1 { font-size: 18px; }
+            .company-contact { flex-direction: column; gap: 5px; }
+            .contact-phone { font-size: 14px; }
+            .month-title { font-size: 15px; padding: 10px 0; }
+            .report-list a { padding: 12px 14px; flex-direction: column; align-items: flex-start; gap: 8px; }
+            .report-list .date { font-size: 14px; }
+            .report-list .tag { margin-top: 2px; }
+            .theme-badge { font-size: 10px; }
+            .logo-corner { top: 10px; right: 10px; }
+            .logo-corner img { height: 26px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 市场情报报告目录</h1>
-            <p>盛世消费体验研究院 · 家电 · 数码 · 汽车 · 综合</p>
-            <p class="update-time">📅 每周一 08:30 自动生成 | 倒序排列</p>
-        </div>
-
-        <!-- 2026年4月 -->
-        <div class="month-group">
-            <div class="month-title">📅 2026年4月 <span>4期报告</span></div>
-            <div class="reports-grid">
-                <div class="report-card latest">
-                    <div class="card-header home">
-                        <h3>🏠 第18周 · 家电行业情报 <span class="latest-badge">最新</span></h3>
-                        <div class="date">2026年4月27日 · 第4周 <span class="tag">家电</span></div>
-                    </div>
-                    <div class="card-content">
-                        <p class="description">国补第二批625亿衔接五一旺季，家电全线涨价5%~20%，格力VS海信口水战，追觅智慧家居全球首秀。</p>
-                        <a href="home_2026-04-27.html" class="view-btn" target="_blank">查看报告 →</a>
-                    </div>
+            <div class="logo-corner"><img src="logo-white-transparent.png" alt="LOGO"></div>
+            <h1>📋 市场情报报告索引</h1>
+            <div class="company-info">
+                <div class="company-name">北京盛世前程营销活动策划有限公司</div>
+                <div class="company-desc">内容由盛世前程AI智能体生成 · 聚焦家电、数码、汽车三大领域</div>
+                <div class="company-tags">
+                    <span>🏠 家电情报</span>
+                    <span>📱 数码情报</span>
+                    <span>🚗 汽车情报</span>
+                    <span>📊 综合情报</span>
                 </div>
-                <div class="report-card">
-                    <div class="card-header comprehensive">
-                        <h3>📊 第17周 · 综合市场情报</h3>
-                        <div class="date">2026年4月20日 · 第3周 <span class="tag">综合</span></div>
-                    </div>
-                    <div class="card-content">
-                        <p class="description">三大行业全景扫描：国补第二批下达，北京车展倒计时，DeepSeek估值200亿美元，Q1手机华为领跑。</p>
-                        <a href="comprehensive_2026-04-20.html" class="view-btn" target="_blank">查看报告 →</a>
-                    </div>
-                </div>
-                <div class="report-card">
-                    <div class="card-header auto">
-                        <h3>🚗 第16周 · 汽车市场情报</h3>
-                        <div class="date">2026年4月13日 · 第2周 <span class="tag">汽车</span></div>
-                    </div>
-                    <div class="card-content">
-                        <p class="description">中国出口登顶全球第一，70款车价格大战，美国100%关税，宁德时代固态电池500Wh/kg。</p>
-                        <a href="auto_2026-04-13.html" class="view-btn" target="_blank">查看报告 →</a>
-                    </div>
-                </div>
-                <div class="report-card">
-                    <div class="card-header digital">
-                        <h3>📱 第15周 · 数码科技情报</h3>
-                        <div class="date">2026年4月6日 · 第1周 <span class="tag">数码</span></div>
-                    </div>
-                    <div class="card-content">
-                        <p class="description">数码科技行业周报，深度解析手机、电脑、AI硬件等领域的市场动态和技术趋势。</p>
-                        <a href="digital_2026-04-06.html" class="view-btn" target="_blank">查看报告 →</a>
-                    </div>
+                <div class="company-contact">
+                    <span class="contact-label">合作咨询</span>
+                    <span class="contact-phone">400-1556615</span>
                 </div>
             </div>
         </div>
+        <div class="content">
 
-        <!-- 2026年3月 -->
-        <div class="month-group">
-            <div class="month-title">📅 2026年3月 <span>1期报告</span></div>
-            <div class="reports-grid">
-                <div class="report-card">
-                    <div class="card-header home">
-                        <h3>🏠 第13周 · 家电行业情报</h3>
-                        <div class="date">2026年3月31日 · 第5周 <span class="tag">家电</span></div>
-                    </div>
-                    <div class="card-content">
-                        <p class="description">国补第二批625亿将落地，铜价暴涨倒逼涨价潮，AWE 2026百款AI新品首发。</p>
-                        <a href="home_2026-03-31.html" class="view-btn" target="_blank">查看报告 →</a>
-                    </div>
-                </div>
+            <!-- 2026年4月 -->
+            <div class="month-group">
+                <div class="month-title">📅 2026年4月</div>
+                <ul class="report-list">
+                    <li>
+                        <a href="home_2026-04-27.html">
+                            <span class="theme-badge home">🏠 家电</span>
+                            <span class="date">2026-04-27</span>
+                            <span class="tag" style="margin-top:6px;">4月第4周<br>家电行业情报 · 第18周</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="comprehensive_2026-04-20.html">
+                            <span class="theme-badge comprehensive">📊 综合</span>
+                            <span class="date">2026-04-20</span>
+                            <span class="tag" style="margin-top:6px;">4月第3周<br>综合市场情报 · 第17周</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="auto_2026-04-13.html">
+                            <span class="theme-badge auto">🚗 汽车</span>
+                            <span class="date">2026-04-13</span>
+                            <span class="tag" style="margin-top:6px;">4月第2周<br>汽车市场情报 · 第16周</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="digital_2026-04-07.html">
+                            <span class="theme-badge digital">📱 数码</span>
+                            <span class="date">2026-04-07</span>
+                            <span class="tag" style="margin-top:6px;">4月第1周<br>数码科技情报 · 第15周</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
 
+            <!-- 2026年3月 -->
+            <div class="month-group">
+                <div class="month-title">📅 2026年3月</div>
+                <ul class="report-list">
+                    <li>
+                        <a href="home_2026-03-31.html">
+                            <span class="theme-badge home">🏠 家电</span>
+                            <span class="date">2026-03-31</span>
+                            <span class="tag" style="margin-top:6px;">3月第5周<br>家电行业情报 · 第13周</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="comprehensive_2026-03-23.html">
+                            <span class="theme-badge comprehensive">📊 综合</span>
+                            <span class="date">2026-03-23</span>
+                            <span class="tag" style="margin-top:6px;">3月第4周<br>综合市场情报</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="汽车情报_2026-03-18.html">
+                            <span class="theme-badge auto">🚗 汽车</span>
+                            <span class="date">2026-03-18</span>
+                            <span class="tag" style="margin-top:6px;">3月第3周<br>汽车市场情报</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="数码情报_2026-03-09.html">
+                            <span class="theme-badge digital">📱 数码</span>
+                            <span class="date">2026-03-09</span>
+                            <span class="tag" style="margin-top:6px;">3月第2周<br>数码科技情报</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="家电情报_2026-03-02.html">
+                            <span class="theme-badge home">🏠 家电</span>
+                            <span class="date">2026-03-02</span>
+                            <span class="tag" style="margin-top:6px;">3月第1周<br>家电行业情报</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 2026年2月 -->
+            <div class="month-group">
+                <div class="month-title">📅 2026年2月</div>
+                <ul class="report-list">
+                    <li>
+                        <a href="汽车情报_2026-02-23.html">
+                            <span class="theme-badge auto">🚗 汽车</span>
+                            <span class="date">2026-02-23</span>
+                            <span class="tag" style="margin-top:6px;">2月第4周<br>汽车市场情报</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="汽车情报_2026-02-16.html">
+                            <span class="theme-badge auto">🚗 汽车</span>
+                            <span class="date">2026-02-16</span>
+                            <span class="tag">2月第3周 · 春节后复苏·智驾技术爆发</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="汽车情报_2026-02-09.html">
+                            <span class="theme-badge auto">🚗 汽车</span>
+                            <span class="date">2026-02-09</span>
+                            <span class="tag">2月第2周 · 春节营销·德国补贴重启</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="汽车情报_2026-02-02.html">
+                            <span class="theme-badge auto">🚗 汽车</span>
+                            <span class="date">2026-02-02</span>
+                            <span class="tag">2月第1周 · 1月吉利登顶·小米新势力冠军</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
         <div class="footer">
-            <p>© 2026 <a href="#">盛世消费体验研究院</a> · 家电 · 数码 · 汽车 · 综合市场情报</p>
-            <p>报告周期：第1周家电 / 第2周数码 / 第3周汽车 / 第4周综合（从第10周起循环）</p>
+            <div class="copyright">本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</div>
         </div>
     </div>
 </body>
