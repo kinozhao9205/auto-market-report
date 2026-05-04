@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>市场情报报告索引</title>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -65,33 +78,29 @@
             color: white; 
             transform: translateX(5px); 
         }
-        .report-list a:hover .theme-badge { background: rgba(255,255,255,0.25) !important; }
-        .report-list a:hover .tag { color: rgba(255,255,255,0.8) !important; }
-
-        /* 主题徽章 */
-        .theme-badge { 
+        .report-list a:hover .badge { background: rgba(255,255,255,0.25); color: white; }
+        .report-list a:hover .tag { color: rgba(255,255,255,0.8); }
+        
+        .badge { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
             padding: 5px 14px; 
             border-radius: 20px; 
             font-size: 12px; 
             font-weight: 600; 
             white-space: nowrap; 
             flex-shrink: 0;
-            color: white;
         }
-        .theme-badge.home { background: linear-gradient(135deg, #0d47a1, #1976d2); }
-        .theme-badge.digital { background: linear-gradient(135deg, #e65100, #ff9800); }
-        .theme-badge.auto { background: linear-gradient(135deg, #1b5e20, #4caf50); }
-        .theme-badge.comprehensive { background: linear-gradient(135deg, #4a148c, #9c27b0); }
+        .badge.latest { background: linear-gradient(135deg, #e94560, #ff6b6b); }
         
         .report-list .date { font-weight: 700; font-size: 15px; flex: 1; min-width: 80px; }
         .report-list .tag { font-size: 13px; color: #888; flex-basis: 100%; margin-top: 4px; padding-left: 2px; }
-
+        
         /* LOGO 样式 */
         .logo-corner { position: absolute; top: 20px; right: 24px; z-index: 10; }
         .logo-corner img { height: 42px; width: auto; display: block; }
         
-        .footer { background: #f8f9fa; }
-        .copyright { text-align: center; padding: 18px; color: #888; font-size: 12px; }
+        .copyright { text-align: center; padding: 18px; color: rgba(255,255,255,0.5); font-size: 12px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 25px; }
         
         /* 响应式优化 - 平板 */
         @media (max-width: 768px) {
@@ -105,7 +114,7 @@
             .content { padding: 20px 15px; }
             .month-title { font-size: 16px; }
             .report-list a { padding: 14px 16px; gap: 10px; }
-            .theme-badge { font-size: 11px; padding: 4px 10px; }
+            .badge { font-size: 11px; padding: 4px 10px; }
             .report-list .date { font-size: 14px; }
             .report-list .tag { font-size: 12px; }
             .logo-corner { top: 14px; right: 14px; }
@@ -122,7 +131,7 @@
             .report-list a { padding: 12px 14px; flex-direction: column; align-items: flex-start; gap: 8px; }
             .report-list .date { font-size: 14px; }
             .report-list .tag { margin-top: 2px; }
-            .theme-badge { font-size: 10px; }
+            .badge { font-size: 10px; }
             .logo-corner { top: 10px; right: 10px; }
             .logo-corner img { height: 26px; }
         }
@@ -150,76 +159,66 @@
         </div>
         <div class="content">
 
-            <!-- 2026年4月 -->
             <div class="month-group">
-                <div class="month-title">📅 2026年4月</div>
+                <div class="month-title">📅 2026年5月</div>
                 <ul class="report-list">
                     <li>
-                        <a href="home_2026-04-27.html">
-                            <span class="theme-badge home">🏠 家电</span>
-                            <span class="date">2026-04-27</span>
-                            <span class="tag" style="margin-top:6px;">4月第4周<br>家电行业情报 · 第18周</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="comprehensive_2026-04-20.html">
-                            <span class="theme-badge comprehensive">📊 综合</span>
-                            <span class="date">2026-04-20</span>
-                            <span class="tag" style="margin-top:6px;">4月第3周<br>综合市场情报 · 第17周</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="auto_2026-04-13.html">
-                            <span class="theme-badge auto">🚗 汽车</span>
-                            <span class="date">2026-04-13</span>
-                            <span class="tag" style="margin-top:6px;">4月第2周<br>汽车市场情报 · 第16周</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="digital_2026-04-07.html">
-                            <span class="theme-badge digital">📱 数码</span>
-                            <span class="date">2026-04-07</span>
-                            <span class="tag" style="margin-top:6px;">4月第1周<br>数码科技情报 · 第15周</span>
+                        <a href="digital_2026-05-04.html">
+                            <span class="badge latest">📱 数码</span>
+                            <span class="date">2026-05-04</span>
+                            <span class="tag" style="margin-top:6px;">5月第1周<br>全球手机Q1出货量·折叠屏30%增长·存储芯片涨价潮</span>
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <!-- 2026年3月 -->
+            <div class="month-group">
+                <div class="month-title">📅 2026年4月</div>
+                <ul class="report-list">
+                    <li>
+                        <a href="digital_2026-04-07.html">
+                            <span class="badge latest">📱 数码</span>
+                            <span class="date">2026-04-07</span>
+                            <span class="tag" style="margin-top:6px;">4月第2周<br>折叠屏狂潮·AI手机双轨分化·智穿崛起</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <div class="month-group">
                 <div class="month-title">📅 2026年3月</div>
                 <ul class="report-list">
                     <li>
                         <a href="home_2026-03-31.html">
-                            <span class="theme-badge home">🏠 家电</span>
+                            <span class="badge">🏠 家电</span>
                             <span class="date">2026-03-31</span>
-                            <span class="tag" style="margin-top:6px;">3月第5周<br>家电行业情报 · 第13周</span>
+                            <span class="tag" style="margin-top:6px;">4月第1周<br>家电行业情报</span>
                         </a>
                     </li>
                     <li>
                         <a href="comprehensive_2026-03-23.html">
-                            <span class="theme-badge comprehensive">📊 综合</span>
+                            <span class="badge">📊 综合</span>
                             <span class="date">2026-03-23</span>
-                            <span class="tag" style="margin-top:6px;">3月第4周<br>综合市场情报</span>
+                            <span class="tag" style="margin-top:6px;">3月第4周<br>家电+数码+汽车 综合</span>
                         </a>
                     </li>
                     <li>
-                        <a href="汽车情报_2026-03-18.html">
-                            <span class="theme-badge auto">🚗 汽车</span>
-                            <span class="date">2026-03-18</span>
+                        <a href="auto_2026-03-16.html">
+                            <span class="badge">🚗 汽车</span>
+                            <span class="date">2026-03-16</span>
                             <span class="tag" style="margin-top:6px;">3月第3周<br>汽车市场情报</span>
                         </a>
                     </li>
                     <li>
-                        <a href="数码情报_2026-03-09.html">
-                            <span class="theme-badge digital">📱 数码</span>
+                        <a href="digital_2026-03-09.html">
+                            <span class="badge">📱 数码</span>
                             <span class="date">2026-03-09</span>
                             <span class="tag" style="margin-top:6px;">3月第2周<br>数码科技情报</span>
                         </a>
                     </li>
                     <li>
-                        <a href="家电情报_2026-03-02.html">
-                            <span class="theme-badge home">🏠 家电</span>
+                        <a href="home_2026-03-02.html">
+                            <span class="badge">🏠 家电</span>
                             <span class="date">2026-03-02</span>
                             <span class="tag" style="margin-top:6px;">3月第1周<br>家电行业情报</span>
                         </a>
@@ -227,36 +226,35 @@
                 </ul>
             </div>
 
-            <!-- 2026年2月 -->
             <div class="month-group">
                 <div class="month-title">📅 2026年2月</div>
                 <ul class="report-list">
                     <li>
-                        <a href="汽车情报_2026-02-23.html">
-                            <span class="theme-badge auto">🚗 汽车</span>
+                        <a href="auto_2026-02-23.html">
+                            <span class="badge">🚗 汽车</span>
                             <span class="date">2026-02-23</span>
                             <span class="tag" style="margin-top:6px;">2月第4周<br>汽车市场情报</span>
                         </a>
                     </li>
                     <li>
-                        <a href="汽车情报_2026-02-16.html">
-                            <span class="theme-badge auto">🚗 汽车</span>
+                        <a href="auto_2026-02-16.html">
+                            <span class="badge">🚗 汽车</span>
                             <span class="date">2026-02-16</span>
-                            <span class="tag">2月第3周 · 春节后复苏·智驾技术爆发</span>
+                            <span class="tag" style="margin-top:6px;">2月第3周<br>春节后复苏·智驾技术爆发</span>
                         </a>
                     </li>
                     <li>
-                        <a href="汽车情报_2026-02-09.html">
-                            <span class="theme-badge auto">🚗 汽车</span>
+                        <a href="auto_2026-02-09.html">
+                            <span class="badge">🚗 汽车</span>
                             <span class="date">2026-02-09</span>
-                            <span class="tag">2月第2周 · 春节营销·德国补贴重启</span>
+                            <span class="tag" style="margin-top:6px;">2月第2周<br>春节营销·德国补贴重启</span>
                         </a>
                     </li>
                     <li>
-                        <a href="汽车情报_2026-02-02.html">
-                            <span class="theme-badge auto">🚗 汽车</span>
+                        <a href="auto_2026-02-02.html">
+                            <span class="badge">🚗 汽车</span>
                             <span class="date">2026-02-02</span>
-                            <span class="tag">2月第1周 · 1月吉利登顶·小米新势力冠军</span>
+                            <span class="tag" style="margin-top:6px;">2月第1周<br>1月吉利登顶·小米新势力冠军</span>
                         </a>
                     </li>
                 </ul>
