@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年第20期 汽车市场每周情报 - 盛世消费体验研究院</title>
+    
+    
+    
+    
+    
+    
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
+            min-height: 100vh; 
+            padding: 20px 15px 60px; 
+            line-height: 1.6;
+        }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+        .header { 
+            text-align: center; 
+            padding: 35px 20px 25px; 
+            color: white; 
+            position: relative; 
+        }
+        .header h1 { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            margin-bottom: 12px; 
+            background: linear-gradient(90deg, #e94560, #ffd700); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text; 
+        }
+        .header .meta { 
+            display: inline-flex; 
+            gap: 12px; 
+            margin-top: 14px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        .header .badge { 
+            background: rgba(255,255,255,0.15); 
+            border: 1px solid rgba(255,255,255,0.3); 
+            color: white; 
+            padding: 6px 16px; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+        }
+        .header .badge.gold { 
+            background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); 
+            border-color: rgba(255,215,0,0.6); 
+        }
+        
+        /* 返回按钮 */
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        
+        /* LOGO 样式 */
+        .logo-corner { position: absolute; top: 18px; right: 20px; z-index: 10; }
+        .logo-corner img { height: 38px; width: auto; display: block; }
+        
+        .section { 
+            background: #fff; 
+            border-radius: 18px; 
+            margin-bottom: 18px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3); 
+        }
+        .section-header { 
+            background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); 
+            padding: 18px 24px; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            flex-wrap: wrap;
+        }
+        .section-header h2 { font-size: 1.15rem; font-weight: 600; flex: 1; }
+        .section-header .icon { font-size: 1.4rem; }
+        .section-content { padding: 22px 26px; }
+        
+        .news-item { 
+            padding: 14px 0; 
+            border-bottom: 1px solid #eee; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 12px; 
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .emoji { font-size: 1.2rem; flex-shrink: 0; }
+        .news-item .content { flex: 1; min-width: 0; }
+        .news-item .title { font-weight: 600; color: #333; margin-bottom: 6px; font-size: 0.95rem; line-height: 1.4; }
+        .news-item .desc { color: #666; font-size: 0.9rem; line-height: 1.7; word-wrap: break-word; }
+        .news-item .source { font-size: 0.75rem; color: #999; margin-top: 8px; }
+        .news-item .source a { color: #667eea; text-decoration: none; }
+        .news-item .source a:hover { text-decoration: underline; color: #e94560; }
+        
+        .region-title { 
+            font-size: 0.95rem; 
+            font-weight: 700; 
+            color: #0f3460; 
+            margin: 22px 0 14px; 
+            padding-left: 12px; 
+            border-left: 4px solid #e94560; 
+        }
+        .region-title:first-child { margin-top: 0; }
+        
+        .data-cards { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 14px; 
+            margin-bottom: 18px; 
+        }
+        .data-card { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            border-radius: 14px; 
+            padding: 18px 14px; 
+            color: white; 
+            text-align: center; 
+        }
+        .data-card.orange { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .data-card.green { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .data-card.gold { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .data-card .value { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+        .data-card .label { font-size: 0.8rem; opacity: 0.9; }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 14px; 
+            font-size: 0.85rem;
+            display: block;
+            overflow-x: auto;
+        }
+        thead { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); color: white; }
+        th, td { padding: 10px 12px; text-align: left; white-space: nowrap; }
+        th:first-child { border-radius: 10px 0 0 0; }
+        th:last-child { border-radius: 0 10px 0 0; }
+        tbody tr:nth-child(even) { background: #f8f9fa; }
+        tbody tr:hover { background: #e9ecef; }
+        
+        .highlight-box { 
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); 
+            border-radius: 14px; 
+            padding: 18px; 
+            color: #333; 
+            margin-top: 14px; 
+        }
+        .highlight-box h4 { margin-bottom: 8px; font-size: 1rem; }
+        
+        .summary-text { 
+            font-size: 0.95rem; 
+            line-height: 1.8; 
+            color: #444; 
+            text-align: justify; 
+        }
+        
+        .trend-item { 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+            border-radius: 12px; 
+            padding: 16px; 
+            margin-bottom: 12px; 
+            border-left: 4px solid #667eea; 
+        }
+        .trend-item .trend-title { font-weight: 600; color: #333; margin-bottom: 6px; font-size: 0.95rem; }
+        .trend-item .trend-desc { color: #555; font-size: 0.85rem; line-height: 1.6; }
+        
+        .footer { 
+            text-align: center; 
+            padding: 30px 20px; 
+            color: rgba(255,255,255,0.7); 
+            font-size: 0.85rem; 
+        }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        
+        @media (max-width: 768px) {
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            .section-content { padding: 18px 20px; }
+            .header h1 { font-size: 1.5rem; }
+            .news-item .title { font-size: 0.9rem; }
+            .news-item .desc { font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .data-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 汽车市场每周情报</h1>
+            <div class="meta">
+                <span class="badge">2026年第20期</span>
+                <span class="badge">2026年5月11日</span>
+                <span class="badge gold">📊 盛世消费体验研究院</span>
+            </div>
+        </div>
+        
+        <!-- 数据速览 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📊</span>
+                <h2>数据速览</h2>
+            </div>
+            <div class="section-content">
+                <div class="data-cards">
+                    <div class="data-card">
+                        <div class="value">32.1万</div>
+                        <div class="label">比亚迪4月销量（辆）</div>
+                    </div>
+                    <div class="data-card orange">
+                        <div class="value">13.45万</div>
+                        <div class="label">比亚迪海外销量（辆）</div>
+                    </div>
+                    <div class="data-card green">
+                        <div class="value">70.9%</div>
+                        <div class="label">海外同比增长率</div>
+                    </div>
+                    <div class="data-card gold">
+                        <div class="value">1610万</div>
+                        <div class="label">新能源累计销量（辆）</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 核心摘要 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">💡</span>
+                <h2>核心摘要</h2>
+            </div>
+            <div class="section-content">
+                <p class="summary-text">
+                    本周中国汽车市场呈现三大核心趋势：<strong>一、比亚迪再创历史新高</strong>，4月销量突破32万辆大关，海外销量达13.45万辆同比增长70.9%，新能源累计销量突破1610万辆，稳坐全球新能源销量冠军宝座；<strong>二、智能驾驶竞争升级</strong>，2026北京车展上华为发布乾崑ADS 5.0智驾系统，全新一代问界M9、尊界S800等车型首发搭载，智能化成为核心竞争力；<strong>三、出口市场持续高增长</strong>，2026年1-2月中国品牌海外销量72万台同比增长66%，3月乘用车出口69.5万辆同比增长74.3%，新能源车出口占比首次突破50%，中国汽车品牌全球化进入关键窗口期，预计2026-2028年对欧盟出口将保持20%年均增速。
+                </p>
+            </div>
+        </div>
+        
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🌍</span>
+                <h2>市场大势</h2>
+            </div>
+            <div class="section-content">
+                <div class="region-title">🚙 国内市场动态</div>
+                
+                <div class="news-item">
+                    <span class="emoji">📈</span>
+                    <div class="content">
+                        <div class="title">比亚迪4月销量突破32万辆 创单月历史新高</div>
+                        <div class="desc">根据比亚迪官方数据，2026年4月总销量达321,123辆，其中乘用车314,100辆，占比97.8%。海外销量134,542辆，同比增长70.9%，创历史新高。比亚迪新能源全球累计销量已突破1,610万辆，持续领跑全球��能��市场。这一突破性成绩印证了其在终端市场的强势表现，也为2026年全年销量目标奠定坚实基础。</div>
+                        <div class="source">来源：<a href="https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_4909392600921570611" target="_blank">电动智谈</a>、<a href="https://www.byd.com/cn/detail614" target="_blank">比亚迪官网</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🏆</span>
+                    <div class="content">
+                        <div class="title">比亚迪2025年销量460万辆 蝉联全球新能源三冠王</div>
+                        <div class="desc">比亚迪2025年全年销售4,602,436辆，海外销量首次突破100万辆大关，蝉联中国汽车品牌销量冠军、新能源汽车销量冠军、全球新能源汽车销量冠军三大荣誉。比亚迪凭借刀片电池、DM-i超级混动等技术优势，在全球新能源市场建立深厚壁垒，2026年继续扩张海外产能，加速全球化布局。</div>
+                        <div class="source">来源：<a href="https://www.byd.com/cn/detail614" target="_blank">比亚迪官网</a></div>
+                    </div>
+                </div>
+                
+                <div class="region-title">🌏 海外市场动态</div>
+                
+                <div class="news-item">
+                    <span class="emoji">🚀</span>
+                    <div class="content">
+                        <div class="title">中国汽车出口持续爆发 2026年1-2月海外销量72万台</div>
+                        <div class="desc">2026年1-2月，中国品牌海外市场销量达72万台，同比增长66%，头部车企在一季度海外出口取得重大进展。3月乘用车出口（含整车与CKD）69.5万辆，同比增长74.3%，其中新能源车占比首次过半达50.2%。乘联分会秘书长崔东树预计，2026-2028年中国电动车对欧盟出口将保持20%左右的年均增速，成为全球电动车市场增长的重要引擎。</div>
+                        <div class="source">来源：<a href="https://baike.baidu.com/item/%E4%B9%98%E7%94%A8%E8%BD%A6%E5%87%BA%E5%8F%A3/67603202" target="_blank">百度百科</a>、<a href="http://auto.youth.cn/xw/202605/t20260508_16648309.htm" target="_blank">中国青年报</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🌍</span>
+                    <div class="content">
+                        <div class="title">比亚迪在欧洲市场销量同比增长1550% 中东市场增长210%</div>
+                        <div class="desc">据英国《金融时报》报道，2026年第一季度比亚迪、名爵等中国品牌在德国、法国、意大利等欧洲主要市场销量已进入前十，其中比亚迪在德国市场销量同比增长1550.3%，创下历史新高。中东市场成为新亮点，2026年1-2月比亚迪在中东市场销量同比增长210%，吉利、长城等品牌也全面发力。中国电动汽车海外热度持续攀升，全球化进入关键窗口期。</div>
+                        <div class="source">来源：<a href="http://bombay.mofcom.gov.cn/jmxw/art/2026/art_1daa9a33186649ccb7b0d7ae8dc68af6.html" target="_blank">商务部投资促进中心</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔍</span>
+                <h2>重点专题：2026北京车展智能化爆发</h2>
+            </div>
+            <div class="section-content">
+                <p class="summary-text">2026北京车展成为智能驾驶技术展示的顶级舞台，华为乾崑ADS 5.0系统首发，全新问界M9、智界V9等重磅车型亮相，智能化成为核心竞争力。</p>
+                
+                <div class="highlight-box">
+                    <h4>📋 2026北京车展智能驾驶核心亮点</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>品牌</th>
+                                <th>重点车型</th>
+                                <th>智驾系统</th>
+                                <th>核心技术</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>问界</td>
+                                <td>全新一代问界M9</td>
+                                <td>华为乾崑ADS 5.0</td>
+                                <td>6激光雷达、896线激光雷达</td>
+                            </tr>
+                            <tr>
+                                <td>问界</td>
+                                <td>问界M6</td>
+                                <td>华为乾崑ADS 4</td>
+                                <td>华为途灵平台、空气悬架</td>
+                            </tr>
+                            <tr>
+                                <td>智界</td>
+                                <td>智界V9</td>
+                                <td>华为乾崑ADS 5.0</td>
+                                <td>全域智能驾驶</td>
+                            </tr>
+                            <tr>
+                                <td>尚界</td>
+                                <td>尚界Z7/Z7T</td>
+                                <td>华为乾崑智驾</td>
+                                <td>年轻化调校</td>
+                            </tr>
+                            <tr>
+                                <td>尊界</td>
+                                <td>尊界S800</td>
+                                <td>华为乾崑ADS 5.0</td>
+                                <td>超豪华智能轿车</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p style="margin-top: 18px; font-size: 0.9rem; color: #555; line-height: 1.7;">
+                    <strong>解读：</strong>2026北京车展呈现智能化三大趋势：1）华为乾崑ADS 5.0成为最具竞争力的智驾系统，配备6激光雷达和896线激光雷达，实现全维感知能力；2）"五界"车型（问界、智界、尚界、尊界、享界）首次同台亮相，鸿蒙智行生态全面落地；3）智能驾驶从辅助驾驶向全域智驾进化，AI原生技术成为核心驱动力。
+                </p>
+            </div>
+        </div>
+        
+        <!-- 品牌/企业动态 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🏢</span>
+                <h2>品牌/企业动态</h2>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="emoji">🔋</span>
+                    <div class="content">
+                        <div class="title">比亚迪发布新一代刀片电池技术 能量密度提升20%</div>
+                        <div class="desc">比亚迪在2026北京车展发布新一代刀片电池技术，能量密度较现有版本提升20%，成本降低15%。新电池将首先搭载在全新的汉EV车型上，续航里程突破800公里。这一技术突破将进一步巩固比亚迪在动力电池领域的领先地位，也是其新能源累计销量突破1610万辆的技术基石。</div>
+                        <div class="source">来源：<a href="https://www.byd.com/cn/detail614" target="_blank">比亚迪官网</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">📱</span>
+                    <div class="content">
+                        <div class="title">华为发布乾崑ADS 5.0 开创全域智能驾驶新时代</div>
+                        <div class="desc">华为在2026北京车展正式发布乾崑ADS 5.0智驾系统，首发搭载于全新一代问界M9和尊界S800。该系统配备独创6激光雷达立体矩阵，融合全球量产最高线数896线激光雷达，实现无死角的全维感知能力。华为计划2026年将乾崑ADS 5.0搭载到超过15款车型上，覆盖从15万到50万的价格区间。</div>
+                        <div class="source">来源：<a href="https://auto.cnr.cn/djfb/20260424/t20260424_527598143.shtml" target="_blank">央广网汽车频道</a>、<a href="https://www.sohu.com/a/1014340669_100119498" target="_blank">搜狐汽车</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🚙</span>
+                    <div class="content">
+                        <div class="title">鸿蒙智行2026年规划曝光 十几款新车将上市</div>
+                        <div class="desc">鸿蒙智行2026年产品规划显示，问界将推出问界M6、问界M8等新车型；智界将推出智界V9、智界S9等；尚界将推出尚界Z7、尚界Z8等；尊界将推出尊界S800、尊界S90等超豪华车型；享界将推出享界S9等。每个品牌都有重磅新车，覆盖超豪华轿车、轿跑车、SUV等多个细分市场。</div>
+                        <div class="source">来源：<a href="https://news.qq.com/rain/a/20251211A04KJT00" target="_blank">腾讯新闻</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">🏭</span>
+                    <div class="content">
+                        <div class="title">上汽名爵深耕欧洲市场 本土化运营实现销量突破</div>
+                        <div class="desc">上汽名爵凭借深耕欧洲市场的本土化运营策略，在2026年一季度取得显著突破。名爵ZS、MG5等车型在欧洲多个国家进入销量前十，品牌认知度持续提升。上汽集团计划2026年在欧洲新增5家工厂，进一步深化本土化战略，同时面临欧盟新法规等合规性挑战。</div>
+                        <div class="source">来源：<a href="https://www.yoojia.com/article/9221403133502545963.html" target="_blank">有驾</a></div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <span class="emoji">⚡</span>
+                    <div class="content">
+                        <div class="title">理想汽车发布i系列纯电动产品规划 2026年进入产品爆发期</div>
+                        <div class="desc">理想汽车在2026北京车展发布i系列纯电动产品规划，将推出理想i8、理想i9等车型，搭载最新一代智能驾驶系统。理想汽车凭借增程式车型成功打入家庭用户市场，2026年将全面发力纯电领域，与问界、蔚来等品牌展开竞争。预计2026年理想汽车交付量将突破80万辆。</div>
+                        <div class="source">来源：<a href="https://auto.cnr.cn/djfb/20260424/t20260424_527598143.shtml" target="_blank">央广网汽车频道</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔮</span>
+                <h2>趋势展望</h2>
+            </div>
+            <div class="section-content">
+                <div class="trend-item">
+                    <div class="trend-title">🌐 预测1：中国汽车出口年均增速将达20%</div>
+                    <div class="trend-desc">乘联分会秘书长崔东树预计，2026-2028年中国电动车对欧盟出口将保持20%左右的年均增速。欧洲汽车制造商协会数据显示，2026年3月欧盟及欧洲自由贸易联盟成员国新车销量158.12万辆，同比增长11.1%，为近半年单月增幅首次达到两位数。中国品牌凭借新能源技术优势，将在全球市场持续扩张。</div>
+                </div>
+                
+                <div class="trend-item">
+                    <div class="trend-title">🤖 预测2：智能驾驶将进入"全域智驾"时代</div>
+                    <div class="trend-desc">2026北京车展展示了AI原生与全域智驾的爆发趋势，华为乾崑ADS 5.0、小鹏XNGP、蔚来NAD等系统正从高速NOA向城市NOA全面进化。预计到2026年底，中国品牌80%以上的新车将标���L2+���别智能驾驶功能，30%将达到L3级别，智能驾驶将成为核心竞争壁垒。</div>
+                </div>
+                
+                <div class="trend-item">
+                    <div class="trend-title">🔋 预测3：固态电池技术将在2027年实现量产</div>
+                    <div class="trend-desc">比亚迪、宁德时代、蜂巢能源等企业的固态电池研发进入冲刺阶段。宁德时代预计2027年实现全固态电池量产，能量密度将达500Wh/kg，续航里程突破1000公里。固态电池的量产将彻底解决安全性和续航焦虑问题，推动新能源汽车进入新一轮增长周期。</div>
+                </div>
+                
+                <div class="trend-item">
+                    <div class="trend-title">🏠 预测4：新能源汽车渗透率将在2027年突破70%</div>
+                    <div class="trend-desc">2026年4月新能源汽车销量渗透率已达48.5%，接近一半。根据行业发展趋势，预计2027年新能源汽车渗透率将突破70%，燃油车市场份额加速萎缩。比亚迪、吉利、长安等中国传统车企全面转型新能源，2026年将是燃油车与新能源车的关键分水岭。</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 数据来源说明 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📚</span>
+                <h2>数据来源说明</h2>
+            </div>
+            <div class="section-content">
+                <ul style="font-size: 0.85rem; color: #666; line-height: 1.8; padding-left: 20px;">
+                    <li>比亚迪官方销量数据（BYD官网）</li>
+                    <li>乘用车市场信息联席会（乘联分会）</li>
+                    <li>中国汽车工业协会（CAAM）</li>
+                    <li>商务部投资促进中心</li>
+                    <li>欧洲汽车制造商协会（ACEA）</li>
+                    <li>英国《金融时报》</li>
+                    <li>百度百科-乘用车出口数据</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>📊 盛世消费体验研究院 | 市场洞察 · 数据先行</p>
+            <div class="back-home">
+                <a href="index.html">← 返回往期目录</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
