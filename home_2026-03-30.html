@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 家电市场每周情报 · 全年第14期 · 4月第1周</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            --card-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+        }
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Noto Sans SC', sans-serif; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+            min-height: 100vh; 
+            margin: 0; 
+            padding: 2rem 1rem; 
+            color: #2d3748; 
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .hero { 
+            background: var(--primary-gradient); 
+            border-radius: 1.5rem; 
+            padding: 3rem 2rem; 
+            color: white; 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            box-shadow: var(--card-shadow); 
+            position: relative;
+        }
+        .logo { 
+            position: absolute; 
+            top: 1.5rem; 
+            right: 1.5rem; 
+            width: 100px; 
+            opacity: 0.95;
+        }
+        .hero h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; margin: 0; }
+        .hero .subtitle { font-size: 1rem; opacity: 0.9; margin-top: 0.5rem; }
+        .section-card { background: white; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .section-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: #1a202c; border-bottom: 3px solid #667eea; padding-bottom: 0.5rem; }
+        .news-item { padding: 1rem; margin-bottom: 1rem; border-radius: 0.75rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #667eea; }
+        .news-item:last-child { margin-bottom: 0; }
+        .news-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; color: #1e293b; }
+        .news-content { font-size: 0.9rem; color: #475569; line-height: 1.7; }
+        .news-source { display: inline-block; margin-top: 0.5rem; font-size: 0.8rem; color: #64748b; background: #e2e8f0; padding: 0.2rem 0.6rem; border-radius: 1rem; text-decoration: none; }
+        .news-source:hover { background: #cbd5e1; }
+        .data-card { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+        .data-item { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 0.75rem; padding: 1.25rem; text-align: center; color: white; }
+        .data-item .value { font-size: 1.75rem; font-weight: 700; }
+        .data-item .label { font-size: 0.85rem; opacity: 0.9; margin-top: 0.25rem; }
+        .highlight-box { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 0.75rem; padding: 1.25rem; margin: 1rem 0; border-left: 4px solid #f59e0b; }
+        .highlight-box strong { color: #92400e; }
+        .summary-card { 
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%); 
+            border-radius: 1rem; 
+            padding: 1.5rem; 
+            color: white; 
+            margin-bottom: 1.5rem;
+        }
+        .summary-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .summary-card p { font-size: 0.95rem; line-height: 1.7; opacity: 0.95; }
+        .back-index { 
+            position: fixed; 
+            bottom: 28px; 
+            right: 28px; 
+            padding: 12px 22px; 
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4); 
+            z-index: 1000; 
+            transition: all 0.3s; 
+        }
+        .back-index:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(233, 69, 96, 0.5); }
+        .footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.85rem; }
+        @media (max-width: 768px) { 
+            .container { padding: 0.5rem; } 
+            .hero { padding: 2rem 1rem; } 
+            .section-card { padding: 1rem; } 
+            .data-card { grid-template-columns: 1fr; } 
+            .back-index { bottom: 1rem; right: 1rem; }
+            .logo { width: 70px; top: 1rem; right: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <img src="https://kinozhao9205.github.io/auto-market-report/logo-white-transparent.png" alt="Logo" class="logo">
+            <h1>🏠 家电市场每周情报</h1>
+            <div class="subtitle">全年第14期 · 4月第1周 · 2026年3月30日-4月5日</div>
+        </div>
+        
+        <div class="section-card">
+            <h2 class="section-title">📊 市场数据速览</h2>
+            <div class="data-card">
+                <div class="data-item"><div class="value">15%</div><div class="label">家电补贴最高比例</div></div>
+                <div class="data-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><div class="value">2500亿</div><div class="label">超长期国债支持</div></div>
+                <div class="data-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><div class="value">+29%</div><div class="label">2月家电出口增速</div></div>
+                <div class="data-item" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"><div class="value">3000亿</div><div class="label">全屋智能市场规模</div></div>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <h3>💡 核心观点</h3>
+            <p>2026年家电市场呈现"政策优化+AI赋能+出海加速"三大特征。以旧换新政策从"规模效应"转向"效能红利"，补贴聚焦一级能效智能家电；AWE 2026揭示AI全屋主动服务趋势，头部企业布局"中央大脑"产品；跨境电商出口同比增长40%，新兴市场成增长新引擎。</p>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">📋 政策动态</h2>
+            <div class="news-item">
+                <div class="news-title">🚀 2026年消费品以旧换新政策全面升级：2500亿超长期国债支持</div>
+                <div class="news-content">2026年"两新"政策全面升级，中央继续安排超长期特别国债资金支持消费品以旧换新，总规模达2500亿元。补贴比例设定为售价的15%，限定一级能效门槛，政策从"普惠"转向"精准"，更加聚焦推动家电行业结构性升级，引导绿色智能消费升级。</div>
+                <a href="https://www.gov.cn/lianbo/202512/content_7053217.htm" target="_blank" class="news-source">中国政府网</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🎯 北京率先落地：家电以旧换新补贴细则发布</div>
+                <div class="news-content">北京市商务局率先印发《北京市2026年家电以旧换新、数码和智能产品购新补贴工作的通知》，明确补贴范围涵盖冰箱、洗衣机、电视、空调等大家电品类。智能手表、智能眼镜、适老化家居等首次被纳入补贴范围，"送新收旧一站式"服务全面升级。</div>
+                <a href="https://www.beijing.gov.cn/cs/gncs/zcwj/202603/t20260327_4568175.html" target="_blank" class="news-source">北京市政府网</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🌱 以旧换新从"规模效应"转向"效能红利"</div>
+                <div class="news-content">国务院发展研究中心专家漆云兰指出，2026年以旧换新政策正从追求"规模效应"转向追求"效能红利"。政策不仅刺激消费，更是推动经济高质量发展的有力引擎，带动家电企业从"规模扩张"向"质量提升"转型。</div>
+                <a href="https://www.drc.gov.cn/DocView.aspx?chnid=379&leafid=1338&docid=2909735" target="_blank" class="news-source">国务院发展研究中心</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">🏭 家电品牌动态</h2>
+            <div class="news-item">
+                <div class="news-title">🔷 AWE 2026盛大开幕：1200家企业参展，意向订单超500亿</div>
+                <div class="news-content">2026中国家电及消费电子博览会（AWE 2026）以"AI科技，慧享未来"为主题盛大开幕，1200家企业参展，现场签订意向订单超500亿元。展会集中展示AI全屋主动服务、场景自适应、情感交互、健康管理四大趋势，揭示未来五年行业走向。</div>
+                <a href="https://www.idc.com/" target="_blank" class="news-source">IDC</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">⚡ 美的集团AI规划：2026年实现降本9亿元以上</div>
+                <div class="news-content">美的集团发布2026年发展规划，明确通过AI技术实现降本9亿元以上的目标。美的把全屋智能当作"家庭操作系统"来重构，与华为、阿里等AI巨头深度合作，推出AI节能空调、智能厨电等产品线，引领家电智能化转型。</div>
+                <a href="https://k.sina.cn/article_2311077472_89c03e6002002h7ms.html" target="_blank" class="news-source">新浪财经</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🏠 海尔智家：坚守全球化高端化战略，三翼鸟布局全屋智能</div>
+                <div class="news-content">海尔智家明确2026年核心发展方向：持续坚守全球化、高端化战略。依托三翼鸟把全屋智能变成"整家方案"，从"单品联网"迈向"自主智能"，推出"中央大脑"产品实现跨品牌统一调度，构建智能家居生态护城河。</div>
+                <a href="https://news.qq.com/rain/a/20251114A04LFR00" target="_blank" class="news-source">腾讯新闻</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">📺 TCL海信押注大屏生态：电视成为家庭控制中心</div>
+                <div class="news-content">TCL和海信战略押注大屏生态，让电视成为家庭控制中心。TCL推出搭载AI管家的巨幕智屏，海信发布家庭智慧中枢产品，通过大屏实现全屋设备互联互通，打造"屏幕即入口"的智能家居新体验。</div>
+                <a href="https://xueqiu.com/1641995255/361585049" target="_blank" class="news-source">雪球</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🤖 家电巨头掀起AI联姻潮：海尔美的TCL与AI企业深度合作</div>
+                <div class="news-content">海尔、美的、TCL、松下等家电巨头正掀起一场AI联姻潮，与华为、阿里、百度等AI企业深度合作。行业人士指出，这背后暗藏着家电企业对2026年国补退潮的战略应对，通过AI赋能提升产品竞争力，从容应对政策变化。</div>
+                <a href="https://www.sohu.com/a/944529782_120335330" target="_blank" class="news-source">搜狐</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">💡 技术趋势</h2>
+            <div class="news-item">
+                <div class="news-title">🏠 全屋智能进入2.0时代：跨品牌统一调度成现实</div>
+                <div class="news-content">2026年全屋智能进入2.0时代，华为、小米、海尔推出"中央大脑"产品，实现跨品牌统一调度。IDC预测全屋智能市场规模将突破3000亿元，从单点控制向主动感知、预判服务演进，AI家电渗透率持续提升。</div>
+                <a href="https://finance.sina.com.cn/tech/roll/2025-11-24/doc-infypaaw6502444.shtml" target="_blank" class="news-source">新浪财经</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🍳 烹饪场景AI创新：家电行业新增长引擎</div>
+                <div class="news-content">由于大家电换新周期长，AI创新的最大机遇出现在烹饪场景。智能生态能够普及烹饪技能并提供个性化体验，2026年小家电与大厨电的智能化融合成为行业新亮点，智能烤箱、AI灶具等产品热销。</div>
+                <a href="https://xueqiu.com/7433912172/358425064" target="_blank" class="news-source">雪球</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🏠 存量房翻新与适老化升级成为新增长点</div>
+                <div class="news-content">2026年家电市场增长动力转变：增量市场放缓，存量房翻新和适老化改造成为新增长点。智能马桶、智能门锁、适老化家电等细分品类迎来快速发展期，企业纷纷布局适老化产品线。</div>
+                <a href="https://my.idc.com/getdoc.jsp?containerId=prCHC53944225" target="_blank" class="news-source">IDC</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🤖 AI家电打开万亿增长空间：居家机器人、智慧眼镜迎爆发</div>
+                <div class="news-content">业内人士预测，"十五五"期间，随着居家机器人走入千家万户，智能眼镜等新型产品爆发式成长，AI家电及消费电子产品渗透率持续提升，未来五年行业增量空间广阔，万亿级市场大门正在打开。</div>
+                <a href="http://jjckb.xinhuanet.com/20260323/2c8f082b728b40aa995b05cff1745e3d/c.html" target="_blank" class="news-source">经济参考网</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">🌍 出口动态</h2>
+            <div class="news-item">
+                <div class="news-title">🚀 2月家电出口增速显著提升至29%</div>
+                <div class="news-content">2026年1-2月家电出口数据显示，1月家电出口同比持平，2月增速显著提升至29%，增长势头强劲。全年出口有望延续增长态势，中国家电产品连续四年出口额超过千亿美元。</div>
+                <a href="https://data.eastmoney.com/report/zw_industry.jshtml?infocode=AP202603231820695066" target="_blank" class="news-source">东方财富</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🛒 跨境年货出口285亿：智能家电成出海爆款</div>
+                <div class="news-content">2026年跨境电商年货节出口额达285亿元，同比激增40%，创下历史同期新高。智能家电与预制菜成为出海爆款，"中国年味"通过跨境电商渠道加速风靡全球，新兴市场成为增长新引擎。</div>
+                <a href="https://cj.sina.com.cn/articles/view/7857201856/1d45362c001902od6q" target="_blank" class="news-source">新浪财经</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🌏 新兴市场家电需求爆发：东南亚、中东、非洲增速超20%</div>
+                <div class="news-content">东南亚、中东及非洲地区家电类目年均增速超20%，成为家电出海新蓝海。中国品牌石头科技、科沃斯、追觅在全球智能扫地机器人市场表现亮眼，前三季度累计出货量达1742.4万台，同比增长18.7%。</div>
+                <a href="https://news.cctv.com/2026/01/10/ARTIGUHRTzoWIMxvugxr8YHk260110.shtml" target="_blank" class="news-source">央视新闻</a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">📅 近期活动预告</h2>
+            <div class="news-item">
+                <div class="news-title">🎪 2026中国家电及消费电子博览会（AWE 2026）</div>
+                <div class="news-content">2026年3月13日-16日，上海新国际博览中心。1200家参展商，意向订单超500亿元，AWE已成为全球三大家电与消费电子展会之一。</div>
+                <a href="https://www.awe.com.cn/" target="_blank" class="news-source">AWE官方</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🏆 2026年全国家电暨数码和智能产品消费季启动仪式</div>
+                <div class="news-content">2026年3月13日，上海。中国家用电器协会发布《2026中国家电消费趋势白皮书》，启动仪式上发布家电消费新趋势。</div>
+                <a href="https://www.cheaa.org/" target="_blank" class="news-source">中国家电网</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>本信息来源由盛世前程AI智能体整理发布 | 版权所有:北京盛世前程营销活动策划有限公司</p>
+        </div>
+    </div>
+    
+    <a href="https://kinozhao9205.github.io/auto-market-report/" class="back-index">📋 返回目录</a>
+</body>
+</html>
