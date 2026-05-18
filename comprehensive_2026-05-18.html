@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年第21期 综合情报报告 - 盛世消费体验研究院</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-radius: 16px;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--primary-gradient);
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .header h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+        }
+        
+        .header .date {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .section h2 {
+            font-size: 1.3rem;
+            color: #1a237e;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8eaf6;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+            margin-right: 10px;
+        }
+        
+        /* Data Cards */
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 15px;
+        }
+        
+        .data-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8eaf6 100%);
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+            border: 1px solid #c5cae9;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .data-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+        
+        .data-card .number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .data-card .label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+        
+        /* Summary */
+        .summary {
+            background: linear-gradient(135deg, #e8eaf6 0%, #f5f5f5 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .summary p {
+            color: var(--text-primary);
+            text-align: justify;
+        }
+        
+        /* News Items */
+        .news-item {
+            padding: 16px;
+            background: #fafbfc;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            border: 1px solid #eee;
+        }
+        
+        .news-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .news-item h3 {
+            font-size: 1rem;
+            color: #1a237e;
+            margin-bottom: 8px;
+        }
+        
+        .news-item p {
+            font-size: 0.9rem;
+            color: #444;
+            text-align: justify;
+        }
+        
+        .news-item .source {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: #667eea;
+            background: #e8eaf6;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+        
+        /* Industry Tags */
+        .industry-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        
+        .tag-home { background: #ff6b6b; color: white; }
+        .tag-digital { background: #4ecdc4; color: white; }
+        .tag-auto { background: #45b7d1; color: white; }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.85rem;
+        }
+        
+        .data-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-table tr:hover td {
+            background: #f8f9ff;
+        }
+        
+        /* Brand News */
+        .brand-item {
+            padding: 14px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #e8eaf6;
+        }
+        
+        .brand-item h4 {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+        
+        .brand-item p {
+            font-size: 0.85rem;
+            color: #555;
+        }
+        
+        /* Outlook */
+        .outlook-item {
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .outlook-item p {
+            font-size: 0.9rem;
+            color: #2e7d32;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: var(--border-radius);
+            margin-top: 25px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .footer p {
+            font-size: 0.8rem;
+        }
+        
+        .footer .brand {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: white;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 12px; }
+            .header h1 { font-size: 1.4rem; }
+            .section { padding: 16px; }
+            .data-cards { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>📊 综合情报报告</h1>
+            <div class="subtitle">家电 · 数码 · 汽车 | 三行业周度洞察</div>
+            <div class="date">2026年5月18日 · 第21期</div>
+        </div>
+        
+        <!-- 数据速览 -->
+        <div class="section">
+            <h2>📊 数据速览</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="number">1726亿</div>
+                    <div class="label">一季度家电零售额(元)</div>
+                </div>
+                <div class="data-card">
+                    <div class="number">-6.2%</div>
+                    <div class="label">家电同比增速</div>
+                </div>
+                <div class="data-card">
+                    <div class="number">8335亿</div>
+                    <div class="label">2026智能家电市场规模(预测)</div>
+                </div>
+                <div class="data-card">
+                    <div class="number">32.1万</div>
+                    <div class="label">比亚迪4月销量(辆)</div>
+                </div>
+                <div class="data-card">
+                    <div class="number">30%</div>
+                    <div class="label">折叠屏市场增幅预测</div>
+                </div>
+                <div class="data-card">
+                    <div class="number">#5</div>
+                    <div class="label">比亚迪全球品牌价值排名</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 核心摘要 -->
+        <div class="section">
+            <h2>📝 核心摘要</h2>
+            <div class="summary">
+                <p>2026年5月中旬，三大消费行业呈现分化态势。家电行业面临国补"免疫"挑战，一季度零售规模同比下滑6.2%，行业进入存量竞争深水区。数码领域，苹果华为同时降价引爆618促销，折叠屏手机进入普及化新周期，IDC预测全年增幅达30%。汽车板块，比亚迪再获突破，在英国市场超越特斯拉成为最畅销电动车品牌，品牌价值跃居全球第五。整体来看，行业分化加剧，头部品牌效应持续强化，AI与智能化成为共同驱动力。</p>
+            </div>
+        </div>
+        
+        <!-- 市场大势 -->
+        <div class="section">
+            <h2>📈 市场大势</h2>
+            
+            <div class="news-item">
+                <h3><span class="industry-tag tag-home">家电</span>国补"免疫"显现 一季度家电零售下滑6.2%</h3>
+                <p>奥维云网(AVC)推总数据显示，2026年一季度中国家电产业(不含3C)零售规模1726亿元，同比下滑6.2%，其中3月同比下滑12.5%。从2024年的"市场增长超预期"到2025年的"无国补不消费"，再到2026年的"有国补也不消费"，国补政策出现明显的边际效应递减。行业普遍体感焦虑，国补没有改变家电产业的存量本质，市场竞争已从增量争夺转向存量博弈。</p>
+                <span class="source">来源：界面新闻/奥维云网</span>
+            </div>
+            
+            <div class="news-item">
+                <h3><span class="industry-tag tag-digital">数码</span>苹果华为同日降价 折叠屏进入普及化新周期</h3>
+                <p>2026年5月15日凌晨，苹果宣布iPhone 17 Pro系列降价千元，随后华为同日宣布Mate X7全系直降1000元。两大头部品牌在同一天集中释放优惠信号，提前点燃618消费热度。IDC预测，受苹果首款折叠屏iPhone及三星三折叠屏手机推动，全球折叠屏手机市场将在2026年迎来爆发式增长，同比增幅有望达30%。2026年被视为折叠屏爆发元年，从"品类创新"变为"市场刚需"。</p>
+                <span class="source">来源：中关村在线/IDC</span>
+            </div>
+            
+            <div class="news-item">
+                <h3><span class="industry-tag tag-auto">汽车</span>比亚迪登顶英国市场 品牌价值跃居全球第五</h3>
+                <p>2026年5月，英国汽车制造商和贸易商协会(SMMT)数据显示，比亚迪以12,754辆的纯电动汽车销量超越宝马、特斯拉，成为英国市场最畅销的电动汽车品牌，市场份额超过7%。这是中国新能源品牌在欧洲成熟市场的重大突破。同时，国际权威品牌评估机构凯度(Kantar)发布报告显示，比亚迪以203.62亿美元的品牌价值跃居全球汽车品牌第五位，连续四年稳居前十，41%的同比增幅蝉联行业增速冠军。</p>
+                <span class="source">来源：搜狐汽车/凯度BrandZ</span>
+            </div>
+        </div>
+        
+        <!-- 重点专题 -->
+        <div class="section">
+            <h2>🔍 重点专题</h2>
+            
+            <h3 style="margin: 15px 0 10px; color: #1a237e;">家电三巨头2026年一季度业绩对比</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>企业</th>
+                        <th>营收表现</th>
+                        <th>战略特点</th>
+                        <th>海外布局</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>海尔智家</strong></td>
+                        <td>稳健增长</td>
+                        <td>智慧家庭生态</td>
+                        <td>全球领先</td>
+                    </tr>
+                    <tr>
+                        <td><strong>美的集团</strong></td>
+                        <td>效率优先</td>
+                        <td>全品类覆盖</td>
+                        <td>快速扩张</td>
+                    </tr>
+                    <tr>
+                        <td><strong>格力电器</strong></td>
+                        <td>承压明显</td>
+                        <td>空调为主</td>
+                        <td>相对保守</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin: 20px 0 10px; color: #1a237e;">2026年全球智能手机市场预测</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>机构</th>
+                        <th>预测降幅</th>
+                        <th>主要因素</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Gartner</strong></td>
+                        <td>-8.4%</td>
+                        <td>需求疲软</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IDC</strong></td>
+                        <td>-12.9%</td>
+                        <td>换机周期延长</td>
+                    </tr>
+                    <tr>
+                        <td><strong>折叠屏市场</strong></td>
+                        <td>+30%</td>
+                        <td>苹果入局+技术成熟</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 品牌动态 -->
+        <div class="section">
+            <h2>🏢 品牌动态</h2>
+            
+            <div class="brand-item">
+                <h4>🏠 美的集团：效率优先的全球化扩张</h4>
+                <p>美的集团以效率优先战略应对市场压力，在国内市场存量竞争、海外关税与汇率波动、原材料价格上行的多重压力下，通过全品类覆盖和快速响应保持竞争力。2026年继续推进全球化布局，在海外市场实现逆势增长。</p>
+            </div>
+            
+            <div class="brand-item">
+                <h4>🏠 海尔智家：智慧家庭生态领跑</h4>
+                <p>截至2025年，海尔智慧家庭全球累计注册用户数突破1.3亿，全年智慧场景交互次数达861亿次。海尔以远见战略布局智慧家庭生态，在行业分化中保持稳健增长，三巨头中表现最为亮眼。</p>
+            </div>
+            
+            <div class="brand-item">
+                <h4>📱 苹果iPhone 17 Pro系列降价千元</h4>
+                <p>2026年5月15日凌晨，苹果宣布iPhone 17 Pro系列降价千元，提前点燃618购物节消费热度。这一举措被视为应对市场需求疲软和国产品牌竞争压力的战略调整，同时也为折叠屏新机发布铺路。</p>
+            </div>
+            
+            <div class="brand-item">
+                <h4>🚗 比亚迪入选《时代》全球百大影响力企业</h4>
+                <p>比亚迪连续六年入选《时代》周刊"全球100大最具影响力企业"榜单，成为唯一一家实现六年全勤的汽车企业。2026年该榜单共有7家中国企业入选，比亚迪基于新能源汽车销量持续领先、全球化布局加速推进、全产业链垂直整合三大优势再度入选。</p>
+            </div>
+            
+            <div class="brand-item">
+                <h4>🚗 新能源车开启涨价潮</h4>
+                <p>受存储芯片及碳酸锂等原材料价格大幅上涨影响，比亚迪、特斯拉、小米等多家新能源车企上调部分车型或选装配置的售价。比亚迪官宣旗下王朝、海洋、方程豹部分车型选装的"天神之眼B"辅助驾驶激光版价格从9900元上调至12000元，涨幅达2100元，5月1日起生效。</p>
+            </div>
+        </div>
+        
+        <!-- 趋势展望 -->
+        <div class="section">
+            <h2>🔮 趋势展望</h2>
+            
+            <div class="outlook-item">
+                <p><strong>家电：</strong>AI深度赋能从"智能控制"向"智慧伙伴"跃迁。随着生成式AI与多模态大模型的成熟，智能家电正加速从L2、L3级向L4、L5级高阶智能演进。未来家电将不再是被动执行指令的工具，而是具备"看、听、说、理解"能力的智慧伙伴。</p>
+            </div>
+            
+            <div class="outlook-item">
+                <p><strong>数码：</strong>折叠屏手机将在2026年完成从"高端尝鲜"到"大众标配"的转变。苹果入局改变了市场格局，安卓阵营凭借技术积累与产业链优势占据先发位置。三折叠屏手机将成为新的技术制高点。</p>
+            </div>
+            
+            <div class="outlook-item">
+                <p><strong>汽车：</strong>中国新能源汽车品牌在欧洲市场的突破只是一个开始。比亚迪在英国市场的成功证明了国产品牌在成熟市场的竞争力，未来有望在更多欧洲国家复制这一成功路径，全球汽车产业竞争格局正在深刻重塑。</p>
+            </div>
+            
+            <div class="outlook-item">
+                <p><strong>综合：</strong>头部品牌效应将持续强化。在存量市场竞争环境下，具有技术积累、品牌影响力和全球化能力的头部企业将获得更多市场份额，而中小品牌面临更大生存压力，行业洗牌加速。</p>
+            </div>
+        </div>
+        
+        <!-- 数据来源 -->
+        <div class="section">
+            <h2>📋 数据来源说明</h2>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">
+                本报告数据来源于：奥维云网(AVC)、中商产业研究院、IDC、Gartner、凯度(Kantar)BrandZ、英国汽车制造商和贸易商协会(SMMT)、比亚迪公告、界面新闻、36氪等权威机构和媒体。所有数据均经过交叉验证，确保准确性。
+            </p>
+        </div>
+        
+        <div class="footer">
+            <div class="brand">🏆 盛世消费体验研究院</div>
+            <p>专注消费行业研究 · 助力企业决策</p>
+            <p style="margin-top: 8px; font-size: 0.75rem; color: rgba(255,255,255,0.6);">
+                每周一更新 · 第21期
+            </p>
+            <div class="back-home">
+                <a href="index.html">← 返回往期目录</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
