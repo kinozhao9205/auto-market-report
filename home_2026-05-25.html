@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 家电市场每周情报 · 全年第22期 · 5月第4周</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%); --card-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        * { box-sizing: border-box; }
+        body { font-family: 'Noto Sans SC', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; margin: 0; padding: 2rem 1rem; color: #2d3748; }
+        .container { max-width: 780px; margin: 0 auto; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .hero { background: var(--primary-gradient); border-radius: 1.5rem; padding: 2.5rem 1.5rem; color: white; text-align: center; margin-bottom: 1.5rem; box-shadow: var(--card-shadow); }
+        .hero h1 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin: 0; }
+        .hero .subtitle { font-size: 0.95rem; opacity: 0.9; margin-top: 0.5rem; }
+        .section-card { background: white; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .section-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: #1a202c; border-bottom: 3px solid #667eea; padding-bottom: 0.5rem; }
+        .news-item { padding: 1rem; margin-bottom: 1rem; border-radius: 0.75rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #667eea; }
+        .news-item:last-child { margin-bottom: 0; }
+        .news-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; color: #1e293b; }
+        .news-content { font-size: 0.875rem; color: #475569; line-height: 1.7; }
+        .news-source { display: inline-block; margin-top: 0.5rem; font-size: 0.75rem; color: #64748b; background: #e2e8f0; padding: 0.2rem 0.6rem; border-radius: 1rem; text-decoration: none; }
+        .data-card { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+        .data-item { background: var(--primary-gradient); border-radius: 0.75rem; padding: 1rem; text-align: center; color: white; }
+        .data-item .value { font-size: 1.5rem; font-weight: 700; }
+        .data-item .label { font-size: 0.75rem; opacity: 0.9; margin-top: 0.25rem; }
+        .highlight-box { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 0.75rem; padding: 1rem; margin: 1rem 0; border-left: 4px solid #f59e0b; }
+        .highlight-box strong { color: #92400e; }
+        .trend-box { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 0.75rem; padding: 1rem; margin: 1rem 0; border-left: 4px solid #3b82f6; }
+        .trend-box strong { color: #1e40af; }
+        .table-container { overflow-x: auto; margin: 1rem 0; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .data-table th { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.75rem; text-align: left; font-weight: 500; }
+        .data-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid #e2e8f0; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+        .footer { text-align: center; padding: 1.5rem; color: #64748b; font-size: 0.8rem; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 768px) { .container { padding: 0.5rem; } .hero { padding: 1.5rem 1rem; } .section-card { padding: 1rem; } .data-card { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="container">
+        <div class="hero">
+            <h1>🏠 家电市场每周情报</h1>
+            <div class="subtitle">全年第22期 · 5月第4周 · 2026年5月19日-5月25日</div>
+        </div>
+        
+        <!-- 数据速览 -->
+        <div class="section-card">
+            <h2 class="section-title">📊 市场数据速览</h2>
+            <div class="data-card">
+                <div class="data-item"><div class="value">1726亿</div><div class="label">一季度家电零售额</div></div>
+                <div class="data-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><div class="value">-6.2%</div><div class="label">一季度同比增速</div></div>
+                <div class="data-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><div class="value">11.74亿台</div><div class="label">一季度家电出口</div></div>
+                <div class="data-item" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"><div class="value">+9.5%</div><div class="label">出口同比增长</div></div>
+                <div class="data-item" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);"><div class="value">10.9%</div><div class="label">自主品牌海外份额</div></div>
+                <div class="data-item" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"><div class="value">15%</div><div class="label">国补最高比例</div></div>
+            </div>
+        </div>
+        
+        <!-- 核心摘要 -->
+        <div class="section-card">
+            <h2 class="section-title">💡 核心摘要</h2>
+            <div class="highlight-box">
+                <strong>【观点一】国补政策边际效应递减，"有国补不消费"现象显现</strong><br>
+                2026年一季度家电零售规模1726亿元，同比下滑6.2%，其中3月同比下滑12.5%。国补政策从"催化剂"变成"依赖"，部分消费者出现政策免疫。
+            </div>
+            <div class="highlight-box">
+                <strong>【观点二】龙头企业业绩分化，美的稳增、格力回调</strong><br>
+                一季度财报显示，美的凭借高效运营保持稳健，海尔因全球化布局承压，格力固守空调主业面临增长挑战。
+            </div>
+            <div class="highlight-box">
+                <strong>【观点三】中国家电品牌出海从"量"转向"质"</strong><br>
+                一季度出口量11.74亿台，同比增长9.5%，但更值得关注的是结构变化——自主品牌市场份额从2015年的2.9%提升至2025年的10.9%。
+            </div>
+            <div class="highlight-box">
+                <strong>【观点四】618大促+国补双重刺激，二季度或有反弹</strong><br>
+                随着618购物节临近，各地联合推出力度空前的换新补贴，政企双补、金融加持有望提振二季度家电消费。
+            </div>
+        </div>
+        
+        <!-- 市场大势 -->
+        <div class="section-card">
+            <h2 class="section-title">📈 市场大势</h2>
+            <div class="news-item">
+                <div class="news-title">🔍 2026年一季度家电市场整体承压，行业增速由正转负</div>
+                <div class="news-content">奥维云网(AVC)推总数据显示，2026年一季度中国家电产业（不含3C）零售规模1726亿元，同比下滑6.2%，其中3月同比下滑12.5%。原材料价格大幅上涨是主因之一：铜价暴涨33%，ABS塑料涨51.7%，全行业利润被集体绞杀。国补政策从"催化剂"变为"依赖"，2024年是"超预期"，2025年是"无国补不消费"，2026年出现"有国补也不消费"的免疫现象。</div>
+                <a href="https://www.jiemian.com/article/14332398.html" target="_blank" class="news-source">界面新闻</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🛒 618家电促销全面升温，政企双补叠加来袭</div>
+                <div class="news-content">随着618购物节临近，湖北省以旧换新活动全面升温，各大品牌积极响应政策号召，联合推出力度空前的换新补贴。格力、美的、小米、工贸家电等品牌均参与其中，政企双补、金融加持、服务升级多重福利叠加，让消费者在618期间实现"低成本、高品质"换新。北京等地明确对1级能效家电给予15%补贴，单件最高1500元。</div>
+                <a href="http://swt.hubei.gov.cn/stdt/mtjj/202605/t20260518_5938577.shtml" target="_blank" class="news-source">湖北省商务厅</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🌍 中国家电出口稳健增长，自主品牌份额持续提升</div>
+                <div class="news-content">2026年第一季度，中国家用电器出口量达11.74亿台，同比增长9.5%，延续多年增长曲线。最值得关注的是结构性变化：中国自主品牌家电在海外市场的份额从2015年的2.9%提升至2025年的10.9%，十年间增长近4倍。中国家电企业正在从"代工贴牌"转向"自有品牌"，实现从"量"到"质"的跨越。</div>
+                <a href="https://baijiahao.baidu.com/s?id=1865886442207977802&wfr=spider&for=pc" target="_blank" class="news-source">百度百家号</a>
+            </div>
+        </div>
+        
+        <!-- 重点专题 -->
+        <div class="section-card">
+            <h2 class="section-title">🔬 重点专题：AWE2026空调新品五大趋势</h2>
+            <div class="news-content">AWE2026（中国家电及消费电子博览会）集中展现空调行业五大技术趋势：</div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>趋势方向</th>
+                            <th>技术特点</th>
+                            <th>市场意义</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>原生AI主动智能</td>
+                            <td>空调内置AI芯片，可自主学习用户习惯</td>
+                            <td>从"被动响应"转向"主动服务"</td>
+                        </tr>
+                        <tr>
+                            <td>零嵌一体化设计</td>
+                            <td>机身与室内装修完美融合</td>
+                            <td>解决安装美观痛点</td>
+                        </tr>
+                        <tr>
+                            <td>绿色节能升级</td>
+                            <td>符合GB 21455-2024新一级能效标准</td>
+                            <td>入围国补门槛提升</td>
+                        </tr>
+                        <tr>
+                            <td>健康除菌功能</td>
+                            <td>新风+自清洁+除醛三位一体</td>
+                            <td>健康需求成为标配</td>
+                        </tr>
+                        <tr>
+                            <td>场景化适配</td>
+                            <td>针对母婴、极简家等场景定制</td>
+                            <td>细分市场成新增长点</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="highlight-box">
+                <strong>深度分析：</strong>TCL在健康、智能和节能等维度展现全面优势，成为2026年最具竞争力的空调品牌。美的、海尔、格力和松下也各自在技术领域展现出差异化竞争力。
+            </div>
+            <a href="https://post.smzdm.com/p/am9e8kz4/" target="_blank" class="news-source">什么值得买</a>
+        </div>
+        
+        <!-- 品牌动态 -->
+        <div class="section-card">
+            <h2 class="section-title">🏭 品牌与企业动态</h2>
+            <div class="news-item">
+                <div class="news-title">🔷 美的集团：高效运营稳固基本盘，一季度稳增</div>
+                <div class="news-content">美的集团依托高效运营稳固基本盘，在行业整体承压背景下保持稳健增长。2025年组织40余家国内核心供应商赴越南调研，助力合作伙伴了解海外市场环境；与合兴包装达成海外战略合作，在泰国、印尼等新兴市场开展本土化供应合作；与三花智控签订战略合作协议，携手在全球市场开展技术与供应链协同。美的通过"链主"责任，带动中国制造业产业链共同出海，构建更具竞争力的中国智造全球生态。</div>
+                <a href="https://www.jiemian.com/article/14135505.html" target="_blank" class="news-source">界面新闻</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🔶 海尔智家：全球化+智慧家庭双轮驱动，业绩承压</div>
+                <div class="news-content">海尔智家凭借全球化和智慧家庭布局抵御市场波动。一季度受原材料价格上涨和全球宏观经济不确定性影响，业绩有所承压。海尔在AWE2026发布的UhomeOS 4.0系统实现突破：冰箱可自主判断食材保鲜周期，空调可根据用户习惯自动调节温湿度，推动智慧家居生态全面升级。</div>
+                <a href="https://zhikeji.pconline.com.cn/article/1575238" target="_blank" class="news-source">太平洋家电</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🔵 格力电器：固守空调主业，寻求突破</div>
+                <div class="news-content">格力电器固守空调主业，在行业竞争加剧背景下面临增长挑战。得益于在空调领域的技术积累和品牌影响力，格力在高端空调市场保持一定竞争优势。但面对行业整体下滑和竞争对手的多元化布局，格力亟需寻找新的增长点。</div>
+                <a href="https://cj.sina.com.cn/articles/view/7808142108/1d166cb1c00101th8q" target="_blank" class="news-source">新浪财经</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🌐 中国小家电出口：部分订单从东南亚回流</div>
+                <div class="news-content">据海关总署数据，2026年1月到4月，中国向美国出口小家电金额为38.47亿美元，同比减少21.1%；但4月份出口10.9亿美元，同比增长3.9%，呈现回暖态势。订单回流苗头始于2025年下半年，家电、家具、纺织、五金等行业陆续出现少量试探性转单的回流情况，尽管整体规模有限，但释放积极信号。</div>
+                <a href="https://baijiahao.baidu.com/s?id=1865880968071514865&wfr=spacer&for=pc" target="_blank" class="news-source">百度百家号</a>
+            </div>
+            <div class="news-item">
+                <div class="news-title">🖨️ 新兴品类崛起：3D打印机出口爆发式增长</div>
+                <div class="news-content">消费级3D打印进入规模化放量快速发展阶段，中国成为全球核心生产与出口基地。据海关总署统计，2025年我国出口3D打印机502.6万台、金额113.55亿元；2026年第一季度，我国3D打印机出口同比增长119%。年轻人第一台"新家电"正在兴起，满足海外即时需求成为最大推动力。</div>
+                <a href="http://bombay.mofcom.gov.cn/tpjj/art/2026/art_19d71a320fc54a98887976709ed256e4.html" target="_blank" class="news-source">商务部投资促进事务局</a>
+            </div>
+        </div>
+        
+        <!-- 趋势展望 -->
+        <div class="section-card">
+            <h2 class="section-title">🔮 趋势展望</h2>
+            <div class="trend-box">
+                <strong>判断一：国补政策将更加精准化和差异化</strong><br>
+                预计后续政策将更多向高能效、绿色智能产品倾斜，同时根据不同区域消费能力和产业结构制定差异化补贴方案。中西部地区和农村市场仍是重点，但补贴力度和使用效率将成为政策优化关键。
+            </div>
+            <div class="trend-box">
+                <strong>判断二：家电企业"出海"进入品牌化阶段</strong><br>
+                从"产品出海"到"品牌出海"的转型将加速，预计2026-2028年将是中国家电品牌海外扩张的黄金期，自主品牌份额有望从10.9%提升至15%以上。
+            </div>
+            <div class="trend-box">
+                <strong>判断三：AI智能家居将从"概念"走向"落地"</strong><br>
+                AWE2026展现的AI主动智能技术将在下半年加速落地，预计2026年下半年主流品牌AI空调渗透率将超过30%，智慧家居生态之争进入实质性阶段。
+            </div>
+            <div class="trend-box">
+                <strong>判断四：二季度家电消费有望环比改善</strong><br>
+                618购物节叠加国补政策延续，预计二季度家电零售降幅将明显收窄，甚至可能在促销旺季实现正增长。但全年仍将维持"弱复苏"基调。
+            </div>
+        </div>
+        
+        <!-- 数据来源 -->
+        <div class="section-card">
+            <h2 class="section-title">📋 数据来源说明</h2>
+            <div class="news-content">
+                <ul style="padding-left: 1.2rem; line-height: 1.8;">
+                    <li>奥维云网(AVC) - 家电零售大数据</li>
+                    <li>海关总署 - 进出口贸易数据</li>
+                    <li>商务部 - 政策与行业动态</li>
+                    <li>AWE中国家电及消费电子博览会 - 新品趋势</li>
+                    <li>各上市公司公告与财报</li>
+                    <li>各省商务厅 - 地方补贴政策</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div>编辑发布：盛世消费体验研究院</div>
+            <div class="back-home">
+                <a href="index.html">← 返回往期目录</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
