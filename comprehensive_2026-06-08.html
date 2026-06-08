@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年第24期综合情报报告 - 盛世消费体验研究院</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --text-dark: #2d3748;
+            --text-light: #718096;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: linear-gradient(180deg, #f5f7fa 0%, #e4e8ec 100%); min-height: 100vh; color: var(--text-dark); line-height: 1.8; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .container { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+        .header { text-align: center; padding: 30px 20px; background: var(--primary-gradient); border-radius: 20px; color: white; margin-bottom: 24px; box-shadow: var(--card-shadow); }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header .subtitle { font-size: 14px; opacity: 0.95; }
+        .header .date { font-size: 13px; margin-top: 8px; opacity: 0.9; }
+        .section { background: white; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+        .section-title { font-size: 18px; font-weight: 700; color: #1a237e; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #e8eaf6; display: flex; align-items: center; gap: 10px; }
+        .section-title::before { content: ''; width: 4px; height: 20px; background: var(--primary-gradient); border-radius: 2px; }
+        
+        /* 数据速览卡片 */
+        .data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .data-card { background: linear-gradient(135deg, #f8f9ff 0%, #eef1f8 100%); border-radius: 12px; padding: 16px; text-align: center; border: 1px solid #e2e5ed; transition: all 0.3s ease; }
+        .data-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102,126,234,0.15); }
+        .data-card .value { font-size: 24px; font-weight: 800; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .data-card .label { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+        .data-card.highlight .value { background: var(--success-gradient); -webkit-background-clip: text; background-clip: text; }
+        
+        /* 核心摘要 */
+        .summary { background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%); border-left: 4px solid #ff9800; padding: 20px; border-radius: 0 12px 12px 0; }
+        .summary p { font-size: 15px; color: #4a4a4a; text-align: justify; }
+        
+        /* 新闻条目 */
+        .news-item { padding: 16px 0; border-bottom: 1px solid #f0f0f0; }
+        .news-item:last-child { border-bottom: none; }
+        .news-item h3 { font-size: 15px; font-weight: 600; color: #1a237e; margin-bottom: 8px; line-height: 1.5; }
+        .news-item p { font-size: 14px; color: #4a5568; margin-bottom: 10px; }
+        .news-item .source { font-size: 12px; color: #a0aec0; }
+        .news-item .source a { color: #667eea; text-decoration: none; }
+        
+        /* 品牌动态 */
+        .brand-list { display: flex; flex-direction: column; gap: 14px; }
+        .brand-item { display: flex; gap: 14px; padding: 14px; background: #f8f9fc; border-radius: 12px; border-left: 3px solid #667eea; }
+        .brand-item .icon { font-size: 28px; flex-shrink: 0; }
+        .brand-item .content { flex: 1; }
+        .brand-item h4 { font-size: 14px; font-weight: 600; color: #2d3748; margin-bottom: 4px; }
+        .brand-item p { font-size: 13px; color: #718096; }
+        
+        /* 趋势展望 */
+        .trend-item { display: flex; gap: 12px; padding: 16px; background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%); border-radius: 12px; margin-bottom: 12px; border: 1px solid #b3e0ff; }
+        .trend-item .icon { font-size: 24px; flex-shrink: 0; }
+        .trend-item .content { flex: 1; }
+        .trend-item h4 { font-size: 14px; font-weight: 600; color: #0050b3; margin-bottom: 6px; }
+        .trend-item p { font-size: 13px; color: #4a5568; }
+        
+        /* 数据表格 */
+        .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+        .data-table th { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 8px; text-align: left; font-weight: 600; }
+        .data-table td { padding: 10px 8px; border-bottom: 1px solid #e2e5ed; }
+        .data-table tr:nth-child(even) { background: #f8f9fc; }
+        .data-table tr:hover { background: #f0f4ff; }
+        
+        /* 行业板块标记 */
+        .industry-tag { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-right: 8px; }
+        .tag-home { background: #ffe0b2; color: #e65100; }
+        .tag-digital { background: #b3e5fc; color: #0277bd; }
+        .tag-auto { background: #c8e6c9; color: #2e7d32; }
+        
+        /* 页脚 */
+        .footer { background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%); color: white; padding: 30px 20px; text-align: center; border-radius: 16px; margin-top: 24px; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        .footer p { font-size: 12px; opacity: 0.8; margin-bottom: 8px; }
+        
+        @media (max-width: 600px) {
+            .data-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 22px; }
+            .section { padding: 18px; }
+            .data-card .value { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>📊 综合情报报告</h1>
+            <div class="subtitle">家电 · 数码 · 汽车 三大行业周度洞察</div>
+            <div class="date">2026年6月8日 · 第24期</div>
+        </div>
+
+        <!-- 数据速览 -->
+        <div class="section">
+            <div class="section-title">📈 数据速览</div>
+            <div class="data-grid">
+                <div class="data-card">
+                    <div class="value">8,335亿</div>
+                    <div class="label">2026智能家电市场规模预测</div>
+                </div>
+                <div class="data-card highlight">
+                    <div class="value">50%</div>
+                    <div class="label">2026中国AI手机出货占比</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">38.3万</div>
+                    <div class="label">比亚迪5月新能源汽车销量</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">1,650万</div>
+                    <div class="label">比亚迪累计新能源销量</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="section">
+            <div class="section-title">📋 核心摘要</div>
+            <div class="summary">
+                <p>2026年一季度家电市场承压，零售规模1726亿元同比下滑6.2%，国补政策边际效应递减，行业进入存量竞争阶段。数码领域AI手机迎来爆发元年，折叠屏技术成熟推动出货量同比增长30%，苹果入局将加速行业格局重塑。汽车市场比亚迪连续60个月稳居新能源销冠，5月销量38.3万辆，海外单月销量首破16万辆同比增长80.7%。智能驾驶成为差异化竞争焦点，比亚迪全球首推城市领航"双兜底"服务，标志着智驾从功能竞争转向安全保障竞争。三大行业共同趋势：AI深度赋能、产品高端化、出海加速。</p>
+            </div>
+        </div>
+
+        <!-- 家电行业 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="industry-tag tag-home">🏠 家电</span>
+                国补边际效应递减，存量竞争加剧
+            </div>
+            
+            <div class="news-item">
+                <h3>2026年一季度中国家电零售规模1726亿元，同比下滑6.2%</h3>
+                <p>奥维云网(AVC)推总数据显示，2026年一季度中国家电产业（不含3C）零售规模1726亿元，同比下滑6.2%，其中3月同比下滑12.5%。接下来的二季度，叠加同期的高基数，降幅或进一步扩大。行业普遍体感焦虑，不是"国补"不给力，而是全球经济低迷，诸多品类已进入了存量时代。</p>
+                <div class="source">来源：<a href="https://www.jiemian.com/article/14332398.html" target="_blank">界面新闻</a> · 奥维云网(AVC)</div>
+            </div>
+            
+            <div class="news-item">
+                <h3>2026年中国智能家电市场规模将达8335亿元</h3>
+                <p>据中商产业研究院预测，2026年中国智能家电市场规模将达到8335亿元，呈稳步增长态势。智能家居全行业加速拥抱AI，海尔智慧家庭全球累计注册用户数突破1.3亿，全年智慧场景交互次数达861亿次。石头科技2025年前三季度研发投入达10.28亿元，同比增长60.56%。</p>
+                <div class="source">来源：<a href="https://baijiahao.baidu.com/s?id=1862353922342802279" target="_blank">百度百科</a> · 中商产业研究院</div>
+            </div>
+            
+            <div class="news-item">
+                <h3>商务部部署2026年家电以旧换新工作</h3>
+                <p>商务部会同相关部门发布《关于做好2026年家电以旧换新、数码产品购新补贴工作的通知》，继续实施大规模设备更新和消费品以旧换新政策。截至目前，家电以旧换新、手机等购新补贴产品销售量超2.2亿件，销售额7000多亿元，惠及超1.6亿人次。</p>
+                <div class="source">来源：<a href="http://www.mofcom.gov.cn/zwgk/zcjd/art/2026/art_4c7d0a0fc5fb4c8cb436a9dd2cd6e368.html" target="_blank">商务部</a></div>
+            </div>
+        </div>
+
+        <!-- 数码行业 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="industry-tag tag-digital">📱 数码</span>
+                AI手机爆发元年，折叠屏加速普及
+            </div>
+            
+            <div class="news-item">
+                <h3>2026年中国AI手机出货量占比将突破50%</h3>
+                <p>IDC预测，2026年中国AI手机出货量将达到1.47亿台，占比首次超过50%，端云结合模式将成为主流。折叠屏手机市场预计在2026年迎来爆发式增长，同比增幅有望达30%。苹果入局折叠屏市场将为行业注入新动能。</p>
+                <div class="source">来源：<a href="https://www.sohu.com/a/990589862_362225" target="_blank">搜狐</a> · IDC</div>
+            </div>
+            
+            <div class="news-item">
+                <h3>2026年6月新机潮密集发布</h3>
+                <p>迈入2026年6月，手机市场迎来新一轮密集发布会。华为nova 16系列、小米17T、红米K80系列、荣耀Power系列等新机轮番登场，涵盖中端潮流机型、旗舰直屏手机、性能旗舰、高端折叠屏等全产品线，覆盖不同价位与使用需求。</p>
+                <div class="source">来源：<a href="https://uicn.cn/news/june-2026-phone-roundup" target="_blank">UICN</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>2026年全球智能手机市场预计增长8.4%</h3>
+                <p>2026年全球智能手机市场复苏，出货量预计12.9亿部，同比增长8.4%。AI手机渗透率突破45%，折叠屏手机出货量同比增长。内存价格暴涨导致5000元以下旗舰机几乎绝迹，行业正在经历从量变到质变的转型。</p>
+                <div class="source">来源：<a href="https://magicengine-ai.github.io/industry-reports/reports/2026%20%E5%B9%B4%E6%99%BA%E8%83%BD%E6%89%8B%E6%9C%BA%E5%B8%82%E5%9C%BA%E8%B6%8B%E5%8A%BF%E6%8A%A5%E5%91%8A.html" target="_blank">Magic Engine</a></div>
+            </div>
+        </div>
+
+        <!-- 汽车行业 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="industry-tag tag-auto">🚗 汽车</span>
+                比亚迪领跑智驾，海外市场爆发
+            </div>
+            
+            <div class="news-item">
+                <h3>比亚迪5月销量38.3万辆，连续60个月稳居新能源销冠</h3>
+                <p>比亚迪5月销售新能源汽车383,453辆，继续位居中国车企及新能源汽车销量冠军位置。至此，比亚迪已连续60个月稳居国内新能源汽车月度销量榜首，累计新能源汽车销量也已超过1,650万辆。高端品牌全线增长，海外单月销量首次突破16万辆，同比增长80.7%创历史新高。</p>
+                <div class="source">来源：<a href="https://www.pcauto.com.cn/hj/article/3385722.html" target="_blank">太平洋汽车</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>比亚迪全球首推城市领航"双兜底"服务</h3>
+                <p>比亚迪成为全球首个实现城市领航、智能泊车"双兜底"的车企，推出城市领航安全兜底服务，有效打消用户不敢用智驾的顾虑。智能驾驶从功能竞争转向安全保障竞争，相关功能的用户活跃度、使用率大幅提升。</p>
+                <div class="source">来源：<a href="https://baijiahao.baidu.com/s?id=1866984175299164853" target="_blank">百度百科</a></div>
+            </div>
+            
+            <div class="news-item">
+                <h3>华为鸿蒙智行一季度销量同比暴增65.6%</h3>
+                <p>2026年一季度，华为鸿蒙智行销量57,915台，同比暴增65.6%，增速吊打同行。问界系列季度破7万辆，3月26,582辆再创新高，产品周期正值巅峰。与比亚迪形成"比亚迪量大利稳、华为量小增速快"的市场格局。</p>
+                <div class="source">来源：<a href="https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_4337027185696713875" target="_blank">百度地图</a></div>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-title">📊 重点专题：三大行业核心数据对比</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>行业</th>
+                        <th>核心指标</th>
+                        <th>数据</th>
+                        <th>同比增长</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🏠 家电</td>
+                        <td>一季度零售规模</td>
+                        <td>1,726亿元</td>
+                        <td>-6.2%</td>
+                    </tr>
+                    <tr>
+                        <td>🏠 家电</td>
+                        <td>智能家电市场规模(预测)</td>
+                        <td>8,335亿元</td>
+                        <td>稳增</td>
+                    </tr>
+                    <tr>
+                        <td>📱 数码</td>
+                        <td>AI手机出货占比</td>
+                        <td>50%</td>
+                        <td>首超半数</td>
+                    </tr>
+                    <tr>
+                        <td>📱 数码</td>
+                        <td>全球智能手机出货量</td>
+                        <td>12.9亿部</td>
+                        <td>+8.4%</td>
+                    </tr>
+                    <tr>
+                        <td>🚗 汽车</td>
+                        <td>比亚迪5月销量</td>
+                        <td>38.3万辆</td>
+                        <td>稳居第一</td>
+                    </tr>
+                    <tr>
+                        <td>🚗 汽车</td>
+                        <td>比亚迪海外销量</td>
+                        <td>16万辆</td>
+                        <td>+80.7%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 品牌动态 -->
+        <div class="section">
+            <div class="section-title">🏢 品牌动态</div>
+            <div class="brand-list">
+                <div class="brand-item">
+                    <div class="icon">🏠</div>
+                    <div class="content">
+                        <h4>美的集团</h4>
+                        <p>海外自有品牌占比超45%，通过本土化运营、技术创新和品牌建设在全球市场实现从价格竞争到价值创造转型。</p>
+                    </div>
+                </div>
+                <div class="brand-item">
+                    <div class="icon">📱</div>
+                    <div class="content">
+                        <h4>华为</h4>
+                        <p>6月发布nova 16系列，鸿蒙智行一季度销量同比暴增65.6%，问界系列3月销量再创新高，产品周期正值巅峰。</p>
+                    </div>
+                </div>
+                <div class="brand-item">
+                    <div class="icon">🚗</div>
+                    <div class="content">
+                        <h4>比亚迪</h4>
+                        <p>连续60个月稳居新能源销冠，海外单月销量首破16万辆，全球首推城市领航"双兜底"服务，定义智驾安全新标准。</p>
+                    </div>
+                </div>
+                <div class="brand-item">
+                    <div class="icon">🏠</div>
+                    <div class="content">
+                        <h4>海尔智家</h4>
+                        <p>海外收入占比超50%，智慧家庭全球累计注册用户数突破1.3亿，全年智慧场景交互次数达861亿次。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-title">🔮 趋势展望</div>
+            <div class="trend-item">
+                <div class="icon">🤖</div>
+                <div class="content">
+                    <h4>AI全面渗透消费品行业</h4>
+                    <p>无论是家电的智能家居、数码的AI手机还是汽车的智能驾驶，AI技术正成为产品差异化的核心驱动力。2026年AI手机占比首超50%，智能家电市场规模将达8335亿元，智驾安全成为竞争焦点。</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <div class="icon">🌍</div>
+                <div class="content">
+                    <h4>出海从"量"转向"质"</h4>
+                    <p>中国家电企业海外收入占比持续提升，美的超45%、海尔超50%、格力高达70%。比亚迪海外单月销量首破16万辆，同比增长80.7%。从产品出海转向品牌出海，从价格竞争转向价值创造。</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <div class="icon">🛡️</div>
+                <div class="content">
+                    <h4>安全与品质成为新竞争维度</h4>
+                    <p>比亚迪推出智驾"双兜底"服务，手机维修成本居高不下推动行业向品质升级。消费者从追求性价比转向追求品质保障和服务承诺。</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <div class="icon">📱</div>
+                <div class="content">
+                    <h4>折叠屏与高端化成趋势</h4>
+                    <p>2026年折叠屏手机同比增幅预计达30%，苹果入局加速行业成熟。内存价格暴涨推动5000元以下旗舰机几乎绝迹，行业向高端化发展。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据来源 -->
+        <div class="section">
+            <div class="section-title">📚 数据来源说明</div>
+            <p style="font-size: 13px; color: #718096;">
+                奥维云网(AVC)、中商产业研究院、商务部、IDC、界面新闻、太平洋汽车、百度百科等公开资料整理。数据截至2026年6月8日。
+            </p>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>📊 盛世消费体验研究院 · 综合情报报告</p>
+        <p>聚焦家电、数码、汽车三大消费行业</p>
+        <div class="back-home">
+            <a href="index.html">← 返回往期目录</a>
+        </div>
+    </div>
+</body>
+</html>
