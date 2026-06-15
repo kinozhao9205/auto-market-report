@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年第25期综合情报报告 - 盛世消费体验研究院</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 100vh; color: #fff; line-height: 1.8; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .container { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+        .header { text-align: center; padding: 30px 0 25px; border-bottom: 2px solid rgba(255,255,255,0.15); margin-bottom: 25px; }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header .subtitle { color: rgba(255,255,255,0.7); font-size: 14px; }
+        .header .date { color: rgba(255,255,255,0.5); font-size: 12px; margin-top: 8px; }
+        
+        .section { background: rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .section h2 { font-size: 18px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 8px; }
+        
+        .data-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .data-card { background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(254,202,87,0.1)); border-radius: 12px; padding: 16px 12px; text-align: center; border: 1px solid rgba(255,107,107,0.3); }
+        .data-card:nth-child(2) { background: linear-gradient(135deg, rgba(72,219,251,0.2), rgba(84,160,255,0.1)); border-color: rgba(72,219,251,0.3); }
+        .data-card:nth-child(3) { background: linear-gradient(135deg, rgba(255,159,243,0.2), rgba(162,155,254,0.1)); border-color: rgba(255,159,243,0.3); }
+        .data-card:nth-child(4) { background: linear-gradient(135deg, rgba(46,213,115,0.2), rgba(123,237,159,0.1)); border-color: rgba(46,213,115,0.3); }
+        .data-card:nth-child(5) { background: linear-gradient(135deg, rgba(255,177,66,0.2), rgba(255,218,121,0.1)); border-color: rgba(255,177,66,0.3); }
+        .data-card:nth-child(6) { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(162,236,200,0.1)); border-color: rgba(116,185,255,0.3); }
+        .data-card .value { font-size: 24px; font-weight: 700; color: #fff; }
+        .data-card .label { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+        
+        .summary { background: linear-gradient(135deg, rgba(30,60,114,0.5), rgba(67,97,238,0.3)); border: 1px solid rgba(67,97,238,0.4); padding: 20px; border-radius: 12px; }
+        .summary p { font-size: 15px; color: rgba(255,255,255,0.9); text-align: justify; }
+        
+        .news-item { background: rgba(0,0,0,0.2); border-radius: 10px; padding: 16px; margin-bottom: 12px; border-left: 3px solid #48dbfb; }
+        .news-item:last-child { margin-bottom: 0; }
+        .news-item h3 { font-size: 15px; color: #fff; margin-bottom: 8px; }
+        .news-item p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+        .news-item .source { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 8px; }
+        
+        .highlight-section { border-left-color: #ff6b6b; }
+        .highlight-section h2 { color: #ff6b6b; }
+        
+        .topic-card { background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)); border-radius: 12px; padding: 18px; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.1); }
+        .topic-card h3 { font-size: 15px; color: #feca57; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+        .topic-card p { font-size: 13px; color: rgba(255,255,255,0.8); }
+        
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+        .data-table th, .data-table td { padding: 10px 8px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .data-table th { background: rgba(255,255,255,0.1); color: #48dbfb; font-weight: 600; }
+        .data-table td { color: rgba(255,255,255,0.85); }
+        
+        .brand-news { background: rgba(0,0,0,0.2); border-radius: 10px; padding: 16px; margin-bottom: 12px; border-left: 3px solid #a29bfe; }
+        .brand-news:last-child { margin-bottom: 0; }
+        .brand-news h3 { font-size: 14px; color: #a29bfe; margin-bottom: 8px; }
+        .brand-news p { font-size: 13px; color: rgba(255,255,255,0.75); }
+        
+        .trend-item { background: linear-gradient(135deg, rgba(46,213,115,0.15), rgba(123,237,159,0.05)); border-radius: 10px; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(46,213,115,0.25); }
+        .trend-item:last-child { margin-bottom: 0; }
+        .trend-item h4 { font-size: 14px; color: #2ed573; margin-bottom: 6px; }
+        .trend-item p { font-size: 13px; color: rgba(255,255,255,0.8); }
+        
+        .footer { text-align: center; padding: 25px 0; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 12px; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        .footer .tag { display: inline-block; background: rgba(255,107,107,0.2); color: #ff6b6b; padding: 3px 10px; border-radius: 12px; font-size: 11px; margin: 0 3px; }
+        
+        @media (max-width: 600px) {
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 22px; }
+            .container { padding: 15px 12px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>📊 综合情报报告</h1>
+            <div class="subtitle">家电 · 数码 · 汽车 三大行业一周动态</div>
+            <div class="date">2026年6月15日 第25期</div>
+        </div>
+        
+        <!-- 数据速览 -->
+        <div class="section">
+            <h2>📈 数据速览</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="value">2500亿</div>
+                    <div class="label">年度国补总规模</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">38.3万</div>
+                    <div class="label">比亚迪5月销量(辆)</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">60%</div>
+                    <div class="label">华为折叠屏份额</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">43.1%</div>
+                    <div class="label">汽车出口同比增长</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">15.3%</div>
+                    <div class="label">外贸进出口增长</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">1000万+</div>
+                    <div class="label">折叠屏年出货量</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 核心摘要 -->
+        <div class="section">
+            <h2>📋 核心摘要</h2>
+            <div class="summary">
+                <p>本周综合情报聚焦家电、数码、汽车三大消费赛道。家电领域，国补政策再加码，全年2500亿元补贴分四批发放，618大促叠加平台优惠激活消费；数码领域，折叠屏手机逆势增长，华为以60%份额稳居第一，"AI+硬件"成为新品竞争焦点；汽车领域，比亚迪5月销量达38.3万辆强势回升，智驾平权加速落地，激光雷达首次下探至A00级市场。整体来看，消费复苏动能增强，以旧换新政策持续释放红利，科技创新驱动产品升级。</p>
+            </div>
+        </div>
+        
+        <!-- 市场大势 -->
+        <div class="section">
+            <h2>🌍 市场大势</h2>
+            
+            <div class="news-item">
+                <h3>🏠 家电：国补政策再加码 全年2500亿激活消费</h3>
+                <p>2026年国家消费品以旧换新补贴政策全面升级，全年总规模达2500亿元，由超长期特别国债专项支持，分四批等额发放，每批约625亿元。第二批资金已于618期间发放，叠加平台补贴和品牌让利，推动家电消费从一二线城市向三四线及农村市场下沉。苏宁易购联合海尔、美的、海信等头部品牌，全年在全国开展超2000场"走街串巷・国补社区行"活动，在居民家门口设立"国补换新服务站"。</p>
+                <div class="source">来源：商务部、证券日报、海尔官网</div>
+            </div>
+            
+            <div class="news-item">
+                <h3>📱 数码：折叠屏逆势增长 华为份额60%稳居第一</h3>
+                <p>2026年第一季度全球智能手机市场出货量同比下降6%，为近3年来最大季度降幅，但折叠屏手机成为唯一实现增长的细分品类。IDC数据显示，华为以60%份额稳居中国折叠屏市场第一，荣耀以21%跃居第二，OPPO、vivo、小米分列三至五位。苹果首款折叠屏iPhone Ultra将于下半年发布，小米围绕自研芯片与AI能力升级生态，华为Mate 90系列持续突破麒麟平台，AI手机竞争日趋激烈。</p>
+                <div class="source">来源：IDC、Counterpoint、财联社</div>
+            </div>
+            
+            <div class="news-item">
+                <h3>🚗 汽车：比亚迪销量强势回升 智驾平权加速落地</h3>
+                <p>比亚迪5月销售新能源汽车38.3万辆，环比持续增长。前两月销量下滑后，3-5月逐月回升。4月17日比亚迪第1600万辆新能源汽车在长沙工厂下线，成为全球新能源汽车产业里程碑。智驾领域，2026款海鸥以6.99-8.59万元售价将激光雷达首次下放至A00级市场，实现"智驾平权"。5月汽车出口98.8万辆，同比增长42%，出口动能依然强劲。</p>
+                <div class="source">来源：比亚迪官网、百度财经、证券时报</div>
+            </div>
+        </div>
+        
+        <!-- 重点专题 -->
+        <div class="section highlight-section">
+            <h2>🔍 重点专题</h2>
+            
+            <div class="topic-card">
+                <h3>专题一：2026年618大促消费趋势分析</h3>
+                <p>2026年618大促从5月中旬持续至6月18日，呈现三大特征：一是政策驱动性突出，国补、平台补贴、品牌让利三重叠加；二是以旧换新从家电扩展至智能家居全品类；三是AI产品成为新增长点，小米618开门红获京东手机竞速榜国产累计销量冠军。国家补贴全年2500亿分四批发放，为消费市场提供持续动能。</p>
+                <table class="data-table">
+                    <tr><th>品类</th><th>促销力度</th><th>市场表现</th></tr>
+                    <tr><td>手机</td><td>小米15 Ultra直降1500元</td><td>国产累计销量冠军</td></tr>
+                    <tr><td>家电</td><td>国补+企补双补</td><td>社区行覆盖2000+场</td></tr>
+                    <tr><td>智能家居</td><td>AI家电首发体验</td><td>增速领先大盘</td></tr>
+                </table>
+            </div>
+            
+            <div class="topic-card">
+                <h3>专题二：折叠屏手机市场格局演变</h3>
+                <p>2025年中国折叠屏手机市场出货量突破1000万台，同比增长9.2%，在智能手机大盘整体下滑背景下成为少有增量赛道。市场呈现"一超多强"格局：华为以超70%份额一家独大，荣耀稳居第二。竞争从参数竞赛转向场景竞争，用户从"小众尝鲜"转向"细分刚需"。2026年，随着苹果入局，折叠屏市场将迎来新一轮竞争洗牌。</p>
+                <table class="data-table">
+                    <tr><th>品牌</th><th>2026 Q1份额</th><th>2025全年份额</th></tr>
+                    <tr><td>华为</td><td>60%</td><td>71.8%</td></tr>
+                    <tr><td>荣耀</td><td>21%</td><td>9.1%</td></tr>
+                    <tr><td>OPPO</td><td>6%</td><td>-</td></tr>
+                    <tr><td>vivo</td><td>5%</td><td>-</td></tr>
+                    <tr><td>小米</td><td>4%</td><td>-</td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 品牌动态 -->
+        <div class="section">
+            <h2>🏢 品牌/企业动态</h2>
+            
+            <div class="brand-news">
+                <h3>海尔智家：AI康养新品上市 享国补企补双补贴</h3>
+                <p>海尔智家响应国家政策号召，于1月8日开启年货节，加码推出"国补+企补"双补福利。AI康养首选海尔天悦新品上市，消费者可享受国家补贴与企业补贴双重优惠。购买海尔冠军单品可参与抽奖赢国内游双人礼，套购爆款享受多重福利。海尔凭借106项首创AI专利与L4认证，在主动服务能力上领先行业。</p>
+            </div>
+            
+            <div class="brand-news">
+                <h3>小米：618开门红 获京东手机竞速榜国产第一</h3>
+                <p>2026年618大促正在进行中，小米迎来开门红，多个爆款手机、科技家电销量可观。截至6月1日19点，小米摘得京东手机竞速榜国产累计销量冠军。小米15 Ultra直降1500元，成为本次618期间小米手机优惠力度最大的旗舰机。小米围绕自研芯片与AI能力的生态进阶，期待值极高。</p>
+            </div>
+            
+            <div class="brand-news">
+                <h3>比亚迪：第1600万辆新能源汽车下线 智驾平权落地</h3>
+                <p>2026年4月17日，比亚迪第1600万辆新能源汽车在长沙工厂下线，科技豪华旗舰MPV——第二代腾势D9成为第1600万辆下线车型，这也是全球首台第二代腾势D9下线。5月11日，2026款海鸥正式焕新登场，以6.99-8.59万元售价将激光雷达首次下放至A00级市场，真正实现"智驾平权"。</p>
+            </div>
+            
+            <div class="brand-news">
+                <h3>华为：折叠屏份额60%断层领先 Mate 90系列将发布</h3>
+                <p>IDC数据显示，华为在中国折叠屏市场份额高达60%，断层领先身后所有竞争对手。华为凭借71.8%的市场份额一家独大。华为Mate 90系列将在麒麟平台上持续突破，下半年即将发布。华为依靠鸿蒙AI引擎支持复杂自定义场景，全屋智能竞争力显著。</p>
+            </div>
+        </div>
+        
+        <!-- 趋势展望 -->
+        <div class="section">
+            <h2>🔮 趋势展望</h2>
+            
+            <div class="trend-item">
+                <h4>趋势一：国补政策持续深化 消费下沉加速</h4>
+                <p>2026年国补政策从"普惠"转向"提质"，补贴范围和力度"双收紧"但与头部品牌企业补贴形成有效互补。预计下半年三四线城市及农村市场将成为家电消费主战场，以旧换新政策持续释放红利。</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>趋势二：AI手机从概念走向普及 端侧AI成竞争焦点</h4>
+                <p>2026年智能手机竞争焦点转向AI能力，苹果iPhone Ultra、小米自研芯片、华为麒麟平台均以AI为核心卖点。端侧AI处理能力将成为旗舰机标配，中端机型也将逐步普及，AI手机将从"尝鲜"走向"刚需"。</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>趋势三：智驾平权下沉 激光雷达价格战开打</h4>
+                <p>比亚迪海鸥将激光雷达首次下探至A00级市场，标志着智驾平权时代的到来。预计未来一年内，10万元以下车型将陆续搭载高阶智驾功能，激光雷达成本持续下降，智驾配置将成为电动车标配。</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>趋势四：外贸韧性强劲 新能源产业链出口亮眼</h4>
+                <p>前5月外贸进出口同比增长15.3%，汽车出口同比增长43.1%。AI品类出口高增长带动集成电路等中间品进口增速，"进口—加工—出口"良性循环巩固。新能源汽车、锂电池、风电设备成为出口新动能。</p>
+            </div>
+        </div>
+        
+        <!-- 数据来源 -->
+        <div class="section">
+            <h2>📚 数据来源说明</h2>
+            <p style="font-size: 13px; color: rgba(255,255,255,0.7);">本报告数据主要来源于：商务部、海关总署、国家发展改革委、IDC、Counterpoint、比亚迪官网、海尔官网、各大财经媒体及电商平台公开数据。报告内容仅供研究参考，不构成投资建议。</p>
+        </div>
+        
+        <div class="footer">
+            <p>盛世消费体验研究院 | 每周一更新</p>
+            <p>
+                <span class="tag">第1周</span> 家电情报
+                <span class="tag">第2周</span> 数码情报
+                <span class="tag">第3周</span> 汽车情报
+                <span class="tag">第4周</span> 综合情报
+            </p>
+            <div class="back-home">
+                <a href="index.html">← 返回往期目录</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
