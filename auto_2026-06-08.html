@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年第24期汽车市场情报报告 - 盛世消费体验研究院</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 100vh; color: #fff; line-height: 1.8; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8af6e; color: #1a1a2e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #d4a056; }
+        .container { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+        .header { text-align: center; padding: 30px 0 25px; border-bottom: 2px solid rgba(255,255,255,0.15); margin-bottom: 25px; }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; background: linear-gradient(90deg, #e94560, #ff6b6b, #feca57); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header .subtitle { color: rgba(255,255,255,0.7); font-size: 14px; }
+        .header .date { color: rgba(255,255,255,0.5); font-size: 12px; margin-top: 8px; }
+        
+        .section { background: rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .section h2 { font-size: 18px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 8px; }
+        
+        .data-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .data-card { background: linear-gradient(135deg, rgba(255,159,67,0.25), rgba(255,107,107,0.1)); border-radius: 12px; padding: 16px 12px; text-align: center; border: 1px solid rgba(255,159,67,0.35); }
+        .data-card:nth-child(2) { background: linear-gradient(135deg, rgba(72,219,251,0.2), rgba(84,160,255,0.1)); border-color: rgba(72,219,251,0.3); }
+        .data-card:nth-child(3) { background: linear-gradient(135deg, rgba(255,159,243,0.2), rgba(162,155,254,0.1)); border-color: rgba(255,159,243,0.3); }
+        .data-card:nth-child(4) { background: linear-gradient(135deg, rgba(46,213,115,0.2), rgba(123,237,159,0.1)); border-color: rgba(46,213,115,0.3); }
+        .data-card:nth-child(5) { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(162,236,200,0.1)); border-color: rgba(116,185,255,0.3); }
+        .data-card:nth-child(6) { background: linear-gradient(135deg, rgba(162,155,254,0.2), rgba(255,159,243,0.1)); border-color: rgba(162,155,254,0.3); }
+        .data-card .value { font-size: 22px; font-weight: 700; color: #fff; }
+        .data-card .label { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+        
+        .summary { background: linear-gradient(135deg, rgba(233,69,96,0.2), rgba(255,107,107,0.15)); border: 1px solid rgba(233,69,96,0.4); padding: 20px; border-radius: 12px; }
+        .summary p { font-size: 15px; color: rgba(255,255,255,0.9); text-align: justify; }
+        
+        .news-item { background: rgba(0,0,0,0.2); border-radius: 10px; padding: 16px; margin-bottom: 12px; border-left: 3px solid #e94560; }
+        .news-item:last-child { margin-bottom: 0; }
+        .news-item h3 { font-size: 15px; color: #fff; margin-bottom: 8px; }
+        .news-item p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+        .news-item .source { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 8px; }
+        
+        .topic-card { background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)); border-radius: 12px; padding: 18px; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.1); }
+        .topic-card h3 { font-size: 15px; color: #feca57; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+        .topic-card p { font-size: 13px; color: rgba(255,255,255,0.8); }
+        
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+        .data-table th, .data-table td { padding: 10px 8px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .data-table th { background: rgba(255,255,255,0.1); color: #e94560; font-weight: 600; }
+        .data-table td { color: rgba(255,255,255,0.85); }
+        
+        .trend-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); align-items: flex-start; }
+        .trend-item:last-child { border-bottom: none; }
+        .trend-item .icon { font-size: 24px; flex-shrink: 0; }
+        .trend-item .content h4 { font-size: 15px; color: #fff; margin-bottom: 6px; }
+        .trend-item .content p { font-size: 13px; color: rgba(255,255,255,0.7); }
+        
+        .footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.5); font-size: 13px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 10px; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        .footer .tag { display: inline-block; font-size: 11px; padding: 4px 11px; background: rgba(255,255,255,0.12); border-radius: 15px; margin: 3px; }
+        
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>🚗 汽车市场情报报告</h1>
+            <div class="subtitle">新能源汽车 · 智能驾驶 · 出口市场 · 品牌竞争</div>
+            <div class="date">2026年6月8日 第24期</div>
+        </div>
+
+        <!-- 数据速览 -->
+        <div class="section">
+            <h2>📈 数据速览</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="value">38.3万</div>
+                    <div class="label">比亚迪5月新能源汽车销量</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">61.1%</div>
+                    <div class="label">5月新能源市场渗透率</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">16万+</div>
+                    <div class="label">比亚迪5月海外单月销量</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">46,122</div>
+                    <div class="label">鸿蒙智行5月交付量（台）</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">80.7%</div>
+                    <div class="label">比亚迪海外销量同比增长</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">93万</div>
+                    <div class="label">5月中国汽车出口总量（辆）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="section">
+            <h2>📋 核心摘要</h2>
+            <div class="summary">
+                <p>本周汽车市场呈现"总量承压、新能源领涨、出海加速"三重格局。5月国内乘用车零售同比下降22.1%，但新能源渗透率突破61.1%创历史新高。比亚迪以38.3万辆稳居销冠，海外单月销量首次突破16万辆，同比增长80.7%。鸿蒙智行5月交付46122辆环比暴增41%，新势力竞争格局重塑。智驾领域，比亚迪全球首推城市领航"双兜底"服务，自研智驾芯片正式量产，标志着智驾从功能竞争转向安全保障竞争。出口方面，5月中国汽车出口93万辆，全年有望突破1000万辆，新能源占比超一半。</p>
+            </div>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <h2>📊 市场大势</h2>
+            
+            <div class="news-item">
+                <h3>5月新能源渗透率突破61%，燃油车加速边缘化</h3>
+                <p>2026年5月，中国乘用车市场新能源渗透率达到61.1%，较2025年同期提升8个百分点。自主品牌新能源渗透率高达71.6%，豪华车新能源渗透率也突破51.3%。与此同时，5月国内狭义乘用车零售销量151万辆，同比下降22.1%，燃油车暴跌39%。市场正经历前所未有 的结构性变革，新能源车已成绝对主流。</p>
+                <div class="source">来源：乘联分会 · 2026年6月</div>
+            </div>
+
+            <div class="news-item">
+                <h3>比亚迪5月销量38.3万辆，海外首破16万辆创历史</h3>
+                <p>比亚迪5月销售新能源汽车383,453辆，连续60个月稳居国内新能源销量冠军。海外市场成为最大亮点：5月海外乘用车及皮卡销售160,177辆，同比大涨80.7%，占总销量比例达42%。海鸥、宋PLUS、元系列在东南亚、南美、中东等市场持续热销，中国品牌在性价比和产品力上已具备与日系、德系直接竞争的能力。1-5月比亚迪累计海外销量约61.7万辆，同比增长62.8%。</p>
+                <div class="source">来源：比亚迪官方 · 太平洋汽车 · 2026年6月</div>
+            </div>
+
+            <div class="news-item">
+                <h3>5月中国汽车出口93万辆，全年或破千万大关</h3>
+                <p>中汽协数据显示，2026年5月中国汽车出口总量达93万辆，同比增长68.7%。1-5月累计出口405.9万辆，同比增长63%，月均81万辆。若保持当前节奏，全年出口大概率突破1000万辆。奇瑞集团、比亚迪、上汽集团5月出口均超10万辆，吉利汽车、广汽集团出口同比翻倍。新能源车型占比超过一半，中国汽车正从产品出海转向品牌出海。</p>
+                <div class="source">来源：中汽协 · 芝能汽车 · 2026年6月</div>
+            </div>
+        </div>
+
+        <!-- 品牌竞争格局 -->
+        <div class="section">
+            <h2>🏆 品牌竞争格局</h2>
+            
+            <div class="news-item">
+                <h3>鸿蒙智行5月交付46122辆，问界M9订单火爆</h3>
+                <p>鸿蒙智行2026年5月交付46122辆，环比增长41%，1-5月累计交付同比增长26.5%。主力车型问界M6以18,148辆领跑，问界M7交付9,199辆。新上市的问界M9开启预订后24小时大定突破2万台，产品周期正值巅峰。尚界、享界、尊界等子品牌同步起量，华为车BU正构建从22万到60万+的全价位覆盖体系。</p>
+                <div class="source">来源：鸿蒙智行官方 · 新浪科技 · 2026年6月</div>
+            </div>
+
+            <div class="news-item">
+                <h3>吉利5月销量23.76万辆，新能源渗透率升至56%</h3>
+                <p>吉利汽车5月整体销量237,637辆，连续三个月实现同环比双增长。新能源车型销量133,355辆，渗透率升至56%。多品牌矩阵全面发力：银河系列销售81,727辆，极氪34,377辆同比暴增81.8%，中国星系列持续热销。吉利出口销量同比翻倍，全球化布局进入收获期。</p>
+                <div class="source">来源：吉利汽车官方 · 搜狐汽车 · 2026年6月</div>
+            </div>
+
+            <div class="news-item">
+                <h3>新势力座次重排：零跑8万领跑，蔚来3.7万</h3>
+                <p>5月新势力品牌竞争格局变化显著。零跑汽车以超8万辆的成绩登顶新势力销量第一，同比增长超80%，凭借性价比优势和全栈自研能力持续放量。蔚来5月交付3.7万辆，增速有所放缓。小鹏、理想保持稳健增长。新势力品牌在10-30万元主力市场的竞争日趋白热化，产品力和渠道能力成为决胜关键。</p>
+                <div class="source">来源：新浪科技 · 各企业公告 · 2026年6月</div>
+            </div>
+
+            <!-- 品牌销量对比表 -->
+            <table class="data-table">
+                <tr>
+                    <th>品牌/阵营</th>
+                    <th>5月销量（辆）</th>
+                    <th>同比变化</th>
+                    <th>备注</th>
+                </tr>
+                <tr>
+                    <td>比亚迪</td>
+                    <td>383,453</td>
+                    <td>+约30%</td>
+                    <td>连续60个月销冠，海外16万+</td>
+                </tr>
+                <tr>
+                    <td>吉利集团</td>
+                    <td>237,637</td>
+                    <td>连续三月双增</td>
+                    <td>新能源渗透率56%</td>
+                </tr>
+                <tr>
+                    <td>零跑汽车</td>
+                    <td>80,000+</td>
+                    <td>+80%+</td>
+                    <td>新势力第一</td>
+                </tr>
+                <tr>
+                    <td>鸿蒙智行</td>
+                    <td>46,122</td>
+                    <td>环比+41%</td>
+                    <td>问界M6/M7主力</td>
+                </tr>
+                <tr>
+                    <td>蔚来汽车</td>
+                    <td>37,000+</td>
+                    <td>增速放缓</td>
+                    <td>高端纯电定位</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 智能驾驶专题 -->
+        <div class="section">
+            <h2>🤖 智能驾驶专题：从功能竞赛到安全竞争</h2>
+            
+            <div class="topic-card">
+                <h3>🔐 比亚迪全球首推智驾"双兜底"服务</h3>
+                <p>比亚迪成为全球首个实现城市领航、智能泊车"双兜底"的车企。城市领航安全兜底服务有效打消用户"不敢用智驾"的顾虑，相关功能的用户活跃度和使用率大幅提升。这一举措标志着智能驾驶从"堆硬件、拼参数"的功能竞争，正式转向以用户安全为核心的保障竞争。比亚迪自研智驾芯片同步量产，软硬一体布局加速。</p>
+            </div>
+
+            <div class="topic-card">
+                <h3>🚀 零跑A10：6.58万起，激光雷达首次下探至A级市场</h3>
+                <p>零跑A10以6.58万元起售价，搭载激光雷达、高通8650芯片（200TOPS算力）及27个感知硬件，将高阶智驾配置首次下探至A级入门市场。此举打破了"智驾=高价"的行业惯性，推动智能驾驶从高端选配向全民标配加速普及。当小米、小鹏纷纷放弃10万元以下市场时，零跑以差异化策略实现逆势增长。</p>
+            </div>
+
+            <div class="topic-card">
+                <h3>📊 2026智驾格局：华为、理想、小鹏稳居第一梯队</h3>
+                <p>2026年智驾赛道形成清晰梯队：华为ADS、理想MindVLA-o1、小鹏稳居第一梯队，比亚迪、特斯拉、蔚来紧随其后。华为凭借端到端大模型和多传感器融合技术，打破感知性能边界；理想发布的MindVLA-o1将3D空间理解与语言推理深度融合，构建面向物理世界的通用智能体。智驾正从"有没有"进入"好不好"的时代。</p>
+            </div>
+        </div>
+
+        <!-- 政策与趋势 -->
+        <div class="section">
+            <h2>📜 政策与趋势</h2>
+            
+            <div class="news-item">
+                <h3>燃油车购置税减半政策6月30日到期，购车窗口倒计时</h3>
+                <p>2026年燃油车购置税减半政策将于6月30日正式到期，之后全额恢复10%税率，暂无延期的官方信号。叠加新能源车常态化减半及以旧换新国补，当前购车最高可节省3.5万元。多个品牌推出限时促销活动，月末或迎来燃油车最后一波抢购潮。</p>
+                <div class="source">来源：搜狐汽车 · 2026年6月</div>
+            </div>
+
+            <div class="news-item">
+                <h3>五部门启动2026年新能源汽车下乡活动</h3>
+                <p>工信部等五部门联合组织开展2026年新能源汽车下乡活动，对换购新能源汽车的乡村消费者均可申请以旧换新补贴，不受资格数量限制。活动将推动智能网联技术、新型充换电技术、"光储充"一体化等在乡村地区应用，进一步下沉新能源汽车消费市场。</p>
+                <div class="source">来源：新华社 · 人民网 · 2026年6月</div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <h2>🔮 趋势展望</h2>
+            
+            <div class="trend-item">
+                <div class="icon">🌍</div>
+                <div class="content">
+                    <h4>出海加速：从量变到质变</h4>
+                    <p>2026年全年汽车出口有望突破1000万辆，比亚迪海外占比已达42%。中国汽车不再仅靠价格取胜，而是在智能化和电动化领域建立起全球领先的产品力。东南亚、南美、中东市场成为主要增长极。</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <div class="icon">🤖</div>
+                <div class="content">
+                    <h4>智驾平权：从高端选配到全民标配</h4>
+                    <p>激光雷达首次下探至A00级市场，6.58万元车型即可搭载高阶智驾。比亚迪自研芯片量产加速软硬一体。2026年下半年，智驾将从差异化卖点转向准入门槛，不具备智驾能力的车型将逐步失去竞争力。</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <div class="icon">⚡</div>
+                <div class="content">
+                    <h4>新能源渗透率向70%迈进</h4>
+                    <p>5月新能源渗透率已达61.1%，自主品牌更高达71.6%。随着燃油车购置税减半政策到期、充电基础设施进一步完善，下半年新能源渗透率有望逼近70%，燃油车加速退出主流市场。</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <div class="icon">🏭</div>
+                <div class="content">
+                    <h4>竞争格局重塑：新势力突围与巨头反击</h4>
+                    <p>零跑以超8万辆的成绩证明性价比路线在主流市场的爆发力，鸿蒙智行以华为生态优势构建高端壁垒，比亚迪在海内外双线领跑。2026年下半年，10-30万元价位带的竞争将进入白热化阶段。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据来源说明 -->
+        <div class="section">
+            <h2>📚 数据来源说明</h2>
+            <div class="summary">
+                <p>本报告数据主要来源于：比亚迪官方、乘联分会（CPCA）、中国汽车工业协会（中汽协）、鸿蒙智行官方、吉利汽车官方、零跑汽车、蔚来汽车、太平洋汽车、芝能汽车、新浪科技、搜狐汽车等公开资料及企业公告。数据截至2026年6月8日。</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div>🚗 汽车市场情报 | 第24期</div>
+            <div class="back-home">
+                <a href="index.html">← 返回往期目录</a>
+            </div>
+            <div style="margin-top:12px">
+                <span class="tag">⭐ 第1周</span>
+                <span class="tag">🏠 家电情报</span>
+                <span class="tag">📱 第2周</span>
+                <span class="tag">🚗 第3周</span>
+                <span class="tag">📊 第4周</span>
+            </div>
+            <div style="margin-top:8px">盛世消费体验研究院 · 助您轻松掌握趋势，抢占市场先机</div>
+        </div>
+    </div>
+</body>
+</html>
