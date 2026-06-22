@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年第26期家电行业情报报告 - 盛世消费体验研究院</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 100vh; color: #fff; line-height: 1.8; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8af6e; color: #1a1a2e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #d4a056; }
+        .container { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+        .header { text-align: center; padding: 30px 0 25px; border-bottom: 2px solid rgba(255,255,255,0.15); margin-bottom: 25px; }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; background: linear-gradient(90deg, #ff9f43, #ff6b6b, #feca57); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header .subtitle { color: rgba(255,255,255,0.7); font-size: 14px; }
+        .header .date { color: rgba(255,255,255,0.5); font-size: 12px; margin-top: 8px; }
+        
+        .section { background: rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .section h2 { font-size: 18px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 8px; }
+        
+        .data-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .data-card { background: linear-gradient(135deg, rgba(255,159,67,0.25), rgba(255,107,107,0.1)); border-radius: 12px; padding: 16px 12px; text-align: center; border: 1px solid rgba(255,159,67,0.35); }
+        .data-card:nth-child(2) { background: linear-gradient(135deg, rgba(72,219,251,0.2), rgba(84,160,255,0.1)); border-color: rgba(72,219,251,0.3); }
+        .data-card:nth-child(3) { background: linear-gradient(135deg, rgba(255,159,243,0.2), rgba(162,155,254,0.1)); border-color: rgba(255,159,243,0.3); }
+        .data-card:nth-child(4) { background: linear-gradient(135deg, rgba(46,213,115,0.2), rgba(123,237,159,0.1)); border-color: rgba(46,213,115,0.3); }
+        .data-card:nth-child(5) { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(162,236,200,0.1)); border-color: rgba(116,185,255,0.3); }
+        .data-card:nth-child(6) { background: linear-gradient(135deg, rgba(162,155,254,0.2), rgba(255,159,243,0.1)); border-color: rgba(162,155,254,0.3); }
+        .data-card .value { font-size: 22px; font-weight: 700; color: #fff; }
+        .data-card .label { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+        
+        .summary { background: linear-gradient(135deg, rgba(255,159,67,0.2), rgba(255,107,107,0.15)); border: 1px solid rgba(255,159,67,0.4); padding: 20px; border-radius: 12px; }
+        .summary p { font-size: 15px; color: rgba(255,255,255,0.9); text-align: justify; }
+        
+        .news-item { background: rgba(0,0,0,0.2); border-radius: 10px; padding: 16px; margin-bottom: 12px; border-left: 3px solid #ff9f43; }
+        .news-item:last-child { margin-bottom: 0; }
+        .news-item h3 { font-size: 15px; color: #fff; margin-bottom: 8px; }
+        .news-item p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+        .news-item .source { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 8px; }
+        
+        .highlight-section { border-left-color: #ff6b6b; }
+        .highlight-section h2 { color: #ff6b6b; }
+        
+        .topic-card { background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)); border-radius: 12px; padding: 18px; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.1); }
+        .topic-card h3 { font-size: 15px; color: #feca57; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+        .topic-card p { font-size: 13px; color: rgba(255,255,255,0.8); }
+        
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+        .data-table th, .data-table td { padding: 10px 8px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .data-table th { background: rgba(255,255,255,0.1); color: #ff9f43; font-weight: 600; }
+        .data-table td { color: rgba(255,255,255,0.85); }
+        
+        .brand-news { background: rgba(0,0,0,0.2); border-radius: 10px; padding: 16px; margin-bottom: 12px; border-left: 3px solid #a29bfe; }
+        .brand-news:last-child { margin-bottom: 0; }
+        .brand-news h3 { font-size: 14px; color: #a29bfe; margin-bottom: 8px; }
+        .brand-news p { font-size: 13px; color: rgba(255,255,255,0.75); }
+        
+        .trend-item { background: linear-gradient(135deg, rgba(46,213,115,0.15), rgba(123,237,159,0.05)); border-radius: 10px; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(46,213,115,0.25); }
+        .trend-item:last-child { margin-bottom: 0; }
+        .trend-item h4 { font-size: 14px; color: #2ed573; margin-bottom: 6px; }
+        .trend-item p { font-size: 13px; color: rgba(255,255,255,0.8); }
+        
+        .footer { text-align: center; padding: 25px 0; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 12px; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        .footer .tag { display: inline-block; background: rgba(255,159,67,0.2); color: #ff9f43; padding: 3px 10px; border-radius: 12px; font-size: 11px; margin: 0 3px; }
+        
+        @media (max-width: 600px) {
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 22px; }
+            .container { padding: 15px 12px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 家电行业情报</h1>
+            <div class="subtitle">关注市场变化，把握行业脉搏</div>
+            <div class="date">2026年6月22日 第26期</div>
+        </div>
+        
+        <!-- 数据速览 -->
+        <div class="section">
+            <h2>📈 数据速览</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="value">11.74亿台</div>
+                    <div class="label">Q1家电出口量(同比+9.5%)</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">245.35亿</div>
+                    <div class="label">Q1家电出口额(美元)</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">52.7%</div>
+                    <div class="label">京东618家电份额</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">15%</div>
+                    <div class="label">国补最高补贴比例</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">1500元</div>
+                    <div class="label">单件国补最高限额</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">-6.1%</div>
+                    <div class="label">618空调零售额同比</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 核心摘要 -->
+        <div class="section">
+            <h2>📋 核心摘要</h2>
+            <div class="summary">
+                <p>本周家电行业延续政策利好与市场调整双重格局。国补政策持续升级，北京、重庆等地加速出台智能家居以旧换新方案，补贴最高达15%且单件不超过1500元。一季度家电出口表现亮眼，累计出口11.74亿台同比增长9.5%，出口额245.35亿美元展现强韧性。618大促呈现"冰火两重天"：京东家电份额达52.7%稳居第一，但白电整体承压，空调、冰箱、洗衣机零售额同比分别下滑6.1%、4.8%、5.4%。美的全网销售第一，海尔逆势实现高端与冰洗双增长。AI家电成为新风口，京东联合近200个品牌上架AI新品，华为与美的、海尔发布智家标准，全屋智能赛道竞争加剧。</p>
+            </div>
+        </div>
+        
+        <!-- 市场大势 -->
+        <div class="section">
+            <h2>🌍 市场大势</h2>
+            
+            <div class="news-item">
+                <h3>🏠 家电出口韧性强劲 一季度量额双增</h3>
+                <p>2026年第一季度，中国家用电器累计出口量达11.74亿台，同比增长9.5%；累计出口额245.35亿美元，同比增长1.5%。4月单月出口4.08亿台，同比增长6.1%，出口额92.7亿美元。尽管面临地缘冲突导致的海运成本上涨、原材料价格波动等压力，中国家电企业凭借全产业链优势和供应链韧性，在全球外贸环境疲软背景下实现逆势增长。出口均价方面，1-4月家电出口均价为21.4美元/台，较2025年同期的22.5美元/台有所下降，反映出性价比竞争加剧。</p>
+                <div class="source">来源：海关总署、华经情报网、商务部</div>
+            </div>
+            
+            <div class="news-item">
+                <h3>🛒 618家电大盘承压 美的领跑海尔逆增</h3>
+                <p>2026年618大促周期（5月13日至6月15日）白电市场整体承压，空调零售额同比下降6.1%、冰箱下降4.8%、洗衣机下降5.4%。尽管大盘下滑，美的凭借全渠道布局以整体销售额全网第一的成绩继续领跑白电市场。海尔智家实现逆势高增，成为三巨头中唯一在空调、冰洗、热水器三大品类均实现正增长的品牌，高端品牌卡萨帝与冰洗品类表现强势。渠道端呈现分化态势，京东以52.7%的市场份额稳居家电零售第一，天猫、抖音渠道竞争加剧，抖音直播成为海尔等品牌获取增量 的核心阵地。</p>
+                <div class="source">来源：奥维云网、京东战报、财富号</div>
+            </div>
+            
+            <div class="news-item">
+                <h3>🏷️ 国补政策持续加码 智能家居纳入补贴范围</h3>
+                <p>2026年国补政策全面升级，从传统家电扩展至智能家居领域。北京正加快研究制定智能家居以旧换新补贴方案，近期将出台；重庆自5月8日起实施智能家居购新补贴政策，对助行器、助听器、家用制氧机、护理床、适老化智能家居等五类产品给予销售价格15%的补贴，最高不超过1500元。补贴按批次发放，全年总规模2500亿元。政策推动下，苏宁易购联合海尔、美的、海信等品牌在全国开展超2000场"国补社区行"活动，推动消费从一二线城市向三四线及农村市场下沉。</p>
+                <div class="source">来源：北京市发改委、重庆市商务委、商务部</div>
+            </div>
+        </div>
+        
+        <!-- 重点专题 -->
+        <div class="section highlight-section">
+            <h2>🔍 重点专题</h2>
+            
+            <div class="topic-card">
+                <h3>📊 618白电市场品牌竞争格局分析</h3>
+                <p>2026年618白电市场呈现"美的领跑、海尔逆增、格力守成"的分化和竞争格局。以下为核心数据对比：</p>
+                <table class="data-table">
+                    <tr>
+                        <th>品牌</th>
+                        <th>整体排名</th>
+                        <th>空调表现</th>
+                        <th>冰洗表现</th>
+                        <th>渠道优势</th>
+                    </tr>
+                    <tr>
+                        <td>美的</td>
+                        <td>全网第一</td>
+                        <td>全网领先</td>
+                        <td>全网领先</td>
+                        <td>全渠道布局</td>
+                    </tr>
+                    <tr>
+                        <td>海尔</td>
+                        <td>前三</td>
+                        <td>正增长</td>
+                        <td>正增长(高端)</td>
+                        <td>抖音直播增量</td>
+                    </tr>
+                    <tr>
+                        <td>格力</td>
+                        <td>前五</td>
+                        <td>线下稳健</td>
+                        <td>稳定</td>
+                        <td>线下基本盘</td>
+                    </tr>
+                </table>
+                <p style="margin-top:12px">海尔在行业整体下滑背景下实现全线正增长，得益于高端品牌卡萨帝的持续突破和抖音直播渠道的精准运营。格力坚守线下渠道基本盘，在一二线城市KA渠道保持优势。</p>
+            </div>
+            
+            <div class="topic-card">
+                <h3>🤖 AI家电浪潮来袭 全屋智能成新战场</h3>
+                <p>2026年成为家电行业AI元年，华为、京东、美的、海尔、TCL、海信等巨头集体发力：</p>
+                <table class="data-table">
+                    <tr>
+                        <th>企业</th>
+                        <th>AI布局动态</th>
+                    </tr>
+                    <tr>
+                        <td>京东</td>
+                        <td>618高调推出全场景AI家电家居品类，联合近200个品牌上架AI新品</td>
+                    </tr>
+                    <tr>
+                        <td>华为</td>
+                        <td>联合美的、海尔发布OneConnect智家标准，构建跨品牌互联生态</td>
+                    </tr>
+                    <tr>
+                        <td>美的</td>
+                        <td>宣布未来5年投入600亿研发AI家居产品，实现全品类智能化</td>
+                    </tr>
+                    <tr>
+                        <td>海尔</td>
+                        <td>发布智慧家庭解决方案，搭载自研AI大模型实现主动服务</td>
+                    </tr>
+                    <tr>
+                        <td>TCL/海信</td>
+                        <td>布局AI电视新品，主打画质优化和智能交互体验</td>
+                    </tr>
+                </table>
+                <p style="margin-top:12px">AI家电从单品的智能语音控制，向全屋智能场景联动升级，预计2026年AI家电市场规模将突破2000亿元，成为家电行业新的增长引擎。</p>
+            </div>
+        </div>
+        
+        <!-- 品牌/企业动态 -->
+        <div class="section">
+            <h2>🏭 品牌与企业动态</h2>
+            
+            <div class="brand-news">
+                <h3>美的集团：全网白电第一 600亿加码AI</h3>
+                <p>2026年618美的集团以整体销售额全网白电第一的成绩继续领跑市场。在AI战略方面，美的宣布未来5年将投入600亿元用于AI家居产品研发，覆盖智能家电、智能家居解决方案、全屋智能系统等全领域。美的AI产品线已覆盖空调、洗衣机、冰箱、油烟机等核心品类，通过自研AI算法实现节能优化、食材管理、衣物护理等差异化功能。</p>
+            </div>
+            
+            <div class="brand-news">
+                <h3>海尔智家：逆势高增 高端与抖音双突破</h3>
+                <p>海尔智家成为2026年618唯一实现空调、冰洗、热水器三大品类全线正增长的白电品牌。高端品牌卡萨帝持续突破，在1万元以上冰箱市场保持领先；冰洗品类在高端市场份额进一步提升。渠道端，海尔抖音直播运营成为增量核心，品牌专场直播实现单场销售额突破800万元，登顶抖音生活电器类目TOP1。</p>
+            </div>
+            
+            <div class="brand-news">
+                <h3>格力电器：坚守线下基本盘 渠道改革深化</h3>
+                <p>格力电器在618期间坚守线下渠道基本盘，在一二线城市KA渠道保持优势地位。面对线上渠道竞争加剧，格力持续深化渠道改革，加强与京东、天猫等平台的战略合作，同时推进线下专卖店数字化升级。格力在空调核心技术的研发投入持续加大，新一代变频技术能效比进一步提升。</p>
+            </div>
+            
+            <div class="brand-news">
+                <h3>京东家电：52.7%份额稳居第一 AI新品成亮点</h3>
+                <p>京东家电以52.7%的市场份额在618期间稳居行业第一，远高于其他平台。京东在手机、电脑、空调领域的零售额占比均位列各平台第一。AI硬件产品热销成为新亮点，京东联合华为、美的、海尔等近200个品牌集中上架AI家电新品，AI空调、AI冰箱、AI洗衣机等品类销售同比增长显著。京东供应链和服务能力持续巩固其全渠道家电零售龙头地位。</p>
+            </div>
+            
+            <div class="brand-news">
+                <h3>贝昂电器：抖音直播突破800万 黑马崛起</h3>
+                <p>618期间贝昂电器成为一匹黑马，依托全渠道布局和内容电商运营实现销量突破。品牌联动抖音直播渠道，6月14日专场抖音直播交易数据亮眼，最终达成单场销售额突破800万元的成绩，登顶抖音生活电器类目TOP1。贝昂主打健康家电品类，空气净化器、加湿器等产品通过内容营销实现品牌曝光和销售转化的双重突破。</p>
+            </div>
+        </div>
+        
+        <!-- 趋势展望 -->
+        <div class="section">
+            <h2>🔮 趋势展望</h2>
+            
+            <div class="trend-item">
+                <h4>1. 国补持续深化 带动三四线市场增长</h4>
+                <p>随着国补政策持续推进和智能家居纳入补贴范围，预计下半年三四线城市及农村市场家电消费将迎来明显增长。品牌渠道下沉力度加大，"国补社区行"等活动将激活下沉市场需求，以旧换新与国补叠加将进一步释放消费潜力。</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>2. AI家电从概念走向普及 价格下探可期</h4>
+                <p>2026年AI家电从高端概念走向大众普及，预计下半年更多搭载AI功能的家电产品将进入中端价格带。随着技术成熟和规模效应，AI家电价格将逐步下探，推动渗透率快速提升。"AI+家电"将成为新品竞争的核心差异化卖点。</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>3. 出口市场多元化 新兴市场潜力大</h4>
+                <p>中国家电出口市场日趋多元化，东南亚、中东、非洲等新兴市场增长迅速。凭借产业链优势和成本竞争力，中国家电企业通过本地化运营、品牌建设等方式深化海外布局，预计全年出口将保持稳中有增态势。</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>4. 全屋智能生态竞争加剧 跨品牌互联成关键</h4>
+                <p>全屋智能成为家电巨头竞逐的新赛道，华为OneConnect智家标准的发布标志着行业互联互通标准建设迈出重要一步。未来跨品牌、跨品类的智能互联体验将成为竞争关键，能够提供开放生态的平台型企业将占据优势地位。</p>
+            </div>
+        </div>
+        
+        <!-- 数据来源说明 -->
+        <div class="section">
+            <h2>📚 数据来源说明</h2>
+            <div class="summary">
+                <p>本报告数据主要来源于：海关总署、中国机电产品进出口商会、商务部、北京市发改委、重庆市商务委、奥维云网、京东官方战报、IDC、Counterpoint、财富号、各企业公告及官网。在此一并致谢。</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div>🏠 家电行业情报 | 第26期</div>
+            <div class="back-home">
+                <a href="index.html">← 返回往期目录</a>
+            </div>
+            <div style="margin-top:12px">
+                <span class="tag">⭐ 第1周</span>
+                <span class="tag">🏠 家电情报</span>
+                <span class="tag">📱 第2周</span>
+                <span class="tag">🚗 第3周</span>
+                <span class="tag">📊 第4周</span>
+            </div>
+            <div style="margin-top:8px">盛世消费体验研究院 · 助您轻松掌握趋势，抢占市场先机</div>
+        </div>
+    </div>
+</body>
+</html>
