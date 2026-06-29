@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 数码行业每周情报 · 第27周 · 6月第5周</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+            --accent: #7209b7;
+            --accent2: #f72585;
+            --bg: #f0f2ff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        /* 头部 */
+        .header {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .logo-corner { position: absolute; top: 16px; right: 16px; z-index: 10; }
+        .logo-corner img { height: 34px; }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: white;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .header .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .header .badge {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        /* 主体 */
+        .main { max-width: 860px; margin: 0 auto; padding: 20px 16px; }
+        /* 返回按钮 */
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        /* 核心摘要 */
+        .summary-box {
+            background: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px;
+            color: white;
+            margin-bottom: 18px;
+        }
+        .summary-box h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
+        }
+        .summary-box p { font-size: 0.95rem; line-height: 1.8; }
+        /* 数据卡片 */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .data-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 18px 12px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(67,97,238,0.08);
+            border-top: 4px solid var(--primary);
+        }
+        .data-card.v2 { border-top-color: var(--accent); }
+        .data-card.v3 { border-top-color: var(--accent2); }
+        .data-card.v4 { border-top-color: #06d6a0; }
+        .data-card .num {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .data-card.v2 .num { color: var(--accent); }
+        .data-card.v3 .num { color: var(--accent2); }
+        .data-card.v4 .num { color: #06d6a0; }
+        .data-card .lbl { font-size: 0.72rem; color: var(--text-secondary); margin-top: 5px; line-height: 1.4; }
+        /* 内容卡片 */
+        .section {
+            background: white;
+            border-radius: var(--card-radius);
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(67,97,238,0.06);
+            overflow: hidden;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f2f9;
+            background: linear-gradient(90deg, #f8f9ff 0%, white 100%);
+        }
+        .section-header .icon { font-size: 1.2rem; }
+        .section-header h2 { font-size: 1.02rem; font-weight: 700; color: var(--text-primary); }
+        .section-header .sub { font-size: 0.75rem; color: var(--text-secondary); margin-left: auto; background: #f0f2ff; padding: 3px 10px; border-radius: 10px; }
+        .section-content { padding: 18px 20px; }
+        /* 新闻条目 */
+        .news-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f2f9;
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .tag {
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #4361ee, #7209b7);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            height: fit-content;
+        }
+        .news-item .cont { flex: 1; }
+        .news-item h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 6px; color: var(--text-primary); line-height: 1.5; }
+        .news-item p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+        .news-item .src { font-size: 0.72rem; color: #888; margin-top: 6px; }
+        /* 数据表格 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+        .data-table th { background: linear-gradient(135deg, #4361ee, #7209b7); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+        .data-table td { padding: 10px 12px; border-bottom: 1px solid #f0f2f9; }
+        .data-table tr:nth-child(even) { background: #f8f9ff; }
+        .data-table .highlight { color: var(--accent2); font-weight: 600; }
+        /* 趋势卡片 */
+        .trend-card {
+            background: linear-gradient(135deg, #f8f9ff, #fff);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--primary);
+        }
+        .trend-card.accent { border-left-color: var(--accent); }
+        .trend-card.accent2 { border-left-color: var(--accent2); }
+        .trend-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
+        .trend-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+        /* 页脚 */
+        .footer {
+            background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+            color: rgba(255,255,255,0.7);
+            padding: 24px 16px;
+            text-align: center;
+            font-size: 0.78rem;
+        }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .data-grid { grid-template-columns: repeat(2, 1fr); }
+            .header { padding: 28px 16px 22px; }
+            .section-content { padding: 14px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+
+    <div class="header">
+        <div class="header-inner">
+            <span class="issue-badge">📱 第27期 · 2026年6月</span>
+            <h1>数码行业每周情报</h1>
+            <div class="meta">
+                <span class="badge">📅 2026.06.29</span>
+                <span class="badge">🔍 AI赋能 · 涨价潮</span>
+                <span class="badge">📊 季度数据</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <!-- 核心摘要 -->
+        <div class="summary-box">
+            <h3>📌 核心摘要</h3>
+            <p>2026年第二季度，全球数码市场呈现"AI驱动涨价"与"折叠屏爆发"双重趋势。苹果Mac、iPad全系涨价约20%，因AI数据中心存储需求激增导致芯片成本飙升。折叠屏手机成为最大增长亮点，vivo X Fold6携天玑9500芯片发布，华为Mate 90系列将于下半年亮相。全球智能手机Q1出货量2.985亿台，华为中国市场份额跃居第一。行业正从"规模扩张"转向"价值扩张"新阶段。</p>
+        </div>
+
+        <!-- 数据速览 -->
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="num">2.985亿</div>
+                <div class="lbl">Q1全球手机出货量</div>
+            </div>
+            <div class="data-card v2">
+                <div class="num">+21%</div>
+                <div class="lbl">手机平均售价涨幅</div>
+            </div>
+            <div class="data-card v3">
+                <div class="num">565美元</div>
+                <div class="lbl">2026年预计ASP</div>
+            </div>
+            <div class="data-card v4">
+                <div class="num">8%</div>
+                <div class="lbl">中国折叠屏渗透率</div>
+            </div>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📈</span>
+                <h2>市场大势</h2>
+                <span class="sub">3条</span>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="tag">涨价潮</span>
+                    <div class="cont">
+                        <h4>苹果全系Mac、iPad涨价约20%，AI存储需求成主因</h4>
+                        <p>2026年6月25日，苹果公司正式宣布上调iPad及Mac系列产品售价，平均涨幅约20%。MacBook Neo起售价从599美元升至699美元，MacBook Air从1099美元升至1299美元，14英寸入门款MacBook Pro从1699美元升至1999美元。苹果在声明中表示："AI数据中心的迅猛扩张导致存储需求激增，我们从未见过零部件价格以如此幅度和速度上涨。"此前OPPO、一加、vivo、小米、荣耀等品牌已在今年3月起陆续涨价。</p>
+                        <div class="src">来源：新浪科技、澎湃新闻</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag">折叠屏</span>
+                    <div class="cont">
+                        <h4>2026年Q1折叠屏手机市场突破8%，vivo X Fold6携天玑9500发布</h4>
+                        <p>2026年第一季度，中国折叠屏手机市场份额突破8%，成为全球智能手机大盘中增长最为强劲的细分品类。Counterpoint预测，受苹果入局驱动，2026年全球折叠屏出货量将迎来爆发式增长。6月26日，vivo发布新一代折叠旗舰X Fold6，搭载天玑9500超能版处理器（vivo与联发科联合定制，台积电3nm全大核），配备8.02英寸三星M14 120Hz 2K内屏+6.51英寸BOE 120Hz外屏，影像系统采用蔡司2亿像素主摄。价格超过1600美元的折叠屏手机预计将占2026年出货量的60%。</p>
+                        <div class="src">来源：IT之家、百度百家号、雪球</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag">出货量</span>
+                    <div class="cont">
+                        <h4>Q1全球手机出货量2.985亿台，华为中国份额首居第一</h4>
+                        <p>根据Omdia数据，2026年第一季度全球智能手机出货量达2.985亿台，同比增长1%，整体表现超出年初预期。市场格局分化显著：三星以6540万台出货量位居全球第一，同比增长8%；苹果出货6040万台，同比增长10%，位列第二。华为在中国市场表现强劲，份额跃居第一。Omdia同时预测，2026年全球智能手机出货量预计同比下降12.2%至10.93亿部，但市场总价值预计同比增长6.1%，行业正从"规模扩张"转向"价值扩张"。</p>
+                        <div class="src">来源：手机中国、百度百科</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔍</span>
+                <h2>重点专题：AI驱动数码产品涨价潮</h2>
+                <span class="sub">深度</span>
+            </div>
+            <div class="section-content">
+                <p style="margin-bottom: 14px; line-height: 1.7; color: var(--text-secondary);">2026年，消费电子行业正经历前所未有的"AI通胀"浪潮。AI数据中心的迅猛扩张导致存储芯片需求激增，成本飙升传导至消费端，引发全品类数码产品涨价。</p>
+                
+                <table class="data-table">
+                    <tr>
+                        <th>品牌/产品</th>
+                        <th>涨价幅度</th>
+                        <th>涨价原因</th>
+                    </tr>
+                    <tr>
+                        <td>MacBook Neo</td>
+                        <td class="highlight">+$100 (599→699美元)</td>
+                        <td>存储芯片成本上涨</td>
+                    </tr>
+                    <tr>
+                        <td>MacBook Air</td>
+                        <td class="highlight">+$200 (1099→1299美元)</td>
+                        <td>AI存储需求激增</td>
+                    </tr>
+                    <tr>
+                        <td>MacBook Pro 14"</td>
+                        <td class="highlight">+$300 (1699→1999美元)</td>
+                        <td>零部件成本上升</td>
+                    </tr>
+                    <tr>
+                        <td>iPad Pro 11"</td>
+                        <td class="highlight">+$200 (999→1199美元)</td>
+                        <td>存储芯片短缺</td>
+                    </tr>
+                    <tr>
+                        <td>iPad Air</td>
+                        <td class="highlight">+$150 (599→749美元)</td>
+                        <td>供应链成本攀升</td>
+                    </tr>
+                    <tr>
+                        <td>Xbox (1TB)</td>
+                        <td class="highlight">+$150 (13个月3次涨价)</td>
+                        <td>存储组件短缺</td>
+                    </tr>
+                </table>
+                
+                <p style="margin-top: 14px; line-height: 1.7; color: var(--text-secondary);">行业分析认为，这波涨价潮将持续到2027年，AI算力军备竞赛将继续推高存储芯片需求。消费者需要适应"数码产品成理财产品"的新常态。</p>
+            </div>
+        </div>
+
+        <!-- 品牌动态 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🏢</span>
+                <h2>品牌与企业动态</h2>
+                <span class="sub">5条</span>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="tag">华为</span>
+                    <div class="cont">
+                        <h4>华为2026下半年新机时间表曝光：7款机型逐月发布</h4>
+                        <p>2026年过半，华为下半年全部待发布新品时间线、芯片配置、预估售价完整曝光。从折叠小屏、中端影像、年度Mate旗舰、大屏折叠再到入门千元机全部安排妥当，6月至年底逐月上新。Mate 90系列预计搭载新一代麒麟芯片，采用纯血鸿蒙系统。华为在折叠屏市场持续发力，中国市场份额已跃居第一。</p>
+                        <div class="src">来源：新浪众测</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag">苹果</span>
+                    <div class="cont">
+                        <h4>苹果首款折叠屏iPhone Ultra将于2026下半年亮相</h4>
+                        <p>数码博主"数码闲聊站"放出最新消息，2026年下半年最受瞩目的旗舰新品阵营浮出水面——苹果首款折叠屏机型iPhone Ultra将成为最大亮点。新机预计将搭载A20芯片，支持Apple Intelligence，采用折叠屏设计以应对三星、华为在折叠屏市场的竞争。iPhone Ultra的推出被视为苹果入局折叠屏赛道的标志性事件。</p>
+                        <div class="src">来源：PHP中文网</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag">小米</span>
+                    <div class="cont">
+                        <h4>小米6月新机潮来袭，旗舰机型配置全面升级</h4>
+                        <p>2026年6月手机市场迎来新一轮密集发布会，小米携多款重磅新机参与这场"新机潮"。据数码博主爆料，小米下半年全新技术发布会将带来全新旗舰产品，预计将搭载新一代骁龙8系列处理器，在AI能力、影像系统等方面进行全面升级。小米15系列将继续深化与徕卡的影像合作。</p>
+                        <div class="src">来源：搜狐科技</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag">微软</span>
+                    <div class="cont">
+                        <h4>微软Xbox 13个月第三次涨价，存储组件短缺危机持续</h4>
+                        <p>微软宣布对Xbox游戏主机进行第三次大幅涨价，8月1日起512GB版本涨价100美元，1TB版本涨价150美元。这是微软13个月内第三次上调Xbox价格，存储芯片相关组件短缺危机持续推高消费科技类产品成本。微软还将逐步淘汰2TB最高存储层级版本。</p>
+                        <div class="src">来源：新浪财经</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag">vivo</span>
+                    <div class="cont">
+                        <h4>vivo X Fold6发布：全能AI办公折叠手机标杆</h4>
+                        <p>2026年6月26日，vivo正式发布新一代折叠旗舰X Fold6，定位"全能AI办公折叠手机"。核心配置：天玑9500超能版（vivo与联发科联合定制，台积电3nm全大核）、8.02英寸三星M14 120Hz 2K内屏+6.51英寸BOE 120Hz外屏（莱茵全局护眼3.0认证）、蔡司2亿像素主摄（HPB 1英寸传感器）、5700mAh电池。vivo通过AI能力为折叠大屏匹配适合的应用场景。</p>
+                        <div class="src">来源：IT之家</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔮</span>
+                <h2>趋势展望</h2>
+                <span class="sub">3条</span>
+            </div>
+            <div class="section-content">
+                <div class="trend-card">
+                    <h4>📱 折叠屏手机迎爆发拐点</h4>
+                    <p>随着苹果入局、华为领跑、vivo持续创新，2026年将成为折叠屏手机爆发元年。预计全年全球折叠屏出货量将突破3000万台，价格超过1600美元的高端折叠屏占比将达60%。行业从"高端尝鲜"走向"主力旗舰"。</p>
+                </div>
+                <div class="trend-card accent">
+                    <h4>💰 AI通胀将持续至2027年</h4>
+                    <p>AI数据中心的存储需求持续攀升，芯片原厂业绩"夯爆"。这波"存储超级周期"将推动消费电子全品类涨价至少持续至2027年。消费者需适应数码产品"理财产品化"的新常态。</p>
+                </div>
+                <div class="trend-card accent2">
+                    <h4>📊 从规模扩张转向价值扩张</h4>
+                    <p>全球智能手机市场正经历范式转变。2025年Q4平均售价首次突破400美元至424美元，2026年预计达565美元（同比+21%）。厂商竞争焦点从"卖更多"转向"卖更贵"，高端化趋势不可逆。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据来源 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📋</span>
+                <h2>数据来源说明</h2>
+                <span class="sub">参考</span>
+            </div>
+            <div class="section-content">
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;">
+                    本报告数据主要来源：Omdia《2026年Q1全球智能手机出货量报告》、Counterpoint Research《折叠屏手机价格区间数据》、IDC《中国折叠屏手机市场数据》、各品牌官方公告及权威数码媒体报道。分析观点仅供参考，不构成投资建议。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>📱 数码行业每周情报 · 盛世消费体验研究院</p>
+        <p>每周一更新 · 助您掌握行业先机</p>
+        <div class="back-home">
+            <a href="index.html">← 返回往期目录</a>
+        </div>
+    </div>
+</body>
+</html>
