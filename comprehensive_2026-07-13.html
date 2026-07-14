@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 消费市场综合情报 · 第29期 · 7月第2周</title>
+    <style>
+        :root {
+            --primary: #2a9d8f;
+            --primary-dark: #1d6e63;
+            --accent: #e76f51;
+            --accent2: #f4a261;
+            --bg: #f0f7f6;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #2a9d8f 0%, #1d6e63 50%, #264653 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .logo-corner { position: absolute; top: 16px; right: 16px; z-index: 10; }
+        .logo-corner img { height: 34px; }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        .header .meta {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.78rem;
+            margin-top: 6px;
+        }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e0f2f1; color: #00695c; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #b2dfdb; }
+        .container {
+            max-width: 860px;
+            margin: -20px auto 0;
+            padding: 0 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .data-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 18px 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s;
+        }
+        .data-card:hover { transform: translateY(-2px); }
+        .data-card .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        .data-card .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .data-card .change {
+            font-size: 0.78rem;
+            margin-top: 4px;
+            color: var(--accent);
+        }
+        .section {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 24px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #c8e6e0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title .icon { font-size: 1.3rem; }
+        .summary-box {
+            background: linear-gradient(135deg, #f0f7f6 0%, #e0f2f1 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 8px;
+            border: 1px solid #b2dfdb;
+        }
+        .summary-box p {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+        .industry-block {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .industry-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .industry-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .industry-header h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .industry-header .badge {
+            font-size: 0.72rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        .badge.home { background: #e3f2fd; color: #1565c0; }
+        .badge.digital { background: #f3e5f5; color: #7b1fa2; }
+        .badge.auto { background: #ffebee; color: #c62828; }
+        .news-item {
+            margin-bottom: 16px;
+        }
+        .news-item:last-child { margin-bottom: 0; }
+        .news-item h4 {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        .news-item p {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .news-item .source {
+            display: inline-block;
+            font-size: 0.72rem;
+            color: #999;
+            margin-top: 4px;
+        }
+        .news-item .source a { color: var(--accent); text-decoration: none; }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 0.82rem;
+        }
+        .data-table th {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+        .data-table th:first-child { border-radius: 8px 0 0 0; }
+        .data-table th:last-child { border-radius: 0 8px 0 0; }
+        .data-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .data-table tr:nth-child(even) { background: #fafafa; }
+        .data-table tr:hover { background: #f0f7f6; }
+        .trend-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .trend-item .trend-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .trend-item .trend-text {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .trend-item .trend-text strong { color: var(--primary-dark); }
+        .sources {
+            font-size: 0.75rem;
+            color: #999;
+            line-height: 1.8;
+        }
+        .sources a { color: var(--accent); text-decoration: none; }
+        .footer {
+            background: linear-gradient(135deg, #264653 0%, #2a9d8f 100%);
+            color: #fff;
+            text-align: center;
+            padding: 32px 20px;
+            margin-top: 28px;
+        }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        .footer p { font-size: 0.82rem; opacity: 0.9; line-height: 1.8; }
+        .footer .cycle-info {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+        @media (max-width: 600px) {
+            .data-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.4rem; }
+            .section-title { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="header">
+        <div class="header-inner">
+            <span class="issue-badge">第29期 · 7月第2周</span>
+            <h1>📊 消费市场综合情报</h1>
+            <p class="subtitle">国补万亿撬动消费 · 华为Mate80破750万 · 比亚迪月销40万出海加速</p>
+            <p class="meta">盛世消费体验研究院 · 2026年7月13日</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 数据速览 -->
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="label">以旧换新带动销售额</div>
+                <div class="value">超1万亿</div>
+                <div class="change">惠及1.36亿人次，撬动比1:10.3</div>
+            </div>
+            <div class="data-card">
+                <div class="label">比亚迪6月销量</div>
+                <div class="value">40.3万辆</div>
+                <div class="change">海外17.5万辆，同比+95%</div>
+            </div>
+            <div class="data-card">
+                <div class="label">华为Mate80系列销量</div>
+                <div class="value">760万台</div>
+                <div class="change">上市7个月，周销仍20万+</div>
+            </div>
+            <div class="data-card">
+                <div class="label">第三批国补资金</div>
+                <div class="value">625亿元</div>
+                <div class="change">6月底下达，7月全域开放</div>
+            </div>
+            <div class="data-card">
+                <div class="label">AI手机出货占比</div>
+                <div class="value">53%</div>
+                <div class="change">从高端专属向千元机渗透</div>
+            </div>
+            <div class="data-card">
+                <div class="label">新能源渗透率</div>
+                <div class="value">63.6%</div>
+                <div class="change">中国品牌市占率71%</div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">📋</span> 核心摘要</div>
+            <div class="summary-box">
+                <p>2026年7月中旬，中国消费市场三大行业均呈现强劲增长态势。家电数码方面，第三批625亿元国补资金6月底全额下达，以旧换新政策已惠及1.36亿人次、带动销售额超1万亿元，撬动比达1:10.3；AI手机出货占比预计达53%，华为Mate80系列上市7个月销量突破760万台，折叠屏华为占据60%市场份额。汽车方面，比亚迪6月销量40.3万辆首次破40万大关，海外出口17.5万辆创历史新高；新能源出口同比增长152.7%，中国乘用车在欧洲市场份额首次超越日本。三大行业共同呈现"技术驱动+全球化+政策红利"的三重增长逻辑，消费升级与产业转型共振。</p>
+            </div>
+        </div>
+
+        <!-- 家电行业 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🏠</span> 家电行业动态</div>
+
+            <div class="industry-block">
+                <div class="industry-header">
+                    <h3>国补第三批625亿元全面发放，家电换新迎来年度最大红利</h3>
+                    <span class="badge home">国补政策</span>
+                </div>
+                <div class="news-item">
+                    <h4>第三批625亿元国补7月全域开放，空调冰箱洗衣机全品类纳入</h4>
+                    <p>国家发改委、财政部、商务部联合下发通知，2026年消费品以旧换新第三批625亿元超长期特别国债资金已于6月30日全额拨付至全国29个省区市，7月起线上线下申领通道全面开放。补贴标准为一级能效家电最终实付金额15%直接减免，单件封顶1500元，涵盖空调、冰箱、洗衣机、电视、热水器、电脑6大类。截至6月20日，政策已惠及1.36亿人次，带动销售额超1万亿元，其中家电数码销售13289.5万台、带动销售额4516.3亿元。各地还新增扫地机器人、智能门锁等8-9类地方补贴品类，政策灵活性与覆盖范围进一步扩大。智能眼镜等可穿戴设备零售额同比增长超100%，高能效家电零售额增长超30%。</p>
+                    <span class="source">来源：<a href="http://www.wisdomchina.org.cn/html1/report/2607/276-1.htm">人民网·以旧换新服务升级</a> / <a href="https://news.e23.cn/caijing/2026-07-12/2026071200165.html">e23财经·国补领取流程</a></span>
+                </div>
+                <div class="news-item">
+                    <h4>海尔国补核销断层领先，空调旺季美的格力消耗更快</h4>
+                    <p>从国补核销总额排序看，海尔>美的>格力。海尔凭借冰箱、洗衣机、热水器全品类市占率第一及卡萨帝高端机型顶格补贴，占白电国补总额约36%-40%。美的以空调线上放量+小天鹅冰洗走量，占比约30%-33%。格力仅靠空调一条线，占比约18%-22%。2026年全年2500亿国补分四批发放，第三批625亿已于6月底下达，第四批预计9月底前发放。7-8月盛夏旺季是空调换新高峰，广东、江苏等消费大省额度可能提前用完。</p>
+                    <span class="source">来源：<a href="https://xueqiu.com/7580446437/398103753">雪球·国补核销分析</a></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数码行业 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">📱</span> 数码行业动态</div>
+
+            <div class="industry-block">
+                <div class="industry-header">
+                    <h3>华为Mate80破760万台，AI手机出货占比将达53%</h3>
+                    <span class="badge digital">手机市场</span>
+                </div>
+                <div class="news-item">
+                    <h4>华为Mate80系列累计销量760万台，鸿蒙终端设备突破7000万</h4>
+                    <p>截至2026年第27周，华为Mate80系列累计sell-out销量约760.55万台，上市不到8个月周销量仍稳定在20万台以上，呈现罕见的"长尾战斗力"。首发起售价4699元，比上代Mate70直接下调800元，在各大品牌旗舰集体涨价的背景下选择了加量降价路线。鸿蒙6终端设备数量突破7000万台，正向1亿台里程碑迈进。下半年Mate90系列预计9月发布，将首发搭载麒麟2026芯片（采用逻辑折叠技术，晶体管密度提升53.5%），预装鸿蒙7操作系统。华为以约20%市场份额重返国内第一，高端市场份额超45%。</p>
+                    <span class="source">来源：<a href="https://news.pconline.com.cn/2178/21785622.html">太平洋电脑网·Mate80销量</a> / <a href="https://www.toutiao.com/article/7661152911229026831">今日头条·RD观测周报</a></span>
+                </div>
+                <div class="news-item">
+                    <h4>AI手机出货占比将达53%，折叠屏告别"尝鲜小众品"</h4>
+                    <p>2026年新一代AI手机出货量占比预计达53%，AI功能从高端专属快速向千元机渗透。折叠屏市场同样爆发，3月国内单月销量280万台同比增长120%。华为占据国内折叠屏60%份额，荣耀以21%位居第二。IDC预测苹果iPhone Fold明年有望取得22%全球折叠屏份额，成为市场爆发核心引擎。苹果以18.7%全球份额稳居第一（出货2.35亿台，同比+23%），小米以14.5%位列第三（1.68亿台，同比+5%）。国内市场华为苹果双雄争霸，两者差距不足0.2个百分点。</p>
+                    <span class="source">来源：<a href="https://cenr.com.cn/cyjj/sj/2026/07/05/229953.html">中国经济报道·AI与折叠屏</a> / <a href="https://k.sina.cn/article_7879923039_1d5ae155f068016pni.html">新浪·7月口碑机盘点</a></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 汽车行业 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🚗</span> 汽车行业动态</div>
+
+            <div class="industry-block">
+                <div class="industry-header">
+                    <h3>比亚迪月销破40万，新能源出口同比增152.7%</h3>
+                    <span class="badge auto">汽车市场</span>
+                </div>
+                <div class="news-item">
+                    <h4>比亚迪6月销量40.3万辆首次破40万，海外占比超43%</h4>
+                    <p>比亚迪6月销量403,472辆，同比+5.46%，首次单月突破40万辆。海外销量175,349辆，同比+95%，创历史新高，占比43.46%。高端品牌（方程豹+腾势+仰望）6月销量同比+62%，占比提升至14.2%。全尺寸旗舰SUV大唐EV 6月17日上市，预售53天订单突破15万辆。1-6月累计海外销量79.23万辆，同比+70.65%，分析师上调全年出口预期至超180万辆。匈牙利工厂Q4投产，海外业务将成为核心增长引擎。</p>
+                    <span class="source">来源：<a href="https://www.cninfo.com.cn/new/disclosure/detail?announcementId=1225403848">巨潮资讯·比亚迪产销快报</a></span>
+                </div>
+                <div class="news-item">
+                    <h4>零跑9.3万辆断层领跑新势力，理想同比下滑14.8%</h4>
+                    <p>6月新势力交付榜单：零跑93,376辆（同比+95%）断层第一，上半年累计35.6万辆；蔚来40,597辆（同比+62.9%）；小鹏40,126辆；鸿蒙智行50,624辆；理想30,895辆（同比-14.8%），是头部唯一下滑品牌。小米汽车6月交付34,738辆，上半年累计约18.5万辆。零跑海外出口近10万辆，在意大利纯电市占率超1/3。6月新能源乘用车批发销量118万辆，同比+25%，今年前7个月累计763万辆，同比+35%。</p>
+                    <span class="source">来源：<a href="https://www.chooseauto.com.cn/news/943092.shtml">选车网·新势力6月交付盘点</a></span>
+                </div>
+                <div class="news-item">
+                    <h4>特斯拉FSD入华引发智驾涨价潮，华为推出行业首个"兜底"权益</h4>
+                    <p>特斯拉监督版FSD 5月正式在华上线，定价6.4万元。7月起华为ADS从1.2万涨至1.5万元、小鹏XNGP涨2000元、理想城市NOA涨2500元，同时华为推出行业首个智驾兜底权益（城区/高速NCA纳入风险保障，前3年免费）。FSD国内订阅制预计Q3落地，预估月费699元左右。智驾竞争从"堆料"转向"责任闭环"和算法效率竞赛。</p>
+                    <span class="source">来源：<a href="https://www.toutiao.com/article/7660388033737163305">今日头条·FSD入华影响</a></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🔬</span> 重点专题：三大行业7月核心数据对比</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>维度</th>
+                        <th>🏠 家电</th>
+                        <th>📱 数码</th>
+                        <th>🚗 汽车</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>核心指标</strong></td>
+                        <td>国补带动销售4516亿元</td>
+                        <td>AI手机占比53%</td>
+                        <td>新能源批发118万辆/月</td>
+                    </tr>
+                    <tr>
+                        <td><strong>龙头企业</strong></td>
+                        <td>海尔（国补核销第一）</td>
+                        <td>华为（份额20%重返第一）</td>
+                        <td>比亚迪（月销40.3万）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>政策驱动</strong></td>
+                        <td>第三批625亿国补7月开放</td>
+                        <td>6000元以上手机10%补贴</td>
+                        <td>汽车以旧换新342.8万台</td>
+                    </tr>
+                    <tr>
+                        <td><strong>增长亮点</strong></td>
+                        <td>智能穿戴零售+100%</td>
+                        <td>折叠屏单月280万台+120%</td>
+                        <td>新能源出口49.9万辆+152.7%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>趋势关键词</strong></td>
+                        <td>绿色消费·一级能效</td>
+                        <td>AI渗透·生态协同</td>
+                        <td>全球化·智驾兜底</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🔮</span> 趋势展望</div>
+
+            <div class="trend-item">
+                <div class="trend-num">1</div>
+                <div class="trend-text"><strong>国补政策进入冲刺期</strong>：第三批625亿元已全面发放，第四批预计9月底前下达。7-8月盛夏旺季是家电换新高峰，各地额度先到先得。全年2500亿国补撬动比已达1:10.3，政策红利将在下半年持续释放，建议消费者抓住窗口期。</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-num">2</div>
+                <div class="trend-text"><strong>AI从高端走向大众</strong>：AI手机出货占比将达53%，折叠屏同比增长120%，技术红利正从旗舰向中端快速渗透。华为鸿蒙生态设备突破7000万台，自研芯片+操作系统深度整合构筑护城河。下半年Mate90+iPhone Fold双旗舰发布将进一步激活换机需求。</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-num">3</div>
+                <div class="trend-text"><strong>汽车出海成确定性趋势</strong>：新能源出口同比+152.7%，中国乘用车在欧洲市场份额首超日本。比亚迪海外占比43%、吉利增速713%、零跑意大利市占率超1/3。下半年匈牙利工厂投产将释放更多产能，全年出口有望突破180万辆。</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-num">4</div>
+                <div class="trend-text"><strong>智驾进入"责任闭环"新阶段</strong>：FSD入华催化行业洗牌，华为率先推出智驾兜底权益，竞争焦点从硬件参数转向算法效率和用户信任。Q3订阅制落地将进一步降低门槛，高阶智驾大众化普及提速，L3规模化落地有望缩短1-2年。</div>
+            </div>
+        </div>
+
+        <!-- 数据来源 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">📚</span> 数据来源说明</div>
+            <div class="sources">
+                · 商务部：2026年消费品以旧换新数据（截至6月20日）<br>
+                · 国家发改委/财政部/商务部：第三批国补通知（2026.6.30）<br>
+                · 乘联分会：6月新能源乘用车批发销量及出口数据（2026.7.8）<br>
+                · 比亚迪股份有限公司2026年6月产销快报（巨潮资讯网，2026.7.1）<br>
+                · <a href="https://news.pconline.com.cn/2178/21785622.html">太平洋电脑网·华为Mate80销量</a><br>
+                · <a href="https://cenr.com.cn/cyjj/sj/2026/07/05/229953.html">中国经济报道·AI与折叠屏</a><br>
+                · <a href="https://www.chooseauto.com.cn/news/943092.shtml">选车网·新势力6月交付盘点</a><br>
+                · <a href="https://www.toutiao.com/article/7660388033737163305">今日头条·FSD入华影响</a><br>
+                · <a href="https://xueqiu.com/7580446437/398103753">雪球·家电国补核销分析</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>盛世消费体验研究院 · 市场情报中心</p>
+        <p>每周一推送 · 助您掌握行业脉搏</p>
+        <div class="back-home">
+            <a href="index.html">← 返回往期目录</a>
+        </div>
+        <div class="cycle-info">
+            ⭐ 第1周 | 🏠 家电行业情报 &nbsp; ⭐ 第2周 | 📱 数码行业情报<br>
+            ⭐ 第3周 | 🚗 汽车市场情报 &nbsp; ⭐ 第4周 | 📊 综合情报
+        </div>
+    </div>
+</body>
+</html>
