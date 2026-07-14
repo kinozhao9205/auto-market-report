@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 汽车市场每周情报 · 第28期 · 7月第1周</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --primary-dark: #d00000;
+            --accent: #f77f00;
+            --accent2: #fcbf49;
+            --bg: #fff5f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #e63946 0%, #d00000 50%, #6a040f 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .logo-corner { position: absolute; top: 16px; right: 16px; z-index: 10; }
+        .logo-corner img { height: 34px; }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        .header .meta {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.78rem;
+            margin-top: 6px;
+        }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #fce4ec; color: #b71c1c; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #f8bbd0; }
+        .container {
+            max-width: 860px;
+            margin: -20px auto 0;
+            padding: 0 16px;
+            position: relative;
+            z-index: 2;
+        }
+        /* 数据卡片 */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .data-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 18px 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s;
+        }
+        .data-card:hover { transform: translateY(-2px); }
+        .data-card .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        .data-card .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .data-card .change {
+            font-size: 0.78rem;
+            margin-top: 4px;
+        }
+        .change.up { color: #e63946; }
+        .change.down { color: #2d6a4f; }
+        /* 板块 */
+        .section {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 24px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffe0e0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title .icon { font-size: 1.3rem; }
+        /* 摘要 */
+        .summary-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 8px;
+            border: 1px solid #ffcdd2;
+        }
+        .summary-box p {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+        /* 新闻条目 */
+        .news-item {
+            margin-bottom: 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .news-item h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .news-item p {
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .news-item .source {
+            display: inline-block;
+            font-size: 0.72rem;
+            color: #999;
+            margin-top: 6px;
+        }
+        .news-item .source a { color: var(--accent); text-decoration: none; }
+        /* 表格 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 0.82rem;
+        }
+        .data-table th {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+        .data-table th:first-child { border-radius: 8px 0 0 0; }
+        .data-table th:last-child { border-radius: 0 8px 0 0; }
+        .data-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .data-table tr:nth-child(even) { background: #fafafa; }
+        .data-table tr:hover { background: #fff8f8; }
+        /* 品牌动态 */
+        .brand-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 14px;
+            background: #fafafa;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent);
+        }
+        .brand-item .brand-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .brand-item .brand-content h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .brand-item .brand-content p {
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        /* 趋势展望 */
+        .trend-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .trend-item .trend-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .trend-item .trend-text {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .trend-item .trend-text strong { color: var(--primary-dark); }
+        /* 来源 */
+        .sources {
+            font-size: 0.75rem;
+            color: #999;
+            line-height: 1.8;
+        }
+        .sources a { color: var(--accent); text-decoration: none; }
+        /* 底部 */
+        .footer {
+            background: linear-gradient(135deg, #6a040f 0%, #d00000 100%);
+            color: #fff;
+            text-align: center;
+            padding: 32px 20px;
+            margin-top: 28px;
+        }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        .footer p { font-size: 0.82rem; opacity: 0.9; line-height: 1.8; }
+        .footer .cycle-info {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+        @media (max-width: 600px) {
+            .data-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.4rem; }
+            .section-title { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="header">
+        <div class="header-inner">
+            <span class="issue-badge">第28期 · 7月第1周</span>
+            <h1>🚗 汽车市场每周情报</h1>
+            <p class="subtitle">比亚迪月销破40万 · 零跑断层领跑新势力 · 特斯拉FSD入华搅局智驾</p>
+            <p class="meta">盛世消费体验研究院 · 2026年7月6日</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 数据速览 -->
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="label">比亚迪6月销量</div>
+                <div class="value">40.3万辆</div>
+                <div class="change up">↑ 同比+5.5% 首次单月破40万</div>
+            </div>
+            <div class="data-card">
+                <div class="label">比亚迪海外销量</div>
+                <div class="value">17.5万辆</div>
+                <div class="change up">↑ 同比+95% 创历史新高</div>
+            </div>
+            <div class="data-card">
+                <div class="label">零跑6月交付</div>
+                <div class="value">9.3万辆</div>
+                <div class="change up">↑ 同比+95% 新势力断层第一</div>
+            </div>
+            <div class="data-card">
+                <div class="label">新能源出口总量</div>
+                <div class="value">49.9万辆</div>
+                <div class="change up">↑ 同比+152.7%</div>
+            </div>
+            <div class="data-card">
+                <div class="label">新能源渗透率</div>
+                <div class="value">63.6%</div>
+                <div class="change up">↑ 燃油车份额加速萎缩</div>
+            </div>
+            <div class="data-card">
+                <div class="label">中国品牌市占率</div>
+                <div class="value">71%</div>
+                <div class="change up">↑ 5月单月达73.8%</div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">📋</span> 核心摘要</div>
+            <div class="summary-box">
+                <p>2026年6月中国汽车市场迎来重磅节点：比亚迪以单月40.3万辆销量首次突破40万大关，其中海外出口17.5万辆创历史新高，占比超43%，全球化布局进入收获期。新势力阵营分化加剧，零跑以9.3万辆断层领跑，理想同比下滑14.8%成为头部唯一负增长品牌。特斯拉FSD监督版正式入华，引发华为、小鹏等国产智驾厂商集体涨价并推出"兜底"权益，智驾竞争从参数堆料转向责任闭环。新能源汽车出口同比增长152.7%，比亚迪、奇瑞、吉利三强格局确立，中国车企全球化进程全面加速。</p>
+            </div>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🌍</span> 市场大势</div>
+
+            <div class="news-item">
+                <h3>比亚迪6月销量40.3万辆首破40万大关，海外出口占比超43%</h3>
+                <p>比亚迪发布2026年6月产销快报，全月销量达403,472辆，同比增长5.46%，首次单月突破40万辆。其中海外销量175,349辆，同比增长95%，环比增长9.2%，再创月度历史新高，海外销量占比达43.46%。分品牌看，王朝+海洋系列34.1万辆（同比-0.55%），方程豹3.56万辆（同比+88.4%），腾势2.04万辆（同比+29%），仰望470辆（同比+129%）。高端品牌占比提升至14.2%，品牌向上突破成效显著。1-6月累计海外销量79.23万辆，同比增长70.65%，分析师上调全年出口预期至超180万辆。6月17日全尺寸旗舰SUV大唐EV正式上市，售价23.99-30.99万元，预售53天累计订单突破15万辆，搭载第二代刀片电池、兆瓦闪充及天神之眼5.0高阶智驾系统。</p>
+                <span class="source">来源：<a href="https://www.cninfo.com.cn/new/disclosure/detail?announcementId=1225403848">巨潮资讯网·比亚迪产销快报</a></span>
+            </div>
+
+            <div class="news-item">
+                <h3>特斯拉FSD入华搅动智驾格局，国产厂商集体涨价+推出"兜底"权益</h3>
+                <p>2026年5月特斯拉监督版FSD正式在中国上线，定价6.4万元，是目前国内主流高阶智驾包的近5倍。面对FSD这头"鲶鱼"，国产厂商反应迅速：7月起华为ADS高阶功能包从1.2万元上调至1.5万元，小鹏XNGP上调2000元，理想城市NOA上调2500元。涨价的同时，华为推出行业首个"智驾兜底"权益，将城区/高速NCA场景纳入风险保障，前3年免费。比亚迪也同步推出智驾安全兜底机制，加速高阶智驾大众化普及。业内人士指出，FSD入华将加速淘汰"堆料式"竞争，将行业焦点从激光雷达数量、算力TOPS等硬件参数，拉向真实场景的算法效率和数据闭环速度。特斯拉CFO表示希望Q3拿到内地全面商用许可，FSD订阅制有望在7-9月落地，预估月费699元左右。</p>
+                <span class="source">来源：<a href="https://www.toutiao.com/article/7660388033737163305">今日头条·电车有点料</a></span>
+            </div>
+
+            <div class="news-item">
+                <h3>6月新能源出口49.9万辆同比增长152.7%，比亚迪奇瑞吉利三强格局确立</h3>
+                <p>乘联分会7月8日发布数据，6月新能源乘用车出口49.9万辆，同比增长152.7%，环比增长17.6%。比亚迪以170,897辆稳居出口榜首，是第二名奇瑞（73,819辆）的2.3倍。吉利汽车出口61,550辆排名第三，同比增长713.2%增速领跑头部集团，6月海外总销量首次突破10万辆达10.29万辆。零跑汽车出口21,000辆，在意大利纯电市场占有率超过1/3，连续位居销量榜首。1-6月比亚迪累计出口79万辆，同比+71%。欧洲汽车制造商协会数据显示，5月中国乘用车在欧洲市场份额首次超过日本，比亚迪同比增速达136.57%。中国品牌市占率1-5月已升至71%，5月单月达73.8%，合资份额持续萎缩。</p>
+                <span class="source">来源：<a href="https://www.sohu.com/a/1047555365_121019331">搜狐·财联社</a></span>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🔬</span> 重点专题：2026年6月新能源车企销量TOP10</div>
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.8; margin-bottom:12px;">乘联会批发口径，6月全国新能源乘用车厂商批发销量118万辆，同比增长25%。比亚迪断层领先，零跑新势力销冠，头部10家车企格局如下：</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>车企</th>
+                        <th>6月销量</th>
+                        <th>核心看点</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>比亚迪</td><td>342,383辆</td><td>连续5个月单月破30万，国内+出口双领跑</td></tr>
+                    <tr><td>2</td><td>特斯拉中国</td><td>74,117辆</td><td>Model 3/Y主力走量，出口份额稳定</td></tr>
+                    <tr><td>3</td><td>零跑汽车</td><td>93,376辆</td><td>新势力销冠，同比涨幅超94%</td></tr>
+                    <tr><td>4</td><td>鸿蒙智行</td><td>50,624辆</td><td>M7/M8/M9持续热销，增程SUV霸主</td></tr>
+                    <tr><td>5</td><td>蔚来汽车</td><td>40,597辆</td><td>全系同比大涨62.9%，换电体系稳固</td></tr>
+                    <tr><td>6</td><td>小鹏汽车</td><td>40,126辆</td><td>P7+/G6走量回暖，智驾优势凸显</td></tr>
+                    <tr><td>7</td><td>极氪汽车</td><td>35,169辆</td><td>高端纯电均衡，同比翻倍</td></tr>
+                    <tr><td>8</td><td>理想汽车</td><td>30,895辆</td><td>同比-14.8%，头部唯一下滑</td></tr>
+                    <tr><td>9</td><td>小米汽车</td><td>30,200+辆</td><td>SU7稳定输出，20万级纯电轿车爆款</td></tr>
+                    <tr><td>10</td><td>广汽埃安</td><td>28,900辆</td><td>家用代步/网约车基本盘稳固</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 品牌动态 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🏢</span> 品牌/企业动态</div>
+
+            <div class="brand-item">
+                <div class="brand-icon">🚀</div>
+                <div class="brand-content">
+                    <h4>小鹏Robotaxi开启员工内测，何小鹏亲测首单</h4>
+                    <p>7月9日小鹏集团CEO何小鹏官宣Robotaxi正式开启员工内测，其本人为第一单用户。以小鹏GX为原型车，搭载4颗自研图灵AI芯片，本地有效算力达3000TOPS，是国内首款纯视觉方案全栈自研前装量产Robotaxi，具备L4级自动驾驶能力。从官宣计划到内测仅用8个月，远超预期。</p>
+                </div>
+            </div>
+
+            <div class="brand-item">
+                <div class="brand-icon">📱</div>
+                <div class="brand-content">
+                    <h4>小米汽车第三车型SkyNomad（澎程）官宣，定位增程大型SUV</h4>
+                    <p>7月8日小米官宣第三车型系列SkyNomad，定位增程式大型SUV，主打家用大空间，对标理想L9和问界M9。6月交付34,738辆，上半年累计约18.5万辆，完成全年55万辆目标的33.65%。下半年需月均超6万辆才能达标，SkyNomad成为翻盘关键。预计7月底上市，8月开启批量交付。</p>
+                </div>
+            </div>
+
+            <div class="brand-item">
+                <div class="brand-icon">⚡</div>
+                <div class="brand-content">
+                    <h4>零跑6月交付9.3万辆断层领跑，D99旗舰MPV正式上市</h4>
+                    <p>零跑6月全球交付93,376辆，同比增长95%，连续6个月冠领新势力，上半年累计35.6万辆。海外出口近10万辆，超过去年全年。6月25日首款旗舰MPV D99正式上市，售价24.98-31.98万元，承接品牌向上突破。C系列全面焕新升级，6月销量突破3万台。</p>
+                </div>
+            </div>
+
+            <div class="brand-item">
+                <div class="brand-icon">🛡️</div>
+                <div class="brand-content">
+                    <h4>华为ADS涨价至1.5万元，同步推出行业首个"智驾兜底"权益</h4>
+                    <p>7月起华为ADS高阶功能包从1.2万元上调至1.5万元，同时推出行业首个智驾兜底权益，将城区/高速NCA场景纳入风险保障，前3年免费。问界M9上市两周年累计交付超26万台，稳居50万级销冠，每卖出5台就有2台来自老用户推荐。</p>
+                </div>
+            </div>
+
+            <div class="brand-item">
+                <div class="brand-icon">🌍</div>
+                <div class="brand-content">
+                    <h4>比亚迪匈牙利工厂Q4投产，全球化产能布局加速</h4>
+                    <p>比亚迪已形成泰国（已投产）、乌兹别克斯坦、巴西（在建）、匈牙利（Q4投产）等多个海外工厂，海外单车ASP及盈利显著高于国内。分析师预计全年出口超180万辆，同比+82%。海外业务将持续兑现为核心增长引擎，推动ROE结构性抬升。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🔮</span> 趋势展望</div>
+
+            <div class="trend-item">
+                <div class="trend-num">1</div>
+                <div class="trend-text"><strong>海外出口成第二增长曲线</strong>：国内市场内卷加剧，出海成为唯一突破口。比亚迪海外销量占比已超43%，吉利增速713%，零跑在意大利纯电市占率超1/3。下半年匈牙利工厂投产将进一步释放产能，全年出口有望突破180万辆。</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-num">2</div>
+                <div class="trend-text"><strong>智驾竞争从"堆料"转向"责任闭环"</strong>：FSD入华加速行业洗牌，华为率先推出智驾兜底权益，将竞争从技术参数拉到责任保障维度。下半年智驾订阅制落地将进一步降低用户门槛，高阶智驾大众化普及提速。</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-num">3</div>
+                <div class="trend-text"><strong>新势力分化加剧，理想掉队风险显现</strong>：零跑以9.3万辆断层领跑，理想同比下滑14.8%成为头部唯一下滑品牌。零跑"C系列保量+D系列保价"双线打法验证成功，理想增程路线面临问界和小米SkyNomad的双重夹击。</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-num">4</div>
+                <div class="trend-text"><strong>高端化成为盈利关键</strong>：比亚迪高端品牌（方程豹+腾势+仰望）6月占比提升至14.2%，大唐EV预售订单15万辆验证旗舰产品力。零跑D99、小米SkyNomad均向20万+价格带突破，品牌向上成为车企盈利改善的核心路径。</div>
+            </div>
+        </div>
+
+        <!-- 数据来源 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">📚</span> 数据来源说明</div>
+            <div class="sources">
+                · 乘联分会：2026年6月新能源乘用车批发销量数据（2026.7.8发布）<br>
+                · 比亚迪股份有限公司2026年6月产销快报（巨潮资讯网，2026.7.1）<br>
+                · 中汽协：2026年6月汽车工业运行数据（2026.7.8）<br>
+                · 各新势力车企6月交付公告（零跑/蔚来/小鹏/理想/小米/极氪，2026.7.1）<br>
+                · <a href="https://www.toutiao.com/article/7660388033737163305">今日头条·特斯拉FSD入华对国产智驾影响</a><br>
+                · <a href="https://www.toutiao.com/article/7660117076895384116">今日头条·6月新能源出口排行榜</a><br>
+                · <a href="https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/search/rptid/836412342473/">新浪财经·比亚迪6月销量点评</a><br>
+                · <a href="https://www.163.com/dy/article/L1DHMATM05129QAF.html">网易·小鹏Robotaxi内测报道</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>盛世消费体验研究院 · 市场情报中心</p>
+        <p>每周一推送 · 助您掌握行业脉搏</p>
+        <div class="back-home">
+            <a href="index.html">← 返回往期目录</a>
+        </div>
+        <div class="cycle-info">
+            ⭐ 第1周 | 🏠 家电行业情报 &nbsp; ⭐ 第2周 | 📱 数码行业情报<br>
+            ⭐ 第3周 | 🚗 汽车市场情报 &nbsp; ⭐ 第4周 | 📊 综合情报
+        </div>
+    </div>
+</body>
+</html>
