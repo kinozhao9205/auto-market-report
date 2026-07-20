@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 家电行业情报 | 2026年7月20日</title>
+    <style>
+        :root {
+            --primary-color: #1e88e5;
+            --secondary-color: #43a047;
+            --accent-color: #ff7043;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #546e7a;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(180deg, #f5f7fa 0%, #e4e8ec 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .back-btn-top {
+            text-align: left;
+            padding: 10px 14px 0;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        
+        .back-btn-top a {
+            display: inline-block;
+            background: #e8eaf6;
+            color: #1a237e;
+            text-decoration: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid #c5cae9;
+        }
+        
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+        }
+        
+        header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        header .date {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .section h2 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e3f2fd;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 数据速览卡片 */
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .data-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .data-card .value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+        
+        .data-card .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        /* 核心摘要 */
+        .summary {
+            background: linear-gradient(135deg, #fff8e1 0%, #fce4ec 100%);
+            padding: 16px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .summary p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+        
+        /* 新闻列表 */
+        .news-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        
+        .news-item h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .news-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .news-item .source {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        /* 品牌动态 */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .brand-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .brand-card .brand-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+        
+        .brand-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        /* 趋势展望 */
+        .trend-item {
+            background: linear-gradient(135deg, #e8f5e9 0%, #e0f2f1 100%);
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .trend-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .trend-item h3 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        
+        .trend-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        /* 数据表格 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+        
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .data-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .data-table tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: linear-gradient(135deg, #37474f 0%, #263238 100%);
+            color: white;
+            padding: 24px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 24px;
+        }
+        
+        .footer p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .footer .back-home {
+            margin-top: 12px;
+        }
+        
+        .footer .back-home a {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.35);
+            color: #fff;
+            text-decoration: none;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        .footer .disclaimer {
+            margin-top: 12px;
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .data-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .data-card .value {
+                font-size: 1.3rem;
+            }
+            
+            .brand-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>🏠 家电行业情报</h1>
+            <p class="date">2026年7月20日 · 第30周</p>
+        </header>
+        
+        <!-- 数据速览 -->
+        <section class="section">
+            <h2>📊 数据速览</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="value">3609.6亿</div>
+                    <div class="label">上半年家电出口额</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">2.2亿件</div>
+                    <div class="label">以旧换新销售量</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">7000亿+</div>
+                    <div class="label">以旧换新销售额</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">41%</div>
+                    <div class="label">中国品牌欧洲空调市占率</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">25%</div>
+                    <div class="label">自主品牌出口占比</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">15%</div>
+                    <div class="label">以旧换新补贴标准</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 核心摘要 -->
+        <section class="section">
+            <h2>📝 核心摘要</h2>
+            <div class="summary">
+                <p>本周家电行业呈现三大核心看点：一是2026年家电以旧换新政策正式实施，补贴标准为售价15%，单件最高1500元，覆盖冰箱、洗衣机、电视、空调等6大品类；二是海外市场持续火爆，上半年家电出口额达3609.6亿元，中国品牌在欧洲空调市场份额首次突破41%成为区域第一；三是AWE2026展现AI家电新趋势，头部企业集中发布主动智能产品，家电从被动响应全面迈向主动智能时代。</p>
+            </div>
+        </section>
+        
+        <!-- 市场大势 -->
+        <section class="section">
+            <h2>📈 市场大势</h2>
+            
+            <div class="news-item">
+                <h3>2026年家电以旧换新政策正式实施</h3>
+                <p>商务部等5部门联合印发通知，明确2026年1月1日起对1级能效冰箱、洗衣机、电视、空调、热水器、电脑6类家电产品给予补贴，标准为售价15%，单件最高1500元。截至目前，家电以旧换新政策已惠及超1.6亿人次，销售量超2.2亿件，销售额超7000亿元。政策同时支持线下实体零售发展，鼓励打造多元化消费场景。</p>
+                <p class="source">来源：商务部官网、国家发改委</p>
+            </div>
+            
+            <div class="news-item">
+                <h3>中国家电出口强劲增长 欧洲市场实现突破</h3>
+                <p>海关总署数据显示，2026年上半年中国家电出口额达3609.6亿元。其中空调、冰箱、电扇等"清凉"家电合计出口1079.1亿元。值得注意的是，中国品牌在欧洲空调市场份额从2023年的27%跃升至2025年的41%，首次成为欧洲市场第一。世界杯赞助效应也带动品牌效应提升，自主品牌家电出口增长21.2%。</p>
+                <p class="source">来源：海关总署、21世纪经济报道</p>
+            </div>
+            
+            <div class="news-item">
+                <h3>AWE2026揭示AI家电革命浪潮</h3>
+                <p>2026中国家电及消费电子博览会以"AI科技·慧享未来"为主题，总展示面积达17万平方米，汇聚超1200家企业。展会呈现三大趋势：AI主动服务、超一级能效普及、全场景集成。海尔推出全球首套L4级智能体家电，格力发布真AI爱技术体系，美的发布鸿蒙全面风空调，标志着AI原生家电进入规模化落地元年。</p>
+                <p class="source">来源：AWE组委会、今日头条</p>
+            </div>
+        </section>
+        
+        <!-- 重点专题 -->
+        <section class="section">
+            <h2>🔍 重点专题</h2>
+            
+            <h3 style="font-size: 1rem; margin-bottom: 12px;">2026年一季度空调新品技术对比</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>品牌</th>
+                        <th>新品系列</th>
+                        <th>APF能效值</th>
+                        <th>AI省电率</th>
+                        <th>特色功能</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>美的</td>
+                        <td>酷省电二代</td>
+                        <td>5.35</td>
+                        <td>25%</td>
+                        <td>AI算法智能调节</td>
+                    </tr>
+                    <tr>
+                        <td>格力</td>
+                        <td>Star5 AI中央空调</td>
+                        <td>6.60</td>
+                        <td>23.5%</td>
+                        <td>自研边缘AI芯片</td>
+                    </tr>
+                    <tr>
+                        <td>海尔</td>
+                        <td>净省电二代Pro</td>
+                        <td>6.20</td>
+                        <td>20%</td>
+                        <td>AI人感芯片</td>
+                    </tr>
+                    <tr>
+                        <td>小米</td>
+                        <td>巨省电Pro</td>
+                        <td>6.30</td>
+                        <td>45%</td>
+                        <td>米家生态联动</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 16px;">
+                <h3 style="font-size: 1rem; margin-bottom: 12px;">"十四五"时期家电出口市场结构变化</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>目标市场</th>
+                            <th>2020年出口额</th>
+                            <th>2025年出口额</th>
+                            <th>份额变化</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>一带一路共建国家</td>
+                            <td>259.6亿美元</td>
+                            <td>461.5亿美元</td>
+                            <td>28% → 35%</td>
+                        </tr>
+                        <tr>
+                            <td>东盟</td>
+                            <td>84.7亿美元</td>
+                            <td>152.7亿美元</td>
+                            <td>9% → 12%</td>
+                        </tr>
+                        <tr>
+                            <td>拉丁美洲</td>
+                            <td>59.8亿美元</td>
+                            <td>126.3亿美元</td>
+                            <td>6% → 10%</td>
+                        </tr>
+                        <tr>
+                            <td>阿盟</td>
+                            <td>66.9亿美元</td>
+                            <td>107.7亿美元</td>
+                            <td>7% → 8%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- 品牌动态 -->
+        <section class="section">
+            <h2>🏭 品牌动态</h2>
+            <div class="brand-grid">
+                <div class="brand-card">
+                    <div class="brand-name">美的集团</div>
+                    <p>海外收入达1959.48亿元，占总营收43%，同比增长15.92%。在葡萄牙里斯本发布全系旗舰家电新品，展出为当地消费者量身定制的产品矩阵。</p>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-name">格力电器</div>
+                    <p>在美国拉斯维加斯AHR Expo展出近百款热泵创新产品，针对北美严寒推出双热源系统，搭载575伏高压变频技术，通过ETL及AHRI认证。</p>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-name">海尔智家</div>
+                    <p>AWE2026发布Seeker智慧套系，搭载AI之眼2.0，打造全球首套L4级智能体家电，实现食材识别、衣物护理、烹饪辅助等毫秒级响应。</p>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-name">海信家电</div>
+                    <p>海外收入379.25亿元，占总营收43.13%，同比增长6.44%。海信家电持续深化全球体育营销，强化品牌国际化布局。</p>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-name">小米生态</div>
+                    <p>巨省电Pro挂机APF值6.30，节能率45%，售价1954元起。主打高性价比路线，接入米家生态实现远程智控。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 趋势展望 -->
+        <section class="section">
+            <h2>🔮 趋势展望</h2>
+            
+            <div class="trend-item">
+                <h3>AI家电从"被动响应"迈向"主动智能"</h3>
+                <p>AWE2026明确传递行业信号：简单联网、语音控制已成为基础标配，主动感知、自主决策、全屋协同才是下一代智能家电的核心。具备AI芯片和端侧大模型能力的家电企业将率先突围。</p>
+            </div>
+            
+            <div class="trend-item">
+                <h3>全产业链出海进入高质量周期</h3>
+                <p>中国家电出海已从单纯产品输出转向全产业链全球化布局，包括核心零部件配套同步出海、整机制造本土化、品牌运营和售后服务落地。预计未来五年将形成"研发在当地、制造在当地、服务当地用户"的全链条本土化模式。</p>
+            </div>
+            
+            <div class="trend-item">
+                <h3>绿色低碳产品成出口新增长极</h3>
+                <p>随着全球绿色低碳转型加速，热泵技术、光伏储能家电等零碳产品将成为出口新亮点。国际能源署预测，未来20年欧洲空调普及率将大幅提升，有望催生数千亿美元级增量市场。</p>
+            </div>
+            
+            <div class="trend-item">
+                <h3>新兴市场消费升级带来结构性机遇</h3>
+                <p>东盟、中东非、拉丁美洲等新兴市场正从基础功能普及快速转向品质化、智能化升级。中国家电企业依托全品类研发制造能力，可快速响应差异化需求，填补当地市场供给空白。</p>
+            </div>
+        </section>
+        
+        <!-- 数据来源 -->
+        <section class="section">
+            <h2>📚 数据来源说明</h2>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                本报告数据来源包括：商务部官网、国家发展改革委、海关总署、中国机电产品进出口商会、中国家用电器协会、AWE组委会、21世纪经济报道、中信证券研究、国金证券研究、产业在线、天眼查、各企业公告及公开信息。
+            </p>
+        </section>
+        
+        <div class="footer">
+            <p>🏠 家电行业情报 · 每周一更新</p>
+            <div class="back-home">
+                <a href="index.html">← 返回往期目录</a>
+            </div>
+            <p class="disclaimer">本报告内容由AI生成，仅供参考，不构成投资建议</p>
+        </div>
+    </div>
+</body>
+</html>
