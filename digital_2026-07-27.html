@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 数码行业每周情报 · 第31周 · 7月第4周</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+            --accent: #7209b7;
+            --accent2: #f72585;
+            --bg: #f0f2ff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .logo-corner { position: absolute; top: 16px; right: 16px; z-index: 10; }
+        .logo-corner img { height: 34px; }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: white;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .header .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .header .badge {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .main { max-width: 860px; margin: 0 auto; padding: 20px 16px; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .summary-box {
+            background: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px;
+            color: white;
+            margin-bottom: 18px;
+        }
+        .summary-box h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
+        }
+        .summary-box p { font-size: 0.95rem; line-height: 1.8; }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .data-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 18px 12px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(67,97,238,0.08);
+            border-top: 4px solid var(--primary);
+        }
+        .data-card.v2 { border-top-color: var(--accent); }
+        .data-card.v3 { border-top-color: var(--accent2); }
+        .data-card.v4 { border-top-color: #06d6a0; }
+        .data-card .num {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .data-card.v2 .num { color: var(--accent); }
+        .data-card.v3 .num { color: var(--accent2); }
+        .data-card.v4 .num { color: #06d6a0; }
+        .data-card .lbl { font-size: 0.72rem; color: var(--text-secondary); margin-top: 5px; line-height: 1.4; }
+        .section {
+            background: white;
+            border-radius: var(--card-radius);
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(67,97,238,0.06);
+            overflow: hidden;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f2f9;
+            background: linear-gradient(90deg, #f8f9ff 0%, white 100%);
+        }
+        .section-header .icon { font-size: 1.2rem; }
+        .section-header h2 { font-size: 1.02rem; font-weight: 700; color: var(--text-primary); }
+        .section-header .sub { font-size: 0.75rem; color: var(--text-secondary); margin-left: auto; background: #f0f2ff; padding: 3px 10px; border-radius: 10px; }
+        .section-content { padding: 18px 20px; }
+        .news-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f2f9;
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .tag {
+            flex-shrink: 0;
+            width: 64px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8eaf6;
+            color: var(--primary);
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+        .news-item .tag.red { background: #fde8e8; color: #e53e3e; }
+        .news-item .tag.green { background: #e6fffa; color: #06d6a0; }
+        .news-item .tag.purple { background: #f3e8ff; color: var(--accent); }
+        .news-item .body { flex: 1; }
+        .news-item .body h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 5px; color: var(--text-primary); }
+        .news-item .body p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+        .news-item .body .source { display: inline-block; font-size: 0.7rem; color: var(--primary); margin-top: 4px; text-decoration: none; }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 0.82rem;
+        }
+        .data-table th {
+            background: #f8f9ff;
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 2px solid #e0e3f0;
+        }
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f0f2f9;
+            color: var(--text-primary);
+        }
+        .data-table tr:hover td { background: #fafbff; }
+        .highlight { color: var(--accent2); font-weight: 700; }
+        .trend-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0e7ff 100%);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin: 10px 0;
+            border-left: 4px solid var(--accent);
+        }
+        .trend-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
+        .trend-card p { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.7; }
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 12px 0;
+        }
+        .brand-item {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 14px 16px;
+            border-left: 3px solid var(--primary);
+        }
+        .brand-item h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 5px; }
+        .brand-item p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; }
+        .source-list { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.8; }
+        .source-list li { margin-bottom: 3px; list-style: none; padding-left: 16px; position: relative; }
+        .source-list li::before { content: '📊'; position: absolute; left: 0; }
+        .footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 28px 20px;
+            margin-top: 30px;
+        }
+        .footer p { font-size: 0.8rem; line-height: 1.8; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 600px) {
+            .data-grid { grid-template-columns: repeat(2, 1fr); }
+            .brand-grid { grid-template-columns: 1fr; }
+            .header { padding: 28px 16px 22px; }
+            .main { padding: 16px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="header">
+        <div class="logo-corner">
+            <img src="logo.png" alt="盛世消费体验研究院" onerror="this.style.display='none'">
+        </div>
+        <div class="header-inner">
+            <span class="issue-badge">第31期 · 2026年第31周</span>
+            <h1>📱 数码行业每周情报</h1>
+            <div class="meta">
+                <span class="badge">📅 2026-07-27</span>
+                <span class="badge">🏠 盛世消费体验研究院</span>
+                <span class="badge">7月第4周</span>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <!-- 数据速览 -->
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="num">2.775亿</div>
+                <div class="lbl">Q2全球手机出货量<br>同比-6.7%</div>
+            </div>
+            <div class="data-card v2">
+                <div class="num">+300%</div>
+                <div class="lbl">内存成本同比涨幅<br>占低端机BOM 65%</div>
+            </div>
+            <div class="data-card v3">
+                <div class="num">7000万</div>
+                <div class="lbl">鸿蒙NEXT设备量<br>国内OS份额19%</div>
+            </div>
+            <div class="data-card v4">
+                <div class="num">54.89万</div>
+                <div class="lbl">华为Pura X Max累计销量<br>折叠屏断层领跑</div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="summary-box">
+            <h3>📌 本周核心摘要</h3>
+            <p>2026年Q2全球智能手机出货2.775亿部，同比下滑6.7%，连续两季负增长。存储芯片危机成为市场最大变量——内存成本同比暴涨300%，在低端机物料成本中占比超65%，小米、OPPO、vivo全线承压，而苹果、华为逆势增长20%以上。折叠屏赛道迎来洗牌：三星Z Fold8涨价100美元但仍首发骁龙8至尊版，苹果折叠屏已进入试产阶段、备货目标上调至1000万部。纯血鸿蒙跨过7000万设备大关，国内OS份额达19%超越iOS。PC市场陷入"芯片通胀"，整机均价暴涨5000元，英特尔CPU也确认涨价，行业进入长达16-20个月的高价周期。</p>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🌍</span>
+                <h2>市场大势</h2>
+                <span class="sub">本周热点</span>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="tag red">出货量</span>
+                    <div class="body">
+                        <h4>Q2全球手机出货2.775亿部，存储危机重塑竞争格局</h4>
+                        <p>IDC最新报告显示，2026年Q2全球智能手机出货量2.775亿部，同比下降6.7%，连续第二个季度下滑。中国市场份额约6601万台，同比降4.3%，已连续五季负增长。内存成本同比暴涨近300%，在低端机型物料成本中占比超65%，以低端走量为主的厂商面临生存危机。苹果和三星是前五中仅有的两家实现增长的厂商，苹果Q2出货创历史同期新高，全年份额有望达22%历史高位。华为同比增长20.9%，成为安卓阵营唯一逆势大幅增长的厂商，主要得益于维持价格稳定和针对性促销策略。618大促期间中国手机销量同比降幅近15%。</p>
+                        <a href="https://tech.sina.cn/2026-07-14/detail-inihusya1251633.d.html" class="source">来源：IDC / 新浪科技</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag purple">存储危机</span>
+                    <div class="body">
+                        <h4>"芯片通胀"全面爆发：苹果联想领衔涨价，PC整机均价暴涨5000元</h4>
+                        <p>AI算力扩张引发存储芯片需求爆炸式增长，三星、SK海力士等巨头将超70%先进产能转向AI专用HBM内存，消费级DRAM和NAND产能被压缩30%以上。TrendForce数据显示，2026年Q2 DRAM合约价环比暴涨58%-63%，NAND闪存涨幅达70%-75%。苹果6月25日宣布MacBook、iPad全球提价约20%，英特尔7月6日确认CPU涨价（Xeon服务器涨7%-12%），联想拯救者游戏本从1万元飙升至1.5-1.6万元。行业预计高价周期将持续16-20个月，2027年PC厂商可能面临15%存储芯片缺口（约5800万台PC），手机厂商缺口12%（约1.34亿部）。</p>
+                        <a href="https://www.163.com/dy/article/L16CNEUP055040N3.html" class="source">来源：上观新闻 / 网易科技</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag green">折叠屏</span>
+                    <div class="body">
+                        <h4>三星Z Fold8发布涨价100美元，苹果折叠屏入局倒计时</h4>
+                        <p>三星7月22日发布新一代折叠屏Z Fold8/Flip8系列，各机型起售价较上一代上调100美元（Flip8起售1199美元，Fold8 Ultra起售2099美元），核心原因是存储芯片等零部件价格持续攀升。Z Fold8折叠厚度仅9.7mm、重201g，搭载第五代骁龙8至尊版芯片。与此同时，苹果首款折叠屏已进入小批量试产阶段，预计9月正式亮相，搭载约7.8英寸内屏、4:3阔折叠设计，售价区间2300-2500美元，初始规划产能700-800万台，生产目标已上调至约1000万部。苹果入局将彻底重塑全球折叠屏市场格局。</p>
+                        <a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_5596a62f81153252" class="source">来源：华夏时报 / QQ新闻</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔬</span>
+                <h2>重点专题：存储危机下的手机市场分化</h2>
+                <span class="sub">深度分析</span>
+            </div>
+            <div class="section-content">
+                <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.8; margin-bottom:12px;">
+                    AI基础设施的爆发式增长正在重塑消费电子产业链。存储芯片厂商将先进产能转向高利润的HBM内存，导致消费级DRAM和NAND供给严重不足。这一结构性变化对手机市场产生了深远影响——高端品牌因内存成本占比低、供应链议价能力强而受益，低端品牌则面临成本飙升与需求萎缩的双重打击。
+                </p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>厂商</th>
+                            <th>Q2出货趋势</th>
+                            <th>市场份额变化</th>
+                            <th>核心策略</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>苹果</td>
+                            <td class="highlight">↑ 历史新高</td>
+                            <td>20%（+3.8pp）</td>
+                            <td>未涨价+提前锁定内存供应，iPhone 17需求强劲</td>
+                        </tr>
+                        <tr>
+                            <td>三星</td>
+                            <td class="highlight">↑ 同比增长</td>
+                            <td>22%（+3.2pp）</td>
+                            <td>稳健供应+折叠屏涨价转嫁成本</td>
+                        </tr>
+                        <tr>
+                            <td>华为</td>
+                            <td class="highlight">↑ +20.9%</td>
+                            <td>国内增长亮点</td>
+                            <td>维持价格稳定+拓宽产品线+品牌忠诚度</td>
+                        </tr>
+                        <tr>
+                            <td>小米</td>
+                            <td style="color:#e53e3e;">↓ 跌幅最大</td>
+                            <td>排名不变</td>
+                            <td>主动收缩低端出货量保利润，转向高价位</td>
+                        </tr>
+                        <tr>
+                            <td>OPPO/vivo</td>
+                            <td style="color:#e53e3e;">↓ 双位数下滑</td>
+                            <td>排名不变</td>
+                            <td>被迫上调售价或调整配置方案</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="trend-card">
+                    <h4>💡 关键判断</h4>
+                    <p>存储危机本质上是AI产业对消费电子的"产能虹吸"。这一趋势短期内不可逆转——半导体工厂建设周期2-3年，全球云厂商持续锁定HBM长期供货。预计2027年消费电子存储缺口将持续扩大，终端高价将成为阶段性常态。拥有供应链优势和品牌溢价能力的厂商将加速整合市场份额。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 品牌动态 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🏢</span>
+                <h2>品牌/企业动态</h2>
+                <span class="sub">7月速递</span>
+            </div>
+            <div class="section-content">
+                <div class="brand-grid">
+                    <div class="brand-item">
+                        <h4>华为 · 鸿蒙NEXT跨7000万</h4>
+                        <p>截至7月初，HarmonyOS NEXT搭载终端突破7000万台，半年内从3600万翻倍增长。注册开发者超1100万，上架应用超40万款。国内智能手机OS份额达19%，超越iOS稳居第二。鸿蒙版微信500天迭代200+版本，抖音落地28项功能+400项优化。HarmonyOS 7开发者Beta版已在HDC 2026亮相。</p>
+                    </div>
+                    <div class="brand-item">
+                        <h4>苹果 · 折叠屏试产启动</h4>
+                        <p>苹果首款折叠屏手机进入小批量试产阶段，富士康已开启大规模量产。搭载约7.8英寸内屏、A20 Pro芯片，展开厚度仅4.5mm。取消Face ID改用侧边指纹，定价约1.69万元。首批国行备货仅100万台，生产目标已上调至约1000万部，预计9月正式发布。</p>
+                    </div>
+                    <div class="brand-item">
+                        <h4>三星 · Z Fold8系列发布</h4>
+                        <p>7月22日发布Z Fold8/Flip8三款折叠新机。Z Fold8折叠厚9.7mm、重201g，4:3内屏比例，外屏5.5英寸16:10，搭载第五代骁龙8至尊版，最高1TB存储。全线涨价100美元，Fold8 Ultra起售2099美元。存储芯片涨价是核心驱动因素。</p>
+                    </div>
+                    <div class="brand-item">
+                        <h4>小米 · REDMI Note 17发布</h4>
+                        <p>7月14日发布REDMI Note 17系列，顶配搭载9000mAh金沙江电池，获TUV南德五星续航认证。支持67W有线+22.5W反向充电，1.5K OLED直屏，骁龙6系低功耗芯片。主打中端续航天花板，起售价1299元。小米18系列定档9月，1mm超窄边框+IP68/69防水。</p>
+                    </div>
+                    <div class="brand-item">
+                        <h4>英特尔 · CPU确认涨价</h4>
+                        <p>7月6日英特尔正式确认CPU涨价，高端Xeon服务器产品涨幅7%-12%，消费级Core Ultra 7 270K Plus等部分型号也调整售价。这是近年来英特尔少见的主动上调CPU官方售价，标志着AI算力需求正在改变CPU市场"价格只降不升"的长期逻辑。</p>
+                    </div>
+                    <div class="brand-item">
+                        <h4>vivo/OPPO · 折叠屏新数据</h4>
+                        <p>截至W27周，折叠屏累计销量：荣耀Magic V6 17.86万台、OPPO Find N6 15.31万台、vivo X Fold6 4.54万台（发布最晚）。华为Pura X Max标准版25.23万+典藏版29.66万=54.89万台断层领跑，单品单周超3.26万台，是安卓唯一单周过万的折叠屏品牌。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔮</span>
+                <h2>趋势展望</h2>
+                <span class="sub">前瞻判断</span>
+            </div>
+            <div class="section-content">
+                <div class="trend-card">
+                    <h4>1. 存储高价周期至少持续至2027年下半年</h4>
+                    <p>半导体工厂建设周期2-3年，当前产能扩张远滞后于AI算力需求增长。全球云厂商持续锁定HBM长期供货，消费级存储现货市场资源被进一步挤压。业内普遍预计价格至少1年内难以回落，终端高价将成为阶段性常态，消费者换机周期将进一步拉长。</p>
+                </div>
+                <div class="trend-card">
+                    <h4>2. 苹果折叠屏入局将重塑高端市场格局</h4>
+                    <p>苹果折叠屏初始规划产能700-800万台，生产目标已上调至1000万部。以苹果的品牌号召力和供应链管理能力，叠加高端用户对价格敏感度较低的特点，苹果入局将为折叠屏市场带来实打实的增量空间，同时加速三星、华为在折叠屏赛道的直接竞争。</p>
+                </div>
+                <div class="trend-card">
+                    <h4>3. 鸿蒙生态进入"生态自信"新阶段</h4>
+                    <p>7000万设备量+1100万开发者+40万应用，纯血鸿蒙已走完生态验证阶段。国内TOP 200应用全部完成原生适配，开发者从"试水"转向"深耕"。HarmonyOS 7 Beta版已发布，小艺AI助手普惠开放，终端、应用、开发者正向循环已经形成。19%的国内OS份额标志着国产操作系统正式进入主流竞争阶段。</p>
+                </div>
+                <div class="trend-card">
+                    <h4>4. 下半年旗舰季将成"差异化内卷"战场</h4>
+                    <p>9月iPhone 18+小米18同台竞技，10月华为Mate 90+三折叠登场，vivo X500和OPPO Find X10聚焦影像赛道。厂商不再盲目堆料，转向差异化体验：小米卷1mm窄边框、华为卷鸿蒙AI生态、苹果卷生态稳定性、vivo/OPPO卷影像美学。存储涨价压力下，高端市场将成为利润核心战场。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据来源 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📋</span>
+                <h2>数据来源说明</h2>
+            </div>
+            <div class="section-content">
+                <ul class="source-list">
+                    <li>IDC《全球季度手机追踪报告》2026年Q2初步数据</li>
+                    <li>TrendForce集邦咨询 - DRAM/NAND合约价格监测</li>
+                    <li>Omdia消费电子研究 - 全球智能手机出货量统计</li>
+                    <li>华为开发者大会HDC 2026 - 鸿蒙生态数据</li>
+                    <li>行业人士"RD观测" - 折叠屏周销量数据（截至W27周）</li>
+                    <li>第一财经/上观新闻 - 英特尔CPU涨价确认报道</li>
+                    <li>新浪科技/网易科技/今日头条 - 品牌动态与市场分析</li>
+                    <li>CFM中国闪存市场 - 存储芯片现货价格数据</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>盛世消费体验研究院 · 数码行业每周情报</p>
+        <p>第31期 | 2026-07-27 | 每周一更新</p>
+        <div class="back-home">
+            <a href="index.html">← 返回往期目录</a>
+        </div>
+    </div>
+</body>
+</html>
