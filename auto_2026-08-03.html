@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 汽车市场每周情报 · 第32期 · 8月第1周</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --primary-dark: #d00000;
+            --accent: #f77f00;
+            --accent2: #fcbf49;
+            --bg: #fff5f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #e63946 0%, #d00000 50%, #6a040f 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        .header .meta {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.78rem;
+            margin-top: 6px;
+        }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #fce4ec; color: #b71c1c; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #f8bbd0; }
+        .container {
+            max-width: 860px;
+            margin: -20px auto 0;
+            padding: 0 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .data-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 18px 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s;
+        }
+        .data-card:hover { transform: translateY(-2px); }
+        .data-card .label { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 6px; }
+        .data-card .value { font-size: 1.5rem; font-weight: 800; color: var(--primary); line-height: 1.2; }
+        .data-card .change { font-size: 0.78rem; margin-top: 4px; }
+        .change.up { color: #e63946; }
+        .change.down { color: #2d6a4f; }
+        .section {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 24px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffe0e0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title .icon { font-size: 1.3rem; }
+        .summary-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 8px;
+            border: 1px solid #ffcdd2;
+        }
+        .summary-box p { font-size: 0.92rem; line-height: 1.8; color: var(--text-primary); }
+        .news-item {
+            margin-bottom: 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .news-item h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; line-height: 1.5; }
+        .news-item p { font-size: 0.88rem; line-height: 1.8; color: var(--text-secondary); }
+        .news-item .source { display: inline-block; font-size: 0.72rem; color: #999; margin-top: 6px; }
+        .news-item .source a { color: var(--accent); text-decoration: none; }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 0.82rem;
+        }
+        .data-table th {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+        .data-table th:first-child { border-radius: 8px 0 0 0; }
+        .data-table th:last-child { border-radius: 0 8px 0 0; }
+        .data-table td { padding: 10px 8px; border-bottom: 1px solid #f0f0f0; }
+        .data-table tr:nth-child(even) { background: #fafafa; }
+        .data-table tr:hover { background: #fff8f8; }
+        .brand-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 14px;
+            background: #fafafa;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent);
+        }
+        .brand-item .brand-icon { font-size: 1.5rem; flex-shrink: 0; }
+        .brand-item .brand-content h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+        .brand-item .brand-content p { font-size: 0.82rem; line-height: 1.7; color: var(--text-secondary); }
+        .trend-item { display: flex; gap: 10px; margin-bottom: 14px; }
+        .trend-item .trend-num {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .trend-item .trend-text { font-size: 0.88rem; line-height: 1.7; color: var(--text-secondary); }
+        .trend-item .trend-text strong { color: var(--primary-dark); }
+        .sources { font-size: 0.75rem; color: #999; line-height: 1.8; }
+        .sources a { color: var(--accent); text-decoration: none; }
+        .footer {
+            background: linear-gradient(135deg, #6a040f 0%, #d00000 100%);
+            color: #fff;
+            text-align: center;
+            padding: 32px 20px;
+            margin-top: 28px;
+        }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        .footer p { font-size: 0.82rem; opacity: 0.9; line-height: 1.8; }
+        .footer .cycle-info { margin-top: 10px; font-size: 0.75rem; opacity: 0.7; }
+        @media (max-width: 600px) {
+            .data-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.4rem; }
+            .section-title { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="header">
+        <div class="header-inner">
+            <span class="issue-badge">第32期 · 8月第1周</span>
+            <h1>🚗 汽车市场每周情报</h1>
+            <p class="subtitle">比亚迪7月41.9万辆 · 奇瑞出口首破20万 · 零跑首超10万 · 华为ADS V5.0大版本推送</p>
+            <p class="meta">盛世消费体验研究院 · 2026年8月3日</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 数据速览 -->
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="label">比亚迪7月销量</div>
+                <div class="value">41.9万辆</div>
+                <div class="change up">↑ 同比+21.8% 纯电23.3万+插混17.8万</div>
+            </div>
+            <div class="data-card">
+                <div class="label">比亚迪7月出口</div>
+                <div class="value">18.05万辆</div>
+                <div class="change up">↑ 再创月度历史新高</div>
+            </div>
+            <div class="data-card">
+                <div class="label">奇瑞7月出口</div>
+                <div class="value">20.25万辆</div>
+                <div class="change up">↑ 同比+70.1% 中国首破20万辆</div>
+            </div>
+            <div class="data-card">
+                <div class="label">零跑7月交付</div>
+                <div class="value">10.1万辆</div>
+                <div class="change up">↑ 同比+102% 新势力首破10万</div>
+            </div>
+            <div class="data-card">
+                <div class="label">L2智驾渗透率</div>
+                <div class="value">70%</div>
+                <div class="change up">↑ 从2024年57.3%攀升</div>
+            </div>
+            <div class="data-card">
+                <div class="label">华为乾崑装机量</div>
+                <div class="value">≈200万台</div>
+                <div class="change up">↑ 合作车型超50款</div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">📋</span> 核心摘要</div>
+            <div class="summary-box">
+                <p>2026年7月中国汽车市场迎来多重里程碑：比亚迪以单月41.92万辆销量稳居全球新能源销冠，海外出口18.05万辆再创历史新高；奇瑞集团出口首破20万辆大关（20.25万辆），成为中国首个单月出口超20万辆的车企，同步跻身《财富》世界500强第383位。零跑汽车以10.13万辆交付成为首个单月破10万的新势力品牌，同比增长102%。华为乾崑ADS V5.0于7月27日开启大规模OTA推送，覆盖问界全系数十款车型，搭载辅助驾驶系统车辆逼近200万台，L2级辅助驾驶渗透率从2024年的57.3%攀升至70%。车企海外出口已成第二增长曲线，比亚迪、奇瑞、吉利、长安、长城全面发力，中国汽车全球化进程进入收获期。</p>
+            </div>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🌍</span> 市场大势</div>
+
+            <div class="news-item">
+                <h3>比亚迪7月销量41.92万辆同比+21.8%，海外出口18.05万辆再创新高</h3>
+                <p>8月2日比亚迪(002594.SZ)发布2026年7月产销快报：新能源汽车产量42.02万辆，销量41.92万辆，同比增长21.75%。细分来看，新能源乘用车销量41.11万辆，其中纯电动23.31万辆、插电式混合动力17.80万辆；新能源商用车8139辆。7月出口新能源汽车合计180,538辆，再度刷新月度高点，海外渠道扩张效果持续显现。1-7月累计销量222.77万辆，虽累计同比下降10.54%（因去年高基数），但7月单月同比增速显著回暖。比亚迪在巴西市场单月销量已突破2万辆，在英国新能源市场保持领先，匈牙利工厂预计Q4投产，全年出口有望突破180万辆。海外单车ASP及盈利显著高于国内，海外业务正成为核心利润增长引擎。</p>
+                <span class="source">来源：<a href="https://www.cnr.cn/jingji/gundong/20260802/t20260802_527743541.shtml">央广网·比亚迪7月产销快报</a></span>
+            </div>
+
+            <div class="news-item">
+                <h3>奇瑞7月出口首破20万辆，成中国首个单月出口超20万辆车企，跻身财富500强</h3>
+                <p>2026年7月奇瑞集团销售汽车276,820辆，同比增长23.3%。其中出口202,533辆，同比增长70.1%，连续五个月刷新中国汽车单月出口纪录，成为中国首个单月出口突破20万辆的车企！新能源板块销售129,067辆，同比增长97.5%，创单月新能源销量新高。1-7月累计销量1,634,353辆（+10.1%），累计出口1,146,350辆（+71.2%），最快速度达成年内出口超110万辆。7月奇瑞迎来两座里程碑：全球累计销量突破2000万辆，以及奇瑞汽车(9973.HK)首次以上市公司身份进入《财富》世界500强，位列第383位，成为中国大陆年度唯一新入榜企业。在ROE 50强子榜单中，奇瑞以36.5%的ROE位列全球第30位，在上榜中国企业中位居第一。多款新能源爆款持续发力：风云A9预售15天订单破3.1万辆，智界V9单月交付超1万台。</p>
+                <span class="source">来源：<a href="https://www.toutiao.com/article/7669412576928727615">中国交通广播·奇瑞7月成绩单</a></span>
+            </div>
+
+            <div class="news-item">
+                <h3>华为乾崑ADS V5.0暑期大版本OTA推送，装机量逼近200万台，L2渗透率攀升至70%</h3>
+                <p>7月27日鸿蒙智行发布OTA问界暑期版本，带来数十项新增功能，覆盖M9全系、M8全系、M7 2026款等十余款车型。ADS MAX V5.0核心升级包括：WEWA 2.0领航体验全面升级，复杂车流场景决策更像老司机；新增城区漫游巡航辅助(RCA)功能，非导航状态下支持红绿灯识别和自主变道超车；新增园区漫游巡航辅助和车位到车位直达充电车位功能；新增自动防追尾辅助功能。ADS Pro V5.0则新增三点式掉头功能和园区领航辅助(Campus NCA)。华为智能汽车解决方案BU CEO靳玉志透露，引望合作车型品牌已超50款，累计搭载辅助驾驶系统车辆超190万台，预计8月初达200万台。乘用车L2级辅助驾驶渗透率从2024年的57.3%攀升至2026年7月的70%，规模正从车企的销量目标变成供应商的生存门槛。ADS 5年度OTA计划：7月推送V5.0、9-10月推出脱困绕行版本、明年初春节前推出紧急逃生超越人类版本。</p>
+                <span class="source">来源：<a href="https://www.ithome.com/0/982/227.htm">IT之家·鸿蒙智行OTA问界暑期版本</a> · <a href="https://www.toutiao.com/article/7665988630925689385">21世纪经济报道·华为乾崑媒体日</a></span>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🔬</span> 重点专题：2026年7月中国车企销量TOP8排行榜</div>
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.8; margin-bottom:12px;">8月1-2日各车企陆续公布7月产销快报，海外出口已成核心增长极。比亚迪断层领先，奇瑞出口创纪录，零跑首破10万，头部车企格局如下：</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>车企</th>
+                        <th>7月销量</th>
+                        <th>海外出口</th>
+                        <th>核心看点</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>比亚迪</td><td>419,211辆</td><td>180,538辆</td><td>同比+21.8%，海外再创月度新高</td></tr>
+                    <tr><td>2</td><td>奇瑞集团</td><td>276,820辆</td><td>202,533辆</td><td>中国首个单月出口破20万车企</td></tr>
+                    <tr><td>3</td><td>吉利汽车</td><td>250,161辆</td><td>107,000辆</td><td>海外创单月历史新高</td></tr>
+                    <tr><td>4</td><td>长安汽车</td><td>207,100辆</td><td>82,300辆</td><td>海外同比+79.1%，新能源+28.8%</td></tr>
+                    <tr><td>5</td><td>长城汽车</td><td>108,067辆</td><td>62,000辆</td><td>同比增长3.54%，欧拉品牌大增151.6%</td></tr>
+                    <tr><td>6</td><td>零跑汽车</td><td>101,267辆</td><td>—</td><td>新势力首个单月破10万，同比+102%</td></tr>
+                    <tr><td>7</td><td>上汽乘用车</td><td>77,900+辆</td><td>—</td><td>荣威+MG 1-7月累计超51.4万辆</td></tr>
+                    <tr><td>8</td><td>理想汽车</td><td>—</td><td>—</td><td>连续三个月同比环比双下滑</td></tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.75rem; color:#999; margin-top:8px;">数据来源：各车企7月产销快报/交付公告（2026.8.1-8.2发布）</p>
+        </div>
+
+        <!-- 品牌动态 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🏢</span> 品牌/企业动态</div>
+
+            <div class="brand-item">
+                <div class="brand-icon">🚀</div>
+                <div class="brand-content">
+                    <h4>零跑汽车7月交付10.13万辆，首次突破10万大关创行业纪录</h4>
+                    <p>8月1日零跑汽车发布7月交付数据：101,267台，同比增长102%，单月交付首次突破10万台大关，成为国内首个单月交付超10万辆的造车新势力。零跑凭借"C系列保量+D系列保价"双线打法持续验证成功，海外出口近10万辆（超过去年全年），在意大利纯电市场占有率超过1/3。C系列全面焕新升级，6月销量已突破3万台。零跑的断层领跑进一步加剧新势力分化。</p>
+                </div>
+            </div>
+
+            <div class="brand-item">
+                <div class="brand-icon">🌏</div>
+                <div class="brand-content">
+                    <h4>吉利7月销量25万辆创同期新高，海外出口10.7万辆创单月历史新高</h4>
+                    <p>吉利汽车集团7月销量250,161辆，再创同期新高。海外出口销量10.7万辆，创单月历史新高。7月新能源销量160,165辆，同比增长23%，新能源出口销量62,604辆，同比增长616%，增速领跑头部集团。吉利正加速推进全球化布局，极氪、领克等品牌在欧洲市场持续渗透，新能源出口成为增长最强劲的板块。</p>
+                </div>
+            </div>
+
+            <div class="brand-item">
+                <div class="brand-icon">⚡</div>
+                <div class="brand-content">
+                    <h4>华为乾崑ADS V5.0推送数十项新功能，问界全系OTA升级</h4>
+                    <p>7月27日鸿蒙智行发布OTA问界暑期版本，ADS MAX V5.0带来WEWA 2.0领航体验升级、城区/园区漫游巡航辅助(RCA)、车位到车位直达充电车位、自动防追尾辅助等核心新功能。ADS Pro V5.0新增三点式掉头和园区领航辅助(Campus NCA)。覆盖M9/M8/M7/M6/M5全系十余款车型。华为乾崑CEO靳玉志公布年度OTA路线图：7月V5.0、9-10月脱困绕行版、明年初紧急逃生超越人类版。</p>
+                </div>
+            </div>
+
+            <div class="brand-item">
+                <div class="brand-icon">🛡️</div>
+                <div class="brand-content">
+                    <h4>长安汽车7月交付20.71万辆，海外与新能源成双增长引擎</h4>
+                    <p>长安汽车8月2日宣布7月交付207,100辆，其中海外交付82,300辆，同比增长79.1%；新能源交付96,500辆，同比增长28.8%。1-7月累计销售238.4万辆，新能源汽车销量累计达97.25万辆（+27.37%），出口及海外基地销售累计87.63万辆（+52.11%）。海外与新能源成为长安的双增长引擎，阿维塔、深蓝等新能源品牌持续放量。</p>
+                </div>
+            </div>
+
+            <div class="brand-item">
+                <div class="brand-icon">📋</div>
+                <div class="brand-content">
+                    <h4>充电桩CCC认证8月1日起强制实施，西安汽车消费补贴政策升级</h4>
+                    <p>8月1日起，市场监管总局对电动汽车供电设备强制性产品认证(CCC认证)管理开始强制实施，未获CCC认证的充电桩不得出厂、销售、进口或使用，从生产源头管控充电设施安全风险。同日，西安汽车消费补贴政策升级：购买新能源乘用车按发票价2%补贴最高1万元，购买2026年新款新能源车型额外补贴2000-3000元，购买二手乘用车按1.5%补贴最高4000元，政策有效期至10月8日。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🔮</span> 趋势展望</div>
+
+            <div class="trend-item">
+                <div class="trend-num">1</div>
+                <div class="trend-text"><strong>海外出口成中国车企第二增长曲线</strong>：奇瑞单月出口首破20万辆，比亚迪18万辆，吉利10.7万辆，长安8.2万辆——头部车企全面出海。1-7月奇瑞累计出口114.6万辆（+71.2%），比亚迪全年出口有望突破180万辆。欧洲市场中国乘用车份额已超日本，全球化进程进入全面收获期。</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-num">2</div>
+                <div class="trend-text"><strong>智驾从"堆料竞争"转向"规模+责任闭环"</strong>：华为乾崑装机量逼近200万台，L2渗透率达70%，规模效应已现。ADS V5.0的OTA路线图显示，智驾竞争正从硬件参数比拼转向算法效率、场景覆盖和责任保障。下半年智驾订阅制落地将进一步降低门槛，高阶智驾大众化普及提速。</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-num">3</div>
+                <div class="trend-text"><strong>新势力分化加剧，理想掉队风险显现</strong>：零跑以10.13万辆首破10万大关，断层领跑新势力；蔚来、小鹏稳定在三、四万辆区间；理想连续三个月同比环比双下滑。零跑"C系列保量+D系列保价"双线打法持续验证，理想增程路线面临问界和小米SkyNomad双重夹击。</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-num">4</div>
+                <div class="trend-text"><strong>政策端持续加码护航新能源消费</strong>：充电桩CCC认证强制实施从源头管控安全风险，西安等地汽车消费补贴政策升级。下半年地方补贴+以旧换新政策有望持续推出，叠加海外出口高景气，全年新能源产销有望再创新高。</div>
+            </div>
+        </div>
+
+        <!-- 数据来源 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">📚</span> 数据来源说明</div>
+            <div class="sources">
+                · 比亚迪股份有限公司2026年7月产销快报（港交所披露易，2026.8.2）<br>
+                · 奇瑞集团2026年7月销量公告（奇瑞官方公众号，2026.8.1）<br>
+                · <a href="https://www.cnr.cn/jingji/gundong/20260802/t20260802_527743541.shtml">央广网·比亚迪7月产销数据</a><br>
+                · <a href="https://www.toutiao.com/article/7669412576928727615">中国交通广播·奇瑞7月成绩单</a><br>
+                · <a href="https://new.qq.com/rain/a/20260802A0BCGO00?refer=cp_1009">腾讯新闻·多家A股车企7月销量公告</a><br>
+                · <a href="https://www.ithome.com/0/982/227.htm">IT之家·鸿蒙智行OTA问界暑期版本</a><br>
+                · <a href="https://www.toutiao.com/article/7665988630925689385">21世纪经济报道·华为乾崑媒体日</a><br>
+                · <a href="https://auto.sina.cn/2026-07-28/detail-inikhuhn8226494.d.html">新浪汽车·理想L6与问界M7智驾横评</a><br>
+                · <a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_7356a6fef7d68852">财联社·汽车早报8月3日</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>盛世消费体验研究院 · 市场情报中心</p>
+        <p>每周一推送 · 助您掌握行业脉搏</p>
+        <div class="back-home">
+            <a href="index.html">← 返回往期目录</a>
+        </div>
+        <div class="cycle-info">
+            ⭐ 第1周 | 🏠 家电行业情报 &nbsp; ⭐ 第2周 | 📱 数码行业情报<br>
+            ⭐ 第3周 | 🚗 汽车市场情报 &nbsp; ⭐ 第4周 | 📊 综合情报
+        </div>
+    </div>
+</body>
+</html>
