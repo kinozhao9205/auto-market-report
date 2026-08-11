@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 消费市场综合每周情报 · 第33期 · 8月第2周</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #8b5cf6;
+            --accent2: #ec4899;
+            --bg: #f5f3ff;
+            --text-primary: #1e1b4b;
+            --text-secondary: #4c4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #7c3aed 40%, #db2777 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        .header .meta {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.78rem;
+            margin-top: 6px;
+        }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #ede9fe; color: #5b21b6; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #ddd6fe; }
+        .container {
+            max-width: 860px;
+            margin: -20px auto 0;
+            padding: 0 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .section { margin-bottom: 28px; }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .data-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 18px 14px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+            border: 1px solid rgba(99,102,241,0.06);
+            transition: transform 0.2s;
+        }
+        .data-card:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(99,102,241,0.15); }
+        .data-card .value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #db2777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .data-card .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .data-card .change {
+            font-size: 0.72rem;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        .change.up { color: #dc2626; }
+        .change.down { color: #059669; }
+        .summary-box {
+            background: linear-gradient(135deg, #f5f3ff 0%, #fdf2f8 100%);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            border: 1px solid rgba(139,92,246,0.12);
+            line-height: 1.8;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+        .summary-box strong { color: var(--primary-dark); }
+        .news-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-left: 3px solid var(--primary);
+        }
+        .news-card .tag {
+            display: inline-block;
+            background: rgba(99,102,241,0.1);
+            color: var(--primary-dark);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .news-card .tag.home { background: rgba(14,165,233,0.1); color: #0369a1; }
+        .news-card .tag.digital { background: rgba(168,85,247,0.1); color: #7e22ce; }
+        .news-card .tag.auto { background: rgba(220,38,38,0.1); color: #b91c1c; }
+        .news-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .news-card p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .news-card .source {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            margin-top: 6px;
+        }
+        .news-card .source a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .topic-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 20px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .topic-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+        }
+        .topic-card p {
+            font-size: 0.88rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            margin-top: 8px;
+        }
+        table th {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+        table th:first-child { border-radius: 8px 0 0 0; }
+        table th:last-child { border-radius: 0 8px 0 0; }
+        table td {
+            padding: 9px 8px;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--text-secondary);
+        }
+        table tr:hover td { background: #f8f7ff; }
+        .brand-list { display: grid; gap: 10px; }
+        .brand-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 16px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+            border-left: 3px solid var(--accent);
+        }
+        .brand-item .brand-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+        .brand-item .brand-desc {
+            font-size: 0.82rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+        }
+        .outlook-list { list-style: none; }
+        .outlook-list li {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 16px 14px 48px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            position: relative;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+        .outlook-list li::before {
+            content: attr(data-num);
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+        .source-list {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 0.78rem;
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+        .source-list a { color: var(--primary); text-decoration: none; }
+        .footer {
+            background: linear-gradient(135deg, #4c1d95, #6366f1);
+            color: rgba(255,255,255,0.85);
+            padding: 24px 16px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .footer .footer-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .footer .footer-desc {
+            font-size: 0.76rem;
+            color: rgba(255,255,255,0.55);
+        }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.3rem; }
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            table { font-size: 0.75rem; }
+            table th, table td { padding: 7px 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top"><a href="index.html">← 返回往期目录</a></div>
+    <div class="header">
+        <div class="header-inner">
+            <span class="issue-badge">第33期 · 2026年8月第2周</span>
+            <h1>📊 消费市场综合每周情报</h1>
+            <p class="subtitle">家电 · 数码 · 汽车 三大行业全景洞察</p>
+            <p class="meta">盛世消费体验研究院 · 2026年8月10日</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 数据速览 -->
+        <div class="section">
+            <div class="section-title">📈 数据速览</div>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="value">625亿</div>
+                    <div class="label">第三批国补总额</div>
+                    <div class="change up">29省市同步执行</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">+21%</div>
+                    <div class="label">折叠屏出货同比</div>
+                    <div class="change up">2026全球预测</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">139.5万</div>
+                    <div class="label">8月新能源车销量</div>
+                    <div class="change up">同比+26.8%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">55%+</div>
+                    <div class="label">新能源渗透率</div>
+                    <div class="change up">稳定突破</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">286万</div>
+                    <div class="label">比亚迪1-8月销量</div>
+                    <div class="change up">同比+23%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">60%</div>
+                    <div class="label">华为折叠屏份额</div>
+                    <div class="change up">Q1中国市场</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="section">
+            <div class="section-title">💡 核心摘要</div>
+            <div class="summary-box">
+                本周消费市场三大行业呈现<strong>政策驱动、技术破局、全球化加速</strong>三大主线。家电领域，2026年第三批625亿元国补8月起在29省市全面执行，智能家居补贴首次设置智能化与能效双重门槛，加速行业洗牌，头部品牌持续受益。数码领域，苹果折叠iPhone路线图曝光——2026秋季首发iPhone Ultra，已规划至第三代（2028年），全球折叠屏出货预计同比+21%，三星32%/苹果25%/华为24%三足鼎立格局成型；存储芯片涨价被库克称为"百年一遇的洪水"，手机行业下半年承压。汽车领域，8月新能源车产销双超139万辆创历史新高，渗透率稳定突破55%；比亚迪8月37.4万辆再夺销冠，智能驾驶车型占比达90%，海外63万辆同比+135%。
+            </div>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-title">🔥 市场大势</div>
+
+            <div class="news-card">
+                <span class="tag home">🏠 家电</span>
+                <h3>625亿国补8月全面落地，智能家居补贴设双重门槛加速洗牌</h3>
+                <p>2026年第三批总额625亿元家电数码换新补贴8月起在全国29省市同步执行，政策有效期至2026年12月31日。节能大家电可享成交价15%补贴，单件最高减免1500元；手机、平板等3C数码同享15%补贴，单品封顶500元。多地政策首次明确设置智能化功能及能效水效门槛——北京要求新增产品须具备智能功能且为1级能效，甘肃要求补贴产品须具备智能功能且为1级能效。业内专家指出，这一导向将推动行业"优币驱逐劣币"，头部品牌持续受益，同时加速淘汰缺少核心智能功能、能耗不达标的同质化产品。8月空调、冰箱、洗衣机合计排产2833万台，同比下降6.3%，行业重点关注库存去化与海外需求修复。</p>
+                <div class="source">来源：<a href="https://new.qq.com/rain/a/20260811A04V5300">腾讯新闻</a> · <a href="https://weibo.com/1726544024/5330677142914428">微博行业汇总</a></div>
+            </div>
+
+            <div class="news-card">
+                <span class="tag digital">📱 数码</span>
+                <h3>苹果折叠iPhone三年路线图曝光，全球折叠屏市场迎巨变</h3>
+                <p>据知名科技记者马克·古尔曼披露，苹果已敲定折叠iPhone完整三年迭代路线：初代iPhone Ultra将于2026年秋季发布，采用7.8英寸内屏+5.5英寸外屏，搭载A20芯片与C2自研基带，起步价约2000美元（约13530元）；第二代2027年推出，重点优化铰链与折痕；第三代2028年问世，屏幕尺寸进一步增大。Counterpoint Research预测，2026年全球折叠屏出货量同比增长21%，三星以32%份额继续领先但优势收窄（2025年为40%），苹果入局首年拿下25%，华为占24%。在中国市场，华为Q1折叠屏份额高达60%，Pura X系列累计销量突破154万台，vivo X Fold5销量达52万台。折叠屏面板出货量预计约2750万片，营收约44亿美元，同比增长48%。</p>
+                <div class="source">来源：<a href="https://www.jiemian.com/article/14898060.html">界面新闻</a> · <a href="https://guba.eastmoney.com/news,603296,1753595081.html">东方财富</a></div>
+            </div>
+
+            <div class="news-card">
+                <span class="tag auto">🚗 汽车</span>
+                <h3>8月新能源车产销双破139万辆，渗透率稳定超55%迈入新阶段</h3>
+                <p>据中国汽车工业协会8月9日最新数据，2026年8月国内新能源汽车生产139.1万辆、销售139.5万辆，同比增幅分别达27.4%和26.8%。国内零售市场销量117.1万辆，环比上涨13%，同比增长18.3%。1-8月累计产销超962万辆，同比增长超36%，国内市场渗透率稳定突破55%——每卖出两台新车就有一台是新能源。出口方面，8月新能源车海外出货量22.4万辆，巴西市场前7个月新能源汽车销量同比暴涨120.8%，中国品牌出口巴西同比增长超105%。比亚迪8月销量37.4万辆稳居榜首，1-8月累计286万辆同比增长23%，已完成年度460万辆目标的62%。智能驾驶车型8月销量263721辆占比达90%，"天神之眼"辅助驾驶系统累计搭载超140万辆。海外市场1-8月销售63万辆，同比增长135%。</p>
+                <div class="source">来源：<a href="https://www.toutiao.com/a7672029139150406194">今日头条</a> · <a href="https://chejiahao.m.autohome.com.cn/info/22532988">汽车之家</a></div>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-title">🎯 重点专题</div>
+
+            <div class="topic-card">
+                <h3>专题一：存储芯片涨价冲击波——手机行业的"百年一遇"</h3>
+                <p>苹果CEO库克在最近财报会议中将当前存储芯片价格环境形容为"百年一遇的洪水"，称价格出现指数级上涨。这一判断引发整个消费电子产业链的高度关注。Counterpoint Research数据显示，2026年Q2中国智能手机出货量同比下降2%，存储成本上涨促使厂商采取保守生产策略、优先高利润机型。然而在整体承压的背景下，折叠屏细分赛道却逆势扩张——2026年全球折叠屏出货预计同比增长21%，苹果入局成为最大催化剂。</p>
+                <p>这一趋势对三大行业产生连锁影响：数码领域，手机品牌面临"涨价还是减配"的两难抉择，高端化成为必然选择；家电领域，AI智能家电对存储芯片需求同样旺盛，芯片涨价推高智能家电成本；汽车领域，智能驾驶系统对算力和存储需求急增，比亚迪8月智能驾驶车型占比已达90%，芯片成本压力同样不可忽视。</p>
+                <table>
+                    <tr><th>行业</th><th>受影响环节</th><th>应对策略</th><th>影响程度</th></tr>
+                    <tr><td>数码手机</td><td>存储芯片采购成本↑</td><td>优先高利润机型，推迟中端新品</td><td>🔴 高</td></tr>
+                    <tr><td>智能家电</td><td>AI芯片模组成本↑</td><td>国补对冲，加速低端淘汰</td><td>🟡 中</td></tr>
+                    <tr><td>智能汽车</td><td>智驾算力芯片需求↑</td><td>自研芯片（比亚迪/华为）</td><td>🟡 中</td></tr>
+                    <tr><td>折叠屏</td><td>铰链+UTG玻璃成本高</td><td>苹果入局抬高定价基准</td><td>🔴 高</td></tr>
+                </table>
+            </div>
+
+            <div class="topic-card">
+                <h3>专题二：国补政策红利全景——625亿如何重塑消费市场</h3>
+                <p>2026年第三批625亿元国补8月全面落地，覆盖家电、数码、新能源汽车三大领域，叠加平台大促形成"五重优惠"叠加机制。政策核心变化在于首次设置智能化+能效双重门槛，这将从根本上重塑行业竞争格局。</p>
+                <table>
+                    <tr><th>品类</th><th>补贴比例</th><th>单件上限</th><th>门槛要求</th><th>叠加规则</th></tr>
+                    <tr><td>大家电（空调/冰箱/洗衣机等）</td><td>15%</td><td>1500元</td><td>1级能效+智能功能</td><td>平台满减+店铺折扣+以旧换新</td></tr>
+                    <tr><td>3C数码（手机/平板/笔记本）</td><td>15%</td><td>500元</td><td>6000元内机型</td><td>学生优惠+会员折扣</td></tr>
+                    <tr><td>新能源车</td><td>专项</td><td>20000元</td><td>新能源车型</td><td>地方补贴叠加</td></tr>
+                    <tr><td>MacBook（归类大家电）</td><td>15%</td><td>1500元</td><td>全新国行正品</td><td>苹果教育优惠叠加</td></tr>
+                </table>
+                <p>关键规则：同一身份证每类家电全年限领1次，多品类互不冲突；下单账号、付款人、收货人身份证必须一致；每日10:00和20:00系统刷新额度池。国补可与京东热8购物季、淘宝88大促等平台活动叠加，最高可省45%。</p>
+            </div>
+        </div>
+
+        <!-- 品牌/企业动态 -->
+        <div class="section">
+            <div class="section-title">🏢 品牌/企业动态</div>
+            <div class="brand-list">
+                <div class="brand-item">
+                    <div class="brand-name">🏠 美的集团 — PortaSplit移动空调欧洲爆单</div>
+                    <div class="brand-desc">今夏欧洲多地极端高温带动中国空调热销，美的出口欧洲的PortaSplit移动分体式空调成为爆款，销量较去年实现翻倍，广东工厂加紧生产应对国际需求。8月冰箱外销排产同比增长6.9%，洗衣机外销排产保持同比增长，海外市场成为重要增长极。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">📱 华为 — 折叠屏统治力+智能手机份额新高</div>
+                    <div class="brand-desc">2026年Q1华为在中国折叠屏市场份额高达60%，Pura X系列累计销量突破154万台，Pura X Max在万元价位段卖出58万台。Q2中国智能手机出货量份额达23%，创2020年Q4以来新高。产品矩阵从Mate X到Pura X到三折叠，在折叠屏市场建立完整壁垒。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">📱 苹果 — 折叠iPhone三年路线图+存储涨价预警</div>
+                    <div class="brand-desc">苹果首款折叠iPhone Ultra计划2026秋季发布，已规划至第三代（2028年）。初代定价约14999元起，仅提供银色和深蓝色两种配色。三星Galaxy Z Fold8销量超预期约三倍。库克预警存储芯片涨价为"百年一遇"，公司正在评估应对方案。Q2中国智能手机出货同比增23%逆势增长。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">🚗 比亚迪 — 8月37.4万辆+智能驾驶占比90%+海外暴增135%</div>
+                    <div class="brand-desc">8月销量37.4万辆新能源车稳居榜首，1-8月累计286万辆同比+23%，已完成年度460万辆目标62%。智能驾驶车型8月销量263721辆占比90%，"天神之眼"辅助驾驶系统累计搭载超140万辆，每天生成8700万公里辅助驾驶数据。海外1-8月销售63万辆同比+135%，占比达22%。成都车展将亮相旗舰轿车"大汉"，纯电版CLTC续航最高1008km。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">🚗 阿维塔 — 07L豪华纯电SUV上市22.99万起</div>
+                    <div class="brand-desc">8月8日阿维塔07L正式上市，定位大五座豪华纯电SUV，依托CHN智能平台标配高阶全场景智能驾驶，官方指导价22.99万起，限时权益价下探至21.99万，瞄准20-30万主流高端市场。知名演员张凌赫成为首位车主，进一步拉高市场热度。20-30万高端纯电市场竞争白热化。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">📱 vivo — X Fold5销量52万台卡位折叠屏腰部</div>
+                    <div class="brand-desc">vivo X Fold5销量突破52万台，成为除华为外唯一破50万台的横向大折叠产品。定价6999至9499元，卡在苹果14999元定价的腰部以下，以均衡配置和性价比策略抢占市场份额。与华为的产品矩阵防守和苹果的品牌溢价进攻形成差异化竞争。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">🏠 三星/LG — AI智能家电新品8月集中发布</div>
+                    <div class="brand-desc">三星、LG在8月推出AI赋能的智能家电新品，包括搭载AI织物护理与节能优化功能的洗衣机、升级制冷技术与智能互联功能的冰箱。海信与东芝在印度市场推出独立日专属促销，电视、空调、洗衣机最高享40%折扣。国补智能化门槛倒逼外资品牌加速AI功能落地。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-title">🔮 趋势展望</div>
+            <ul class="outlook-list">
+                <li data-num="1"><strong>国补门槛效应持续放大</strong>：智能家居补贴的智能化+能效双重门槛将在Q3-Q4加速淘汰低端产能，头部品牌市占率有望进一步提升。建议关注美的、海尔、格力在AI智能家电领域的差异化布局。</li>
+                <li data-num="2"><strong>折叠屏进入"苹果时代"</strong>：iPhone Ultra秋季发布将重新定义折叠屏产品标准，三星Z8系列阔折叠设计先行试水。Q4多品牌新品集中上市是检验市场成色的关键窗口，折叠屏面板营收预计同比增长48%。</li>
+                <li data-num="3"><strong>存储芯片涨价传导效应</strong>：芯片成本上涨将从手机向智能家电、智能汽车全链路传导，加速行业"高端化+自研化"趋势。比亚迪全产业链自研、华为芯片自研的战略价值进一步凸显。</li>
+                <li data-num="4"><strong>新能源车"金九银十"可期</strong>：8月产销双破139万辆为Q3旺季奠定基础，成都车展多款旗舰新车集中亮相，叠加新能源车国补2万元+地方补贴叠加，9-10月销量有望再创新高。智能驾驶渗透率从57.3%攀升至70%的趋势不可逆转。</li>
+                <li data-num="5"><strong>海外市场成增长第二曲线</strong>：比亚迪海外+135%、美的空调欧洲翻倍、奇瑞出口首破20万辆——中国消费品牌出海正从"试水"走向"规模化"。巴西、欧洲、东南亚成为三大增量市场，建议持续关注出海龙头标的。</li>
+            </ul>
+        </div>
+
+        <!-- 数据来源 -->
+        <div class="section">
+            <div class="section-title">📚 数据来源</div>
+            <div class="source-list">
+                1. 中国汽车工业协会 — 2026年8月新能源汽车产销数据<br>
+                2. Counterpoint Research — 2026年全球折叠屏智能手机市场预测<br>
+                3. 国家发改委/财政部/商务部 — 2026年第三批625亿元换新补贴政策<br>
+                4. 产业在线 — 2026年8月家电排产数据<br>
+                5. 乘联会 — 2026年8月新能源乘用车市场分析<br>
+                6. <a href="https://www.jiemian.com/article/14898060.html">界面新闻 — 苹果折叠iPhone路线图</a><br>
+                7. <a href="https://www.toutiao.com/a7672029139150406194">今日头条 — 8月新能源汽车全面升级</a><br>
+                8. <a href="https://new.qq.com/rain/a/20260811A04V5300">腾讯新闻 — 625亿国补全指南</a><br>
+                9. <a href="https://chejiahao.m.autohome.com.cn/info/22532988">汽车之家 — 比亚迪8月销量分析</a><br>
+                10. <a href="https://weibo.com/1726544024/5330677142914428">微博 — 8月家电行业动态汇总</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-title">盛世消费体验研究院</div>
+        <div class="footer-desc">⭐ 第1周 | 🏠 家电行业情报 · ⭐ 第2周 | 📱 数码行业情报 · ⭐ 第3周 | 🚗 汽车市场情报 · ⭐ 第4周 | 📊 综合情报</div>
+        <div class="footer-desc">助您轻松掌握趋势，抢占市场先机！</div>
+        <div class="back-home"><a href="index.html">← 返回往期目录</a></div>
+    </div>
+</body>
+</html>
