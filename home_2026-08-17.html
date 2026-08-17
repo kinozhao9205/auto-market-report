@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 家电行业情报 | 2026年8月17日</title>
+    <style>
+        :root {
+            --primary-color: #1e88e5;
+            --secondary-color: #43a047;
+            --accent-color: #ff7043;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #546e7a;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(180deg, #f5f7fa 0%, #e4e8ec 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .container { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+        header { background: var(--bg-gradient); color: white; padding: 30px 20px; border-radius: var(--border-radius); margin-bottom: 24px; box-shadow: var(--shadow); }
+        header h1 { font-size: 1.8rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        header .date { font-size: 0.95rem; opacity: 0.9; }
+        .section { background: var(--card-bg); border-radius: var(--border-radius); padding: 20px; margin-bottom: 20px; box-shadow: var(--shadow); }
+        .section h2 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #e3f2fd; display: flex; align-items: center; gap: 8px; }
+        .data-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 8px; }
+        .data-card { background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 10px; padding: 16px 12px; text-align: center; transition: transform 0.2s; }
+        .data-card:hover { transform: translateY(-2px); }
+        .data-card .value { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+        .data-card .label { font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px; }
+        .data-card .change { font-size: 0.82rem; margin-top: 4px; font-weight: 600; }
+        .change.up { color: #e53935; }
+        .change.down { color: #43a047; }
+        .summary-box { background: linear-gradient(135deg, #e8eaf6 0%, #fce4ec 100%); border-radius: 10px; padding: 18px; margin-bottom: 8px; }
+        .summary-box p { font-size: 0.95rem; color: var(--text-primary); line-height: 1.8; }
+        .news-item { margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid #f0f0f0; }
+        .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .news-item h3 { font-size: 1.05rem; color: var(--text-primary); margin-bottom: 8px; }
+        .news-item .meta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px; }
+        .news-item p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8; }
+        .news-item .source { font-size: 0.8rem; color: var(--primary-color); margin-top: 6px; }
+        .news-item .source a { color: var(--primary-color); text-decoration: none; }
+        .topic-box { background: #f5f7fa; border-radius: 10px; padding: 18px; margin-bottom: 16px; border-left: 4px solid var(--accent-color); }
+        .topic-box h3 { font-size: 1.1rem; color: var(--text-primary); margin-bottom: 10px; }
+        .topic-box p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.88rem; }
+        table th { background: var(--primary-color); color: white; padding: 10px 8px; text-align: left; font-weight: 500; }
+        table th:first-child { border-radius: 8px 0 0 0; }
+        table th:last-child { border-radius: 0 8px 0 0; }
+        table td { padding: 10px 8px; border-bottom: 1px solid #e0e0e0; }
+        table tr:nth-child(even) { background: #f9f9f9; }
+        table tr:hover { background: #e3f2fd; }
+        .brand-item { display: flex; gap: 12px; margin-bottom: 14px; padding: 12px; background: #f5f7fa; border-radius: 8px; }
+        .brand-item .brand-logo { font-size: 1.5rem; flex-shrink: 0; }
+        .brand-item .brand-content h4 { font-size: 0.98rem; color: var(--primary-color); margin-bottom: 4px; }
+        .brand-item .brand-content p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+        .trend-list { list-style: none; }
+        .trend-list li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.92rem; color: var(--text-secondary); display: flex; gap: 8px; }
+        .trend-list li:last-child { border-bottom: none; }
+        .trend-list li::before { content: "▸"; color: var(--accent-color); font-weight: bold; flex-shrink: 0; }
+        .source-section { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.8; }
+        .source-section a { color: var(--primary-color); text-decoration: none; }
+        .footer { background: var(--bg-gradient); color: white; padding: 24px 20px; border-radius: var(--border-radius); text-align: center; margin-top: 24px; }
+        .footer p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 6px; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.4rem; }
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 16px 12px; }
+            table { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="container">
+        <header>
+            <h1>🏠 家电行业情报</h1>
+            <div class="date">2026年8月17日 | 第34期 | 盛世消费体验研究院</div>
+        </header>
+
+        <div class="section">
+            <h2>📊 数据速览</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="value">625亿</div>
+                    <div class="label">第三批国补资金</div>
+                    <div class="change up">8月全面落地29省市</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">718.9亿$</div>
+                    <div class="label">上半年白电出口额</div>
+                    <div class="change up">同比+4.6%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">1073万台</div>
+                    <div class="label">8月空调排产</div>
+                    <div class="change down">同比-16.7%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">+21.2%</div>
+                    <div class="label">自主品牌家电出口增速</div>
+                    <div class="change up">占比达1/4</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">4000亿</div>
+                    <div class="label">2026空调市场规模</div>
+                    <div class="change down">增速放缓至5%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">7万+</div>
+                    <div class="label">海尔欧洲紧急交付</div>
+                    <div class="change up">10余天完成</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 核心摘要</h2>
+            <div class="summary-box">
+                <p>2026年8月家电行业呈现"政策强刺激、出口结构分化、内销承压转型"三大主线。第三批625亿国补资金8月全面落地29省市，家电单件最高补贴1500元，地方增补适老化设备补贴比例提升至20%，政策力度空前。出口端冰洗逆势走强——冰箱出口排产+6.9%、洗衣机+4.3%，自主品牌出口增长21.2%，但空调排产同比-16.7%，内销承压明显。三大白电巨头Q1财报盈利质量松动：美的扣非净利-14.02%，海尔净利-15.22%，行业从"量增"转向"结构性升级"。欧洲高温催生空调需求井喷，海尔10余天紧急交付7万余套，中国制造敏捷响应能力再获验证。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌐 市场大势</h2>
+            <div class="news-item">
+                <h3>625亿国补第三批8月全面落地，家电补贴15%单件最高1500元</h3>
+                <div class="meta">2026-08-14 | 政策动态</div>
+                <p>2026年第三批总额625亿元消费品以旧换新专项补贴已于8月全面开放申领，覆盖全国29个省市。家电品类涵盖空调、冰箱、洗衣机、电视、热水器、电脑6大类，须为一级能效/水效产品，按成交价15%补贴，单件最高1500元，每人每类限1件。政策核心亮点在于"国补+地方增补"双层体系——各省自筹资金自主扩围智能家居、厨电、适老化设备，洗碗机、扫地机器人、智能马桶等品类统一15%补贴，适老化医疗辅助设备（制氧机、呼吸机、助听器等）补贴比例提升至20%、单件最高2000元。国补与地方增补相互独立，一户家庭可同时申领国补6笔+地方增补多笔，大幅降低全屋焕新成本。补贴资金遵循先到先得规则，京东每日10点和20点刷新额度池。</p>
+                <div class="source">来源：<a href="https://news.qq.com/rain/a/20260814A05ZNL00">腾讯新闻</a> · <a href="https://www.toutiao.com/article/7673402947417457171">今日头条</a></div>
+            </div>
+            <div class="news-item">
+                <h3>8月三大白电排产数据出炉：空调-16.7%，冰洗逆势微增</h3>
+                <div class="meta">2026-08-06 | 产业数据</div>
+                <p>产业在线发布2026年8月三大白电排产数据。空调排产1073万台，同比-16.7%——内销587万台（-24.1%），外销486万台（-8.1%）。连续台风天气使华南终端刚需释放偏弱，国补退坡及前置促销消耗使高基数压力延续，8-9月多数压缩机企业安排检修休假，叠加渠道库存高企，排产持续承压。冰箱排产877万台（+0.7%），出口507万台（+6.9%）成核心增长极，非洲、南美需求较旺。洗衣机排产883万台（+2.3%），出口498万台（+4.3%），内销小幅承压-1.0%。冰洗出口逆势走强的驱动力包括：新兴市场刚需释放、欧洲产能替代效应、智能化产品溢价提升。海关数据显示，上半年自主品牌冰箱、洗衣机出口均保持两位数增长。</p>
+                <div class="source">来源：<a href="https://new.qq.com/rain/a/20260806A07H9600">国盛证券研报</a></div>
+            </div>
+            <div class="news-item">
+                <h3>欧洲高温催生空调需求井喷，中国制造敏捷响应"一机难求"</h3>
+                <div class="meta">2026-08-09 | 出口动态</div>
+                <p>新华社报道，今年上半年我国空调、电扇、冰箱等家电合计出口1079.1亿元。前5个月中国对法国、荷兰、比利时等国空调出口额同比大幅增长，多款中国空调上市即被抢购。欧洲历史建筑众多、空调安装条件复杂，中国企业匹配当地法规研发产品——制冷剂充注量严格适配、运行噪声严控分贝、能效完全达标，移动分体式空调插电即用。面对激增订单，工厂紧急排产，常规30-40天生产周期压缩至10天以内，中欧班列15-25天直达欧洲。海尔空调胶州互联工厂仅用10余天紧急交付7万余套欧洲订单，海尔冰箱上合互联二工厂外销排产量上调50%。上半年青岛市清凉家电出口货值86.9亿元，同比增长11.3%，二季度创历史新高。中国空调对欧盟出口额达37.6亿美元，同比增长43.2%。</p>
+                <div class="source">来源：<a href="https://www.toutiao.com/article/7672052357143872000/">新华社</a> · <a href="https://www.toutiao.com/article/7673293372962751028/">青岛新闻网</a></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 重点专题</h2>
+            <div class="topic-box">
+                <h3>专题一：三大白电巨头2025年报与2026Q1盈利质量分析</h3>
+                <p>三大白电龙头2025年全年营收均创新高，但2026年Q1盈利质量出现明显松动信号。美的集团2025年营收4585.02亿元（+12.1%），净利439.45亿元；但Q1 2026营收1315.81亿元仅增2.55%，扣非净利同比-14.02%，靠约17亿非经常性损益支撑，财务费用因汇兑从净收益28.40亿翻转成净支出13.50亿。格力2025年营收1711.18亿元，净利290.03亿元；Q1营收430.80亿（+3.46%），但扣非净利几乎持平，应收账款+11.07%，经营现金流同比下滑近三成。海尔2025年营收3023.47亿元（+5.7%），净利195.53亿；Q1营收737亿，净利-15.22%，北美市场受暴风雪+关税冲击拖累。三家公司同一个信号：账面还在涨，但盈利质量在松动，核心压力来自铜铝原材料价格高位震荡、汇率波动和国内需求走弱的价格战。</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>企业</th>
+                            <th>2025营收</th>
+                            <th>2025净利</th>
+                            <th>Q1 2026营收</th>
+                            <th>Q1营收增速</th>
+                            <th>Q1净利增速</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>美的集团</td>
+                            <td>4585.02亿</td>
+                            <td>439.45亿</td>
+                            <td>1315.81亿</td>
+                            <td style="color:#e53935;">+2.55%</td>
+                            <td style="color:#43a047;">+2.03%</td>
+                        </tr>
+                        <tr>
+                            <td>海尔智家</td>
+                            <td>3023.47亿</td>
+                            <td>195.53亿</td>
+                            <td>737.00亿</td>
+                            <td style="color:#e53935;">—</td>
+                            <td style="color:#43a047;">-15.22%</td>
+                        </tr>
+                        <tr>
+                            <td>格力电器</td>
+                            <td>1711.18亿</td>
+                            <td>290.03亿</td>
+                            <td>430.80亿</td>
+                            <td style="color:#e53935;">+3.46%</td>
+                            <td style="color:#e53935;">+3.01%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="topic-box">
+                <h3>专题二：空调行业进入"场景竞争"时代，从卖设备到卖方案</h3>
+                <p>2026年国内空调市场规模约4000亿元，整体增速放缓至5%左右，增量红利消退后结构性升级成为核心增长动力。8月6日，海尔空调在福州平潭发布覆盖母婴卧室、办公客厅、年轻家庭、高端住宅、别墅大宅、厨房、驻车、校园八大细分空间的AI空气方案，将家用空调、商用空调、热泵、热水器、净水五大板块拉通，实现全链路协同。格力坚持"技术纵深+能源跨界"路线，深耕压缩机自研并向光伏空调、储能延伸。美的走"生态广度+全球化"路线，依托AI节能算法与全屋智能联动。值得关注的是，美的7月宣布取消2027冷年集中开盘机制，彻底告别经销商统一打款、提前囤货的传统模式，渠道逻辑正在松动。同时安装资源紧缺成为新痛点——8月东北三省空调安装订单量同比增长460%，四川、重庆单日安装量最高超1万台，消费者买空调可能要等7天才能安装。</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>战略方向</th>
+                            <th>代表企业</th>
+                            <th>核心路径</th>
+                            <th>最新动作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>全链路整合</td>
+                            <td>海尔</td>
+                            <td>大暖通五大板块拉通</td>
+                            <td>八大场景AI空气方案发布</td>
+                        </tr>
+                        <tr>
+                            <td>技术纵深+能源跨界</td>
+                            <td>格力</td>
+                            <td>压缩机自研+光伏储能</td>
+                            <td>舒适风Ultra柜机上市</td>
+                        </tr>
+                        <tr>
+                            <td>生态广度+全球化</td>
+                            <td>美的</td>
+                            <td>AI节能+全屋智能联动</td>
+                            <td>取消2027冷年集中开盘</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏢 品牌与企业动态</h2>
+            <div class="brand-item">
+                <div class="brand-logo">🏭</div>
+                <div class="brand-content">
+                    <h4>美的集团：取消集中开盘机制，渠道模式重大变革</h4>
+                    <p>美的7月宣布取消2027冷年集中开盘机制，告别经销商统一打款、提前囤货的传统模式。这意味着厂家需自行承担更大库存压力，反映出空调行业依赖压货的渠道逻辑正在松动。Q1扣非净利-14.02%，盈利质量承压，但海外收入1959.48亿占比42.93%，全球化布局持续深化。智能家居业务收入2999.27亿元，占比51.78%，仍是核心基本盘。</p>
+                </div>
+            </div>
+            <div class="brand-item">
+                <div class="brand-logo">🌊</div>
+                <div class="brand-content">
+                    <h4>海尔智家：欧洲暖通+20%，10天交付7万套空调</h4>
+                    <p>海尔上半年欧洲市场暖通产品销量整体增长超20%，自有品牌增幅达23%，稳居中企第一。7月胶州互联工厂10余天紧急交付7万余套欧洲空调订单，冰箱上合工厂外销排产上调50%。海外收入1545.45亿元占比51.12%，已超国内。Q1净利-15.22%主要受北美暴风雪+关税冲击，剔除北美后经营利润合计增长超10%，欧洲暖通+20%、南亚+17%、东南亚+12%。</p>
+                </div>
+            </div>
+            <div class="brand-item">
+                <div class="brand-logo">❄️</div>
+                <div class="brand-content">
+                    <h4>格力电器：扣非净利持平，应收账款增速快于营收</h4>
+                    <p>格力Q1营收430.80亿（+3.46%），净利60.82亿（+3.01%），但扣非净利几乎持平，应收账款同比+11.07%增速明显快于营收，经营现金流同比下滑近三成。2025年消费电器收入1330.55亿元占比78.06%，内销占比74.16%，海外仅16.06%，全球化程度远低于美的和海尔。8月推出舒适风Ultra柜机，以分布式送风技术切入32-50㎡大客厅市场。</p>
+                </div>
+            </div>
+            <div class="brand-item">
+                <div class="brand-logo">🤖</div>
+                <div class="brand-content">
+                    <h4>追觅科技：大家电并入全屋智能，战略瘦身聚焦核心</h4>
+                    <p>追觅科技澄清"大家电解散"传闻，实为战略性组织架构调整——原独立大家电事业部取消建制，整体并入全屋智能板块，实现"战略瘦身"并聚焦核心资源，相关产品研发与售后体系正常运转。折射出智能清洁家电赛道从高速增长进入精细化运营阶段。</p>
+                </div>
+            </div>
+            <div class="brand-item">
+                <div class="brand-logo">📺</div>
+                <div class="brand-content">
+                    <h4>TCL电子：56.1亿港元收购TCL空调，打造全品类智能家居平台</h4>
+                    <p>TCL电子拟以总代价56.1亿港元收购TCL AeroWell全部权益（即TCL空调），旨在加速向全品类智能家居平台迈进，强化空调作为全屋智能核心入口的地位。收购完成后TCL电子将补齐空调品类短板，形成电视+空调+冰洗的全品类白电矩阵。</p>
+                </div>
+            </div>
+            <div class="brand-item">
+                <div class="brand-logo">🐻</div>
+                <div class="brand-content">
+                    <h4>小熊电器：营收净利双降，网红小家电进入存量竞争</h4>
+                    <p>小熊电器中报显示上半年营收23.49亿元（-7.34%），净利1.20亿元（-41.3%），主因国补退场及市场需求"降温"，网红小家电赛道从增量红利期进入存量竞争阶段。行业预警信号明确：缺乏核心技术和品牌壁垒的网红家电品牌面临严峻洗牌压力。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 趋势展望</h2>
+            <ul class="trend-list">
+                <li><strong>国补+地方增补双层体系将持续至年底</strong>：625亿第三批资金有效至2026年12月31日，先到先得，8-9月开学季+高温季为消费高峰，建议尽早申领</li>
+                <li><strong>冰洗出口成确定性增长极</strong>：新兴市场刚需+欧洲产能替代+智能化溢价三重驱动，冰箱出口+12.8%、洗衣机+10.1%跑赢大盘</li>
+                <li><strong>空调行业从"卖设备"转向"卖方案"</strong>：存量竞争下场景化、系统化升级成为核心增长动力，全链路整合能力成为新护城河</li>
+                <li><strong>自主品牌出海加速</strong>：上半年自主品牌家电出口+21.2%占比达1/4，从"贴牌走量"转向"品牌溢价"的质变正在发生</li>
+                <li><strong>盈利质量松动需警惕</strong>：三大巨头Q1扣非净利均承压，铜铝原材料高位震荡、汇率波动、价格战压力短期难以缓解</li>
+                <li><strong>AI+家电进入深水区</strong>：老板电器发力AI定义厨房，AWE2027主题定为"AI+, 智融万象"，AI从营销概念转向实际场景落地</li>
+            </ul>
+        </div>
+
+        <div class="section source-section">
+            <h2>📚 数据来源</h2>
+            <p>• <a href="https://news.qq.com/rain/a/20260814A05ZNL00">腾讯新闻 - 2026年8月家电国补叠加地方适老化增补细则</a><br>
+            • <a href="https://www.toutiao.com/article/7673402947417457171">今日头条 - 2026全国家电国补顶层规则详解</a><br>
+            • <a href="https://new.qq.com/rain/a/20260806A07H9600">国盛证券 - 2026年8月三大白电排产数据</a><br>
+            • <a href="http://www.pinpai-bang.com/scfx/n162034448.html">品牌榜 - 冰洗出口增长分析</a><br>
+            • <a href="https://www.toutiao.com/article/7672052357143872000/">新华社 - 从空调热销欧洲看中国制造惠及全球</a><br>
+            • <a href="https://www.toutiao.com/article/7673293372962751028/">青岛新闻网 - 青岛智造"Cool"到欧洲</a><br>
+            • <a href="https://new.qq.com/rain/a/20260807A07OMV00">封面新闻 - 空调迈入场景竞争时代</a><br>
+            • <a href="https://xueqiu.com/1321887967/403258386">雪球 - 当房子卖不动了谁在支撑1.9亿台白电</a><br>
+            • <a href="https://3g.china.com/act/news/10000169/20260810/49664114.html">中华网 - 空调高温下的利润困境</a><br>
+            • <a href="http://www.pinpai-bang.com/hot/n161134452.html">品牌榜 - 2026上半年白电出口结构分化</a></p>
+        </div>
+
+        <div class="footer">
+            <p>盛世消费体验研究院 | 每周市场情报</p>
+            <p>⭐ 第1周 | 🏠 家电 &nbsp; ⭐ 第2周 | 📱 数码 &nbsp; ⭐ 第3周 | 🚗 汽车 &nbsp; ⭐ 第4周 | 📊 综合</p>
+            <p>助您轻松掌握趋势，抢占市场先机！</p>
+            <div class="back-home">
+                <a href="index.html">← 返回往期目录</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
