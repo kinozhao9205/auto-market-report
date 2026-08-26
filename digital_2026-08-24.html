@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 数码行业每周情报 · 第35周 · 8月第4周</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+            --accent: #7209b7;
+            --accent2: #f72585;
+            --bg: #f0f2ff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .logo-corner { position: absolute; top: 16px; right: 16px; z-index: 10; }
+        .logo-corner img { height: 34px; }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: white;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .header .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .header .badge {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .main { max-width: 860px; margin: 0 auto; padding: 20px 16px; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .summary-box {
+            background: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px;
+            color: white;
+            margin-bottom: 18px;
+        }
+        .summary-box h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
+        }
+        .summary-box p { font-size: 0.95rem; line-height: 1.8; }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .data-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 16px 12px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(67,97,238,0.08);
+            border-top: 3px solid var(--primary);
+        }
+        .data-card.v2 { border-top-color: var(--accent2); }
+        .data-card.v3 { border-top-color: #ff7b00; }
+        .data-card.v4 { border-top-color: #06d6a0; }
+        .data-card.v5 { border-top-color: #e63946; }
+        .data-card.v6 { border-top-color: #9b5de5; }
+        .data-card .num {
+            font-size: clamp(1.15rem, 3vw, 1.5rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .data-card.v2 .num { color: var(--accent2); }
+        .data-card.v3 .num { color: #ff7b00; }
+        .data-card.v4 .num { color: #06a67d; }
+        .data-card.v5 .num { color: #e63946; }
+        .data-card.v6 .num { color: #9b5de5; }
+        .data-card .lbl {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .section {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 14px rgba(67,97,238,0.06);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .section-header .icon {
+            width: 38px; height: 38px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .section-header h2 { font-size: 1.05rem; font-weight: 700; }
+        .section-header .sub {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            background: var(--bg);
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+        .news-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px dashed #e8e8f5;
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .tag {
+            flex-shrink: 0;
+            width: 52px; height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            font-weight: 700;
+            border-radius: 6px;
+            color: white;
+            margin-top: 2px;
+        }
+        .tag.red { background: linear-gradient(135deg, #e63946, #d62828); }
+        .tag.purple { background: linear-gradient(135deg, #7209b7, #560bad); }
+        .tag.green { background: linear-gradient(135deg, #06d6a0, #08a77d); }
+        .tag.blue { background: linear-gradient(135deg, #4361ee, #3a0ca3); }
+        .tag.orange { background: linear-gradient(135deg, #ff7b00, #f48c06); }
+        .news-item .body { flex: 1; min-width: 0; }
+        .news-item h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 6px; line-height: 1.5; }
+        .news-item p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
+        .news-item .source { font-size: 0.72rem; color: var(--primary); text-decoration: none; }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin: 14px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .data-table th {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .data-table td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #eee;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .data-table tr:nth-child(even) td { background: #f8f9ff; }
+        .data-table tr:last-child td { border-bottom: none; }
+        .trend-list { list-style: none; }
+        .trend-list li {
+            padding: 12px 0 12px 26px;
+            position: relative;
+            font-size: 0.88rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            border-bottom: 1px dashed #e8e8f5;
+        }
+        .trend-list li:last-child { border-bottom: none; }
+        .trend-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 2px;
+            top: 12px;
+            font-size: 0.85rem;
+        }
+        .trend-list li strong { color: var(--text-primary); }
+        .source-list { font-size: 0.78rem; color: var(--text-secondary); line-height: 2; }
+        .source-list li { margin-bottom: 4px; }
+        .footer {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: rgba(255,255,255,0.75);
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 0.8rem;
+            margin-top: 12px;
+        }
+        .footer p { font-size: 0.8rem; line-height: 1.8; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 640px) {
+            .data-grid { grid-template-columns: repeat(2, 1fr); }
+            .news-item { flex-direction: column; gap: 8px; }
+            .news-item .tag { width: auto; padding: 0 10px; }
+            .section { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top">
+        <a href="index.html">← 返回往期目录</a>
+    </div>
+    <div class="header">
+        <div class="logo-corner">
+            <img src="logo.png" alt="盛世消费体验研究院" onerror="this.style.display='none'">
+        </div>
+        <div class="header-inner">
+            <span class="issue-badge">第26期 · 2026年第35周</span>
+            <h1>📱 数码行业每周情报</h1>
+            <div class="meta">
+                <span class="badge">📅 2026-08-24</span>
+                <span class="badge">🏠 盛世消费体验研究院</span>
+                <span class="badge">8月第4周</span>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <!-- 数据速览 -->
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="num">+300%</div>
+                <div class="lbl">存储芯片现货价<br>3个月累计涨幅</div>
+            </div>
+            <div class="data-card v2">
+                <div class="num">1.47亿台</div>
+                <div class="lbl">2026中国AI手机出货量<br>同比+31.6%</div>
+            </div>
+            <div class="data-card v3">
+                <div class="num">1.43亿台</div>
+                <div class="lbl">2026全球AI PC出货量<br>渗透率55%</div>
+            </div>
+            <div class="data-card v4">
+                <div class="num">2500万台</div>
+                <div class="lbl">2026全球折叠屏出货<br>同比+41%~47%</div>
+            </div>
+            <div class="data-card v5">
+                <div class="num">-8.6%</div>
+                <div class="lbl">前30周中国手机销量<br>同比下滑</div>
+            </div>
+            <div class="data-card v6">
+                <div class="num">34%</div>
+                <div class="lbl">iPhone 18 Pro存储<br>成本占比创新高</div>
+            </div>
+            <div class="data-card">
+                <div class="num">&lt;3%</div>
+                <div class="lbl">千元机市场占比<br>濒临退市</div>
+            </div>
+            <div class="data-card v2">
+                <div class="num">9月9日</div>
+                <div class="lbl">iPhone 18系列发布会<br>折叠屏同台首发</div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="summary-box">
+            <h3>📌 本周核心摘要</h3>
+            <p>存储涨价潮进入最猛烈阶段：2026年Q1 DRAM合约价环比暴涨90%~95%、NAND上涨55%~60%，部分现货价三个月累计涨幅超300%，小米8月开启年内第三轮调价（9款机型涨300~500元），iQOO 15 Ultra年内累计涨价1500元，苹果Mac/iPad全系提价15%~20%，千元机市场占比已跌破3%。9月秋季新机大战一触即发：iPhone 18系列定档9月9日发布、首款折叠屏iPhone Ultra同台亮相，华为Mate 90首发麒麟2026芯片，小米18 Pro全球首发骁龙8 Elite Gen6 Pro。与此同时，AI手机与AI PC成为行业结构性亮点——2026年中国AI手机出货量预计达1.47亿台（+31.6%），全球AI PC渗透率将达55%，折叠屏市场则因苹果入局加速走向"三足鼎立"。</p>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🌍</span>
+                <h2>市场大势</h2>
+                <span class="sub">本周热点</span>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="tag red">存储危机</span>
+                    <div class="body">
+                        <h4>"芯片通胀"进入深水区：DRAM合约价单季暴涨九成，全行业涨价已成定局</h4>
+                        <p>2026年8月，全球手机市场迎来近五年来最猛烈的涨价潮。2026年第一季度手机DRAM合约价格环比飙升90%~95%，NAND Flash价格上涨55%~60%，截至8月部分存储芯片现货价累计涨幅已超过300%。一块12GB+512GB的存储套片采购成本从约200元涨至近600元，存储占整机物料成本的比例从过去的10%~15%飙升至30%以上，中低端机型甚至逼近50%~60%。涨价根源在于AI服务器对HBM高带宽内存的虹吸效应——三星、SK海力士、美光三大原厂将70%以上先进产能转向利润更高的AI市场，消费级存储供给严重收缩。华为常务董事余承东8月5日在发布会上预警："内存高昂涨价，所有手机之后可能都要大规模涨价，否则在原有价格下都是亏损销售。"杰富瑞研报预测，三季度存储价格环比还要再涨40%~50%，四季度再涨30%~40%，价格显著回落的拐点要等到2028年。</p>
+                        <a href="https://www.sina.cn/gc/article/nineiyp3462695.html" class="source">来源：新浪科技 / 杰富瑞研报</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag purple">销量承压</span>
+                    <div class="body">
+                        <h4>涨价传导至终端：前30周中国手机销量同比下滑8.6%，AI手机却逆势暴增</h4>
+                        <p>涨价潮正在冲击终端需求。数据显示，2026年前30周中国智能手机销量同比下降8.6%，摩根士丹利更预测2026年全球智能手机出货量将下调15%至11亿部。千元机市场遭遇最严重挤压——入门机型因存储成本占比过高陷入负毛利，厂商纷纷减产或取消新机计划，千元机市场占比已跌至不足3%，入门机型价格普遍突破2000元大关。但市场呈现明显的结构性分化：IDC预测2026年中国智能手机整体出货量约2.78亿台，其中新一代AI手机出货量将达1.47亿台，同比增长31.6%，占整体市场的53%；600美元以上高端手机市场份额将提升至35.9%，同比增长5.4个百分点。小米8月开启年内第三轮调价，9款机型统一上涨300~500元；iQOO 15 Ultra年内累计涨价1500元；苹果Mac与iPad全系列已涨价约20%，iPhone 18 Pro预计也将跟进提价。"越贵越好卖"的高端化趋势与"低端退市潮"并存，成为本轮周期最鲜明的特征。</p>
+                        <a href="https://www.sina.cn/gc/article/ninpfmn9668042.html" class="source">来源：新浪科技 / IDC / 摩根士丹利</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag green">折叠屏</span>
+                    <div class="body">
+                        <h4>折叠屏迎来"苹果时刻"：2026年全球出货预计2400~2500万台，同比大增41%~47%</h4>
+                        <p>在全球智能手机整体步入存量饱和的背景下，折叠屏成为为数不多保持高速增长的黄金赛道。群智咨询最新预测，2026年全球折叠屏手机出货量将达到2400万~2500万台，对比2025年1700万台的出货规模，全年同比增幅达41%~47%；中国市场出货量预计攀升至1200万~1300万台，实现20%~30%的同比增长。行业格局即将迎来关键性重构——苹果首款折叠屏iPhone预计于9月发布会同台亮相，产业链消息显示富士康已开始试产，苹果向供应链下达首批700万~800万台的量产备货目标，远超三星、华为初代折叠屏的首批订单规模，并将备货量较原定目标上调约20%。Counterpoint Research预测苹果2026年有望拿下全球28%的折叠屏市场份额，全球折叠屏市场将从华为、三星"双寡头"演进为"三足鼎立"。技术层面，无折痕屏幕、200g以内轻薄设计、7000mAh大电池、满级防水正成为折叠旗舰标配，竖向折叠屏价格将下探至2000~3000元档，折叠屏正从高端小众走向大众主流。</p>
+                        <a href="https://c.m.163.com/news/a/KRMMNJPS0511A632.html" class="source">来源：网易新闻 / 群智咨询 / Counterpoint</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔬</span>
+                <h2>重点专题：AI虹吸效应——存储涨价重塑数码产业链</h2>
+                <span class="sub">深度分析</span>
+            </div>
+            <div class="section-content">
+                <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.8; margin-bottom:12px;">
+                    本轮数码行业涨价潮的本质，是AI基础设施对消费电子产业链的"产能虹吸"。AI服务器所需的HBM内存单颗利润是普通手机存储芯片的数倍乃至十几倍，三星、SK海力士、美光三大原厂将约70%的先进存储产能转向AI客户，OpenAI一家公司曾包下三星、SK海力士每月90万片DRAM产能，相当于全球供给的40%。这一结构性转移导致消费级存储"无芯可用"，价格传导链条从原厂一路蔓延至终端零售价，正在深刻改写数码产业的成本结构、产品矩阵与竞争格局。
+                </p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>指标</th>
+                            <th>涨价前（2025年）</th>
+                            <th>2026年8月现状</th>
+                            <th>变化幅度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DRAM合约价（Q1环比）</td>
+                            <td>平稳波动</td>
+                            <td>环比上涨90%~95%</td>
+                            <td>创2016年来最高</td>
+                        </tr>
+                        <tr>
+                            <td>NAND闪存合约价（Q1环比）</td>
+                            <td>平稳波动</td>
+                            <td>环比上涨55%~60%</td>
+                            <td>持续攀升</td>
+                        </tr>
+                        <tr>
+                            <td>存储现货价（3个月累计）</td>
+                            <td>—</td>
+                            <td>累计涨幅超300%</td>
+                            <td>历史罕见</td>
+                        </tr>
+                        <tr>
+                            <td>12GB+512GB套片成本</td>
+                            <td>约200元</td>
+                            <td>约600元</td>
+                            <td>上涨约3倍</td>
+                        </tr>
+                        <tr>
+                            <td>存储占手机BOM成本</td>
+                            <td>10%~15%</td>
+                            <td>30%~40%（中低端逼近60%）</td>
+                            <td>占比翻倍以上</td>
+                        </tr>
+                        <tr>
+                            <td>iPhone 18 Pro存储成本占比</td>
+                            <td>约10%</td>
+                            <td>34%（2027年预计超40%）</td>
+                            <td>成第一大成本项</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.8; margin:10px 0 12px;">
+                    终端售价的传导呈现明显的价位段梯度分化。千元机因利润空间被成本吞噬至负毛利而大规模退市，中端机普遍上调300~800元，旗舰机基础版涨价约1000元，大存储版本溢价更高。这场涨价周期的时间长度同样超出以往——存储芯片工厂从建设到投产需要1.5~2年，小米集团总裁卢伟冰判断本轮涨价为"长周期"，预计持续至2027年底；瑞银认为DRAM供需紧张至少持续到2028年上半年。
+                </p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>价位段/品牌动作</th>
+                            <th>涨价幅度</th>
+                            <th>市场影响</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>千元机市场</td>
+                            <td>入门价格普遍突破2000元</td>
+                            <td>市场占比跌破3%，多款机型退市</td>
+                        </tr>
+                        <tr>
+                            <td>中端机型（国产主流）</td>
+                            <td>普遍上调300~800元</td>
+                            <td>OPPO/vivo/荣耀多轮调价</td>
+                        </tr>
+                        <tr>
+                            <td>小米（8月第三轮调价）</td>
+                            <td>9款机型统一上涨300~500元</td>
+                            <td>年内累计三轮调价</td>
+                        </tr>
+                        <tr>
+                            <td>iQOO 15 Ultra</td>
+                            <td>年内累计涨价1500元</td>
+                            <td>旗舰大存储版本溢价更高</td>
+                        </tr>
+                        <tr>
+                            <td>苹果 Mac/iPad全系</td>
+                            <td>涨价约15%~20%</td>
+                            <td>iPhone 18 Pro预计涨100~200美元</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.8; margin:10px 0 0;">
+                    产业链层面，危机正在倒逼国产替代全面提速：长江存储、长鑫存储在NAND和DRAM领域的市场份额持续提升，成为国产厂商应对全球存储涨价的核心底气；京东方、TCL华星在高端OLED和折叠屏领域的技术已追上三星，国产旗舰机型国产屏幕渗透率将突破70%。存储涨价一方面挤压了终端厂商利润，另一方面也为中国供应链创造了历史性的替代窗口。
+                </p>
+            </div>
+        </div>
+
+        <!-- 第二专题 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🚀</span>
+                <h2>前瞻专题：9月新机大战——史上最密集的旗舰发布季</h2>
+                <span class="sub">前瞻观察</span>
+            </div>
+            <div class="section-content">
+                <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.8; margin-bottom:12px;">
+                    2026年9月将成为近年最重磅的旗舰发布月，苹果、华为、小米、荣耀、OPPO、vivo几乎全部顶级旗舰在同一月内扎堆亮相，AI手机与折叠屏是绝对主战场。苹果打破多年"秋季全系齐发"惯例，改成分两批上市；华为Mate 90将首发全新麒麟2026芯片；小米18 Pro则押注骁龙8 Elite Gen6 Pro的首发窗口。
+                </p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>品牌</th>
+                            <th>旗舰机型</th>
+                            <th>发布时间</th>
+                            <th>核心看点</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>苹果</td>
+                            <td>iPhone 18 Pro / Pro Max / 折叠屏 iPhone Ultra</td>
+                            <td>9月9日发布，9月19日开售</td>
+                            <td>首款折叠屏同台首发；2nm芯片；Pro预计1299~1399美元</td>
+                        </tr>
+                        <tr>
+                            <td>华为</td>
+                            <td>Mate 90系列（含三折叠迭代）</td>
+                            <td>9月中下旬</td>
+                            <td>首发麒麟2026芯片；三折叠迭代款</td>
+                        </tr>
+                        <tr>
+                            <td>小米</td>
+                            <td>小米18 Pro系列</td>
+                            <td>骁龙峰会（9月23日）后发布</td>
+                            <td>全球首发骁龙8 Elite Gen6 Pro</td>
+                        </tr>
+                        <tr>
+                            <td>三星</td>
+                            <td>Galaxy S26 FE</td>
+                            <td>9月3~4日</td>
+                            <td>Fan Edition系列新品</td>
+                        </tr>
+                        <tr>
+                            <td>荣耀</td>
+                            <td>Magic9系列</td>
+                            <td>暂定9月底</td>
+                            <td>AI影像与端侧大模型</td>
+                        </tr>
+                        <tr>
+                            <td>OPPO / vivo</td>
+                            <td>新一代旗舰</td>
+                            <td>9月中旬陆续登场</td>
+                            <td>AI手机主力迭代</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.8; margin:10px 0 0;">
+                    8月下旬至月底的新品同样密集：Redmi K100 Pro系列已于8月11日发布主打高性能电竞体验，Google Pixel 11系列与荣耀Robot Phone于8月12日亮相，华为nova 16 SE已于8月5日随全场景新品发布。苹果方面预计8月26日（本周三）发出9月发布会邀请函，届时发布节奏将正式官宣。值得注意的是，受2nm芯片与DRAM/NAND涨价影响，iPhone 18 Pro系列海外价格预计从上代的1099美元上调至1299~1399美元，Pro Max则达1449~1499美元，苹果十余年来首次在新品上做出如此大幅度的价格上调，将进一步推高全行业的价格中枢。
+                </p>
+            </div>
+        </div>
+
+        <!-- 品牌/企业动态 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🏢</span>
+                <h2>品牌/企业动态</h2>
+                <span class="sub">本周企业要闻</span>
+            </div>
+            <div class="section-content">
+                <div class="news-item">
+                    <span class="tag blue">苹果</span>
+                    <div class="body">
+                        <h4>iPhone 18系列分两批上市，折叠屏iPhone Ultra首发备货上调20%</h4>
+                        <p>苹果2026年打破"秋季全系齐发"惯例：9月9日发布会先推出iPhone 18 Pro、Pro Max及首款折叠屏iPhone Ultra，9月18~19日开售；iPhone 18标准版、18e及二代iPhone Air则要等到2027年春季。受2nm芯片与存储涨价影响，Pro系列预计提价至1299~1399美元（上代1099美元）。折叠屏方面，苹果已向供应链下达首批700万~800万台备货目标，并将备货量较原定目标上调约20%，这是近年苹果新机中罕见的备货策略调整，显示其对折叠屏市场的高度信心。高盛预测折叠屏iPhone基本情境下出货1100万部，乐观情境下最高可达3500万部。市场预计苹果发布会邀请函将于8月26日发出。</p>
+                        <a href="https://tech.china.com/articles/20260812/202608121938687.html" class="source">来源：中华网科技 / 高盛</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag red">华为</span>
+                    <div class="body">
+                        <h4>Mate 90定档9月中下旬首发麒麟2026，PC业务跃升中国市场第二</h4>
+                        <p>华为Mate 90系列定档9月中下旬发布，将首发全新麒麟2026芯片，并推出三折叠迭代款，继续在折叠形态上引领创新。此前8月5日，华为发布全球首款大阔折旗舰PuraX Max，以全新阔型折叠形态与鸿蒙端侧AI深度融合，为折叠屏行业注入新动能。PC业务方面，华为以130万台出货量、11%的市场份额跃升至中国PC市场第二位，同比增长16%，增速超过联想并成功超越惠普——凭借商用市场深耕与鸿蒙生态协同效应，华为正快速改写中国PC市场竞争版图。华为常务董事余承东8月5日预警存储涨价将推动全行业涨价，华为将努力维持价格稳定。</p>
+                        <a href="https://c.m.163.com/news/a/KRMMNJPS0511A632.html" class="source">来源：网易新闻 / 中研普华</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag orange">小米</span>
+                    <div class="body">
+                        <h4>8月开启年内第三轮调价，小米18 Pro押注骁龙8 Elite Gen6 Pro首发</h4>
+                        <p>小米8月开启年内第三轮调价，9款机型统一上涨300~500元。小米集团总裁卢伟冰公开表示，12GB+512GB机型的存储成本涨幅约1500元，继续按原价销售基本等同于亏损；他判断本轮存储涨价为"长周期"，预计持续至2027年底，接近三年时间"在历史上从未有过"。产品线方面，小米18 Pro系列将在9月23日骁龙峰会后发布，全球首发骁龙8 Elite Gen6 Pro处理器，成为安卓阵营下一代性能标杆的有力竞争者。Redmi K100 Pro系列已于8月11日发布，主打高性能与电竞体验，延续Redmi在性能价位段的统治力。</p>
+                        <a href="https://t.cj.sina.com.cn/articles/view/7879923048/1d5ae156806801do6a" class="source">来源：新浪财经</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag green">英伟达</span>
+                    <div class="body">
+                        <h4>英伟达进军AI PC芯片市场，发布RTX Spark平台提出"新时代PC"概念</h4>
+                        <p>英伟达于2026年正式进军AI PC芯片领域并发布RTX Spark平台，与微软共同提出"新时代PC"概念，加速PC产业从"性能竞赛"向"AI生态博弈"转型。这一入局将进一步加剧AI PC芯片市场竞争——高通、英特尔、AMD已相继推出性能更强的AI PC处理器，摩根士丹利预计AI PC在2027年将占据48%份额、2028年提升至64%；Canalys则预测2028年AI PC出货量将达2.05亿台，复合增长率44%。2025年前11个月满足AI算力需求的AI PC销量同比飙升123%，线上市场占有率已达38%。PC行业呈现"短期承压、长期重构"特征：Omdia预测2026年中国PC市场出货量将同比下降约10%至3790万台，但AI PC渗透率的高速提升正在重塑行业价值分配逻辑。</p>
+                        <a href="https://big5.chinairn.com/hyzx/20260804/173354221.shtml" class="source">来源：中研普华 / Omdia</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="tag purple">供应链</span>
+                    <div class="body">
+                        <h4>国产替代提速：屏幕渗透率将破70%，长江存储长鑫成涨价周期"底气"</h4>
+                        <p>存储芯片短缺引发的供应链危机，正在成为中国供应链崛起的核心契机。显示领域，京东方、TCL华星在高端OLED屏幕、折叠屏屏幕领域的技术水平已追上三星，国产旗舰机型的国产屏幕渗透率将突破70%；存储领域，长江存储、长鑫存储在NAND和DRAM领域的市场份额持续提升，成为国产厂商应对全球存储涨价的核心底气，A股存储器板块8月区间涨幅达13%。影像领域，豪威科技高端图像传感器实现大规模商用。随着用户换机周期延长至36~40个月，厂商竞争核心已从"卖硬件"转向"卖生态服务"，鸿蒙、iOS、安卓系统三足鼎立格局成型，全场景生态粘性成为决定用户留存的关键因素。</p>
+                        <a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_11769b1938b27052" class="source">来源：腾讯新闻</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📈</span>
+                <h2>趋势展望</h2>
+                <span class="sub">未来关注</span>
+            </div>
+            <div class="section-content">
+                <ul class="trend-list">
+                    <li><strong>涨价周期贯穿全年：</strong>杰富瑞预测Q3存储价格环比再涨40%~50%、Q4再涨30%~40%，行业普遍判断高价行情将延续至2027年底甚至2028年。四季度旗舰密集上市叠加存储成本传导，终端价格中枢将持续上移，"等等党"策略或将失效。</li>
+                    <li><strong>9月发布会大战一锤定音：</strong>苹果iPhone 18与首款折叠屏、华为Mate 90麒麟2026、小米18 Pro骁龙新旗舰同期对决，AI能力与端侧大模型体验将成为差异化竞争主战场，发布会邀请函预计本周三（8月26日）发出。</li>
+                    <li><strong>折叠屏进入大众化拐点：</strong>苹果入局后全球折叠屏市场进入"三足鼎立"时代，竖折下探至2000~3000元档、横折下探至4000元档，从高端小众产品变成大众可选的主流形态，2026年中国出货量预计1200万~1300万台。</li>
+                    <li><strong>AI PC渗透率加速提升：</strong>2026年全球AI PC出货量将达1.43亿台、渗透率55%，AI笔记本占笔记本市场的58.7%；英伟达入局推动产业从"性能竞赛"转向"AI生态博弈"，商用市场率先放量。</li>
+                    <li><strong>千元机时代正式落幕：</strong>存储成本占比逼近60%导致入门机型负毛利，厂商集体砍掉低端产品线，手机行业加速向高端化、AI化转型，行业洗牌在所难免。</li>
+                    <li><strong>国产供应链迎历史窗口：</strong>存储危机倒逼国产替代全面提速，屏幕、存储、影像等核心环节国产化率快速攀升，中国供应链在全球数码产业链中的话语权持续增强。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 数据来源说明 -->
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📚</span>
+                <h2>数据来源说明</h2>
+                <span class="sub">数据截至 2026-08-24</span>
+            </div>
+            <div class="section-content">
+                <ul class="source-list">
+                    <li>· IDC：《全球智能手机出货预测》——2026年中国智能手机出货量2.78亿台、AI手机1.47亿台预测</li>
+                    <li>· 群智咨询（Sigmaintell）：2026年全球及中国折叠屏手机出货量预测数据</li>
+                    <li>· Counterpoint Research：苹果折叠屏市场份额预测（28%）</li>
+                    <li>· TrendForce集邦咨询：DRAM/NAND合约价季度涨幅数据</li>
+                    <li>· 摩根士丹利：2026年全球智能手机出货量下调预测、AI PC渗透率预测</li>
+                    <li>· 高盛：折叠屏iPhone出货量预测（1100万~3500万部）</li>
+                    <li>· 杰富瑞研报：2026年Q3、Q4存储价格环比涨幅预测</li>
+                    <li>· Canalys：2028年AI PC出货量预测（2.05亿台）</li>
+                    <li>· Gartner：2026年AI PC出货量及渗透率预测（1.43亿台、55%）</li>
+                    <li>· Omdia：2026年中国PC市场出货量预测（3790万台）</li>
+                    <li>· 中研普华产业研究院：《2026年全球电脑行业总体规模及市场占有率分析》</li>
+                    <li>· 新浪科技、网易新闻、中华网科技、腾讯新闻：行业新闻及企业动态报道</li>
+                </ul>
+                <p style="font-size:0.72rem; color:var(--text-secondary); margin-top:12px; line-height:1.7;">
+                    免责声明：本报告基于公开信息整理，数据来源于各研究机构公开发布的预测与统计，仅供参考，不构成任何投资建议。市场数据可能随时间发生变化，请以官方最新发布为准。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>盛世消费体验研究院 · 数码行业每周情报</p>
+        <p>本报告基于公开信息整理分析，仅供参考</p>
+        <div class="back-home">
+            <a href="index.html">← 返回往期目录</a>
+        </div>
+    </div>
+</body>
+</html>
