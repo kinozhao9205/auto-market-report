@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 消费市场综合每周情报 · 第28期 · 9月第1周</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #8b5cf6;
+            --accent2: #ec4899;
+            --bg: #f5f3ff;
+            --text-primary: #1e1b4b;
+            --text-secondary: #4c4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #7c3aed 40%, #db2777 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        .header .meta {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.78rem;
+            margin-top: 6px;
+        }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .container {
+            max-width: 860px;
+            margin: -20px auto 0;
+            padding: 0 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .section { margin-bottom: 28px; }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .data-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 18px 14px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+            border: 1px solid rgba(99,102,241,0.06);
+            transition: transform 0.2s;
+        }
+        .data-card:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(99,102,241,0.15); }
+        .data-card .value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #db2777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .data-card .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .data-card .change {
+            font-size: 0.72rem;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        .change.up { color: #dc2626; }
+        .change.down { color: #059669; }
+        .summary-box {
+            background: linear-gradient(135deg, #f5f3ff 0%, #fdf2f8 100%);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            border: 1px solid rgba(139,92,246,0.12);
+            line-height: 1.8;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+        .summary-box strong { color: var(--primary-dark); }
+        .news-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-left: 3px solid var(--primary);
+        }
+        .news-card .tag {
+            display: inline-block;
+            background: rgba(99,102,241,0.1);
+            color: var(--primary-dark);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .news-card .tag.home { background: rgba(14,165,233,0.1); color: #0369a1; }
+        .news-card .tag.digital { background: rgba(168,85,247,0.1); color: #7e22ce; }
+        .news-card .tag.auto { background: rgba(220,38,38,0.1); color: #b91c1c; }
+        .news-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .news-card p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .news-card .source {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            margin-top: 6px;
+        }
+        .news-card .source a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .topic-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 20px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .topic-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+        }
+        .topic-card p {
+            font-size: 0.88rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            margin-top: 8px;
+        }
+        table th {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+        table th:first-child { border-radius: 8px 0 0 0; }
+        table th:last-child { border-radius: 0 8px 0 0; }
+        table td {
+            padding: 9px 8px;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--text-secondary);
+        }
+        table tr:hover td { background: #f8f7ff; }
+        .brand-list { display: grid; gap: 10px; }
+        .brand-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 16px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+            border-left: 3px solid var(--accent);
+        }
+        .brand-item .brand-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+        .brand-item .brand-desc {
+            font-size: 0.82rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+        }
+        .outlook-list { list-style: none; }
+        .outlook-list li {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 16px 14px 48px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            position: relative;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+        .outlook-list li::before {
+            content: attr(data-num);
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+        .source-list {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 0.78rem;
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+        .source-list a { color: var(--primary); text-decoration: none; }
+        .footer {
+            background: linear-gradient(135deg, #4c1d95, #6366f1);
+            color: rgba(255,255,255,0.85);
+            padding: 24px 16px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .footer .footer-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .footer .footer-desc {
+            font-size: 0.76rem;
+            color: rgba(255,255,255,0.55);
+        }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.3rem; }
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            table { font-size: 0.75rem; }
+            table th, table td { padding: 7px 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top"><a href="index.html">← 返回往期目录</a></div>
+    <div class="header">
+        <div class="header-inner">
+            <span class="issue-badge">第28期 · 2026年9月第1周</span>
+            <h1>📊 消费市场综合每周情报</h1>
+            <p class="subtitle">家电 · 数码 · 汽车 三大行业全景洞察</p>
+            <p class="meta">盛世消费体验研究院 · 2026年9月7日</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 数据速览 -->
+        <div class="section">
+            <div class="section-title">📈 数据速览</div>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="value">44.03万</div>
+                    <div class="label">比亚迪8月新能源销量</div>
+                    <div class="change up">同比+17.8%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">18.95万</div>
+                    <div class="label">比亚迪8月出口</div>
+                    <div class="change up">同比+134.6%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">103,129</div>
+                    <div class="label">零跑8月交付量</div>
+                    <div class="change up">同比+80.7%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">3609.6亿</div>
+                    <div class="label">上半年家电出口额</div>
+                    <div class="change up">自主品牌+21.2%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">1.47亿</div>
+                    <div class="label">2026中国AI手机出货</div>
+                    <div class="change up">同比+31.6%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">65.8%</div>
+                    <div class="label">8月新能源渗透率</div>
+                    <div class="change up">创历史新高</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="section">
+            <div class="section-title">💡 核心摘要</div>
+            <div class="summary-box">
+                本周消费市场三大行业共同指向<strong>「政策提效、出海接管、技术转折」</strong>三条主线。家电领域，2026年国补「瘦身提效」——补贴品类从12类收缩至6类且仅限1级能效，15%补贴封顶1500元，倒逼行业高端化；上半年家电出口3609.6亿元，自主品牌占比四分之一、同比增长21.2%，欧洲成第一大增量市场。数码领域，苹果入局折叠屏引爆「三足鼎立」，群智咨询预计2026年全球折叠屏出货2400万至2500万台、同比增长41%~47%，中国AI手机出货有望达1.47亿台、占比过半。汽车领域，比亚迪8月44.03万辆再创新高，出口18.95万辆、同比翻倍以上，奇瑞、上汽、吉利海外销量齐破11万辆——海外增量正在「接管」总量增长，而国内零售同比下滑21.7%折射存量博弈加剧。
+            </div>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-title">🔥 市场大势</div>
+
+            <div class="news-card">
+                <span class="tag home">🏠 家电</span>
+                <h3>2026国补「瘦身提效」：品类收缩至6类，1级能效成硬门槛</h3>
+                <p>2026年国家以旧换新政策明显「精准换新」：家电补贴对象从2025年的12类收缩至冰箱、洗衣机、电视、空调、电脑、热水器6类，且必须为1级能效或水效标准，按销售价15%补贴、每件最高1500元；相较2025年1级能效补20%、单件封顶2000元，门槛提高、力度下调。数码产品补贴覆盖手机、平板、智能手表手环、智能眼镜4类（新增智能眼镜），单件不超6000元、按15%补贴、每件封顶500元。政策首次明确支持智能家居（含适老化产品）购新补贴，品类与标准由地方自主制定。国家已提前下达2026年第一批625亿元超长期特别国债资金计划，全国超27个省份在国补基础上自主扩围，江苏新增智能门锁、扫地机等10类，安徽新增吸油烟机、灶具等4类。</p>
+                <div class="source">来源：<a href="https://k.sina.com.cn/article_7879777103_1d5abdb4f06801m45c.html">新浪财经</a> · <a href="https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20251230223913a6e1c519">腾讯新闻</a></div>
+            </div>
+
+            <div class="news-card">
+                <span class="tag digital">📱 数码</span>
+                <h3>折叠屏「转折之年」：苹果入局，全球出货预计同比大增41%~47%</h3>
+                <p>2026年被业内视为折叠屏手机的转折之年。群智咨询数据显示，2026年全球折叠屏出货量预计达2400万至2500万台，对比2025年约1700万台，同比增幅高达41%~47%；中国市场预计1200万至1300万台、同比增长20%~30%。Counterpoint Research预测，苹果首款折叠屏产品上市后，2026年有望拿下全球28%的折叠屏份额，华为、三星双寡头格局将被打破，正式迈入三星、华为、苹果「三足鼎立」。产品形态上，书本式大折叠份额预计从52%跃升至65%，厂商集体攻坚「无折痕」——华为发布全球首款大阔折旗舰Pura X Max，OPPO计划在Find N6实现「最浅折痕」，苹果iPhone Fold则以金属应力分散板与自修复涂层追求「近乎无痕」。IDC预计2026年中国AI手机出货1.47亿台、同比增长31.6%、占比53%。</p>
+                <div class="source">来源：<a href="https://www.sohu.com/a/990589862_362225">搜狐</a> · <a href="https://c.m.163.com/news/a/KRMMNJPS0511A632.html">网易新闻</a></div>
+            </div>
+
+            <div class="news-card">
+                <span class="tag auto">🚗 汽车</span>
+                <h3>比亚迪8月44.03万辆再创新高，海外增量「接管」车市增长</h3>
+                <p>9月1日比亚迪公布8月产销快报：新能源车销量44.03万辆，同比+17.8%，连续63个月稳居中国新能源月度销冠，领先第二名近25万辆。当月出口新能源车18.95万辆，同比+134.6%，连续第5个月刷新海外纪录，1-8月海外累计115.8万辆、已超2025全年（104.96万辆）。高端化同步放量：方程豹8月4.16万辆（+155.6%）、腾势1.6万辆，二者合计5.8万辆，方程豹成为均价20万以上新势力销量第一。宏观层面，上半年中国汽车出口首次突破500万辆达509.6万辆、同比+65.3%；乘联会数据显示8月国内乘用车零售约158万辆、同比-21.7%，而新能源零售约104万辆、渗透率升至65.8%创历史新高——海外增量正成为对冲国内存量收缩的核心引擎。</p>
+                <div class="source">来源：<a href="https://www.cnfin.com/announ/detail/index.html?dannoun=lcdetail&id=841609872904">中国金融信息网</a> · <a href="https://www.163.com/dy/article/L5RDTL1O05199LJK.html">中国商报</a></div>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-title">🎯 重点专题</div>
+
+            <div class="topic-card">
+                <h3>专题一：中国车企「十万辆出海俱乐部」成形——增量从哪里来？</h3>
+                <p>国内乘用车进入存量博弈，头部车企的增长重心已从国内份额争夺转向全球市场扩容。8月奇瑞、比亚迪、上汽、吉利四家车企海外销量齐破11万辆，共同跻身「十万辆出海俱乐部」。其中奇瑞出口19.69万辆、同比+52.1%，累计出口突破700万辆，成为国内首个达成该里程碑的车企；上汽海外13.9万辆、同比+57.7%；吉利海外11.01万辆、同比+205%，增速最为突出。</p>
+                <p>更关键的结构性信号是：按「总销量减海外量」估算，四家车企的非海外部分均同比收缩——奇瑞非出口约8.31万辆、同比-26.6%，比亚迪非出口约25.08万辆、同比-14.4%，上汽非海外约21.8万辆、同比-20.8%，吉利非海外约16.01万辆、同比-25.2%。也就是说，总量增长几乎完全由海外放量贡献，海外增量正在「接管」中国车企的增长叙事。</p>
+                <table>
+                    <tr><th>车企</th><th>8月海外销量</th><th>同比</th><th>累计出口里程碑</th></tr>
+                    <tr><td>奇瑞集团</td><td>19.69万辆</td><td>+52.1%</td><td>累计出口破700万辆（国内首个）</td></tr>
+                    <tr><td>比亚迪</td><td>18.95万辆</td><td>+134.6%</td><td>1-8月累计115.8万辆（超2025全年）</td></tr>
+                    <tr><td>上汽集团</td><td>13.90万辆</td><td>+57.7%</td><td>1-8月累计101.6万辆</td></tr>
+                    <tr><td>吉利汽车</td><td>11.01万辆</td><td>+205%</td><td>全年目标上调至92万辆</td></tr>
+                </table>
+            </div>
+
+            <div class="topic-card">
+                <h3>专题二：2026国补新政全景——家电6类与数码4类补贴对比</h3>
+                <p>2026年「两新」政策的核心变化是「瘦身提效、精准换新」：家电补贴品类收缩、能效门槛提高，数码产品新增智能眼镜，并首次为智能家居产品开辟地方自主补贴通道。资金方面，2024年发行1500亿元、2025年增至3000亿元，2026年继续发行超长期特别国债，首批625亿元已提前下达地方。下表梳理本轮国补的核心规则变化。</p>
+                <table>
+                    <tr><th>品类</th><th>补贴比例</th><th>单件上限</th><th>门槛/范围</th><th>较2025年变化</th></tr>
+                    <tr><td>家电6类（冰箱/洗衣机/电视/空调/电脑/热水器）</td><td>15%</td><td>1500元</td><td>须1级能效或水效</td><td>品类12→6，取消2级能效补贴</td></tr>
+                    <tr><td>数码4类（手机/平板/手表手环/智能眼镜）</td><td>15%</td><td>500元</td><td>单件≤6000元</td><td>新增智能眼镜</td></tr>
+                    <tr><td>智能家居（含适老化）</td><td>地方自定</td><td>地方自定</td><td>地方自主制定品类标准</td><td>首次纳入购新补贴</td></tr>
+                    <tr><td>新能源汽车（报废/置换）</td><td>专项</td><td>报废最高2万元</td><td>需上传旧车证明</td><td>报废更新维持、置换最高1.5万元</td></tr>
+                </table>
+                <p>政策导向清晰：以「1级能效+智能化」双重门槛倒逼产业升级，加速淘汰能耗不达标、缺乏核心智能功能的同质化产品，头部品牌与具备智能技术储备的企业持续受益。</p>
+            </div>
+        </div>
+
+        <!-- 品牌/企业动态 -->
+        <div class="section">
+            <div class="section-title">🏢 品牌/企业动态</div>
+            <div class="brand-list">
+                <div class="brand-item">
+                    <div class="brand-name">🚗 比亚迪 — 44万辆蝉联销冠，海外+高端双轮驱动</div>
+                    <div class="brand-desc">8月新能源车销量44.03万辆、同比+17.8%，连续63个月居中国新能源销冠；出口18.95万辆、同比+134.6%，连续5个月刷新纪录，1-8月海外115.8万辆已超去年全年。方程豹4.16万辆（+155.6%）、腾势1.6万辆，方程豹成为均价20万以上新势力销量第一。第二代刀片电池与闪充技术落地，截至8月28日累计建成闪充站1万座、覆盖332城。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">🚗 零跑 — 单月10.31万辆，新势力「断层」领跑</div>
+                    <div class="brand-desc">8月全球交付103,129辆、同比+80.72%，连续第二个月破10万，成为新势力中「断崖式」领先者，按终端上牌量已位列全球新能源乘用车品牌前四。全域自研+全链路自制是其核心壁垒——自主掌握65%整车成本、建成18座零部件工厂。9月16日零跑将举办年度技术发布会，发布世界模型辅助驾驶及三电最新成果。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">📱 华为 — Pura X Max首发大阔折，夯实折叠屏统治力</div>
+                    <div class="brand-desc">华为发布全球首款大阔折旗舰手机Pura X Max，以「为内容而生」的阔型折叠形态、精密结构技术与鸿蒙端侧AI深度融合，打破传统折叠屏形态局限，在高端存量竞争中打开新增量。此前华为在中国折叠屏市场份额高达60%，Pura X系列累计销量超百万，此次新品进一步巩固其在折叠屏赛道的领先地位。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">📱 苹果 — iPhone Fold首秀在即，撬动全球折叠屏格局</div>
+                    <div class="brand-desc">苹果首款折叠屏产品被视为2026年折叠屏市场最大的拐点变量。Counterpoint预测其上市后有望在2026年拿下全球28%的折叠屏份额，快速跻身头部阵营。苹果以金属应力分散板与自修复涂层技术追求「近乎无痕」，并采用1:1.414宽屏比例优化多任务，撬动三星、华为双寡头格局重构为「三足鼎立」。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">🏠 中国家电 — 从「制造」到「智造」，自主品牌加速出海</div>
+                    <div class="brand-desc">上半年我国家电出口3609.6亿元，其中空调、电扇、冰箱等「清凉」家电出口1079.1亿元；电视出口超500亿元、冰箱与吸尘器均超300亿元。出口家电中自主品牌占比达四分之一，上半年自主品牌家电出口增长21.2%，自主品牌电视、冰箱、洗衣机均保持两位数增长。欧洲成为第一大增量市场，份额升至30.14%，中国「智造」正圈粉全球。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-title">🔮 趋势展望</div>
+            <ul class="outlook-list">
+                <li data-num="1"><strong>国补「精准换新」加速行业洗牌</strong>：1级能效+智能化双重门槛将在Q3-Q4持续淘汰低端产能，头部品牌市占率有望进一步提升。地方自主扩围（27省+）将催生智能门锁、扫地机、空气净化器等细分品类的地方性红利。</li>
+                <li data-num="2"><strong>折叠屏迈入「苹果时代」</strong>：iPhone Fold秋季入局将重新定义产品与定价标准，三星、华为、苹果三足鼎立格局确立。无折痕技术与AI「伴随」交互成为新赛点，书本式大折叠成为主战场。</li>
+                <li data-num="3"><strong>「出海接管增长」成为车企主旋律</strong>：奇瑞、比亚迪、上汽、吉利四家海外销量齐破11万辆，海外增量几乎完全覆盖国内收缩。下一阶段竞争焦点将从「出口速度」转向海外零售、渠道能力与本地化盈利。</li>
+                <li data-num="4"><strong>新能源渗透率冲高、价格战压力并存</strong>：8月新能源渗透率65.8%创历史新高，但国内零售同比-21.7%折射存量博弈加剧，盈利质量与长期技术投入将取代单纯销量成为竞争标尺。</li>
+                <li data-num="5"><strong>存储芯片涨价传导全链路</strong>：预计2026年上半年存储芯片涨幅达60%~70%，将从手机向智能家电、智能汽车全链路传导，倒逼企业加速「高端化+自研化」，比亚迪、华为等自研战略价值凸显。</li>
+            </ul>
+        </div>
+
+        <!-- 数据来源 -->
+        <div class="section">
+            <div class="section-title">📚 数据来源</div>
+            <div class="source-list">
+                1. 比亚迪股份 — 2026年8月产销快报（公告编号：2026-039）<br>
+                2. 群智咨询 / Counterpoint Research — 2026年全球折叠屏出货预测<br>
+                3. 国家发改委、财政部 — 2026年大规模设备更新和消费品以旧换新政策通知<br>
+                4. 海关总署 — 2026年上半年家电出口数据<br>
+                5. 乘联会 — 2026年8月乘用车市场分析<br>
+                6. <a href="https://www.cnfin.com/announ/detail/index.html?dannoun=lcdetail&id=841609872904">中国金融信息网 — 比亚迪8月产销快报</a><br>
+                7. <a href="https://www.163.com/dy/article/L5RDTL1O05199LJK.html">中国商报 — 8月车企出海销量</a><br>
+                8. <a href="https://www.toutiao.com/article/7680567632256451110/">深圳商报 — 新势力8月销量</a><br>
+                9. <a href="https://www.sohu.com/a/990589862_362225">搜狐 — 2026折叠屏转折之年</a><br>
+                10. <a href="https://c.m.163.com/news/a/KRMMNJPS0511A632.html">网易新闻 — 华为Pura X Max</a><br>
+                11. <a href="https://economy.gmw.cn/2026-07/14/content_38885098.htm">光明网 — 上半年家电出口3609.6亿元</a><br>
+                12. <a href="https://k.sina.com.cn/article_7879777103_1d5abdb4f06801m45c.html">新浪财经 — 2026地方换新补贴条件</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-title">盛世消费体验研究院</div>
+        <div class="footer-desc">⭐ 第1周 | 🏠 家电行业情报 · ⭐ 第2周 | 📱 数码行业情报 · ⭐ 第3周 | 🚗 汽车市场情报 · ⭐ 第4周 | 📊 综合情报</div>
+        <div class="footer-desc">助您轻松掌握趋势，抢占市场先机！</div>
+        <div class="back-home"><a href="index.html">← 返回往期目录</a></div>
+    </div>
+</body>
+</html>
