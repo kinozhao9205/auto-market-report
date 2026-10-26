@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 汽车市场每周情报 · 第44周 · 10月第4周</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --primary-dark: #9d0208;
+            --accent: #d00000;
+            --accent2: #ff7b00;
+            --bg: #fff5f2;
+            --text-primary: #2b1a1a;
+            --text-secondary: #5a4646;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #e63946 0%, #9d0208 50%, #6a040f 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: white;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .header .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .header .badge {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .main { max-width: 860px; margin: 0 auto; padding: 20px 16px; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #ffe3e0; color: #9d0208; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #ffc4bd; }
+        .summary-box {
+            background: linear-gradient(135deg, #e63946 0%, #9d0208 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px;
+            color: white;
+            margin-bottom: 18px;
+        }
+        .summary-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; opacity: 0.85; letter-spacing: 0.5px; }
+        .summary-box p { font-size: 0.95rem; line-height: 1.85; }
+        .summary-box ul { margin: 10px 0 0 18px; }
+        .summary-box li { font-size: 0.92rem; line-height: 1.8; }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .data-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 16px 12px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.08);
+            border-top: 3px solid var(--primary);
+        }
+        .data-card.v2 { border-top-color: var(--accent2); }
+        .data-card.v3 { border-top-color: #06d6a0; }
+        .data-card.v4 { border-top-color: #118ab2; }
+        .data-card.v5 { border-top-color: #9b5de5; }
+        .data-card.v6 { border-top-color: #f72585; }
+        .data-card .num { font-size: clamp(1.15rem, 3vw, 1.5rem); font-weight: 800; color: var(--primary-dark); margin-bottom: 4px; }
+        .data-card .label { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
+        .section-title {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 1.1rem; font-weight: 800;
+            margin: 26px 0 14px; color: var(--primary-dark);
+        }
+        .section-title::before { content: ''; width: 5px; height: 20px; background: linear-gradient(180deg, var(--primary), var(--accent2)); border-radius: 3px; }
+        .news-card {
+            background: white; border-radius: var(--card-radius);
+            padding: 20px 22px; margin-bottom: 14px;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.06);
+        }
+        .news-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); line-height: 1.5; }
+        .news-card p { font-size: 0.9rem; line-height: 1.85; color: var(--text-secondary); }
+        .news-card .src { display: block; margin-top: 8px; font-size: 0.78rem; color: #118ab2; text-decoration: none; word-break: break-all; }
+        .topic-card {
+            background: white; border-radius: var(--card-radius);
+            padding: 22px 24px; margin-bottom: 16px;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.06);
+        }
+        .topic-card h4 { font-size: 1.05rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; }
+        .topic-card p { font-size: 0.9rem; line-height: 1.85; color: var(--text-secondary); margin-bottom: 8px; }
+        .topic-tag { display: inline-block; background: #ffe3e0; color: var(--primary-dark); font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.82rem; }
+        th { background: linear-gradient(135deg, #e63946, #9d0208); color: white; padding: 9px 8px; text-align: left; font-weight: 600; white-space: nowrap; }
+        td { padding: 9px 8px; border-bottom: 1px solid #ffe3e0; color: var(--text-secondary); line-height: 1.6; }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background: #fffafa; }
+        .brand-card {
+            background: white; border-radius: var(--card-radius);
+            padding: 18px 22px; margin-bottom: 12px;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.06);
+            border-left: 4px solid var(--primary);
+        }
+        .brand-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--primary-dark); }
+        .brand-card p { font-size: 0.88rem; line-height: 1.8; color: var(--text-secondary); }
+        .trend-card {
+            background: linear-gradient(135deg, #2b1a1a 0%, #6a040f 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px; color: white; margin-bottom: 16px;
+        }
+        .trend-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; opacity: 0.9; }
+        .trend-card li { font-size: 0.9rem; line-height: 1.9; margin-left: 18px; }
+        .source-box {
+            background: white; border-radius: var(--card-radius);
+            padding: 18px 22px; margin-top: 6px;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.06);
+        }
+        .source-box h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+        .source-box p { font-size: 0.8rem; line-height: 1.8; color: var(--text-secondary); word-break: break-all; }
+        .footer {
+            background: linear-gradient(135deg, #9d0208, #6a040f);
+            border-radius: var(--card-radius);
+            padding: 24px; text-align: center; color: rgba(255,255,255,0.85);
+            font-size: 0.82rem; line-height: 1.8; margin-top: 26px;
+        }
+        .footer strong { color: white; font-size: 0.9rem; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 640px) {
+            .data-grid { grid-template-columns: repeat(2, 1fr); }
+            .header { padding: 28px 16px 22px; }
+            .news-card, .topic-card { padding: 16px; }
+            table { font-size: 0.75rem; }
+            th, td { padding: 7px 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <span class="issue-badge">盛世消费体验研究院 · 2026年第35期 · 第44周</span>
+            <h1>🚗 汽车市场每周情报</h1>
+            <div class="meta">
+                <span class="badge">📅 2026年10月26日（10月第4周）</span>
+                <span class="badge">🚗 汽车行业专题</span>
+                <span class="badge">📊 数据周期：2026.10.19 - 10.25</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="back-btn-top"><a href="index.html">← 返回往期目录</a></div>
+
+        <div class="section-title">📈 数据速览</div>
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="num">820.5万辆</div>
+                <div class="label">1-9月我国汽车出口<br>同比 +65.8%</div>
+            </div>
+            <div class="data-card v2">
+                <div class="num">1000万辆</div>
+                <div class="label">全年汽车出口有望<br>首次突破大关</div>
+            </div>
+            <div class="data-card v3">
+                <div class="num">400.6万辆</div>
+                <div class="label">1-9月新能源出口<br>同比 +1.3倍</div>
+            </div>
+            <div class="data-card v4">
+                <div class="num">44.17万辆</div>
+                <div class="label">比亚迪10月新能源销量<br>环比 +11.5%</div>
+            </div>
+            <div class="data-card v5">
+                <div class="num">132万辆</div>
+                <div class="label">10月新能源零售预测<br>渗透率有望创新高</div>
+            </div>
+            <div class="data-card v6">
+                <div class="num">7.03万辆</div>
+                <div class="label">零跑10月交付量<br>新势力月度第一</div>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3>📌 核心摘要</h3>
+            <p>本周汽车市场呈现"出口高歌猛进、国内竞争白热化"的双面格局：中汽协数据显示全年出口突破1000万辆已无悬念，新能源出口占比连续四个月超50%，中国汽车正从"产品出海"迈向"产业扎根"。国内方面，购置税免征进入最后倒计时，17家以上车企推出购置税"兜底"政策抢抓年末订单，"银十"车市延续旺销。品牌层面，问界新M8、理想i6等重磅新车密集上市，智能驾驶进入L3落地元年；零跑月交付首破7万辆，新势力格局持续洗牌。</p>
+        </div>
+
+        <div class="section-title">🗞️ 市场大势</div>
+
+        <div class="news-card">
+            <h4>1. 中汽协：今年我国汽车出口有望突破1000万辆，新能源成核心引擎</h4>
+            <p>中国汽车工业协会最新数据显示，1至9月我国汽车出口820.5万辆，同比增长65.8%，全年出口突破1000万辆已基本没有悬念。其中新能源汽车出口400.6万辆，同比激增1.3倍，自6月份开始出口占比连续四个月超过50%。区域结构上，欧洲、南美、东南亚和中东成为主要出口地区：奇瑞集团前三季度累计出口155.12万辆，同比增长65.6%；上汽旗下名爵品牌在欧洲销量超过28万辆，同比增长23%。中汽协副秘书长柳燕表示，中国汽车的全球竞争力已从性价比优势转向以新能源为核心的体系竞争力，从"产品出海"加快向"产业扎根"转型。</p>
+            <a class="src" href="https://www.toutiao.com/article/7697177530817806875" target="_blank">来源：央视财经 / 齐鲁壹点（今日头条）</a>
+        </div>
+
+        <div class="news-card">
+            <h4>2. "银十"成色十足：比亚迪44.2万辆领跑，新势力月销纪录密集刷新</h4>
+            <p>多家车企发布的"银十"数据显示车市延续旺销态势。比亚迪10月新能源汽车销量44.17万辆，环比增长11.5%，前10个月累计销量370.18万辆，同比增长13.9%，稳居全球新能源销冠；其中海外销售83,904辆，环比回升17.8%，海外市场已成为重要增长引擎。新势力阵营中，零跑汽车以7.03万辆交付量首次突破7万辆大关领跑，蔚来、小米汽车均突破4万辆，理想汽车交付3.18万辆并加速出海。乘联分会预计10月狭义乘用车零售约220万辆，新能源零售量预计132万辆，渗透率有望创历史新高。</p>
+            <a class="src" href="https://m.nbd.com.cn/web_app/column/565" target="_blank">来源：每日经济新闻 / 阿斯达克财经</a>
+        </div>
+
+        <div class="news-card">
+            <h4>3. 盈利承压：行业利润率降至3.6%，从"参数内卷"转向"价值竞争"</h4>
+            <p>在销量高增的另一面，行业盈利压力持续加深。1至8月汽车行业收入70,062亿元、增长2.9%，但利润2,534亿元、同比下降16%，销售利润率降至3.6%，整车制造环节平均利润率跌至1.5%，创近十年最低。大众汽车集团三季度出现近五年来首次季度亏损，但其仍坚定推进电动化转型，宣布明年将在中国市场推出20余款新能源车，目标2027、2030年在中国市场按权益法核算的营业利润分别达20亿、30亿欧元。业内普遍认为，行业正处在从"参数内卷"向"价值竞争"转向的艰难爬坡期，四季度国内降幅有望随以旧换新资金全部下达而收窄。</p>
+            <a class="src" href="https://www.sgpjbg.com/searchtag/27130399.html" target="_blank">来源：三个皮匠报告 / 每日经济新闻</a>
+        </div>
+
+        <div class="section-title">🔍 重点专题</div>
+
+        <div class="topic-card">
+            <span class="topic-tag">政策专题</span>
+            <h4>专题一：购置税免征倒计时，车企"兜底"大战点燃年末车市</h4>
+            <p>根据财政部、税务总局、工信部联合发布的政策，2024年1月1日至2025年12月31日期间购置的新能源汽车免征车辆购置税（每辆乘用车免税额不超过3万元）；2026年1月1日至2027年12月31日期间购置的，减半征收车辆购置税，每辆减税额不超过1.5万元。这意味着延续10余年的全额免征优惠进入最后窗口期。</p>
+            <p>由于热门新能源车型普遍采用订单式生产，年底锁单的消费者可能要等到2026年才能提车开票，从而错过免征优惠。为抢抓订单，截至11月中旬已有理想、蔚来、奇瑞、问界、小米、极氪、智己、长安、深蓝等17家以上主流汽车品牌推出购置税"兜底"方案：用户在规定期限内锁单，若因车企原因延迟到2026年交付，车企将全额承担最高1.5万元的购置税差额。以小米YU7 Pro（27.99万元）为例，2025年开票免征购置税，2026年开票则需缴纳约1.24万元，差额十分可观。</p>
+            <p>值得注意的是，工信部新规同时要求插电混动车型纯电续航低于100公里将无法享受购置税减免，比亚迪等车企已陆续推出2026款海豹07 DM-i、秦L DM-i等车型，将最低纯电续航提升至100公里以上。政策与技术门槛的双重筛选，正在加速插混市场的产品升级。</p>
+            <table>
+                <tr><th>政策阶段</th><th>购置日期</th><th>优惠力度</th><th>单车上限</th></tr>
+                <tr><td>全额免征</td><td>2024.1.1 - 2025.12.31</td><td>免征车辆购置税</td><td>3万元/辆</td></tr>
+                <tr><td>减半征收</td><td>2026.1.1 - 2027.12.31</td><td>减半征收</td><td>1.5万元/辆</td></tr>
+                <tr><td>技术门槛</td><td>2026款插混新规</td><td>纯电续航≥100km方可享受</td><td>—</td></tr>
+            </table>
+            <a class="src" href="http://heilongjiang.chinatax.gov.cn/art/2026/7/16/art_4941_592857.html" target="_blank">来源：国家税务总局 / 央广网 / 中国经济网</a>
+        </div>
+
+        <div class="topic-card">
+            <span class="topic-tag">出海专题</span>
+            <h4>专题二：从"产品出海"到"产业扎根"，中国车企全球化进入2.0阶段</h4>
+            <p>今年出口有望突破1000万辆的背后，是中国车企出海模式的深刻转变：从单纯卖产品，转向本地化研发、体系化运营与生产制造布局。广汽集团宣布将在欧洲组建研发中心，从产品定义、用户洞察到产品开发全部在欧洲展开，前三季度海外出口近20万辆、同比劲增138.9%，连续9个月同比增幅超100%；吉利汽车宣布正式进入加拿大市场，组建本地团队并建设零售与服务网络，计划2027年推出首批车型；比亚迪二代刀片电池及闪充技术落地印尼，第2000座闪充高速站落成，累计建成11,586座闪充站覆盖341城，目标2026年底达20,000座。</p>
+            <p>商用车领域同样亮眼：比亚迪第15万辆新能源商用车下线，其新能源客车出口2233辆（2026年上半年），以22.15%的市场份额连续三年蝉联年度出口冠军，产品已进入全球70多个国家和地区。零部件层面，立讯精密收购并100%控股京西智行，融合悬架、制动、转向三大底盘系统，中国供应链的全球化配套能力同步升级。</p>
+            <table>
+                <tr><th>企业/品牌</th><th>海外市场表现（前三季度/1-10月）</th><th>同比变化</th><th>战略动向</th></tr>
+                <tr><td>奇瑞集团</td><td>出口155.12万辆</td><td>+65.6%</td><td>出口规模行业第一</td></tr>
+                <tr><td>比亚迪</td><td>海外乘用车及皮卡78.5万辆（1-10月）</td><td>+135%</td><td>电池/闪充技术出海印尼</td></tr>
+                <tr><td>名爵（上汽）</td><td>欧洲销量超28万辆</td><td>+23%</td><td>深耕欧洲8年</td></tr>
+                <tr><td>广汽集团</td><td>海外出口近20万辆</td><td>+138.9%</td><td>欧洲组建研发中心</td></tr>
+                <tr><td>吉利汽车</td><td>进入加拿大市场</td><td>—</td><td>2027年推首批车型</td></tr>
+            </table>
+            <a class="src" href="https://www.autoinfo.org.cn/?pzid=2384" target="_blank">来源：中国汽车工业信息网 / 央视财经</a>
+        </div>
+
+        <div class="section-title">🏭 品牌/企业动态</div>
+
+        <div class="brand-card">
+            <h4>🚙 问界新M8上市，华为智驾全家桶再升级</h4>
+            <p>问界新M8正式上市，定位大型豪华SUV，提供增程、纯电两套动力与五座/六座布局，预售起步价38.98万元。新车全系按L3级辅助驾驶架构设计，搭载华为乾崑ADS 5.0全场景智驾与896线图像级激光雷达，升级鸿蒙最新车机，底盘新增正负8度后轮转向与双腔空气悬架；增程版综合续航最高约1,435-1,526公里，纯电版基于800V巨鲸平台最高续航705-830公里。此外，问界RX已于10月25日启动首批交付，六款车型售价25.98万-38.98万元，华为系产品矩阵加速扩容。</p>
+        </div>
+
+        <div class="brand-card">
+            <h4>🔋 理想i6焕新+L8 2026款上市，自研技术密集落地</h4>
+            <p>2026款理想i6于10月底上市、11月初开启交付，换装自研5C电池与马赫芯片，后驱版CLTC续航有望从720公里提升至约780公里，智驾升级至马赫VLA2.5系统，硬件采用ATL激光雷达加NVIDIA Thor-U芯片，售价预计维持24.98万元。同时理想L8 2026款全系标配PLM超级快充技术，续航提升至750公里以上，10月20日开启全国预售，指导价24.98万-32.98万元。理想10月交付3.18万辆，并明确加速出海进程。</p>
+        </div>
+
+        <div class="brand-card">
+            <h4>🏆 零跑月交付首破7万辆，登顶新势力月度榜首</h4>
+            <p>零跑汽车10月交付量达7.03万辆，首次突破7万辆大关，超越蔚来（4万+）、小米（4万+）、理想（3.18万辆）登顶新势力月度第一。依托与Stellantis集团的合资体系，零跑正加速欧洲化布局，聚焦技术互补与本地化生产。业内人士指出，零跑的逆袭得益于10万-20万元主流价格带的精准卡位与成本控制能力，其"半价理想"策略正在规模效应下兑现为利润与份额的双重回报。</p>
+        </div>
+
+        <div class="brand-card">
+            <h4>⚡ 比亚迪：闪充车型订单旺盛，二代刀片电池产能爬坡</h4>
+            <p>针对"闪充车供不应求是否涨价"的市场讨论，比亚迪回应称定价综合市场竞争、用户需求、长期品牌战略与产能释放节奏等多维度考量，当前首要目标是加快二代刀片电池产能爬坡、提升交付能力。补能网络方面，第2000座闪充高速站于9月底落成，累计建成11,586座闪充站覆盖341城，目标2026年底达20,000座。1-10月比亚迪海外乘用车及皮卡销售78.5万辆，同比增长135%，10月单月海外销售83,904辆、环比回升17.8%。</p>
+        </div>
+
+        <div class="brand-card">
+            <h4>🏬 新势力商超店"撤退"调查：渠道模式转向降本增效</h4>
+            <p>10月下旬，上海宝山区一商场内蔚来和智己汽车的商超店闭店装修，新能源汽车商超店从扩张转向收缩。调查显示，一线城市商超店年运营成本约500万元，高成本叠加销售转化率不高、售后分离不便等因素，促使主机厂转向郊区直营店或授权经销商模式。未来商超店将寻求成本控制与用户体验的平衡，与传统4S店形成互补，渠道变革成为新势力降本的关键一环。</p>
+        </div>
+
+        <div class="section-title">🔮 趋势展望</div>
+        <div class="trend-card">
+            <h4>未来1-3个月值得关注的五大趋势</h4>
+            <ul>
+                <li><strong>购置税窗口期收官：</strong>2025年底前免征政策到期叠加车企"兜底"补贴，年末订单集中释放，但需警惕交付延期与质检简化带来的质量风险，"未验车先催尾款"等违规操作已被监管点名。</li>
+                <li><strong>出口冲刺千万辆：</strong>全年出口突破1000万辆几成定局，欧洲、东南亚、中东为增量主战场，关税壁垒与本地化建厂将成为2027年的核心变量。</li>
+                <li><strong>L3智驾商业化元年：</strong>问界新M8、问界RX、特斯拉Cybercab等车型均按L3架构设计，896线激光雷达、VLA大模型、千TOPS级算力成为高阶智驾新车标配。</li>
+                <li><strong>插混技术门槛抬升：</strong>纯电续航≥100公里成为享受购置税减免的硬门槛，将倒逼插混/增程产品全面升级大电池方案。</li>
+                <li><strong>利润率修复攻坚：</strong>整车平均利润率跌至1.5%的历史低位，"反内卷"、价值竞争与高端化将成为四季度至2027年的行业主线。</li>
+            </ul>
+        </div>
+
+        <div class="source-box">
+            <h4>📚 数据来源说明</h4>
+            <p>本报告数据与资讯来源于公开渠道，主要包括：中国汽车工业协会（出口及行业运行数据）、乘联分会（零售与渗透率预测）、国家税务总局（购置税政策原文 heilongjiang.chinatax.gov.cn）、央视财经/齐鲁壹点（toutiao.com/article/7697177530817806875）、每日经济新闻（m.nbd.com.cn）、阿斯达克财经（aastocks.com）、央广网（cnr.cn）、中国经济网（auto.ce.cn）、中国汽车工业信息网（autoinfo.org.cn）、新能源车网（xinnengyuan100.com）等。所有数据以官方发布为准，本报告仅供内部研究参考。</p>
+        </div>
+
+        <div class="footer">
+            <strong>盛世消费体验研究院</strong><br>
+            🚗 汽车市场每周情报 · 2026年第35期 · 第44周<br>
+            数据周期：2026.10.19 - 10.25<br><br>
+            ⭐ 第1周 | 🏠 家电行业情报 &nbsp;|&nbsp; ⭐ 第2周 | 📱 数码行业情报<br>
+            ⭐ 第3周 | 🚗 汽车市场情报 &nbsp;|&nbsp; ⭐ 第4周 | 📊 综合情报
+            <div class="back-home"><a href="index.html">← 返回往期目录</a></div>
+        </div>
+    </div>
+</body>
+</html>
