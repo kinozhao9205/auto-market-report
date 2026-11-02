@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 消费市场综合每周情报 · 第36期 · 11月第1周</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #8b5cf6;
+            --accent2: #ec4899;
+            --bg: #f5f3ff;
+            --text-primary: #1e1b4b;
+            --text-secondary: #4c4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #7c3aed 40%, #db2777 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+        .header .subtitle { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+        .header .meta { color: rgba(255,255,255,0.6); font-size: 0.78rem; margin-top: 6px; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .container {
+            max-width: 860px;
+            margin: 16px auto 0;
+            padding: 0 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .section { margin-bottom: 28px; }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .data-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 18px 14px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+            border: 1px solid rgba(99,102,241,0.06);
+            transition: transform 0.2s;
+        }
+        .data-card:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(99,102,241,0.15); }
+        .data-card .value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #db2777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .data-card .label { font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px; }
+        .data-card .change { font-size: 0.72rem; margin-top: 2px; font-weight: 600; }
+        .change.up { color: #dc2626; }
+        .change.down { color: #059669; }
+        .summary-box {
+            background: linear-gradient(135deg, #f5f3ff 0%, #fdf2f8 100%);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            border: 1px solid rgba(139,92,246,0.12);
+            line-height: 1.8;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+        .summary-box strong { color: var(--primary-dark); }
+        .news-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-left: 3px solid var(--primary);
+        }
+        .news-card .tag {
+            display: inline-block;
+            background: rgba(99,102,241,0.1);
+            color: var(--primary-dark);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .news-card .tag.home { background: rgba(14,165,233,0.1); color: #0369a1; }
+        .news-card .tag.digital { background: rgba(168,85,247,0.1); color: #7e22ce; }
+        .news-card .tag.auto { background: rgba(220,38,38,0.1); color: #b91c1c; }
+        .news-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+        .news-card p { font-size: 0.88rem; line-height: 1.75; color: var(--text-secondary); }
+        .news-card .source { font-size: 0.72rem; color: #94a3b8; margin-top: 6px; }
+        .news-card .source a { color: var(--primary); text-decoration: none; }
+        .topic-card {
+            background: #fff;
+            border-radius: var(--card-radius);
+            padding: 20px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .topic-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; color: var(--primary-dark); }
+        .topic-card p { font-size: 0.88rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 12px; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 8px; }
+        table th {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+        table th:first-child { border-radius: 8px 0 0 0; }
+        table th:last-child { border-radius: 0 8px 0 0; }
+        table td { padding: 9px 8px; border-bottom: 1px solid #f1f5f9; color: var(--text-secondary); }
+        table tr:hover td { background: #f8f7ff; }
+        .table-note { font-size: 0.72rem; color: #94a3b8; margin-top: 8px; line-height: 1.6; }
+        .brand-list { display: grid; gap: 10px; }
+        .brand-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 16px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+            border-left: 3px solid var(--accent);
+        }
+        .brand-item .brand-name { font-weight: 700; font-size: 0.9rem; color: var(--primary-dark); margin-bottom: 4px; }
+        .brand-item .brand-desc { font-size: 0.82rem; line-height: 1.7; color: var(--text-secondary); }
+        .outlook-list { list-style: none; }
+        .outlook-list li {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 16px 14px 48px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            position: relative;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+        .outlook-list li::before {
+            content: attr(data-num);
+            position: absolute;
+            left: 14px;
+            top: 16px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+        .source-list {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 0.78rem;
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+        .source-list a { color: var(--primary); text-decoration: none; word-break: break-all; }
+        .footer {
+            background: linear-gradient(135deg, #4c1d95, #6366f1);
+            color: rgba(255,255,255,0.85);
+            padding: 24px 16px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .footer .footer-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
+        .footer .footer-desc { font-size: 0.76rem; color: rgba(255,255,255,0.55); }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.3rem; }
+            .data-cards { grid-template-columns: repeat(2, 1fr); }
+            table { font-size: 0.75rem; }
+            table th, table td { padding: 7px 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn-top"><a href="index.html">← 返回往期目录</a></div>
+    <div class="header">
+        <div class="header-inner">
+            <span class="issue-badge">第36期 · 2026年11月第1周</span>
+            <h1>📊 消费市场综合每周情报</h1>
+            <p class="subtitle">家电 · 数码 · 汽车 三大行业全景洞察</p>
+            <p class="meta">盛世消费体验研究院 · 2026年11月2日</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 数据速览 -->
+        <div class="section">
+            <div class="section-title">📈 数据速览</div>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="value">171.5万</div>
+                    <div class="label">10月新能源车销量</div>
+                    <div class="change up">渗透率首破50%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">49.02万</div>
+                    <div class="label">比亚迪10月新能源销量</div>
+                    <div class="change up">同比+10.97%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">6041亿</div>
+                    <div class="label">前三季度家电零售额</div>
+                    <div class="change down">同比-10.0%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">284.8万</div>
+                    <div class="label">国庆家电以旧换新台数</div>
+                    <div class="change up">带动销售123.4亿</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">30%+</div>
+                    <div class="label">存储占手机物料成本</div>
+                    <div class="change up">去年仅10%-15%</div>
+                </div>
+                <div class="data-card">
+                    <div class="value">550美元</div>
+                    <div class="label">2026全球手机均价</div>
+                    <div class="change up">较上年提高100美元</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心摘要 -->
+        <div class="section">
+            <div class="section-title">💡 核心摘要</div>
+            <div class="summary-box">
+                本周三大行业共同指向一条主线：<strong>「存量收缩 + 成本冲击 + 出海缓冲」</strong>的结构性再平衡。家电端，前三季度国内零售额6041亿元、同比-10.0%，空调、冰洗、彩电、厨卫大电、清洁电器五大主力赛道首次集体转负，但国庆以旧换新284.8万台叠加第四批625亿国补落地，AI家电与高端套系成为唯一确定性增量。数码端，AI正在「吞噬」内存——存储占手机物料成本从10%-15%飙升至30%以上，Q1 DRAM合约价涨90%-95%、Q2再涨58%-63%，全球均价被推高至550美元，出货量则跌至10.9亿部。汽车端，10月新能源渗透率历史性突破50%，但国内零售同比-28.9%，奇瑞、比亚迪、上汽、吉利四家海外月销齐破10万辆，出口成为唯一增长引擎。<strong>三家白电巨头Q3净利裂口相差近70个百分点</strong>，也印证了同一个规律：谁的海外与非家电业务更厚，谁就更能穿越周期。
+            </div>
+        </div>
+
+        <!-- 市场大势 -->
+        <div class="section">
+            <div class="section-title">🔥 市场大势</div>
+
+            <div class="news-card">
+                <span class="tag home">🏠 家电</span>
+                <h3>家电大盘三季度零售额-10.1%，国庆国补拉动284.8万台换新</h3>
+                <p>奥维云网数据显示，2026年前三季度家电大盘零售额6041亿元、同比下降10.0%，分季度看Q1 -6.0%、Q2 -12.4%、Q3 -10.1%，且空调、冰洗、彩电、厨卫大电、清洁电器五大主力赛道首次同时转负。空调是下滑重灾区，产业在线数据显示前三季度家用空调行业总销量1.5亿台、同比-8.4%，降幅逐季扩大（Q1 -2.8%、Q2 -9.3%、Q3 -15.1%）。但政策端形成对冲：商务部数据显示10月1日至6日国庆假期全国家电以旧换新完成284.8万台、带动销售额123.4亿元，第四批625亿元国补资金自10月起陆续落地。终端表现分化明显——苏宁易购国庆核心门店客流同比增长五成，AI智能家电销售同比增长超四成、AI产品占比首次突破七成；海尔国庆期间套购订单同比增幅37%、客单价提升近两成，高端厨电套系表现尤为突出。政策与结构升级正在把「普跌」改写为「结构性回暖」。</p>
+                <div class="source">来源：<a href="https://www.mycaijing.com/article/detail/586606">《财经》客户端</a> · <a href="https://www.cenr.com.cn/cyjj/jd/2026/10/21/235484.html">中国企业报道网</a></div>
+            </div>
+
+            <div class="news-card">
+                <span class="tag digital">📱 数码</span>
+                <h3>AI「吞噬」内存：手机物料成本被存储吃掉三成，全球均价跳涨100美元</h3>
+                <p>据中国经济网报道，全球约七成先进存储产能已被AI数据中心吞噬，手机、电脑等消费电子只能争抢剩余三成。存储芯片占一部智能手机整机物料成本的比例已从以往的10%-15%区间飙升至30%以上，部分大存储旗舰机型甚至逼近50%；单颗12GB手机内存采购价从200元涨至近600元，1TB闪存芯片从200元出头飙升至600元，苹果将眼下的供需紧张形容为「百年一遇的洪灾」。价格端，2026年Q1 DRAM合约价上涨90%-95%、NAND上涨33%-38%，Q2 DRAM再涨58%-63%。终端传导已经完成：IDC预计2026年全球智能手机出货10.9亿部、同比下降13.9%，但全球平均售价升至550美元、较上年提高100美元，Q2行业营收1090亿美元创历史新高，600美元以上高端市场份额从25%升至29%。量减价增，成为今年手机行业最鲜明的底色。</p>
+                <div class="source">来源：<a href="https://www.ce.cn/xwzx/gnsz/gdxw/202611/t20261101_3278983.shtml">中国经济网</a> · <a href="https://www.sgpjbg.com.cn/searchtag/26675338.html?page=2">三个皮匠报告</a></div>
+            </div>
+
+            <div class="news-card">
+                <span class="tag auto">🚗 汽车</span>
+                <h3>10月新能源渗透率首破50%，但国内零售-28.9%——出口接棒增长</h3>
+                <p>11月1日多家车企交出10月成绩单：全国汽车总销量332.2万辆、同比+8.8%，新能源车销量171.5万辆、月度渗透率首次突破50%，意味着每售出两辆车就有一辆是新能源。但批发端的亮眼与零售端的低迷形成鲜明裂口——乘联分会预估10月狭义乘用车零售约160万辆、同比-28.9%、环比-1.1%，全年零售预计1850万辆、同比-22%。吉利汽车副董事长桂生悦直言，今年「金九银十」现象首次基本消失，未来可能成为常态。增长几乎全部来自海外：10月整车出口66.6万辆、同比+22.9%，奇瑞集团海外20.06万辆（+58.70%）稳坐「出海一哥」，吉利出口10.72万辆（+158%），上汽出口及海外基地16.25万辆（+67.28%），比亚迪出口17.02万辆。四家头部车企海外月销齐破10万辆，出口已成为存量时代的唯一增量引擎。</p>
+                <div class="source">来源：<a href="https://news.china.com/socialgd/10000169/20261101/49831655.html">中华网</a> · <a href="https://finance.sina.com.cn/jjxw/2026-11-01/doc-inixfzvs7668433.shtml">新浪财经</a></div>
+            </div>
+        </div>
+
+        <!-- 重点专题 -->
+        <div class="section">
+            <div class="section-title">🎯 重点专题</div>
+
+            <div class="topic-card">
+                <h3>专题一：白电三巨头Q3「利润裂口」近70个百分点——谁在真正抗周期？</h3>
+                <p>10月29日美的集团、海尔智家相继披露三季报，白电三大龙头前三季度业绩全部出炉。美的集团成为唯一实现营收、归母净利润双增长的公司，前三季度营收3690.87亿元、同比+1.2%，归母净利润413.93亿元、同比+9.27%；海尔智家营收2218.19亿元、同比-5.23%，归母净利润149.99亿元、同比-13.67%；格力电器压力最为明显，营收1265.44亿元、同比-8.1%，归母净利润172.74亿元、同比-19.51%，其中Q3单季归母净利润同比大幅下滑43.31%。</p>
+                <p>三份报表处在同一个行业、同一个季度，利润增速却相差近七十个百分点，核心差异不在经营能力，而在业务结构。美的的缓冲来自「第二增长曲线」：前三季度楼宇科技、机器人与自动化业务分别实现收入约309亿元、249亿元，均同比增长约10%，楼宇科技已从传统中央空调延伸至工商业暖通、数据中心制冷与楼宇能源管理，恰好接住了AI算力基建的这波投资。海尔智家的压力来自全球化敞口——海外收入占比超50%，汇率波动导致Q3损失3.64亿元，叠加历时一年的全球供应链重构与欧洲重组，Q3一次性支出约5亿元；若剔除汇兑损益波动和一次性支出，其Q3业绩实际同比增长，且国内份额仍在提升（1-9月线上零售额份额20.6%、同比+2.9个百分点，线下25%、同比+1.7个百分点）。格力则高度依赖空调单一品类，恰逢空调内销出货前三季度同比-11.6%（Q3单季-27.9%），受冲击最直接。</p>
+                <table>
+                    <tr>
+                        <th>企业</th>
+                        <th>前三季度营收</th>
+                        <th>同比</th>
+                        <th>前三季度归母净利</th>
+                        <th>同比</th>
+                        <th>Q3单季净利同比</th>
+                    </tr>
+                    <tr>
+                        <td>美的集团</td>
+                        <td>3690.87亿元</td>
+                        <td>+1.2%</td>
+                        <td>413.93亿元</td>
+                        <td>+9.27%</td>
+                        <td>+25.93%</td>
+                    </tr>
+                    <tr>
+                        <td>海尔智家</td>
+                        <td>2218.19亿元</td>
+                        <td>-5.23%</td>
+                        <td>149.99亿元</td>
+                        <td>-13.67%</td>
+                        <td>-12.31%</td>
+                    </tr>
+                    <tr>
+                        <td>格力电器</td>
+                        <td>1265.44亿元</td>
+                        <td>-8.1%</td>
+                        <td>172.74亿元</td>
+                        <td>-19.51%</td>
+                        <td>-43.31%</td>
+                    </tr>
+                    <tr>
+                        <td>行业大盘（奥维云网）</td>
+                        <td>零售额6041亿元</td>
+                        <td>-10.0%</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>零售额-10.1%</td>
+                    </tr>
+                </table>
+                <p class="table-note">注：美的Q3归母净利同比增长含非经常性损益影响，其扣非净利润同比下降15.7%；海尔、格力扣非净利润分别下降32.2%、44.32%。数据来源：三家公司2026年三季报、《财经》客户端、奥维云网。</p>
+                <p>结论很清晰：当行业从「增量分成」切换到「存量再分配」，<strong>品类宽度、地域宽度与业务宽度，就是抗周期的三道护城河</strong>。单品类依赖度越高的企业，越容易在周期底部被放大波动。这也解释了为什么美的要坚持做机器人、做楼宇、做能源管理——不是为了讲新故事，而是为了在下一次行业下行时，手里还有另一张牌。</p>
+            </div>
+
+            <div class="topic-card">
+                <h3>专题二：存储超级周期如何重构三大行业成本结构</h3>
+                <p>如果说2026年有一条贯穿家电、数码、汽车三大行业的暗线，那就是存储涨价。TrendForce数据显示，2025年全球存储市场规模2354亿美元、同比+45.7%，2026年预计跃升至5516亿美元，2027年进一步增至8427亿美元，2025—2027年年化增速高达89.2%。WSTS的预测更为激进，认为2026年存储器市场规模同比大增约249.5%，存储芯片收入将占全球半导体总营收的50%以上，历史性超越逻辑芯片成为第一大品类。</p>
+                <p>这轮周期的特殊性在于「产能不可逆挤出」。HBM芯片面积是同等容量普通内存的2到3倍，在有限晶圆产能下，每为AI生产1GB的HBM就要放弃约3GB通用内存产出；而一座新建专用晶圆厂从动工到量产至少需要两年，投产后产线几乎被锁定，无法轻易转回生产手机或电脑内存。三星、SK海力士、美光三大原厂2026年合计资本支出超500亿美元（三星一家超110万亿韩元），但新增产能几乎全部指向HBM和服务器DRAM。结果是市场分裂成「两个平行世界」：AI专用高性能内存赚取超额利润，消费级内存因供给塌陷被迫跟涨，成本压力单向传导到终端消费者。</p>
+                <table>
+                    <tr>
+                        <th>环节</th>
+                        <th>关键数据</th>
+                        <th>对三大行业的影响</th>
+                    </tr>
+                    <tr>
+                        <td>价格涨幅</td>
+                        <td>Q1 DRAM合约价+90%~95%、NAND +33%~38%；Q2 DRAM再涨58%~63%</td>
+                        <td>整机BOM成本被动抬升，终端涨价成为唯一出口</td>
+                    </tr>
+                    <tr>
+                        <td>成本占比（手机）</td>
+                        <td>存储占物料成本从10%-15%升至30%以上，大存储旗舰逼近50%，约为屏幕成本的6倍</td>
+                        <td>千元机利润被直接击穿，入门级市场规模进一步收缩</td>
+                    </tr>
+                    <tr>
+                        <td>单件采购价</td>
+                        <td>12GB手机内存由200元涨至近600元；1TB闪存由200元出头涨至600元</td>
+                        <td>「大存储=高溢价」定价逻辑失效，厂商被迫减配或提价</td>
+                    </tr>
+                    <tr>
+                        <td>产能格局</td>
+                        <td>全球约七成先进存储产能被AI数据中心占用，消费电子仅分剩余三成</td>
+                        <td>智能家电、智能座舱等「含存」品类同步承压</td>
+                    </tr>
+                    <tr>
+                        <td>终端结果（数码）</td>
+                        <td>2026全球手机出货10.9亿部（-13.9%），均价550美元（+100美元），600美元以上份额29%</td>
+                        <td>量减价增，行业营收与利润向高端集中</td>
+                    </tr>
+                </table>
+                <p class="table-note">数据来源：TrendForce、WSTS、中国经济网《当AI「吞噬」内存》、IDC、Counterpoint Research。</p>
+                <p>传导路径已经在终端显形。红米产品经理在双11期间吐槽「内存成本过去12个月涨了约5.5倍」；荣耀则在存储涨价年份里主动「吞下」部分成本，官方口径是「成本涨得再多，也不能全部转嫁给用户」——Magic9系列标准版行业最低价6499元、叠加国补到手5499元，而上一代Magic8 Pro的16+512版在双11被砸穿至4983元，新老旗舰差价仅516元，等于用「影像升级」换「成本上涨」。对家电与汽车而言，智能座舱、AI家电同样高度依赖DRAM与NAND，若2027年存储价格继续上行（摩根大通预计2027年HBM综合均价再涨54%），<strong>「含存密度」将成为产品定义阶段就必须算清楚的一笔账</strong>。</p>
+            </div>
+        </div>
+
+        <!-- 品牌/企业动态 -->
+        <div class="section">
+            <div class="section-title">🏢 品牌/企业动态</div>
+            <div class="brand-list">
+                <div class="brand-item">
+                    <div class="brand-name">🏠 美的集团 — 三巨头中唯一「双增」，To B业务成压舱石</div>
+                    <div class="brand-desc">前三季度营收3690.87亿元、同比+1.2%，归母净利润413.93亿元、同比+9.27%，Q3单季归母净利润同比增长25.93%，是白电三巨头中唯一保持营收、净利双增长的企业。关键支撑来自第二增长曲线：楼宇科技收入约309亿元、机器人与自动化约249亿元，均同比增长约10%，楼宇科技已从中央空调延伸至工商业暖通、数据中心制冷和楼宇能源管理，直接受益于AI算力基建投资。此外美的还将业务拓展至能源管理、医疗设备及供应链服务，持续降低对传统消费家电的单一依赖。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">🏠 海尔智家 — 剔除汇兑与一次性支出，经营基本盘仍稳健</div>
+                    <div class="brand-desc">前三季度营收2218.19亿元、同比-5.23%，归母净利润149.99亿元、同比-13.67%。作为海外收入占比超50%的全球化企业，汇率波动导致Q3损失3.64亿元、汇兑损益波动造成的损失同比增加4.98亿元；同时自2025年Q4起主动开启历时一年的全球供应链重构与欧洲重组，Q3一次性支出约5亿元。剔除上述因素后Q3业绩实际同比增长。国内份额逆势提升：1-9月线上零售额份额20.6%、同比+2.9个百分点，线下25%、同比+1.7个百分点。7月成立「大白电产业」整合洗涤与厨房业务，新任海外平台负责人宋玉军为出海近30年老将。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">🚗 比亚迪 — 10月49.02万辆，海外17.02万辆托住利润</div>
+                    <div class="brand-desc">10月新能源汽车销量490,168辆、同比+10.97%、环比+5.74%，前10个月累计362.17万辆、同比-2.16%。结构上纯电与插混明显分化：纯电30.57万辆、同比+37.38%，插混17.74万辆、同比-17.22%，纯电替代插混的趋势确立。国内市场承压明显，7至10月国内销量同比分别下降9.18%、14.34%、12.97%、10.57%；但海外月度销量维持在17万至19万辆高位，10月出口17.02万辆。受益于此，Q3扣非后净利润同比增长25.25%至86.30亿元，前三季度扣非净利210.04亿元、同比+2.51%，扭转了上半年同比-9.02%的局面。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">🚗 零跑、小米、小鹏 — 新势力梯队重排，理想滑出第一阵营</div>
+                    <div class="brand-desc">零跑10月全球交付106,127台、同比+51%，连续第四个月月销破10万台，稳居新势力榜首，累计交付接近200万台、第200万台整车即将于11月下线，10月16日零跑B10在西班牙萨拉戈萨工厂正式量产，欧洲本地化落地。小米汽车10月交付超5万台、首次突破5万大关，8月3万+、9月4万+到10月5万+连续三个月阶梯式攀升，新系列「澎程」首个完整交付月即扛起增量。小鹏10月交付50,237台、同比+20%、环比+22%创单月历史新高，海外交付13,326台、同比+166%亦创新高，10月26日获批广州全域L4级Robotaxi示范运营资格。相比之下理想10月仅交付29,025台，鸿蒙智行33,537台（去年同期68,216台、同比近腰斩），第一梯队格局已经重排。</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-name">📱 苹果、荣耀、红米 — 涨价周期里的三种应对姿势</div>
+                    <div class="brand-desc">苹果首款折叠屏iPhone Duo于10月开售即遭抢购，首批溢价最高超7000元，得物平台上256GB白色版本消费者最高出价19000元、商家最低出价21708元，被经销商形容为「电子茅台」；天风国际郭明錤预计其Q3组装出货约50万至100万台，供应链仍处产能爬坡。荣耀选择「自吞成本」：Magic9系列标准版行业最低价6499元、叠加国补到手5499元，与上代Magic8 Pro双11价4983元仅差516元，用阿莱LogC3电影级影像与大容量电池换溢价空间，Magic9 Pro Max登顶安卓7K+价位段销量冠军。红米走「堆料守价」路线：K100 Pro系列激活量89.5万台，标准版双11限时价2999元起、叠加国补2549元起，首次在K系列标准版上双芯（骁龙8至尊版+AI独显D2）并配10000mAh电池，用配置硬扛成本压力。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势展望 -->
+        <div class="section">
+            <div class="section-title">🔮 趋势展望</div>
+            <ul class="outlook-list">
+                <li data-num="1"><strong>家电：政策托底但难改总量收缩，AI与套系是唯一增量</strong>：前三季度五大主力赛道首次集体转负，第四批625亿国补与地方10%-20%全屋智能补贴将支撑Q4结构性回暖。判断标准应从「销量增速」切换为「AI产品占比与套系客单价」——苏宁AI产品占比已破70%、海尔套购订单+37%，这两项指标比总量更能反映真实竞争力。</li>
+                <li data-num="2"><strong>数码：量减价增将贯穿2027年，高端化成为生存前提</strong>：IDC预计2026年全球出货10.9亿部（-13.9%）、均价550美元（+100美元），600美元以上份额升至29%。折叠屏是唯一能支撑万元级客单价的硬件创新，但渗透率仍在2%左右、2026上半年全球出货同比下滑21.6%，其意义在于「高端溢价逻辑」而非「规模增量逻辑」，不宜高估。</li>
+                <li data-num="3"><strong>汽车：渗透率破50%是里程碑而非终点，内需仍在筑底</strong>：10月新能源渗透率首破50%，但国内零售同比-28.9%、全年预计-22%。2027年乘联会预计国内零售增长0%-5%、均值2%，属「探底回暖」。竞争焦点将从销量转向盈利质量，比亚迪Q3扣非+25.25%与格力Q3净利-43.31%的对照说明，海外敞口与品类结构决定谁能活过冬天。</li>
+                <li data-num="4"><strong>存储超级周期：成本冲击将从数码向家电、汽车二次传导</strong>：全球七成先进产能被AI占用、扩产周期至少两年，2027年HBM均价预计再涨54%。智能座舱、AI家电的「含存密度」将成为产品定义阶段的硬约束，具备自研或长协锁价能力的企业（华为、比亚迪、美的）将获得结构性成本优势。</li>
+                <li data-num="5"><strong>出海是三家共同的答案，但下一阶段拼的是本地化而非出口量</strong>：家电自主品牌出口上半年+21.2%、占比达四分之一；车企四家海外月销齐破10万辆；零跑已在西班牙量产、极氪9X发运欧洲。从「把车/货卖出去」到「在当地建厂、建渠道、建服务」，2027年的分水岭将出现在海外零售与本地化盈利，而非出口数字本身。</li>
+            </ul>
+        </div>
+
+        <!-- 数据来源 -->
+        <div class="section">
+            <div class="section-title">📚 数据来源</div>
+            <div class="source-list">
+                1. 比亚迪股份 — 2026年10月产销快报（2026年11月2日披露）<br>
+                2. 美的集团、海尔智家、格力电器 — 2026年第三季度报告<br>
+                3. 奥维云网 — 2026年前三季度家电市场零售额数据 / 2026Q1 AI家电市场规模<br>
+                4. 产业在线 — 2026年前三季度家用空调行业销量数据<br>
+                5. 海关总署 — 2026年上半年及1-8月家电出口数据<br>
+                6. 乘联分会 — 2026年10月乘用车零售预估及全年预测<br>
+                7. IDC / Counterpoint Research / Omdia / TrendForce / 群智咨询 — 2026年智能手机与折叠屏出货预测<br>
+                8. WSTS / 摩根大通 / DigiTimes — 2026-2027年存储市场规模与HBM价格预测<br>
+                9. 商务部 — 2026年国庆假期家电以旧换新及消费品以旧换新累计数据<br>
+                10. <a href="https://www.mycaijing.com/article/detail/586606">《财经》客户端 — 白电三雄Q3业绩拆解</a><br>
+                11. <a href="https://www.cenr.com.cn/cyjj/jd/2026/10/21/235484.html">中国企业报道网 — 以旧换新政策红利持续释放</a><br>
+                12. <a href="https://www.ce.cn/xwzx/gnsz/gdxw/202611/t20261101_3278983.shtml">中国经济网 — 当AI「吞噬」内存</a><br>
+                13. <a href="https://www.ce.cn/xwzx/gnsz/gdxw/202611/t20261102_3279431.shtml">中国经济网 — 家电市场结构焕新</a><br>
+                14. <a href="https://finance.sina.com.cn/jjxw/2026-11-01/doc-inixfzvs7668433.shtml">新浪财经 — 新能源车10月销量出炉</a><br>
+                15. <a href="https://news.china.com/socialgd/10000169/20261101/49831655.html">中华网 — 车企10月销量数据 新能源渗透率首破50%</a><br>
+                16. <a href="https://www.sgpjbg.com.cn/searchtag/26675338.html?page=2">三个皮匠报告 — 2026智能手机市场规模</a><br>
+                17. <a href="https://news.caijingmobile.com/article/detail/580956">《财经》— 华为、小米同日交锋 折叠屏鏖战万元级高端市场</a><br>
+                18. <a href="https://www.sznews.com/news/content/mb/2026-10/16/content_32193872.htm">深圳新闻网 — 苹果首款折叠屏手机开售遭抢购</a><br>
+                19. <a href="https://www.toutiao.com/article/7703073821712826916">红星资本局 — 零跑10月销量再超10万</a><br>
+                20. <a href="https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260908180825984fb0db">海关总署 — 1-8月我国家电出口数量同比增长5.1%</a><br>
+                <br>
+                说明：本报告数据均来自公开信息与企业公告，统计口径以原始来源为准。不同机构对同一指标的口径存在差异（如全球智能手机出货量IDC预测10.9亿部、Counterpoint预测约10.8亿部、TrendForce预测约11.35亿部），正文已分别标注出处，引用时请注意区分。
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-title">盛世消费体验研究院</div>
+        <div class="footer-desc">⭐ 第1周 | 🏠 家电行业情报 · ⭐ 第2周 | 📱 数码行业情报 · ⭐ 第3周 | 🚗 汽车市场情报 · ⭐ 第4周 | 📊 综合情报</div>
+        <div class="footer-desc">助您轻松掌握趋势，抢占市场先机！</div>
+        <div class="back-home"><a href="index.html">← 返回往期目录</a></div>
+    </div>
+</body>
+</html>
