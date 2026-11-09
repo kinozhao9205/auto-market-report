@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 家电行业情报 | 2026年11月9日 第37期</title>
+    <style>
+        :root {
+            --primary-color: #1e88e5;
+            --secondary-color: #43a047;
+            --accent-color: #ff7043;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #546e7a;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(180deg, #f5f7fa 0%, #e4e8ec 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .container { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+        header { background: var(--bg-gradient); color: white; padding: 30px 20px; border-radius: var(--border-radius); margin-bottom: 24px; box-shadow: var(--shadow); }
+        header h1 { font-size: 1.8rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        header .date { font-size: 0.95rem; opacity: 0.9; }
+        header .issue { display: inline-block; margin-top: 10px; background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 14px; font-size: 0.8rem; }
+        .section { background: var(--card-bg); border-radius: var(--border-radius); padding: 20px; margin-bottom: 20px; box-shadow: var(--shadow); }
+        .section h2 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #e3f2fd; display: flex; align-items: center; gap: 8px; }
+        .data-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 8px; }
+        .data-card { background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 10px; padding: 16px 12px; text-align: center; transition: transform 0.2s; }
+        .data-card:hover { transform: translateY(-2px); }
+        .data-card .value { font-size: 1.42rem; font-weight: 700; color: var(--primary-color); }
+        .data-card .label { font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px; }
+        .data-card .change { font-size: 0.82rem; margin-top: 4px; font-weight: 600; }
+        .change.up { color: #e53935; }
+        .change.down { color: #43a047; }
+        .summary-box { background: linear-gradient(135deg, #e8eaf6 0%, #fce4ec 100%); border-radius: 10px; padding: 18px; margin-bottom: 8px; }
+        .summary-box p { font-size: 0.95rem; color: var(--text-primary); line-height: 1.8; }
+        .summary-box ul { margin: 12px 0 0 18px; }
+        .summary-box li { font-size: 0.92rem; color: var(--text-primary); line-height: 1.8; margin-bottom: 6px; }
+        .news-item { margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid #f0f0f0; }
+        .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .news-item h3 { font-size: 1.05rem; color: var(--text-primary); margin-bottom: 8px; }
+        .news-item .meta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px; }
+        .news-item p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8; }
+        .news-item .source { font-size: 0.8rem; color: var(--primary-color); margin-top: 6px; }
+        .news-item .source a { color: var(--primary-color); text-decoration: none; }
+        .topic-box { background: #f5f7fa; border-radius: 10px; padding: 18px; margin-bottom: 16px; border-left: 4px solid var(--accent-color); }
+        .topic-box h3 { font-size: 1.1rem; color: var(--text-primary); margin-bottom: 10px; }
+        .topic-box p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.86rem; }
+        table th { background: var(--primary-color); color: white; padding: 10px 8px; text-align: left; font-weight: 500; }
+        table th:first-child { border-radius: 8px 0 0 0; }
+        table th:last-child { border-radius: 0 8px 0 0; }
+        table td { padding: 10px 8px; border-bottom: 1px solid #e0e0e0; }
+        table tr:nth-child(even) { background: #f9f9f9; }
+        .table-caption { font-size: 0.78rem; color: var(--text-secondary); margin-top: -6px; margin-bottom: 12px; }
+        .brand-item { background: #fafbfc; border-radius: 10px; padding: 15px; margin-bottom: 14px; border: 1px solid #eceff1; }
+        .brand-item h3 { font-size: 1rem; color: var(--primary-color); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .brand-item p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8; }
+        .brand-item .tagline { display: inline-block; margin-top: 8px; background: #e3f2fd; color: #1565c0; font-size: 0.75rem; padding: 3px 10px; border-radius: 12px; }
+        .trend-list { list-style: none; counter-reset: trend; }
+        .trend-list li { counter-increment: trend; position: relative; padding: 14px 14px 14px 46px; background: #f5f7fa; border-radius: 10px; margin-bottom: 12px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8; }
+        .trend-list li::before { content: counter(trend); position: absolute; left: 14px; top: 14px; width: 22px; height: 22px; background: var(--primary-color); color: white; border-radius: 50%; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .trend-list li strong { color: var(--text-primary); }
+        .sources { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.9; }
+        .sources a { color: var(--primary-color); text-decoration: none; }
+        .disclaimer { font-size: 0.78rem; color: #90a4ae; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #e0e0e0; line-height: 1.8; }
+        .footer { background: linear-gradient(135deg, #2c3e50 0%, #1e88e5 100%); color: white; text-align: center; padding: 26px 20px; border-radius: var(--border-radius); margin-top: 8px; }
+        .footer p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 6px; }
+        .footer .brand { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.4rem; }
+            .section { padding: 16px; }
+            .section h2 { font-size: 1.12rem; }
+            .data-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .data-card .value { font-size: 1.18rem; }
+            table { font-size: 0.78rem; }
+            table th, table td { padding: 8px 6px; }
+        }
+    </style>
+</head>
+<body>
+<div class="back-btn-top"><a href="index.html">← 返回往期目录</a></div>
+<div class="container">
+    <header>
+        <h1>🏠 家电行业情报</h1>
+        <div class="date">2026年11月9日 · 11月第2周</div>
+        <div class="issue">盛世消费体验研究院 · 第 37 期</div>
+    </header>
+
+    <!-- 1. 数据速览 -->
+    <div class="section">
+        <h2>📊 数据速览</h2>
+        <div class="data-cards">
+            <div class="data-card">
+                <div class="value">6041亿元</div>
+                <div class="label">前三季度家电零售额</div>
+                <div class="change down">同比 -10.0%</div>
+            </div>
+            <div class="data-card">
+                <div class="value">804.09亿美元</div>
+                <div class="label">1—9月家电出口额</div>
+                <div class="change up">同比 +9.4%</div>
+            </div>
+            <div class="data-card">
+                <div class="value">117%</div>
+                <div class="label">双11首轮以旧换新订单增速</div>
+                <div class="change up">苏宁易购口径</div>
+            </div>
+            <div class="data-card">
+                <div class="value">近七成</div>
+                <div class="label">AI智能家电销售占比</div>
+                <div class="change up">一级能效超九成</div>
+            </div>
+            <div class="data-card">
+                <div class="value">10.9万元/吨</div>
+                <div class="label">沪铜主力10月下旬价格</div>
+                <div class="change down">占空调成本20%—30%</div>
+            </div>
+            <div class="data-card">
+                <div class="value">35%</div>
+                <div class="label">全屋智能市场渗透率</div>
+                <div class="change up">规模突破8000亿元</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 核心摘要 -->
+    <div class="section">
+        <h2>📝 核心摘要</h2>
+        <div class="summary-box">
+            <p>2026年双11成为家电行业"冰火同框"的观察窗口：大盘零售额前三季度同比下滑10.0%，但补贴与AI升级叠加，把换新需求从"低价清库存"推向"品质换新"。苏宁易购首轮以旧换新订单同比增长117%，AI智能家电占家电销售近七成，一级能效产品占比超九成，嵌入式冰箱与嵌入式厨房一体机分别暴增376%和382%。</p>
+            <ul>
+                <li><strong>结构性回暖成立，总量回暖未到。</strong>增长集中在AI、嵌入式和高端套系，中间价格带品牌承压最重。</li>
+                <li><strong>三季报利润分化创近年极值。</strong>美的成四巨头中唯一营收净利双增，格力Q3归母净利下滑43.31%，海信家电Q3扣非净利暴跌96.73%。</li>
+                <li><strong>出口与出海建厂成为第二缓冲带。</strong>1—9月出口804.09亿美元同比增长9.4%，海尔泰国、埃及同步扩厂。</li>
+                <li><strong>全屋智能进入政策与标准双重驱动期。</strong>八部门《促进智能家居消费行动方案》落地，互联互通强制性国标加速制定。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 3. 市场大势 -->
+    <div class="section">
+        <h2>📡 市场大势</h2>
+
+        <div class="news-item">
+            <h3>双11首轮破万亿，家电以15.7%份额领跑全品类</h3>
+            <div class="meta">2026年11月4日 · 渠道战报</div>
+            <p>截至10月31日，2026年双11综合电商首轮销售额突破10263亿元，家用电器以15.7%的品类份额位居第一，手机数码以13.9%紧随其后。苏宁易购自10月30日全面启动双11以来，以旧换新订单同比增长117%，立柜空调、扫地机、嵌入式厨房一体机、嵌入式冰箱销售同比分别增长110%、161%、382%、376%；11月2日全国团购会当天，全国门店销售增长143%。更关键的信号来自"峰值"：电视类目突破近三年单月峰值，冰箱与洗衣机突破近五年单月峰值，说明前期被抑制的置换需求正借补贴窗口集中释放。行业研究数据显示，以旧换新已带动家电销售近2019.7亿元，高能效产品占比超九成——本轮换新不只是"量"的释放，更是"质"的跃迁。渠道端也在分化：约七成厂商处于观望，仅两成在积极冲刺，竞争从"一阵风一场雨"转向日促耐力战。</p>
+            <div class="source">来源：<a href="https://www.bxtdata.com/insights/3915/" target="_blank">博晓通行业分析</a>、<a href="https://www.iningmengs.cn/2026/11/04/" target="_blank">科技讯息·苏宁双11战报解读</a></div>
+        </div>
+
+        <div class="news-item">
+            <h3>前三季度零售额下滑10%，主流赛道首次同时转负</h3>
+            <div class="meta">2026年11月上旬 · 奥维云网推总数据</div>
+            <p>奥维云网推总数据显示，2026年前三季度中国家电市场（不含3C）零售额约6041亿元，同比下降10.0%；三季度单季同比降10.1%，较二季度降幅略有收窄但仍深度承压。分品类看，1—9月零售额悉数转负：空调下降15.9%（体量最大、拖累最重）、厨卫大电下降10.3%、彩电下降9.0%、洗护下降7.1%、制冷（冰箱冷柜）下降5.8%、厨小电下降5.2%、清洁电器下降2.3%——这是近几年首次所有主流赛道同时向下，行业普遍出现"门店热、大盘冷"的背离。空调是最大拖累项：产业在线数据显示，前三季度中国家用空调行业总销量1.5亿台，同比下降8.4%，其中Q1降2.8%、Q2降9.3%、Q3降幅扩大至15.1%。但边际改善正在出现：2026年10月家用空调排产1028万台，同比增长1.5%，为内销排产连续八个月下滑后的首次转正，其中出口排产同比增长11.1%，海外渠道为"黑五"旺季提前备货是主要推手。截至6月底行业总库存6995万台、同比增长7%，渠道库存5623万台、同比增长11%，去库存已接近尾声但压力仍在。</p>
+            <div class="source">来源：<a href="https://www.jinantimes.com.cn/news-240-5340193.html" target="_blank">济南时报·白电三强Q3业绩承压</a>、<a href="https://shushiw.com/index/Wapindex/show_zixun/id/24047" target="_blank">舒适家居网·空调业"最冷"冷年</a></div>
+        </div>
+
+        <div class="news-item">
+            <h3>三季报收官：美的唯一双增，格力Q3净利腰斩，海信家电扣非近乎归零</h3>
+            <div class="meta">2026年10月29日—11月2日 · 上市公司财报</div>
+            <p>白电四巨头2026年三季报全部出炉，业绩分化达到近年极值。美的集团前三季度营收3690.87亿元、同比增长1.2%，归母净利润413.93亿元、同比增长9.27%，是四家中唯一实现营收净利双增的企业，也是自2013年上市以来连续14年前三季度归母净利润增长；但其扣非净利润同比下滑22.49%，反映传统家电主业同样承压。海尔智家前三季度营收2218.19亿元、同比下降5.23%，归母净利润149.99亿元、同比下降13.67%，公司称汇率波动导致Q3损失3.64亿元、全球供应链重构与欧洲重组产生一次性支出约5亿元，剔除后Q3业绩同比增长。格力电器前三季度营收1265.44亿元、同比下降8.1%，归母净利润172.74亿元、同比下降19.51%，其中Q3归母净利润39.96亿元、同比骤降43.31%，毛利率同比回落5.5—5.6个百分点至23.1%。海信家电压力最直观：Q3营收202.48亿元、同比下降8.76%，归母净利润同比大跌74%，扣非净利润仅1667.81万元、同比暴跌96.73%——每千元营收主业扣非净利仅赚0.82元。唯一亮色是海信视像，前三季度主营收入435.29亿元、同比增长8.85%，归母净利润18.44亿元、同比增长13.23%，量利双增。</p>
+            <div class="source">来源：<a href="https://m.caizhongshe.cn/news-7371373091053963066.html" target="_blank">财中社·三季报解读</a>、<a href="https://gu.qq.com/resources/shy/news/detail-v2/index.html" target="_blank">腾讯财经·美的连续14年增长</a></div>
+        </div>
+
+        <div class="news-item">
+            <h3>出口逆势增长9.4%，广交会绿色智能新品拿下海外订单</h3>
+            <div class="meta">2026年10月18日—19日 · 第140届广交会</div>
+            <p>在内需疲软的背景下，出口成为家电行业最重要的对冲项。海关总署数据显示，2026年1—9月中国家用电器出口金额累计804.09亿美元，同比增长9.4%，与内销10%的下滑形成鲜明剪刀差。第140届广交会第一期以"先进制造"为主题，紧扣"新、绿、智"趋势，绿色智能的中国电器新品格外吸睛：格力展出光伏直驱空调，已吸引葡萄牙、沙特阿拉伯等国采购商洽商，其产品远销200多个国家和地区，在共建"一带一路"国家市场自主品牌占比超过85%；浙江天晟电子智能营养秤内置10万+食品数据库，2026年上半年海外销售额同比增长约15%，本届广交会已与东南亚、美洲、欧洲采购商达成合作意向。产能布局同步外移：海尔10月26日在泰国开工建设洗衣机新工厂，下月将在埃及新增投产两家冰箱、冷柜工厂，埃及年产能由100万台以上提升至约150万台；美的海外制造基地已由2023年底的23个增至43个。当地生产既分散关税风险，也缩短交付周期。</p>
+            <div class="source">来源：<a href="https://food.cnr.cn/gstj/20261019/t20261019_527846384.shtml" target="_blank">央广网·广交会观察</a>、<a href="https://news.ifeng.com/c/8xKX6OxgHv0" target="_blank">中新社·境外采购商青睐绿色智能电器</a></div>
+        </div>
+    </div>
+
+    <!-- 4. 重点专题 -->
+    <div class="section">
+        <h2>🔍 重点专题</h2>
+
+        <div class="topic-box">
+            <h3>专题一：双11的"品质换新"结构——从单件替换到厨房整体焕新</h3>
+            <p>今年双11家电的核心变化不在总量，而在结构。补贴政策明确只有一级能效/水效机型进入申领名录，同品牌同容量下，二级能效不在名录、一级能效叠加补贴后反而更便宜，货架选择自然向一级集中——厂家把能效做上去、补贴把价格压下来，两头一挤，二级能效机型在这一轮大促中基本失去出场机会。这解释了"一级能效占比超九成"这一数字的成因：它既是消费升级的结果，也是补贴规则的直接产物。</p>
+            <p>第二个变化是"嵌入式、套系化"的爆发。嵌入式冰箱同比增长376%、嵌入式厨房一体机增长382%，增速远超单品替换类目。消费者行为从"坏了再换一台"转向"装修阶段整套焕新"，苏宁门店导购的反馈是：进店先看实物、查能效标识、确认机型在不在补贴名录，再问安装和旧机回收怎么处理——问的顺序和三年前完全不同，那时候先砍价，现在先算账。一位南京市民的实际账本颇具代表性：原价11000元的AI智能冰箱，叠加门店优惠、品牌让利2800元和国补1230元后到手6970元，相当于6.3折。</p>
+            <table>
+                <thead>
+                    <tr><th>品类</th><th>双11首轮同比</th><th>增长逻辑</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>嵌入式厨房一体机</td><td>+382%</td><td>厨房整体焕新、装修联动</td></tr>
+                    <tr><td>嵌入式冰箱</td><td>+376%</td><td>家装嵌入风格普及</td></tr>
+                    <tr><td>COLMO 洗干一体机</td><td>+223%</td><td>高端洗护一体化</td></tr>
+                    <tr><td>容声多门冰箱</td><td>+207%</td><td>精细冷藏、健康储鲜</td></tr>
+                    <tr><td>科沃斯扫地机器人</td><td>+186%</td><td>解放双手、宠物家庭刚需</td></tr>
+                    <tr><td>扫地机（整体）</td><td>+161%</td><td>AI导航+自动上下水</td></tr>
+                    <tr><td>海信智能空调</td><td>+150%</td><td>远程操控、精准控温</td></tr>
+                    <tr><td>立柜空调</td><td>+110%</td><td>大空间制冷刚需释放</td></tr>
+                    <tr><td>智能烟灶套装</td><td>+61%</td><td>风随火动、烟灶联动</td></tr>
+                    <tr><td>洗地机器人</td><td>+55%</td><td>AI导航、自动上下水</td></tr>
+                    <tr><td>多筒洗衣机</td><td>+39%</td><td>识别衣物材质匹配程序</td></tr>
+                </tbody>
+            </table>
+            <div class="table-caption">数据来源：苏宁易购2026年双11首轮战报（截至11月4日），增长率为销售额同比。</div>
+            <p>这组数据的含义是：增长最快的品类全部指向"高频家务场景的自动化"，而不是"参数更高的硬件"。拖地、洗衣、做饭对应的三个品类恰好是过去智能化程度最低的三个环节——尤其是烟灶套装，灶和烟机各干各的，今年被联动功能打通后才第一次进入快增长区间。对品牌而言，这意味着下一轮竞争的胜负手不在硬件规格表，而在"能不能替用户把活干完"。</p>
+        </div>
+
+        <div class="topic-box">
+            <h3>专题二：铜价11万元/吨下的成本传导与"铝代铜"之争</h3>
+            <p>2026年家电行业利润被上游原材料近乎全线挤压。铜是空调的用铜大户，据安泰科测算，空调用铜约占家电用铜的87%，铜在空调整机成本中占比约20%—30%；铜价每上涨1万元/吨，单台1.5匹空调的制造成本就要增加200—300元。2026年沪铜一度突破11万元/吨，10月下旬仍在10.9万元以上高位震荡，较2020年低点涨幅超过200%。测算显示，仅铜价一项就可能蚕食空调行业约4至5个百分点的毛利率。与此同时，制冷剂受《基加利修正案》配额制约束，R32长协价在Q3涨至6.45万元/吨；ABS塑料由年初8925元/吨涨至12156元/吨、涨幅约三成，直接推高洗衣机与小家电外壳成本；聚合MDI（"黑料"）10月20日基准价达18633元/吨、年内累计涨约三成。</p>
+            <table>
+                <thead>
+                    <tr><th>原材料</th><th>2026年10月价位</th><th>年内涨幅</th><th>主要影响品类</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>沪铜</td><td>10.9万—11.1万元/吨</td><td>约+33%</td><td>空调（成本占比20%—30%）</td></tr>
+                    <tr><td>R32 制冷剂</td><td>约6.45万元/吨</td><td>高位维持</td><td>空调</td></tr>
+                    <tr><td>ABS 塑料</td><td>12156元/吨</td><td>约+30%</td><td>洗衣机、小家电外壳</td></tr>
+                    <tr><td>聚合MDI（黑料）</td><td>18633元/吨</td><td>约+30%</td><td>冰箱冷柜保温层</td></tr>
+                </tbody>
+            </table>
+            <div class="table-caption">数据来源：长江现货/沪铜主力、生意社基准价、产业在线，均截至2026年10月下旬。</div>
+            <p>成本传导出现明显分化：1—9月线上空调、洗衣机均价下跌，冰柜均价1040元同比微增0.09%、冰箱2204元同比增1.27%——需求疲软封住了终端提价空间，成本压力只能停留在整机企业的利润表里。这也直接解释了格力Q3毛利率下滑5.5个百分点至23.1%的成因。面对压力，"铝代铜"再度成为行业热议话题，而格力多次正面回应"无铝代铜计划"，坚持真铜实料，并于2026年6月获得全国首张CRAA铜标识认定证书，选择以短期利润换取长期品质口碑。这构成一条清晰的三岔路：美的以渠道改革与ToB业务换缓冲，海尔以全球化布局与供应链重构对冲，格力以品质坚守换品牌溢价——三条路都还没走完，但2027冷年就会见分晓。</p>
+        </div>
+    </div>
+
+    <!-- 5. 品牌动态 -->
+    <div class="section">
+        <h2>🏢 品牌与企业动态</h2>
+
+        <div class="brand-item">
+            <h3>美的集团：唯一双增，ToB成第二引擎</h3>
+            <p>美的交出连续14年前三季度归母净利润增长的成绩单，前三季度营收3690.87亿元、同比增长1.2%，归母净利润413.93亿元、同比增长9.27%。抗周期的关键不在家电主业，而在ToB：楼宇科技营收309亿元、同比增长10%，已从传统中央空调延伸至工商业暖通、数据中心制冷和楼宇能源管理；机器人与自动化营收249亿元、同比增长10%。海外端，家电产品已出口全球200多个国家和地区，第三季度海外OBM（自有品牌）营收同比增超20%。产能上，顺德10亿元液冷智造基地、12条专业液冷产线已落地，楼宇科技板块在新加坡展示覆盖冷源、冷量分配到末端散热的全栈液冷方案。渠道端，美的在新冷年主动取消"开盘"压货、转向零售驱动，短期牺牲收入换取渠道库存彻底出清。</p>
+            <span class="tagline">关键词：ToB转型 · 液冷 · 渠道去库存</span>
+        </div>
+
+        <div class="brand-item">
+            <h3>海尔智家：AI成增长核心抓手，海外多板块逆势突围</h3>
+            <p>海尔智家前三季度营收2218.19亿元、归母净利润149.99亿元，单Q3营收697.04亿元、归母净利润46.82亿元。虽然报表承压，但结构性亮点密集：国内线上市场零售额份额达20.6%、同比提升2.9个百分点，线下份额达25%、同比提升1.7个百分点；"人家+"战略持续落地，Haismart平台国内智家APP三季度月活同比上涨38%，家居家电方向国家级AI中试基地正式启动。产业端，7月成立大白电产业，整合冰箱、厨电、洗衣机核心品类协同链路；2025年底整合空调、热泵、水家电成立大暖通平台后，2026年上半年大暖通收入逆势增长5.7%、毛利率提升0.9个百分点，组织变革红利正在兑现。海外产能扩张提速，泰国洗衣机新工厂10月26日开工，埃及新增两家冰箱冷柜厂投产后年产能由100万台以上提升至约150万台。</p>
+            <span class="tagline">关键词：人家+ · 大暖通 · 海外建厂</span>
+        </div>
+
+        <div class="brand-item">
+            <h3>格力电器：Q3净利降43%，以品质换长期溢价</h3>
+            <p>格力前三季度营收1265.44亿元、同比下降8.1%，归母净利润172.74亿元、同比下降19.51%，Q3归母净利润39.96亿元、同比骤降43.31%，毛利率同比下滑5.5个百分点至23.1%。公司在公告中直接将利润收缩归因于"消费电器业务同比下降"：一方面原材料价格高企，公司坚持"卷品质不卷价格"，产品销售价格相对稳定，成本上涨难以向售价传导；另一方面以技术和质量优势聚焦中高端，在行业价格带下移的环境中营收规模收缩。管理层用真金白银表达信心：董明珠三季度增持1169.81万股，股东京海互联拟增持6—12亿元，中期每10股派10元。产品端，广交会展出的光伏直驱空调已获葡萄牙、沙特等国采购商洽商，共建"一带一路"市场自主品牌占比超85%。</p>
+            <span class="tagline">关键词：品质定价 · 真铜实料 · 光伏空调</span>
+        </div>
+
+        <div class="brand-item">
+            <h3>海信系：家电承压、视像双增，板块冷热不均</h3>
+            <p>海信体系内部呈现明显分化。海信家电Q3营收202.48亿元、同比下降8.76%，归母净利润同比大跌74%，扣非净利润仅1667.81万元、同比暴跌96.73%，盈利能力近乎枯竭——每千元营收主业扣非净利仅赚0.82元；暖通空调占其收入近半，日立品牌中央空调基本盘稳健，但家用端与行业同步承压。与之相反，海信视像前三季度主营业务收入435.29亿元、同比增长8.85%，归母净利润18.44亿元、同比增长13.23%，Q3单季主营收入158.45亿元、同比增长5.17%，归母净利润6.49亿元、同比增长13.24%，实现量利双增。显示赛道受益于大屏化与双11电视类目突破近三年单月峰值，而白电与暖通赛道则被内需与成本双向挤压。</p>
+            <span class="tagline">关键词：视像双增 · 暖通承压 · 大屏化</span>
+        </div>
+
+        <div class="brand-item">
+            <h3>智能家居入口之战：阿里、百度、海尔、苹果同期落子</h3>
+            <p>10月，智能家居的入口竞争密集升级：阿里千问智家升级为空间智能体平台，百度小度发布"顾家"家庭智能体，海尔智家发布"人家+"家庭Agent，三家几乎同期落子，竞争焦点从"连接多少台设备"转向"能闭环完成多少件事"。10月下旬，苹果首款带屏家庭中枢HomeView落地，定价299美元（约合2100元），搭载A18芯片与7英寸屏，借Matter协议打通跨品牌设备，直接重标了中高端中控屏的价格带。政策与标准同日加码：商务部等8部门《促进智能家居消费行动方案》明确统筹支持全屋智能家居购新，多地按品类给予10%至20%补贴，并要求加快制定实施智能家居互联互通强制性国家标准。据行业数据，2026年中国智能家居市场规模突破8000亿元、同比增长35%，全屋智能渗透率突破35%。但用户侧仍有堵点：江苏省消保委调查显示近六成消费者遇到过互联互通难题，行业加速与用户卡壳并存。</p>
+            <span class="tagline">关键词：空间智能体 · 苹果HomeView · 互联互通国标</span>
+        </div>
+    </div>
+
+    <!-- 6. 趋势展望 -->
+    <div class="section">
+        <h2>🔮 趋势展望</h2>
+        <ul class="trend-list">
+            <li><strong>Q4是全年的"补贴冲刺窗口"，但不是需求反转。</strong>第四批625亿元国补资金10月起陆续落地，叠加双11与"双12"、年货节，四季度零售额同比降幅有望收窄至个位数。但奥维云网前三季度-10%的缺口难以补平，全年大概率负增长。判断依据是排产而非零售：10月家用空调排产1028万台、同比+1.5%，是内销连续八个月下滑后的首次转正，但内销排产仍为-2.5%，转正主要靠出口+11.1%拉动。</li>
+            <li><strong>补贴名录将加速"能效出清"。</strong>一级能效占比超九成的格局意味着二级能效机型正在被规则挤出市场。2027冷年，能效等级将从"卖点"变成"入场券"，无法稳定量产一级能效的中小品牌将失去补贴资格，行业集中度进一步提升。这也意味着"低价守规模、高端守利润、中间带最脆弱"的价格带撕裂还会继续。</li>
+            <li><strong>全屋智能从"卖设备"转向"卖确定性"。</strong>八部门行动方案把互联互通强制性国标列为重点，叠加苹果HomeView以299美元锚定中控价格带，2027年前全屋智能的竞争焦点将是"任务完成率"而非设备数量。对渠道的启示：单纯比价的门店会被体验型门店淘汰，嵌入式与套系化的高增长已经给出方向。</li>
+            <li><strong>出海从"卖产品"升级为"建产能+建品牌"。</strong>1—9月出口增长9.4%与内销下滑10%的剪刀差，会持续驱动产能外迁。海尔泰国、埃及，美的43个海外制造基地，TCL奥马泰国基地，都指向同一逻辑：以当地生产分散关税风险、缩短交付周期。下一代竞争点是本地化服务能力与自主品牌占比，而非单纯出货量。</li>
+            <li><strong>成本端仍是最大不确定项。</strong>铜价在10.9万—11.1万元/吨区间震荡，R32、ABS、MDI全线高位。若2027年铜价不能回落至9万元/吨以下，空调行业毛利率将继续被压缩4—5个百分点。届时"铝代铜"会从话题变成必答题，而率先解决铝材导热与耐蚀工艺的企业将获得成本窗口。</li>
+        </ul>
+    </div>
+
+    <!-- 7. 数据来源说明 -->
+    <div class="section">
+        <h2>📚 数据来源说明</h2>
+        <div class="sources">
+            <p>本报告数据主要引自以下公开来源，均为2026年10月—11月公开信息：</p>
+            <p>· 零售大盘：奥维云网（AVC）推总数据，2026年前三季度及Q3中国家电市场（不含3C）零售额</p>
+            <p>· 出口数据：中国海关总署，2026年1—9月家用电器出口金额</p>
+            <p>· 空调产销与排产：产业在线（ChinaIOL）2026年前三季度销量及10月排产数据</p>
+            <p>· 上市公司业绩：美的集团、海尔智家、格力电器、海信家电、海信视像2026年三季报</p>
+            <p>· 渠道战报：苏宁易购2026年双11首轮销售数据、淘宝天猫双11开卖数据</p>
+            <p>· 政策文件：商务部等8部门《促进智能家居消费行动方案》（2026年9月）、2026年消费品以旧换新政策</p>
+            <p>· 原材料价格：长江现货铜价、沪铜主力合约、生意社基准价，截至2026年10月下旬</p>
+            <p>· 展会信息：第140届中国进出口商品交易会（广交会）现场报道</p>
+            <p>· 行业标准：强制性国家标准《家用和类似用途电器 健康技术规范》（GB 44498-2024），2026年9月1日起实施</p>
+            <div class="disclaimer">
+                说明：本报告为盛世消费体验研究院基于公开信息整理的市场情报分析，仅供内部参考，不构成投资建议。部分数据为行业机构推总口径，与上市公司财报口径存在差异；同比增长率若无特别说明，均指同比名义增速。报告中的观点与判断基于截至2026年11月9日的公开信息，后续可能因政策调整、原材料价格波动等因素发生变化。
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="brand">盛世消费体验研究院</div>
+        <p>专业 · 前瞻 · 可执行的市场情报</p>
+        <p>报告期：2026年11月第2周 · 第 37 期</p>
+        <div class="back-home"><a href="index.html">← 返回往期目录</a></div>
+    </div>
+</div>
+</body>
+</html>
