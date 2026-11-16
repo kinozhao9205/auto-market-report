@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 数码行业每周情报 · 第47周 · 第38期</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+            --accent: #7209b7;
+            --accent2: #f72585;
+            --bg: #f0f2ff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .logo-corner { position: absolute; top: 16px; right: 16px; z-index: 10; }
+        .logo-corner img { height: 34px; }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: white;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .header .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .header .badge {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .main { max-width: 860px; margin: 0 auto; padding: 20px 16px; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #e8eaf6; color: #1a237e; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #c5cae9; }
+        .summary-box {
+            background: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px;
+            color: white;
+            margin-bottom: 18px;
+        }
+        .summary-box h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
+        }
+        .summary-box p { font-size: 0.95rem; line-height: 1.85; }
+        .summary-box ul { margin: 10px 0 0 18px; }
+        .summary-box li { font-size: 0.9rem; line-height: 1.8; margin-bottom: 6px; }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .data-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 16px 12px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(67,97,238,0.08);
+            border-top: 3px solid var(--primary);
+        }
+        .data-card.v2 { border-top-color: var(--accent2); }
+        .data-card.v3 { border-top-color: #ff7b00; }
+        .data-card.v4 { border-top-color: #06d6a0; }
+        .data-card.v5 { border-top-color: #e63946; }
+        .data-card.v6 { border-top-color: #9b5de5; }
+        .data-card .num {
+            font-size: clamp(1.15rem, 3vw, 1.5rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .data-card.v2 .num { color: var(--accent2); }
+        .data-card.v3 .num { color: #ff7b00; }
+        .data-card.v4 .num { color: #06a67d; }
+        .data-card.v5 .num { color: #e63946; }
+        .data-card.v6 .num { color: #9b5de5; }
+        .data-card .lbl {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .section {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 14px rgba(67,97,238,0.06);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .section-header .icon {
+            width: 38px; height: 38px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .section-header h2 { font-size: 1.05rem; font-weight: 700; }
+        .section-header .sub {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            background: var(--bg);
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+        .news-item {
+            padding: 14px 0;
+            border-bottom: 1px dashed #e8e8f5;
+        }
+        .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .news-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: var(--primary-dark);
+        }
+        .news-item p {
+            font-size: 0.87rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .news-item .src {
+            display: inline-block;
+            margin-top: 4px;
+            font-size: 0.74rem;
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary);
+        }
+        .table-wrap { overflow-x: auto; margin: 14px 0; -webkit-overflow-scrolling: touch; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            min-width: 520px;
+        }
+        thead th {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 9px 8px;
+            border-bottom: 1px solid #eef0fa;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        tbody tr:nth-child(even) { background: #fafbff; }
+        tbody tr:last-child td { border-bottom: none; }
+        .highlight {
+            color: var(--accent2);
+            font-weight: 700;
+        }
+        .topic-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 18px 0 10px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent2);
+        }
+        .topic-title:first-child { margin-top: 0; }
+        .section p.body-text {
+            font-size: 0.88rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        .brand-item {
+            padding: 13px 0;
+            border-bottom: 1px dashed #e8e8f5;
+        }
+        .brand-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .brand-item .bname {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 3px 10px;
+            border-radius: 8px;
+            margin-bottom: 7px;
+        }
+        .brand-item p {
+            font-size: 0.86rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+        }
+        .trend-list { margin: 0 0 0 18px; }
+        .trend-list li {
+            font-size: 0.88rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .source-note {
+            font-size: 0.76rem;
+            line-height: 1.9;
+            color: #8a8aa3;
+            background: var(--bg);
+            padding: 14px 16px;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+        .source-note a { color: var(--primary); text-decoration: none; }
+        .footer {
+            max-width: 860px;
+            margin: 26px auto 0;
+            padding: 24px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #3a0ca3 0%, #7209b7 100%);
+            border-radius: var(--card-radius);
+            color: rgba(255,255,255,0.85);
+        }
+        .footer p { font-size: 0.8rem; line-height: 1.8; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 640px) {
+            .data-grid { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 18px 16px; }
+            .header { padding: 30px 16px 24px; }
+            .summary-box { padding: 18px 18px; }
+        }
+    </style>
+</head>
+<body>
+<div class="back-btn-top"><a href="index.html">← 返回往期目录</a></div>
+
+<div class="header">
+    <div class="logo-corner">
+        <img src="logo.png" alt="盛世消费体验研究院" onerror="this.style.display='none'">
+    </div>
+    <div class="header-inner">
+        <div class="issue-badge">📱 数码行业 · 第38期 · 2026年第47周</div>
+        <h1>上游还在涨，终端却在打折：<br>双11收官，这届手机为何"越涨越降"</h1>
+        <div class="meta">
+            <span class="badge">📅 2026年11月16日</span>
+            <span class="badge">🔍 数据周期：11月9日—11月16日</span>
+            <span class="badge">🏢 盛世消费体验研究院</span>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+
+    <div class="summary-box">
+        <h3>核心摘要</h3>
+        <p>本周数码行业最重要的信号，来自11月11日24点收官的双11。它给出了一组看起来互相矛盾的答案：一边是存储合约价仍在环比上涨、整机BOM成本被推高到历史极值，另一边是京东手机单品累计榜前四名清一色是iPhone、折叠屏直降3280元、三星旗舰几乎腰斩。上游涨价与下游打折同时成立，说明这一轮成本冲击并没有均匀落到每一台机器上——它先压死了低端，又在大促窗口被库存、国补与以旧换新三重力量对冲掉一部分。价格体系正在被重新分层，而不是被简单推高。</p>
+        <ul>
+            <li><strong>总量继续塌，单价继续涨</strong>：2026Q3 全球智能手机出货 2.547 亿部、同比 -20%，创 2012 年以来同期最低；但全球 ASP 预计升至 523 美元、同比 +14%，Counterpoint 口径下 Q3 全球手机营收仍有 1140 亿美元、同比 +3%。"卖得少、卖得贵"已是确定性事实。</li>
+            <li><strong>存储是本轮唯一主线</strong>：TrendForce 预估 4Q26 一般型 DRAM 合约价环比再涨 10%—15%、NAND 涨 15%—20%；SK 海力士在 10 月 28 日财报会上直言，直至 2029 年的 DRAM 与 HBM 供应"事实上已基本售罄"。手机与 PC 变成被动接受成本转嫁的一方。</li>
+            <li><strong>PC 比手机更痛</strong>：IDC 统计 Q3 全球 PC 出货同比 -20.1% 至 6270 万台，为史上最差三季度；笔记本处理器、内存、SSD 三项合计占整机 BOM 比重已从 2025Q1 的 45% 飙升至 2026Q3 的 68%。双11 买电脑的成交均价同比贵了 2000 多元。</li>
+            <li><strong>折叠屏等到了"苹果时刻"</strong>：iPhone Duo 9月发布、10月23日开售，开售前四天国内激活接近 20 万台；TrendForce 预估其首年出货约 500 万台、份额 24.8%，与华为并列第二。全球折叠屏 2026 年出货约 2020 万台、同比仅 +0.5%——苹果几乎独力扛住了这条线的正增长。</li>
+        </ul>
+    </div>
+
+    <div class="data-grid">
+        <div class="data-card v5">
+            <div class="num">-20%</div>
+            <div class="lbl">2026Q3 全球智能手机<br>出货同比（14年同期最低）</div>
+        </div>
+        <div class="data-card">
+            <div class="num">523<span style="font-size:0.7em">美元</span></div>
+            <div class="lbl">2026 全球手机 ASP 预测<br>同比 +14%（IDC）</div>
+        </div>
+        <div class="data-card v4">
+            <div class="num">45%</div>
+            <div class="lbl">GenAI 手机占 2026<br>全球出货比重（Counterpoint）</div>
+        </div>
+        <div class="data-card v3">
+            <div class="num">2020<span style="font-size:0.7em">万台</span></div>
+            <div class="lbl">2026 全球折叠屏出货<br>同比仅 +0.5%（TrendForce）</div>
+        </div>
+        <div class="data-card v2">
+            <div class="num">+10~15%</div>
+            <div class="lbl">4Q26 一般型 DRAM<br>合约价环比涨幅（涨幅收敛）</div>
+        </div>
+        <div class="data-card v6">
+            <div class="num">2267<span style="font-size:0.7em">万台</span></div>
+            <div class="lbl">2026 全球智能眼镜出货<br>同比 +56.3%（IDC）</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="icon">📡</div>
+            <h2>市场大势</h2>
+            <span class="sub">本周 3 条主线</span>
+        </div>
+
+        <div class="news-item">
+            <h4>一、双11收官：华为以旧换新销售额同比 +300%，苹果拿下销售额与销量双榜第一</h4>
+            <p>11月11日24点，京东11.11正式收官。手机品类的两个榜单出现明显分工：品牌销售额榜 Apple 第一、华为第二，OPPO/一加、小米、vivo/iQOO、荣耀分列三至六位；而品牌累计销量榜上，小米凭中低端走量升至第二，华为退居其后。单品累计总榜前四名全部是 iPhone（iPhone 18 Pro Max、iPhone 17、iPhone 18 Pro、iPhone 17 Pro），第五名才是红米 Note17 Pro，这已是近三年双11最极端的一次头部集中。补贴侧的杠杆极其显著：京东数据显示，11.11 期间华为手机以旧换新销售额同比增长 <span class="highlight">300%</span>，iPhone 以旧换新购机用户占比超过 50%，销售额破亿的手机单品超过 70 款；联合运营商与视频会员权益的"京补合约"模式订单量同比增长超 10 倍，30 天意外换新服务覆盖用户超 500 万。星图数据口径下，截至 10 月 31 日综合电商累计销售额 10263 亿元，天猫、京东、抖音分列前三，但平台方依旧未公布手机品类 GMV 具体数字。对品牌而言，"以旧换新 + 国补 + 合约机"三件套已经从促销选配变成了价格体系的一部分——它才是今年双11能够对抗上游涨价的实际工具。</p>
+            <a class="src" href="https://www.cet.com.cn/wzsy/cyzx/10661411.shtml" target="_blank" rel="noopener">来源：中国经济新闻网《京东11.11全周期手机品牌销量榜出炉》</a>
+        </div>
+
+        <div class="news-item">
+            <h4>二、存储超级周期未结束：4Q26 合约价继续涨，SK 海力士称"至 2029 年产能已售罄"</h4>
+            <p>本周多家机构给出的四季度读数，指向同一个结论——涨幅在收敛，但方向没变。TrendForce 集邦咨询预估，2026 年第四季度一般型 DRAM 合约价环比上涨 10%—15%，计入 HBM 后的整体 DRAM 合约价环比上涨 15%—20%，NAND Flash 合约价环比上涨 15%—20%；相较三季度（美银渠道调研显示多数 DRAM 产品平均售价环比上涨 20%—30%、NAND 涨幅超 15%）已有明显收窄，但供不应求格局未改。产业端的表态更直接：SK 海力士在 10 月 28 日第三季度财报电话会上表示，叠加已签署的长期供货协议和正在洽谈的客户订单，"未来三年、直至 2029 年的 DRAM 及 HBM 供应量事实上已基本售罄"，并判断全球存储芯片供不应求的局面有可能延续到 2030 年。业绩端同步验证景气度：SK 海力士 Q3 营收 104.6 万亿韩元、营业利润 83.3 万亿韩元、营业利润率约 80%；三星 Q3 营业利润 107.4 万亿韩元创历史纪录，HBM4 收入环比增长超 3 倍；美光 FY2026 Q4 营收 542.29 亿美元、同比增长 379%，Non-GAAP 毛利率 87.0%。产业链利润正从整机端大规模向上游转移，这是理解本周所有价格现象的前提。</p>
+            <a class="src" href="https://finance.ce.cn/stock/gsgdbd/202611/t20261110_3289098.shtml" target="_blank" rel="noopener">来源：中国经济网《佰维存储、德明利等净利润创新高 A股存储行业高景气或将延续》</a>
+        </div>
+
+        <div class="news-item">
+            <h4>三、PC 成为本轮成本冲击的重灾区：Q3 出货 -20.1%，核心三件占 BOM 已达 68%</h4>
+            <p>如果说手机还有高端化可以对冲，PC 几乎没有缓冲带。IDC 数据显示，2026 年第三季度全球 PC 出货量同比下降 <span class="highlight">20.1%</span> 至 6270 万台，为其统计史上最差的三季度：惠普出货下滑 30.9%、戴尔下滑 25%、联想下滑 22.6%。成本端的挤压更为直观——TrendForce 以一款主流价位笔记本为样本测算，2025 年一季度处理器、内存、固态硬盘合计占整机物料成本的 45%，到 2026 年三季度这一比例已飙升至 <span class="highlight">68%</span>。这直接反映在零售端：双11 期间电脑单台成交均价同比上涨超过 2000 元，"双11 买电脑比 618 更贵"成为社交平台上的高频吐槽。渠道节奏也在变形：第三季度笔记本出货量季减 15.8%，TrendForce 预估第四季度仍有低个位数下滑，部分 OEM 已计划下调 2026 年四季度乃至 2027 年一季度的存储器采购规模，并考虑扩大贴牌机型出货比重、搭配降规颗粒与较低核心数的 CPU。AMD CEO 苏姿丰在 11 月坦言，存储与零部件涨价导致 PC 需求放缓，并预测 2027 年全球 PC 出货量将出现两位数下滑。对消费电子行业而言，PC 是这一轮"存储通胀"最早显形的参照系。</p>
+            <a class="src" href="https://www.dramx.com/Market/20261111-41433.html" target="_blank" rel="noopener">来源：全球半导体观察（TrendForce集邦咨询）《整机库存堆高，部分PC OEM调整2027年存储器采购策略》</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="icon">🔬</div>
+            <h2>重点专题</h2>
+            <span class="sub">折叠屏格局 · 成本传导链</span>
+        </div>
+
+        <div class="topic-title">专题一：折叠屏的"苹果时刻"——一条品类靠一家公司撑住正增长</div>
+        <p class="body-text">2026 年的折叠屏市场呈现出一种奇特结构：整体几乎零增长，但座次被彻底重排。TrendForce 预估全球折叠屏全年出货约 2020 万台、同比仅增长 0.5%，这个数字放在"AI 硬件年增 50% 以上"的语境里显得毫无想象力；但把苹果剔除后，安卓阵营出货约 1520 万台、同比下滑超过 20%。也就是说，<strong>2026 年折叠屏的全部增量来自一个新进入者</strong>。iPhone Duo 于 9 月发布，采用书本式内折方案，7.6 英寸内屏搭配 5.4 英寸外屏，展开厚度约 5.2mm、折叠厚度约 11.3mm；TrendForce 预估其首年出货约 500 万台、份额 24.8%，与华为并列第二，三星以约 710 万台、35.1% 的份额守住第一。国内市场的短期数据也支撑这一判断：iPhone Duo 于 10 月 23 日正式开售，开售前四天激活量接近 20 万台。</p>
+        <p class="body-text">从品类演进看，这更像一次"价格锚点的重建"而非"需求的爆发"。高盛口径下 2026 年折叠屏渗透率约 3.6%（对应 4100 万台），2027 年升至 5.9%，2028 年 6.8%；Counterpoint 预测到 2026 年底全球折叠屏累计出货将突破 1 亿部——从 2019 年首款商用产品算起，这个品类用了七年才走到 1 亿累计。折叠屏真正的商业价值不在出货量，而在单机价值量的抬升：爱建证券测算显示，折叠屏相较直板机，显示模组（面板+玻璃盖板）价值量增幅约 194%，机械/机电部件（含铰链）增幅约 177%，内存增幅约 38.6%。在存储吃掉越来越多 BOM 的当下，能支撑 1.5 万元以上价位、并且让消费者愿意为形态买单的，只剩折叠屏这一条线。这也解释了为什么本周双11 榜单里，折叠屏既是降幅最猛的品类（MIX Flip2 直降 3280 元），又是厂商最不肯放弃的品类。</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>厂商/阵营</th>
+                        <th>2026 预估出货</th>
+                        <th>市场份额</th>
+                        <th>代表机型</th>
+                        <th>核心策略</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>三星</td>
+                        <td>约 710 万台</td>
+                        <td>35.1%</td>
+                        <td>Galaxy Z Fold7 / W27</td>
+                        <td>守份额、以运营商合约与商务客群稳价</td>
+                    </tr>
+                    <tr>
+                        <td>苹果</td>
+                        <td>约 500 万台（首年）</td>
+                        <td>24.8%</td>
+                        <td>iPhone Duo</td>
+                        <td>用生态与品牌溢价直接切入 1.5 万+价位</td>
+                    </tr>
+                    <tr>
+                        <td>华为</td>
+                        <td>约 500 万台</td>
+                        <td>24.8%</td>
+                        <td>Mate X8 / Mate XT 2</td>
+                        <td>形态全覆盖（内折+三折+阔折叠），鸿蒙生态捆绑</td>
+                    </tr>
+                    <tr>
+                        <td>其他安卓</td>
+                        <td>约 310 万台</td>
+                        <td>约 15.3%</td>
+                        <td>vivo X Fold6、荣耀 Magic V 系</td>
+                        <td>大促价格战，以价换量</td>
+                    </tr>
+                    <tr>
+                        <td>全球合计</td>
+                        <td>约 2020 万台</td>
+                        <td>100%</td>
+                        <td>—</td>
+                        <td>同比 +0.5%，安卓阵营剔除苹果后 -20% 以上</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="body-text">值得单独提示的是国产阵营的形态创新。华为今年把"阔"做成了独立方向：9 月发布的 Pura X View 是业界首款阔直板手机，6.68mm 机身装进 7000mAh 电池，上市 50 天国内出货量已突破 100 万台；11 月 20 日，华为还将把阔直板独立成新品牌"星芒"（OSTA），首款 OSTA O1 Pro 采用 6.39 英寸 1.5K LTPS 直屏、16:9.5 屏幕比例、边框控制在 1.05mm 左右。在直板机同质化、折叠屏成本高企的双重约束下，用屏幕比例做差异化，可能是成本最低、感知最强的一条中间路线。</p>
+
+        <div class="topic-title">专题二：涨价到底传到哪一环了——从 BOM 到零售价的三段传导</div>
+        <p class="body-text">本周最值得记录的行业认知，是"涨价并没有线性传导到终端"。把链条拆成三段看得更清楚。<strong>第一段是上游到整机</strong>：这一段的传导是刚性的、不打折的。存储占手机 BOM 的比重，在涨价前中低端机型为 25%—30%，涨价后已接近 35%—45%；LPDDR4X 单颗价格从 2025 年 3 月的约 6 美元涨到 10 月的约 25 美元，涨幅超过 3 倍。PC 侧同口径下核心三件占 BOM 从 45% 到 68%。<strong>第二段是整机到新品定价</strong>：这一段的传导是选择性的，厂商通过"减配"消化一部分——下半年不少中端机被逼得"长焦没了、主摄缩水"，配置退回偏科状态，实质上是把涨价伪装成规格调整。<strong>第三段是新品到实际成交价</strong>：这一段被大促、国补、以旧换新三重力量强力对冲，于是出现了双11 期间折叠屏直降 3280 元、三星旗舰近乎腰斩的极端数字。</p>
+        <p class="body-text">三段传导的结果，是一个"名义价格涨、成交价格分化"的市场。消费者行为的反馈也已在数据里：换机周期从 2023 年的平均 28 个月拉长到 2026 年的 38—40 个月，超过 70% 的用户打算把手机用到 33 个月以上；IDC 预计 2026 年中国二手手机市场规模同比增长 20%、突破 1 亿台。新机涨价催生的替代效应，正在把一部分需求永久性地分流到翻新机市场。对品牌而言，这意味着两件事同时成立：必须继续用高端化保住营收，又必须用大促与补贴保住出货规模，中间价位段（2000—4000 元）成为最难受的夹心层。</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>维度</th>
+                        <th>方向</th>
+                        <th>关键数据（2026）</th>
+                        <th>驱动逻辑</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>全球手机出货</td>
+                        <td>大幅收缩</td>
+                        <td>约 11 亿部，同比 -12% 至 -13%（IDC/Counterpoint）</td>
+                        <td>存储涨价推高成本，低端需求被挤出</td>
+                    </tr>
+                    <tr>
+                        <td>全球手机 ASP</td>
+                        <td>显著上行</td>
+                        <td>523 美元，同比 +14%（IDC）</td>
+                        <td>低端消失、高端集中，结构性抬价</td>
+                    </tr>
+                    <tr>
+                        <td>中国手机出货</td>
+                        <td>温和收缩</td>
+                        <td>约 2.78 亿台，同比 -2.2%（IDC）</td>
+                        <td>国补与以旧换新部分对冲成本上涨</td>
+                    </tr>
+                    <tr>
+                        <td>中国 AI 手机渗透率</td>
+                        <td>首次过半</td>
+                        <td>1.47 亿台，同比 +31.6%，占比 53%（IDC）</td>
+                        <td>中端机型 AI 化，成为换机比较维度</td>
+                    </tr>
+                    <tr>
+                        <td>全球折叠屏</td>
+                        <td>基本持平</td>
+                        <td>约 2020 万台，同比 +0.5%（TrendForce）</td>
+                        <td>苹果入场独力撑住增量，安卓 -20% 以上</td>
+                    </tr>
+                    <tr>
+                        <td>全球 PC</td>
+                        <td>深度下滑</td>
+                        <td>Q3 出货 -20.1% 至 6270 万台（IDC）</td>
+                        <td>核心三件占 BOM 由 45% 升至 68%</td>
+                    </tr>
+                    <tr>
+                        <td>中国二手手机</td>
+                        <td>逆势扩张</td>
+                        <td>突破 1 亿台，同比 +20%（IDC 预计）</td>
+                        <td>新机涨价催生替代效应</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="icon">🏢</div>
+            <h2>品牌与企业动态</h2>
+            <span class="sub">5 条</span>
+        </div>
+
+        <div class="brand-item">
+            <span class="bname">小米</span>
+            <p>小米18 Pro 系列确认11月全球发布，全球发布会档期指向 11 月 17 日，这是小米首次把 Pro 系列带出中国市场——上一代小米17 Pro 系列仅在国内销售，海外只供应小米17 与 17 Ultra。此次出海的两款机型中，小米18 Pro 全球首发第六代骁龙8至尊版，Pro Max 首发第六代骁龙8超级至尊版，均配备 2 亿像素双徕卡影像与"AI 百变背屏"，支持动态通知与 AI 个性化内容生成。值得关注的是区域配置差异：欧洲零售商页面显示，全球版小米18 Pro 电池为 6000mAh/90W、Pro Max 为 7050mAh，而国内版本分别为 7000mAh/100W 与 8500mAh——这是在存储与电池成本压力下，厂商用区域降规维持海外价格竞争力的典型做法。</p>
+        </div>
+
+        <div class="brand-item">
+            <span class="bname">华为</span>
+            <p>华为在11月至少四款新品在路上。11月13日，余承东在社交平台晒出未发布新机，经多位博主确认为新一代大折叠 Mate X8，这也是该机真机首次公开亮相：外屏约 6.5 英寸、内屏 8.15 英寸，内屏采用 UTG 超薄柔性玻璃盖板，后置镜头模组回归圆形设计，搭载麒麟 9050 Pro、最高 20GB 运存、6000mAh 级电池，预装 HarmonyOS 7.0，发布时间指向 11 月下旬。同期还有 nova17 系列（11月17日前后）、Mate 80 系列迭代机，以及定档 11 月 20 日 14:30 的全新子品牌"星芒"，首款 OSTA O1 Pro 走 16:9.5 阔直板路线。在双11 战报里，华为以旧换新销售额同比增长 300%，品牌销售额位列第二，是唯一能在 7000 元以上价位与苹果正面纠缠的国产品牌。</p>
+        </div>
+
+        <div class="brand-item">
+            <span class="bname">苹果</span>
+            <p>苹果是本周数据面最强势的一方。京东11.11 全周期，苹果拿下品牌销售额第一，单品累计总榜前四名全部是 iPhone（18 Pro Max、17、18 Pro、17 Pro），由于今年苹果未推出 iPhone 18 标准版，降价后的 iPhone 17 继续在 5000 元档承接销量。第三方周度份额数据显示，第 43 周（10月19日—25日）苹果以 33.2% 领跑国内、领先第二名 15.5 个百分点；第 44 周（10月26日—11月1日）回落至 28.7%，仍在第一。iPhone 18 Pro 系列累计激活量约 602 万台。折叠屏方面，iPhone Duo 10月23日开售后前四天激活接近 20 万台，TrendForce 预估其首年出货约 500 万台、拿下全球折叠屏 24.8% 份额，与华为并列第二。</p>
+        </div>
+
+        <div class="brand-item">
+            <span class="bname">荣耀 / OPPO / vivo</span>
+            <p>腰部三家本周的核心动作集中在 11 月中下旬的新机窗口。荣耀700 系列定档 11 月 18 日，Pro 版搭载 1.72 英寸方形背屏、2 亿主摄加 5000 万潜望长焦，最高约 9000mAh，爆料起售价集中在 2999—3599 元；OPPO Reno17 系列定位轻薄小屏影像，6.32 英寸直屏 + 2 亿像素主摄；vivo S70 系列主攻人像长焦并支持外接增距镜。更值得注意的是子品牌的结构性作用：第 44 周数据中，OPPO 的 12.5% 份额里一加贡献 3.8%、realme 贡献 0.2%，主品牌仅约 8.5%；vivo 的 11.8% 里 iQOO 贡献 3.7%，主品牌仅约 8.1%。两家各有接近三成份额由子品牌撑起，这正是今年中端机配置堆料（9000mAh、185Hz 屏、旗舰芯片下放）的直接推手。</p>
+        </div>
+
+        <div class="brand-item">
+            <span class="bname">上游存储 / 国产替代</span>
+            <p>产业链利润继续向上游集中。SK 海力士 Q3 营收 104.6 万亿韩元、营业利润 83.3 万亿韩元，营业利润率约 80%；三星 Q3 营业利润 107.4 万亿韩元创纪录，HBM4 收入环比增长超 3 倍；美光 FY2026 Q4 营收 542.29 亿美元、同比增长 379%，Non-GAAP 毛利率 87.0%。国产侧，长鑫科技 9 月 20 日第五代 DRAM 技术平台正式量产，10 月 10 日进一步宣布预计年底推出融合 4F2 架构与混合键合技术的新一代 DDR5 RDIMM 产品；国家统计局数据显示 2026 年前 7 个月集成电路行业利润同比增长 18.5 倍。三大原厂战略性退出传统存量市场的空档，正在为国产存储在 DDR4 与 2D NAND 利基市场打开导入窗口。</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="icon">📈</div>
+            <h2>趋势展望</h2>
+            <span class="sub">未来 2—4 个季度</span>
+        </div>
+        <ol class="trend-list">
+            <li><strong>涨价不会逆转，但"涨幅收敛"会成为常态。</strong>4Q26 一般型 DRAM 合约价环比 +10%—15%、NAND +15%—20%，较三季度的高位已明显收窄；但 SK 海力士"至 2029 年产能已售罄"的表态意味着，缺货而非价格才是更长期的约束。对整机厂来说，真正需要管理的是"拿不到货"，而不是"买得太贵"。</li>
+            <li><strong>2027 年不是复苏年。</strong>Omdia 判断行业或至 2028 年才有望迎来温和复苏；苏姿丰已明确预测 2027 年全球 PC 出货两位数下滑。手机侧 2027 年大概率仍为下行年份，2026 年的 11 亿部附近可能成为新一轮周期的低位基准。品牌应把 2027 年的目标从"抢份额"调整为"保毛利"。</li>
+            <li><strong>折叠屏的胜负手从形态转向成本。</strong>2027 年 TrendForce 预计折叠屏增长 16.3%（Counterpoint 口径为 37%），但安卓阵营必须回答一个问题：如何在苹果拿走 24.8% 份额后，用铰链、UTG 与屏幕的国产化把成本压下来。显示模组价值量增幅 194%、铰链部件 177% 是机会，也是成本包袱。</li>
+            <li><strong>AI 硬件是唯一确定的高增长出口。</strong>IDC 预估 2026 年全球智能眼镜出货 2267.1 万台、同比 +56.3%，中国 450.8 万台、同比 +77.7%，中国厂商占全球 45%；全球前五中除 Meta 外其余四家均为中国品牌（小米、雷鸟、Xreal、Viture）。但需警惕：AI 眼镜行业退货率高达 30%—70%，"功能鸡肋、佩戴不适、续航短"是三大硬伤，放量之前必须先解决体验问题。</li>
+            <li><strong>大促的角色正在改变。</strong>当上游成本刚性上行，双11/618 不再保证出现历史低价，而是变成"库存与补贴的清仓窗口"。厂商需要重新设计促销节奏：把老机型与折叠屏放在大促主推，把新品价格硬撑住，否则会同时损失毛利和价格锚点。</li>
+            <li><strong>国补与以旧换新是短期最有效的需求杠杆。</strong>以上海政策为例，符合资质的电脑产品可按最终成交价的 15% 享受补贴、单台最高 1500 元；京东侧"以旧换新 + 京补合约"已把华为手机以旧换新销售额推到同比 +300%。这一杠杆在 2027 年若退坡，终端需求会立刻显形，需要提前准备。</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="icon">📚</div>
+            <h2>数据来源说明</h2>
+        </div>
+        <div class="source-note">
+            本报告数据与观点综合自以下公开来源，采集时间 2026 年 11 月 9 日—11 月 16 日：<br>
+            · 中国经济新闻网《京东11.11全周期手机品牌销量榜出炉》《华为亮相2026移动网络大会》<br>
+            · TrendForce 集邦咨询《整机库存堆高，部分PC OEM调整2027年存储器采购策略》（全球半导体观察）<br>
+            · 中国经济网《佰维存储、德明利等净利润创新高 A股存储行业高景气或将延续》<br>
+            · 腾讯新闻《单台成交均价涨超2000多元，双11买电脑贵过618》<br>
+            · 新浪财经《小米背屏旗舰首次出海！小米18 Pro系列有望11月17日全球发布》《运营商的Token经营有了新思路》<br>
+            · 网易《华为Mate X8真机曝光，本月还有三款新机在路上》<br>
+            · 电子工程专辑 / ZAKER《2026年第43、44周国内手机市场份额数据》（第三方数据源 @RD观测）<br>
+            · IDC、Counterpoint Research、Omdia、高盛、美银、群智咨询相关季度预测与调研数据（经上述媒体转引）<br>
+            说明：周度份额数据来自第三方渠道调研，单周样本对促销节点高度敏感；各家机构对"AI 手机""折叠屏"的口径存在差异，报告中已标注出处，跨口径数字不可直接相加。
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>盛世消费体验研究院 · 数码行业每周情报</p>
+    <p>第38期 · 2026年第47周 · 数据周期 11月9日—11月16日</p>
+    <p>本报告仅供内部参考，不构成投资建议</p>
+    <div class="back-home"><a href="index.html">← 返回往期目录</a></div>
+</div>
+
+</body>
+</html>
