@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 汽车市场每周情报 · 第48周 · 11月第4周</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --primary-dark: #9d0208;
+            --accent: #d00000;
+            --accent2: #ff7b00;
+            --bg: #fff5f2;
+            --text-primary: #2b1a1a;
+            --text-secondary: #5a4646;
+            --card-radius: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 0 0 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #e63946 0%, #9d0208 50%, #6a040f 100%);
+            padding: 36px 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute; bottom: -60px; left: 30%;
+            width: 160px; height: 160px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .header .issue-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .header h1 {
+            color: white;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .header .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .header .badge {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .main { max-width: 860px; margin: 0 auto; padding: 20px 16px; }
+        .back-btn-top { text-align: left; padding: 10px 14px 0; max-width: 780px; margin: 0 auto; }
+        .back-btn-top a { display: inline-block; background: #ffe3e0; color: #9d0208; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #ffc4bd; }
+        .summary-box {
+            background: linear-gradient(135deg, #e63946 0%, #9d0208 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px;
+            color: white;
+            margin-bottom: 18px;
+        }
+        .summary-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; opacity: 0.85; letter-spacing: 0.5px; }
+        .summary-box p { font-size: 0.95rem; line-height: 1.85; }
+        .summary-box ul { margin: 10px 0 0 18px; }
+        .summary-box li { font-size: 0.92rem; line-height: 1.8; }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .data-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 16px 12px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.08);
+            border-top: 3px solid var(--primary);
+        }
+        .data-card.v2 { border-top-color: var(--accent2); }
+        .data-card.v3 { border-top-color: #06d6a0; }
+        .data-card.v4 { border-top-color: #118ab2; }
+        .data-card.v5 { border-top-color: #9b5de5; }
+        .data-card.v6 { border-top-color: #f72585; }
+        .data-card .num { font-size: clamp(1.15rem, 3vw, 1.5rem); font-weight: 800; color: var(--primary-dark); margin-bottom: 4px; }
+        .data-card .label { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
+        .section-title {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 1.1rem; font-weight: 800;
+            margin: 26px 0 14px; color: var(--primary-dark);
+        }
+        .section-title::before { content: ''; width: 5px; height: 20px; background: linear-gradient(180deg, var(--primary), var(--accent2)); border-radius: 3px; }
+        .news-card {
+            background: white; border-radius: var(--card-radius);
+            padding: 20px 22px; margin-bottom: 14px;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.06);
+        }
+        .news-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); line-height: 1.5; }
+        .news-card p { font-size: 0.9rem; line-height: 1.85; color: var(--text-secondary); }
+        .news-card .src { display: block; margin-top: 8px; font-size: 0.78rem; color: #118ab2; text-decoration: none; word-break: break-all; }
+        .topic-card {
+            background: white; border-radius: var(--card-radius);
+            padding: 22px 24px; margin-bottom: 16px;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.06);
+        }
+        .topic-card h4 { font-size: 1.05rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; }
+        .topic-card p { font-size: 0.9rem; line-height: 1.85; color: var(--text-secondary); margin-bottom: 8px; }
+        .topic-tag { display: inline-block; background: #ffe3e0; color: var(--primary-dark); font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.82rem; }
+        th { background: linear-gradient(135deg, #e63946, #9d0208); color: white; padding: 9px 8px; text-align: left; font-weight: 600; white-space: nowrap; }
+        td { padding: 9px 8px; border-bottom: 1px solid #ffe3e0; color: var(--text-secondary); line-height: 1.6; }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background: #fffafa; }
+        .brand-card {
+            background: white; border-radius: var(--card-radius);
+            padding: 18px 22px; margin-bottom: 12px;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.06);
+            border-left: 4px solid var(--primary);
+        }
+        .brand-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--primary-dark); }
+        .brand-card p { font-size: 0.88rem; line-height: 1.8; color: var(--text-secondary); }
+        .trend-card {
+            background: linear-gradient(135deg, #2b1a1a 0%, #6a040f 100%);
+            border-radius: var(--card-radius);
+            padding: 22px 24px; color: white; margin-bottom: 16px;
+        }
+        .trend-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; opacity: 0.9; }
+        .trend-card li { font-size: 0.9rem; line-height: 1.9; margin-left: 18px; }
+        .source-box {
+            background: white; border-radius: var(--card-radius);
+            padding: 18px 22px; margin-top: 6px;
+            box-shadow: 0 4px 14px rgba(230,57,70,0.06);
+        }
+        .source-box h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+        .source-box p { font-size: 0.8rem; line-height: 1.8; color: var(--text-secondary); word-break: break-all; }
+        .footer {
+            background: linear-gradient(135deg, #9d0208, #6a040f);
+            border-radius: var(--card-radius);
+            padding: 24px; text-align: center; color: rgba(255,255,255,0.85);
+            font-size: 0.82rem; line-height: 1.8; margin-top: 26px;
+        }
+        .footer strong { color: white; font-size: 0.9rem; }
+        .footer .back-home { margin-top: 12px; }
+        .footer .back-home a { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; padding: 6px 18px; border-radius: 20px; font-size: 13px; }
+        @media (max-width: 640px) {
+            .data-grid { grid-template-columns: repeat(2, 1fr); }
+            .header { padding: 28px 16px 22px; }
+            .news-card, .topic-card { padding: 16px; }
+            table { font-size: 0.75rem; }
+            th, td { padding: 7px 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <span class="issue-badge">盛世消费体验研究院 · 2026年第39期 · 第48周</span>
+            <h1>🚗 汽车市场每周情报</h1>
+            <div class="meta">
+                <span class="badge">📅 2026年11月23日（11月第4周）</span>
+                <span class="badge">🚗 汽车行业专题</span>
+                <span class="badge">📊 数据周期：2026.11.16 - 11.22</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="back-btn-top"><a href="index.html">← 返回往期目录</a></div>
+
+        <div class="section-title">📈 数据速览</div>
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="num">64.3%</div>
+                <div class="label">10月新能源新车销量占比<br>再创历史新高</div>
+            </div>
+            <div class="data-card v2">
+                <div class="num">927.1万辆</div>
+                <div class="label">1-10月汽车出口<br>同比 +65.1%</div>
+            </div>
+            <div class="data-card v3">
+                <div class="num">60.6万辆</div>
+                <div class="label">10月新能源出口<br>同比 +1.4倍</div>
+            </div>
+            <div class="data-card v4">
+                <div class="num">3.3%</div>
+                <div class="label">1-9月行业销售利润率<br>9月单月仅1.4%</div>
+            </div>
+            <div class="data-card v5">
+                <div class="num">10.61万辆</div>
+                <div class="label">零跑10月全球交付<br>连续4个月破10万</div>
+            </div>
+            <div class="data-card v6">
+                <div class="num">115款</div>
+                <div class="label">广州车展首发新车<br>新能源占比63.9%</div>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3>📌 核心摘要</h3>
+            <ul>
+                <li><strong>内冷外热加剧：</strong>10月国内乘用车零售164.3万辆同比下滑27.1%，但汽车出口106.6万辆同比大增60.2%，全年出口将首次突破1000万辆大关，"国内失血、出口补位"成为行业最鲜明的主线。</li>
+                <li><strong>新能源持续扩容：</strong>10月新能源新车销量占比达64.3%，新能源出口连续5个月占比超50%；比亚迪10月销量49.02万辆创年内单月新高，海外累计销量同比增93.75%。</li>
+                <li><strong>盈利深度承压：</strong>1-9月行业利润2675亿元同比下降23%，利润率降至3.3%；吉利三季度出口业务贡献了92.9%的核心净利润，出口已成车企的"利润生命线"。</li>
+                <li><strong>年末冲刺与车展收官：</strong>购置税减半窗口与以旧换新政策年底到期，车企抢抓最后冲刺；11月27日广州车展115款首发新车压轴登场，为2027年定调。</li>
+            </ul>
+        </div>
+
+        <div class="section-title">🗞️ 市场大势</div>
+
+        <div class="news-card">
+            <h4>1. 内需低迷与出口高增并存：10月零售下滑27.1%，出口连续5个月破百万辆</h4>
+            <p>乘联分会数据显示，10月国内狭义乘用车零售164.3万辆，同比下降27.1%，1-10月累计零售1497.8万辆，同比下降22.3%。"金九银十"旺季不旺，前置消费透支效应明显——2025年底购置税免征末班车集中释放了大量购车需求。但出口端持续高歌猛进：中汽协数据显示10月汽车出口106.6万辆，同比增长60.2%，月度出口量连续5个月保持在100万辆以上；其中新能源汽车出口60.6万辆，同比激增1.4倍，出口占比连续5个月超过50%。中汽协副秘书长陈士华表示，全年出口将超过1000万辆，新能源汽车已成为出口的重要支撑，但企业不能把销量当作唯一追求，要从"卖得多"转向"走得稳、行得远"。</p>
+            <a class="src" href="https://finance-app.people.cn/n1/2026/1112/c1004-40832357.html" target="_blank">来源：人民日报 / 中国汽车工业协会</a>
+        </div>
+
+        <div class="news-card">
+            <h4>2. 新能源占比64.3%创新高，行业利润率却跌至近4年低位</h4>
+            <p>10月我国汽车产销分别完成306.3万辆和301.6万辆，其中新能源汽车产销201.7万辆和194万辆，同比分别增长13.8%和13.1%，新能源新车销量占汽车新车总销量的64.3%，再创历史新高；1-10月新能源累计销量1441.1万辆，同比增长11.3%。与销量扩张形成强烈反差的是盈利恶化：乘联分会数据显示，1-9月汽车行业收入80435亿元同比仅增2.6%，利润2675亿元同比下降23%，销售利润率降至3.3%，9月单月更是低至1.4%，处于近4年低位。崔东树指出，"价格战"已从直接降价延伸到增配不加价、金融贴息、置换补贴，利润空间被系统性压缩，同时行业产能利用率仅66.2%，固定成本无法摊薄。存储芯片等上游原材料涨价进一步挤压利润，赛力斯三季度仅原材料涨价就增加成本约25亿元。</p>
+            <a class="src" href="https://wap.miit.gov.cn/gxsj/tjfx/zbgy/qc/art/2026/art_dcf1d4bac0964f13b6eb4a3aa062fc65.html" target="_blank">来源：工业和信息化部 / 央视网 / 腾讯新闻</a>
+        </div>
+
+        <div class="news-card">
+            <h4>3. 广州车展下周开幕：115款首发新车压轴，购置税切换前夜的大练兵</h4>
+            <p>11月27日至12月6日，第二十四届广州国际汽车展览会将在广交会展馆开幕，作为国内车市年度最后一场A级盛会，本届车展以"新科技·新生活"为主题，总展览规模达22万平方米，展出整车1106台，其中首发新车115台（全球首发93款），新能源车707台、占比攀升至63.9%。在购置税减半窗口与以旧换新政策年底到期的双重节点上，广州车展不仅是产品秀场，更是各家车企为2027年定调的关键一役。自主品牌继续向上突破：比亚迪全新一代汉车长突破5.1米、轴距超3米，搭载激光雷达与天神之眼B；仰望百万级行政旗舰"鼎曜"国内首秀，预选价208万元；宝马全新iX3、奥迪Q9等国际品牌也正面争夺主流价格带。值得注意的是，蔚来、小鹏、理想、小米等新势力普遍没有全新车型发布，首发权正向"有货可发"的品牌集中。</p>
+            <a class="src" href="https://gemshmt.com/article/art_254330112" target="_blank">来源：GEMS汽车科技 / 腾讯新闻 / 汽车湃</a>
+        </div>
+
+        <div class="section-title">🔍 重点专题</div>
+
+        <div class="topic-card">
+            <span class="topic-tag">盈利专题</span>
+            <h4>专题一：出口成为车企"利润生命线"——吉利92.9%净利来自海外</h4>
+            <p>2026年车企三季报揭示了一个残酷的现实：国内价格战持续白热化，海外出口成为利润核心支柱。吉利汽车三季度总营收990亿元，归母核心净利润52.1亿元，其中出口业务贡献净利润48.4亿元，占比高达92.9%——占销量六成以上的国内业务仅贡献约7%的利润。吉利前三季度出口79.8万辆，同比暴增169%，全年出口目标已从64万辆上调至92万辆。比亚迪同样依赖海外补血：三季度营收2214.9亿元（+13.6%），净利润100.2亿元（+28.1%），出口55.07万辆占总销量比重达42%；1-10月海外销量151.3万辆，同比增长93.75%。行业层面，1-9月10家样本车企平均净利率已跌至-0.01%，赛力斯由盈转亏（前三季度-2.97亿元），长安、广汽、北汽蓝谷三季度均现亏损。中汽协判断，当前行业"供强需弱矛盾依然突出"，出口退税下调还将进一步影响企业利润空间，车企分化分水岭已经变成出口占比。</p>
+            <table>
+                <tr><th>车企</th><th>三季度净利润</th><th>同比变化</th><th>关键驱动因素</th></tr>
+                <tr><td>比亚迪</td><td>100.20亿元</td><td>+28.08%</td><td>出口55.07万辆（+137%），占总销量42%</td></tr>
+                <tr><td>吉利汽车</td><td>52.10亿元（核心）</td><td>+28%</td><td>出口贡献92.9%核心净利，全年出口目标上调至92万辆</td></tr>
+                <tr><td>长城汽车</td><td>13.62亿元</td><td>-40.75%</td><td>国内市场承压</td></tr>
+                <tr><td>上汽集团</td><td>4.86亿元</td><td>-76.70%</td><td>合资板块持续萎缩</td></tr>
+                <tr><td>长安汽车</td><td>-7.58亿元</td><td>由盈转亏</td><td>电池、存储芯片涨价减利约7.4亿元</td></tr>
+                <tr><td>广汽集团</td><td>-25.20亿元</td><td>亏损扩大</td><td>价格战叠加销量下滑</td></tr>
+            </table>
+            <p>数据来源：各车企三季报、乘联分会、证券时报、腾讯新闻整理</p>
+        </div>
+
+        <div class="topic-card">
+            <span class="topic-tag">销量专题</span>
+            <h4>专题二：新势力10月分化加剧——零跑断层领跑，问界腰斩，极氪率先撞线</h4>
+            <p>10月新势力交付榜呈现"冰火两重天"：零跑以106127辆（同比+51%）断层领跑，连续第四个月站上10万辆，其在西班牙萨拉戈萨工厂量产的B10与Stellantis渠道共同推动出海加速，1-9月累计出口已超15万辆、提前完成全年目标。小鹏集团交付50237辆首破5万关口，其中海外交付13326辆、同比大增166%，占总交付量26.5%；小米汽车交付超5万辆，澎程系列首个完整交付月成关键推手。高端阵营普遍承压：蔚来交付34246辆（-15.2%），鸿蒙智行"五界"33537辆（-50.8%）连续第五个月同比下滑，问界单品牌22105辆同比腰斩，正处于赛力斯主导后的体系磨合期；理想交付29025辆（-8.6%），新款i6上市72小时订单超去年同期，11月交付成调整效果试金石。极氪累计交付320887辆，完成率约107%，是新势力中唯一提前锁定全年目标的一家。乘联分会预计10月新能源零售渗透率约66.9%，并对2027年给出"探底回暖"判断：国内零售预计增长0%-5%。</p>
+            <table>
+                <tr><th>排名</th><th>品牌</th><th>10月交付</th><th>同比</th><th>关键看点</th></tr>
+                <tr><td>1</td><td>零跑汽车</td><td>106,127辆</td><td>+51.0%</td><td>连续4个月破10万，B10西班牙量产</td></tr>
+                <tr><td>2</td><td>小鹏集团</td><td>50,237辆</td><td>+19.6%</td><td>首破5万，海外占比26.5%创新高</td></tr>
+                <tr><td>3</td><td>小米汽车</td><td>50,000+辆</td><td>正增长</td><td>年内首回5万辆，澎程系列放量</td></tr>
+                <tr><td>4</td><td>蔚来公司</td><td>34,246辆</td><td>-15.2%</td><td>前10月累计33.4万辆创历史新高</td></tr>
+                <tr><td>5</td><td>鸿蒙智行</td><td>33,537辆</td><td>-50.8%</td><td>连续5个月同比下滑，体系磨合中</td></tr>
+                <tr><td>6</td><td>深蓝汽车</td><td>32,602辆</td><td>-11.4%</td><td>环比回升8%</td></tr>
+                <tr><td>7</td><td>极氪汽车</td><td>32,483辆</td><td>+51.6%</td><td>唯一提前完成全年30万辆目标</td></tr>
+                <tr><td>8</td><td>理想汽车</td><td>29,025辆</td><td>-8.6%</td><td>新款i6上市，聚焦汽车主业</td></tr>
+            </table>
+            <p>数据来源：各车企官方交付数据、第一财经、乘联分会整理</p>
+        </div>
+
+        <div class="section-title">🏭 品牌/企业动态</div>
+
+        <div class="brand-card">
+            <h4>比亚迪：第1900万辆新能源下线，方程豹钛9上市27.99万元起</h4>
+            <p>11月9日，比亚迪第1900万辆新能源汽车在西安工厂正式下线，方程豹钛9成为下线车型。1-10月比亚迪累计销量362.17万辆，其中海外销量150.7万辆、同比增长92%。11月19日，方程豹钛9正式上市，推出3款版型售价27.99万-32.99万元，作为比亚迪2026年收官之作，全球首发量产"折叠智舱"（折叠方向盘10秒内收纳、0°-180°折叠）与DMS超级混动全能平台，零百加速4.8秒，满油满电综合续航1630公里，向9系旗舰SUV市场发起冲击。</p>
+        </div>
+
+        <div class="brand-card">
+            <h4>鸿蒙智行：问界销量腰斩进入磨合期，新款M8上市待考</h4>
+            <p>鸿蒙智行10月全系交付33537辆，同比下滑50.84%，连续第五个月同比下滑；问界单品牌22105辆，同比下滑54.69%。9月15日问界改由赛力斯主导产品定义和营销，10月1日双方宣布新的五年合作，目前体系处于磨合期。新款问界M8已于11月13日上市，能否止住下滑趋势成为华为系四季度最大看点。鸿蒙智行披露全系成交均价仍超40万元，高端定位未变，但"五界"几十款车型撑不起应有的体量，产品线整合压力凸显。</p>
+        </div>
+
+        <div class="brand-card">
+            <h4>零跑：B10西班牙工厂量产，出海提前撞线</h4>
+            <p>零跑10月全球交付106127辆，同比增长51%，连续第四个月破10万辆，全球累计交付已超190万辆。10月16日，零跑B10在西班牙萨拉戈萨工厂正式投产，依托与Stellantis合资的"零跑国际"渠道，零跑在意大利纯电市场占有率已超25%。前9个月累计出口超15万辆，提前完成2026年海外出口目标，欧洲约占海外销量八成。不过零跑全年100万辆目标完成率尚不足八成，11月、12月月均需交付11.37万辆以上。</p>
+        </div>
+
+        <div class="brand-card">
+            <h4>小鹏：月交付首破5万辆，海外成第二增长曲线</h4>
+            <p>小鹏集团10月交付50237辆，环比增长21.77%，创单月历史新高，首次站上5万辆台阶。其中海外交付13326辆，同比增长166%，占总交付量约26.5%——每交付四辆车就有一辆销往海外。补能网络方面，小鹏充电已覆盖超430个城市，自营充电站累计超4100座。10月底上市的MONA L05限时起价13.98万元，11月开启交付，能否带动国内市场增量仍需观察。</p>
+        </div>
+
+        <div class="brand-card">
+            <h4>理想：战略收缩聚焦汽车主业，i6换新款冲刺年末</h4>
+            <p>理想汽车10月交付29025辆，同比下降8.63%，年内累计同比持续处于负增长区间。据行业媒体报道，理想已决定淡化具身智能概念，将资源进一步聚焦汽车主业，同时调整旗舰产品策略并寻求欧洲市场机会。10月28日上市的2026款理想i6搭载自研连山电池与马赫M100芯片，72小时订单超过去年上市同期水平，11月交付规模将成为检验战略调整成效的关键指标。</p>
+        </div>
+
+        <div class="section-title">🔮 趋势展望</div>
+
+        <div class="trend-card">
+            <h4>下阶段关注要点</h4>
+            <ul>
+                <li><strong>年末政策窗口冲刺：</strong>购置税减半征收（2026-2027年）窗口尚存但以旧换新政策年底到期，最后两个月能否集中释放提前消费，将决定全年榜单座次与2027年开局基数。</li>
+                <li><strong>2027年"探底回暖"预期：</strong>乘联分会预测2027年国内零售增长0%-5%（均值2%），行业总量有望在深度调整后企稳，但供强需弱矛盾短期难解。</li>
+                <li><strong>出海模式升级：</strong>从整车出口转向"就地生产、服务本地"——广汽泰国电池PACK工厂投产、零跑西班牙工厂量产、奇瑞签约博世完善欧洲供应链，海外本地化率将成新的竞争门槛。</li>
+                <li><strong>L3智驾量产元年：</strong>华为ADS 5、比亚迪折叠智舱（L3/L4技术储备）、小鹏XNGP 4.0等方案密集落地，智能驾驶有望迎来渗透拐点，成为2027年产品竞争的核心变量。</li>
+                <li><strong>行业整合加速：</strong>官方推动汽车产业向5-6家大型集团集中，广汽一汽推进整合，产能过剩与价格战倒逼并购重组，弱势品牌淘汰将进一步提速。</li>
+            </ul>
+        </div>
+
+        <div class="source-box">
+            <h4>📚 数据来源说明</h4>
+            <p>本报告数据引自中国汽车工业协会（中汽协）、乘用车市场信息联席分会（乘联分会）、工业和信息化部公开数据，及以下媒体公开报道：<br>
+            • 工信部《2026年10月汽车工业经济运行情况》：<a href="https://wap.miit.gov.cn/gxsj/tjfx/zbgy/qc/art/2026/art_dcf1d4bac0964f13b6eb4a3aa062fc65.html" style="color:#118ab2;">miit.gov.cn</a><br>
+            • 人民网《前10月我国汽车出口927.1万辆》：<a href="https://finance-app.people.cn/n1/2026/1112/c1004-40832357.html" style="color:#118ab2;">people.cn</a><br>
+            • 央视网《新能源汽车销量占比持续抬升》：<a href="https://news.cctv.com/2026/11/11/ARTIfgLkoGZV7AHZb47skhDb261111.shtml" style="color:#118ab2;">cctv.com</a><br>
+            • 第一财经《10月新势力分化加剧》：<a href="http://mp.weixin.qq.com/s?__biz=MjM5MTM3NTMwNA==&mid=2661833618&idx=1&sn=74c39f4443338fb8a09ef9083f166ff1" style="color:#118ab2;">第一财经公众号</a><br>
+            • 证券时报《车企三季报盘点：利润分化 出口激增》：<a href="https://www.stcn.com/article/detail/4323226.html" style="color:#118ab2;">stcn.com</a><br>
+            • 中国经济网《方程豹钛9上市27.99万元起售》：<a href="https://auto.ce.cn/auto/gundong/202611/t20261120_3300908.shtml" style="color:#118ab2;">ce.cn</a><br>
+            • 央广网《比亚迪第1900万辆新能源汽车下线》：<a href="https://auto.cnr.cn/hy/20261110/t20261110_527868171.shtml" style="color:#118ab2;">cnr.cn</a><br>
+            • 广州车展前瞻报道：<a href="https://gemshmt.com/article/art_254330112" style="color:#118ab2;">GEMS汽车科技</a> / <a href="https://news.qq.com/rain/a/20261118A0FVMD00" style="color:#118ab2;">腾讯新闻</a><br>
+            所有数据截至2026年11月22日，仅供参考，不构成投资建议。</p>
+        </div>
+
+        <div class="footer">
+            <strong>盛世消费体验研究院 · 汽车市场每周情报</strong><br>
+            2026年第39期 · 第48周 · 编辑发布：市场研究组<br>
+            ⭐ 第1周 家电情报 | ⭐ 第2周 数码情报 | ⭐ 第3周 汽车情报 | ⭐ 第4周 综合情报<br>
+            <div class="back-home"><a href="index.html">← 返回往期目录</a></div>
+        </div>
+    </div>
+</body>
+</html>
